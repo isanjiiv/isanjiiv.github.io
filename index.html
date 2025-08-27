@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sanjeev Kumar | IT Engineer Portfolio</title>
   <meta name="description" content="Portfolio of Sanjeev Kumar — IT Engineer specializing in Windows Server Administration, Networking, Cloud (AWS/Azure), and Cybersecurity." />
   <meta name="author" content="Sanjeev Kumar" />
-  <meta name="theme-color" content="#0ea5e9" />
+  <meta name="theme-color" content="#f59e0b" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Sanjeev Kumar | IT Engineer Portfolio" />
@@ -19,27 +19,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
+    /* THEME VARIABLES */
     :root{
+      /* Light theme (default) */
+      --bg:#ffffff;
+      --panel:#f8fafc; /* slate-50 */
+      --muted:#334155; /* slate-700 */
+      --text:#0f172a; /* slate-900 */
+      --accent:#f59e0b; /* amber-500 (primary yellow) */
+      --accent-2:#fbbf24; /* amber-400 */
+      --card:#ffffff;
+      --ring: 0 0 0 3px rgba(245,158,11,.35);
+    }
+    /* Dark theme overrides */
+    [data-theme="dark"]{
       --bg: #0b1220;
       --panel:#0f172a; /* slate-900 */
       --muted:#94a3b8; /* slate-400 */
-      --text:#e2e8f0;  /* slate-200 */
-      --accent:#0ea5e9;/* sky-500 */
-      --accent-2:#38bdf8;/* sky-400 */
+      --text:#e2e8f0; /* slate-200 */
+      --accent:#f59e0b; /* keep yellow in dark */
+      --accent-2:#fbbf24;
       --card:#111827e6;/* gray-900 alpha */
-      --ring: 0 0 0 3px rgba(14,165,233,.35);
+      --ring: 0 0 0 3px rgba(245,158,11,.35);
     }
-    @media (prefers-color-scheme: light){
-      :root{
-        --bg:#ffffff;
-        --panel:#f1f5f9; /* slate-100 */
-        --muted:#475569; /* slate-600 */
-        --text:#0f172a;  /* slate-900 */
-        --accent:#0284c7;/* sky-600 */
-        --accent-2:#0ea5e9;/* sky-500 */
-        --card:#ffffff;
-      }
-    }
+
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;font-family:'Inter',system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);scroll-behavior:smooth}
     a{color:inherit;text-decoration:none}
@@ -47,17 +50,17 @@
     .container{width:min(1200px,92%);margin-inline:auto}
 
     /* Header */
-    header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.15) 60%,transparent), var(--bg);backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid rgba(148,163,184,.12)}
+    header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(253,224,71,.25),rgba(253,224,71,.05) 60%,transparent), var(--bg);backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid rgba(148,163,184,.18)}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
     .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.3px}
-    .brand .dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 0 24px var(--accent-2)}
+    .brand .dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 0 22px var(--accent-2)}
     .menu{display:flex;gap:22px;align-items:center}
-    .menu a{opacity:.85;border-bottom:2px solid transparent;padding-bottom:6px;font-weight:500}
+    .menu a{opacity:.85;border-bottom:2px solid transparent;padding-bottom:6px;font-weight:600}
     .menu a:hover{opacity:1;border-color:var(--accent)}
     .cta{display:flex;gap:10px}
-    .btn{padding:10px 14px;border-radius:14px;border:1px solid rgba(148,163,184,.2);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,0));box-shadow:0 6px 18px rgba(2,132,199,.15);transition:.2s ease;cursor:pointer;color:var(--text)}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(2,132,199,.25)}
-    .btn-primary{border-color:transparent;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#001018;font-weight:700}
+    .btn{padding:10px 14px;border-radius:14px;border:1px solid rgba(148,163,184,.25);background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,0));box-shadow:0 6px 18px rgba(245,158,11,.12);transition:.2s ease;cursor:pointer;color:var(--text)}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(245,158,11,.25)}
+    .btn-primary{border-color:transparent;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#18120a;font-weight:800}
 
     /* Mobile menu */
     .hamburger{display:none;flex-direction:column;gap:4px}
@@ -66,26 +69,23 @@
     @media (max-width: 860px){
       .menu{display:none}
       .hamburger{display:flex}
-      #mobileMenu{display:block;border-top:1px solid rgba(148,163,184,.12);padding:6px 0 10px}
+      #mobileMenu{display:block;border-top:1px solid rgba(148,163,184,.18);padding:6px 0 10px}
       #mobileMenu a{display:block;padding:10px 6px;border-radius:10px}
-      #mobileMenu a:hover{background:rgba(148,163,184,.12)}
+      #mobileMenu a:hover{background:rgba(253,224,71,.18)}
       header .cta{display:none}
     }
 
     /* Hero */
     .hero{padding:72px 0 36px;display:grid;grid-template-columns:1.2fr .8fr;gap:34px;align-items:center}
-    .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid rgba(148,163,184,.25);font-size:12px;color:var(--muted)}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid rgba(148,163,184,.35);font-size:12px;color:var(--muted)}
     .badge i{width:8px;height:8px;background:radial-gradient(circle at 30% 30%,var(--accent-2),var(--accent));display:inline-block;border-radius:99px;box-shadow:0 0 18px var(--accent)}
     h1{font-size:clamp(28px,4.4vw,54px);line-height:1.05;margin:10px 0 12px}
     .subtitle{font-size:clamp(16px,1.9vw,20px);color:var(--muted);max-width:64ch}
     .hero-cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
-    .hero-card{background:var(--card);border:1px solid rgba(148,163,184,.16);padding:18px;border-radius:18px;box-shadow:0 18px 30px rgba(2,6,23,.35)}
+    .hero-card{background:var(--card);border:1px solid rgba(148,163,184,.22);padding:18px;border-radius:18px;box-shadow:0 18px 30px rgba(2,6,23,.08)}
     .avatar{width:160px;height:160px;border-radius:24px;overflow:hidden;border:2px solid rgba(148,163,184,.25);transform:rotate(-2deg);transition:.25s}
     .avatar:hover{transform:rotate(0) scale(1.02)}
-    @media (max-width: 980px){
-      .hero{grid-template-columns:1fr;}
-      .hero .hero-card{order:-1;justify-self:center}
-    }
+    @media (max-width: 980px){ .hero{grid-template-columns:1fr;} .hero .hero-card{order:-1;justify-self:center} }
 
     /* Sections */
     section{padding:48px 0}
@@ -98,26 +98,27 @@
     @media (max-width: 980px){.grid{grid-template-columns:repeat(2,1fr)}}
     @media (max-width: 640px){.grid{grid-template-columns:1fr}}
 
-    .card{background:var(--card);border:1px solid rgba(148,163,184,.16);border-radius:18px;padding:18px;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;position:relative;overflow:hidden}
-    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,132,199,.15);border-color:rgba(14,165,233,.45)}
+    .card{background:var(--card);border:1px solid rgba(148,163,184,.22);border-radius:18px;padding:18px;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;position:relative;overflow:hidden}
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(245,158,11,.18);border-color:rgba(245,158,11,.55)}
+
     .chip{display:inline-flex;gap:8px;flex-wrap:wrap}
-    .chip span{font-size:12px;padding:6px 10px;border:1px solid rgba(148,163,184,.2);border-radius:999px;color:var(--muted)}
+    .chip span{font-size:12px;padding:6px 10px;border:1px solid rgba(148,163,184,.25);border-radius:999px;color:var(--muted)}
 
     /* Skills */
-    .skill{display:grid;grid-template-columns:140px 1fr;gap:14px;align-items:center}
+    .skill{display:grid;grid-template-columns:220px 1fr;gap:14px;align-items:center}
     .bar{height:10px;background:rgba(148,163,184,.22);border-radius:999px;overflow:hidden}
-    .bar > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:inset 0 0 8px rgba(14,165,233,.6)}
+    .bar > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:inset 0 0 8px rgba(245,158,11,.35)}
 
     /* Timeline */
     .timeline{position:relative;margin:0;padding-left:26px}
     .timeline:before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(var(--accent),transparent)}
     .t-item{margin:0 0 18px;position:relative}
-    .t-item:before{content:"";position:absolute;left:-2px;top:4px;width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 4px rgba(14,165,233,.15)}
+    .t-item:before{content:"";position:absolute;left:-2px;top:4px;width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 4px rgba(245,158,11,.2)}
     .t-role{font-weight:700}
     .t-org{color:var(--muted)}
 
     /* Footer */
-    footer{border-top:1px solid rgba(148,163,184,.12);padding:26px 0 40px;color:var(--muted)}
+    footer{border-top:1px solid rgba(148,163,184,.18);padding:26px 0 40px;color:var(--muted)}
 
     /* Utility */
     .muted{color:var(--muted)}
@@ -130,15 +131,15 @@
 
   <!-- JSON-LD Person Schema -->
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Sanjeev Kumar",
-    "jobTitle":"IT Engineer",
-    "url":"https://your-username.github.io/",
-    "sameAs":["https://www.linkedin.com/in/your-profile","https://github.com/your-username"],
-    "knowsAbout":["Windows Server Administration","Networking","Fortinet FortiGate","AWS","Azure","Cybersecurity","Acronis Backup","AutoCAD Support","SolidWorks Support"]
-  }
+    {
+      "@context":"https://schema.org",
+      "@type":"Person",
+      "name":"Sanjeev Kumar",
+      "jobTitle":"IT Engineer",
+      "url":"https://your-username.github.io/",
+      "sameAs":["https://www.linkedin.com/in/your-profile","https://github.com/your-username"],
+      "knowsAbout":["Windows Server Administration","Networking","Fortinet FortiGate","AWS","Azure","Cybersecurity","Acronis Backup","AutoCAD Support","SolidWorks Support"]
+    }
   </script>
 </head>
 <body>
@@ -187,7 +188,7 @@
       </div>
     </div>
     <div class="hero-card" aria-label="Profile photo">
-      <img class="avatar" src="https://i.postimg.cc/5yjw6gtC/1743306279616.jpg" alt="Profile placeholder" />
+      <img class="avatar" src="https://i.postimg.cc/5yjw6gtC/1743306279616.jpg" alt="Sanjeev Kumar profile" />
     </div>
   </main>
 
@@ -199,7 +200,8 @@
     </div>
     <div class="card">
       <p>
-        IT Engineer with hands-on experience in <strong>Windows Server (AD, GPO, WSUS)</strong>, <strong>network troubleshooting</strong>, <strong>cloud server management (AWS/Azure)</strong>, and <strong>firewall configuration (Fortinet 60F)</strong>. I’ve supported design teams using <strong>AutoCAD</strong> and <strong>SolidWorks</strong>, and implemented <strong>Acronis backup</strong> solutions for business continuity.
+        IT Engineer with hands-on experience in <strong>Windows Server (AD, GPO, WSUS)</strong>, <strong>network troubleshooting</strong>, <strong>cloud server management (AWS/Azure)</strong>, and <strong>firewall configuration (Fortinet 60F)</strong>.
+        I’ve supported design teams using <strong>AutoCAD</strong> and <strong>SolidWorks</strong>, and implemented <strong>Acronis backup</strong> solutions for business continuity.
       </p>
       <div class="chip" style="margin-top:12px">
         <span>Noida, India</span>
@@ -218,7 +220,6 @@
     <div class="card">
       <div class="skill" aria-label="Windows Server">
         <div>Windows Server / AD</div>
-        
         <div class="bar" aria-hidden="true"><i style="width:90%"></i></div>
       </div>
       <div class="skill" aria-label="Networking">
@@ -269,50 +270,41 @@
   </section>
 
   <!-- Certifications -->
-  <!-- Certifications -->
-<section id="certs" class="container">
-  <div class="section-head">
-    <h2 class="section-title">Certifications</h2>
-    <p class="section-desc">Verified achievements</p>
-  </div>
-  <div class="grid">
-    
-    <div class="card" aria-label="Cisco CCNA">
-      <img src="https://via.placeholder.com/480x200.png?text=Cisco+CCNA" alt="Cisco CCNA"/>
-      <p style="margin:10px 0 0"><strong>Cisco CCNA</strong></p>
-      <p class="muted">Network Fundamentals</p>
+  <section id="certs" class="container">
+    <div class="section-head">
+      <h2 class="section-title">Certifications</h2>
+      <p class="section-desc">Verified achievements</p>
     </div>
-
-    <div class="card" aria-label="Microsoft Azure Fundamentals">
-      <img src="https://via.placeholder.com/480x200.png?text=Microsoft+Azure+Fundamentals" alt="Azure Fundamentals"/>
-      <p style="margin:10px 0 0"><strong>Microsoft Azure Fundamentals</strong></p>
+    <div class="grid">
+      <div class="card" aria-label="Cisco CCNA">
+        <img src="https://via.placeholder.com/480x200.png?text=Cisco+CCNA" alt="Cisco CCNA"/>
+        <p style="margin:10px 0 0"><strong>Cisco CCNA</strong></p>
+        <p class="muted">Network Fundamentals</p>
+      </div>
+      <div class="card" aria-label="Microsoft Azure Fundamentals">
+        <img src="https://via.placeholder.com/480x200.png?text=Microsoft+Azure+Fundamentals" alt="Azure Fundamentals"/>
+        <p style="margin:10px 0 0"><strong>Microsoft Azure Fundamentals</strong></p>
+      </div>
+      <div class="card" aria-label="Google Cloud Security">
+        <img src="https://via.placeholder.com/480x200.png?text=Google+Cloud+Security" alt="Google Cloud Security"/>
+        <p style="margin:10px 0 0"><strong>Trust and Security with Google Cloud</strong></p>
+      </div>
+      <div class="card" aria-label="Computer Networking">
+        <img src="https://via.placeholder.com/480x200.png?text=Computer+Networking" alt="Computer Networking"/>
+        <p style="margin:10px 0 0"><strong>Basics of Computer Networking</strong></p>
+      </div>
+      <div class="card" aria-label="Cyber Security">
+        <img src="https://via.placeholder.com/480x200.png?text=Cyber+Security" alt="Cyber Security"/>
+        <p style="margin:10px 0 0"><strong>Advanced Cyber Security Threats</strong></p>
+        <p class="muted">Governance & Management</p>
+      </div>
+      <div class="card" aria-label="Windows Server Administration">
+        <img src="https://via.placeholder.com/480x200.png?text=Windows+Server+Administration" alt="Windows Server Administration"/>
+        <p style="margin:10px 0 0"><strong>Windows Server Administration (MCSA)</strong></p>
+        <p class="muted">Windows Server 2019</p>
+      </div>
     </div>
-
-    <div class="card" aria-label="Google Cloud Security">
-      <img src="https://via.placeholder.com/480x200.png?text=Google+Cloud+Security" alt="Google Cloud Security"/>
-      <p style="margin:10px 0 0"><strong>Trust and Security with Google Cloud</strong></p>
-    </div>
-
-    <div class="card" aria-label="Computer Networking">
-      <img src="https://via.placeholder.com/480x200.png?text=Computer+Networking" alt="Computer Networking"/>
-      <p style="margin:10px 0 0"><strong>Basics of Computer Networking</strong></p>
-    </div>
-
-    <div class="card" aria-label="Cyber Security">
-      <img src="https://via.placeholder.com/480x200.png?text=Cyber+Security" alt="Cyber Security"/>
-      <p style="margin:10px 0 0"><strong>Advanced Cyber Security Threats</strong></p>
-      <p class="muted">Governance & Management</p>
-    </div>
-
-    <div class="card" aria-label="Windows Server Administration">
-      <img src="https://via.placeholder.com/480x200.png?text=Windows+Server+Administration" alt="Windows Server Administration"/>
-      <p style="margin:10px 0 0"><strong>Windows Server Administration (MCSA)</strong></p>
-       <p class="muted">Windows Server 2019</p>
-    </div>
-
-  </div>
-</section>
-
+  </section>
 
   <!-- Experience -->
   <section id="experience" class="container">
@@ -345,16 +337,16 @@
         <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
           <div>
             <label class="sr-only" for="name">Name</label>
-            <input id="name" name="name" required placeholder="Your name" style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(148,163,184,.2);background:transparent;color:var(--text)"/>
+            <input id="name" name="name" required placeholder="Your name" style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(148,163,184,.25);background:transparent;color:var(--text)"/>
           </div>
           <div>
             <label class="sr-only" for="email">Email</label>
-            <input id="email" name="email" required type="email" placeholder="your@email.com" style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(148,163,184,.2);background:transparent;color:var(--text)"/>
+            <input id="email" name="email" required type="email" placeholder="your@email.com" style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(148,163,184,.25);background:transparent;color:var(--text)"/>
           </div>
         </div>
         <div style="margin-top:12px">
           <label class="sr-only" for="message">Message</label>
-          <textarea id="message" name="message" required rows="5" placeholder="Write your message..." style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(148,163,184,.2);background:transparent;color:var(--text)"></textarea>
+          <textarea id="message" name="message" required rows="5" placeholder="Write your message..." style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(148,163,184,.25);background:transparent;color:var(--text)"></textarea>
         </div>
         <div style="display:flex;gap:10px;align-items:center;margin-top:12px;flex-wrap:wrap">
           <button class="btn btn-primary" type="submit">Send Message</button>
@@ -390,16 +382,12 @@
     // Theme toggle (light/dark)
     const toggle = document.getElementById('themeToggle');
     toggle?.addEventListener('click', () => {
-      const dark = document.documentElement.dataset.theme !== 'light';
-      if (dark){
-        document.documentElement.dataset.theme = 'light';
-        document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
-        toggle.setAttribute('aria-pressed','true');
-      } else {
-        document.documentElement.dataset.theme = 'dark';
-        document.querySelector('meta[name="theme-color"]').setAttribute('content','#0ea5e9');
-        toggle.setAttribute('aria-pressed','false');
-      }
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const next = isDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      const meta = document.querySelector('meta[name="theme-color"]');
+      meta?.setAttribute('content', next === 'dark' ? '#0b1220' : '#f59e0b');
+      toggle.setAttribute('aria-pressed', String(next === 'dark'));
     });
 
     // Simple demo handler for contact form (feel free to replace with Formspree)
@@ -416,11 +404,12 @@
       entries.forEach(e => {
         if(e.isIntersecting){
           e.target.querySelectorAll('.bar > i').forEach(i => {
-            i.style.transition = 'width .9s ease';
-            const width = i.getAttribute('style');
-            // trigger layout
-            getComputedStyle(i).width;
-            i.setAttribute('style', width);
+            const w = i.style.width;
+            i.style.width = '0';
+            requestAnimationFrame(()=>{
+              i.style.transition = 'width .9s ease';
+              i.style.width = w;
+            });
           });
           io.unobserve(e.target);
         }
