@@ -391,11 +391,57 @@ themeToggle.addEventListener("click", () => {
   <main id="home" class="container hero" aria-label="Intro">
     <div>
       <span class="badge"><i></i> Open to Opportunities</span>
-      <h1>Hi, I'm Sanjeev <span style="background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent">IT Engineer</span> from Noida.</h1>
+      <h1>Hi, I'm Sanjeev <span style="background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent"></span> from Noida.</h1>
       <p class="subtitle">I specialize in <strong>Windows Server Administration</strong>, <strong>Networking</strong> (VLANs, DHCP, DNS), <strong>Cloud</strong> (AWS & Azure), <strong>Firewall</strong> (Fortinet 60F), and <strong>Cybersecurity</strong>. I love building reliable systems and helping teams ship fast and safe.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#projects">View Projects</a>
-        <a class="btn" href="#contact">Contact Me</a>
+        <!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Icon Buttons -->
+<div class="icon-buttons">
+  <!-- View Projects Button -->
+  <a class="icon-btn" href="#projects" title="View Projects">
+    <i class="fa-solid fa-diagram-project"></i>
+  </a>
+
+  <!-- Contact Me Button -->
+  <a class="icon-btn" href="#contact" title="Contact Me">
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+</div>
+
+<!-- Styles -->
+<style>
+.icon-buttons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.icon-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFD43B, #FFB800);
+  color: #222;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  text-decoration: none;
+}
+
+.icon-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, #FFC107, #FFB300);
+}
+</style>
+
       </div>
     </div>
     <div class="hero-card" aria-label="Profile photo">
@@ -596,9 +642,30 @@ themeToggle.addEventListener("click", () => {
   </section>
 
   <footer>
-    <div class="container" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
-      <p>© <span id="year"></span> Sanjeev Kumar. All rights reserved.</p>
-    </div>
+   <div class="container" style="display: flex; justify-content: center; align-items: center; text-align: center; padding: 10px 0; font-family: 'Cambria', serif;">
+  <p style="margin: 0; font-size: 16px; color: #333;">
+    © <span id="year"></span> 
+    <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" 
+       style="color: #ffcc00; text-decoration: none; font-weight: bold; transition: color 0.3s;">
+       Sanjeev Kumar
+    </a>. All rights reserved.
+  </p>
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
   </footer>
 
   <script>
