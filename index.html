@@ -288,66 +288,87 @@
       </nav>
       <div style="display:flex; align-items:center; gap:10px;">
   <!-- Download Button -->
+ <!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Buttons Section -->
+<div class="icon-buttons">
+  <!-- Download Resume Button -->
   <a href="http://isanjiiv.github.io/Resume.docx" 
+     class="icon-btn" 
      target="_blank" 
-     title="Download Resume"
-     style="
-       display:inline-flex;
-       align-items:center;
-       justify-content:center;
-       width:55px;
-       height:55px;
-       border-radius:50%;
-       background:linear-gradient(135deg,#0078d7,#0056a6);
-       color:white;
-       font-size:24px;
-       text-decoration:none;
-       transition:all 0.3s ease;
-       box-shadow:0 4px 12px rgba(0,0,0,0.25);
-     "
-     onmouseover="this.style.background='linear-gradient(135deg,#0056a6,#003f73)';this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 16px rgba(0,0,0,0.35)';"
-     onmouseout="this.style.background='linear-gradient(135deg,#0078d7,#0056a6)';this.style.transform='scale(1)';this.style.boxShadow='0 4px 12px rgba(0,0,0,0.25)';">
+     title="Download Resume">
      <i class="fa-solid fa-download"></i>
   </a>
 
   <!-- Theme Toggle Button -->
-  <button class="btn" id="themeToggle" aria-pressed="false" aria-label="Toggle theme" 
-    style="
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:55px;
-      height:55px;
-      border-radius:50%;
-      border:none;
-      background:linear-gradient(135deg,#0078d7,#0056a6);
-      color:white;
-      font-size:22px;
-      cursor:pointer;
-      transition:all 0.3s ease;
-      box-shadow:0 4px 12px rgba(0,0,0,0.25);
-    "
-    onmouseover="this.style.background='linear-gradient(135deg,#0056a6,#003f73)';this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 16px rgba(0,0,0,0.35)';"
-    onmouseout="this.style.background='linear-gradient(135deg,#0078d7,#0056a6)';this.style.transform='scale(1)';this.style.boxShadow='0 4px 12px rgba(0,0,0,0.25)';">
-      <i id="themeIcon" class="fa-solid fa-moon"></i>
+  <button class="icon-btn" id="themeToggle" aria-pressed="false" title="Toggle Theme">
+    <i class="fa-solid fa-sun" id="themeIcon"></i>
   </button>
 </div>
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- Styles -->
+<style>
+.icon-buttons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
 
-<!-- Script to toggle theme and icon -->
+.icon-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFD43B, #FFB800);
+  color: #222;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  text-decoration: none;
+}
+
+.icon-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, #FFC107, #FFB300);
+}
+
+/* Dark Mode Styles */
+.dark-theme {
+  background-color: #121212;
+  color: #f1f1f1;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.dark-theme .icon-btn {
+  background: linear-gradient(135deg, #CFAF00, #9A8200);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+}
+</style>
+
+<!-- JavaScript -->
 <script>
-  const themeToggle = document.getElementById('themeToggle');
-  const themeIcon = document.getElementById('themeIcon');
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
 
-  themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    const darkMode = document.body.classList.contains('dark-mode');
-    themeIcon.className = darkMode ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-    themeToggle.setAttribute('aria-pressed', darkMode);
-  });
+themeToggle.addEventListener("click", () => {
+  const isDark = document.body.classList.toggle("dark-theme");
+  themeToggle.setAttribute("aria-pressed", isDark);
+
+  if (isDark) {
+    themeIcon.classList.replace("fa-sun", "fa-moon");
+  } else {
+    themeIcon.classList.replace("fa-moon", "fa-sun");
+  }
+});
 </script>
+
 
 </style>
 
