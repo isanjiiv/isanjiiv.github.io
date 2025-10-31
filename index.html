@@ -21,7 +21,7 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+ 
 
   <style>
     /* THEME VARIABLES */
@@ -334,6 +334,7 @@ img.avatar {
   display: flex;
   gap: 15px;
   align-items: center;
+  justify-content: center; /* This centers items horizontally */
 }
 
 .icon-btn {
@@ -445,10 +446,6 @@ themeToggle.addEventListener("click", () => {
   <a class="icon-btn" href="https://www.instagram.com/isanjiiv/" target="_blank" title="Instagram">
     <i class="fa-brands fa-instagram"></i>
   </a>
-  <!-- Twitter -->
-  <a class="icon-btn" href="#" target="_blank" title="Twitter">
-    <i class="fa-brands fa-twitter"></i>
-  </a>
   <!-- GitHub -->
   <a class="icon-btn" href="https://github.com/sanjeev7533" target="_blank" title="GitHub">
     <i class="fa-brands fa-github"></i>
@@ -493,7 +490,7 @@ themeToggle.addEventListener("click", () => {
 </style>
 
       </div>
-    </div>
+
     <div class="hero-card" aria-label="Profile photo">
       <img class="avatar" src="https://i.postimg.cc/5yjw6gtC/1743306279616.jpg" alt="Sanjeev Kumar profile" />
     </div>
@@ -516,8 +513,9 @@ themeToggle.addEventListener("click", () => {
   <p>
     With a strong foundation in <strong>system administration, cloud technologies,</strong> and IT infrastructure support, 
     I bring a results-oriented approach and a commitment to delivering reliable and secure solutions.
-    <p>Skilled in leveraging <Strong>AI technologies to build no-code applications, automate workflows, and enhance business processes, driving efficiency and innovation.</Strong> Adept at integrating AI solutions within traditional IT frameworks to deliver impactful results and improve operational reliability.</p>
+    <p>Skilled in leveraging <Strong>AI technologies to build no-code applications, automate workflows, and enhance business processes, driving efficiency and innovation.</Strong> Adept at integrating AI solutions within traditional IT frameworks to deliver impactful results and improve operational reliability.
   </p>
+  
       <div class="chip" style="margin-top:12px">
         <span>Noida, India</span>
         <span>Hindi • English • Maithili</span>
@@ -649,7 +647,7 @@ themeToggle.addEventListener("click", () => {
 }
 </style>
 
-    </div>
+    
   </section>
 
   <!-- Experience -->
@@ -672,38 +670,23 @@ themeToggle.addEventListener("click", () => {
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="container">
-    <div class="section-head">
-      <h2 class="section-title">Contact</h2>
-      <p class="section-desc">Let’s work together</p>
-    </div>
-    <div class="card">
-      <form action="https://formspree.io/f/mnnbqkwp" method="POST" aria-label="Contact form">
-  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
-    <div>
-      <label class="sr-only" for="name">Name</label>
-      <input id="name" name="name" required placeholder="Your name" style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(148,163,184,.25);background:transparent;color:var(--text)"/>
-    </div>
-    <div>
-      <label class="sr-only" for="email">Email</label>
-      <input id="email" name="_replyto" required type="email" placeholder="your@email.com" style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(148,163,184,.25);background:transparent;color:var(--text)"/>
-    </div>
+<div class="icon-buttons">
+  <!-- LinkedIn -->
+  <a class="icon-btn" href="https://www.linkedin.com/in/isanjiiv/" target="_blank" title="LinkedIn">
+    <i class="fa-brands fa-linkedin"></i>
+  </a>
+  <!-- Instagram -->
+  <a class="icon-btn" href="https://www.instagram.com/isanjiiv/" target="_blank" title="Instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+  <!-- GitHub -->
+  <a class="icon-btn" href="https://github.com/sanjeev7533" target="_blank" title="GitHub">
+    <i class="fa-brands fa-github"></i>
+  </a>
+  
+ 
   </div>
-  <div style="margin-top:12px">
-    <label class="sr-only" for="message">Message</label>
-    <textarea id="message" name="message" required rows="5" placeholder="Write your message..." style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(148,163,184,.25);background:transparent;color:var(--text)"></textarea>
-  </div>
-  <div style="display:flex;gap:10px;align-items:center;margin-top:12px;flex-wrap:wrap">
-    <button class="btn btn-primary" type="submit">Send Message</button>
-    <a class="btn" href="mailto:sanjeev753304.com">Email Directly</a>
-    <a class="btn" href="https://www.linkedin.com/in/sanjeev-kumar-617578275/" target="_blank" rel="noreferrer">LinkedIn</a>
-    <a class="btn" href="https://github.com/sanjeev7533" target="_blank" rel="noreferrer">GitHub</a>
-  </div>
-</form>
-
-    </div>
-  </section>
+<br>
 
   <footer>
    <div class="container" style="display: flex; justify-content: center; align-items: center; text-align: center; padding: 10px 0; font-family: 'Cambria', serif;">
