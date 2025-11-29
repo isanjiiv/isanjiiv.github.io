@@ -599,39 +599,130 @@ themeToggle.addEventListener("click", () => {
   </section>
 
   <!-- Projects -->
-  <section id="projects" class="container">
-    <div class="section-head">
-      <h2 class="section-title">Projects</h2>
-      <p class="section-desc">Selected work & case studies</p>
-    </div>
-    <div class="grid">
-      <article class="card">
-        <h3 style="margin-top:0">Enterprise AD & GPO Setup</h3>
-        <p class="muted">Designed and deployed Windows Server 2016 Active Directory with OU structure, GPOs for security baselines and organizational requirements, and WSUS for centralized patch management across 120+ endpoints; additionally configured RAID, implemented Acronis Backup Server, and set up a centralized Printer Server to ensure secure, reliable, and efficient IT operations.</p>
-        <div class="chip" style="margin-top:8px"><span>Windows Server 2016</span><span>GPO</span><span>WSUS</span></div>
-        <p style="margin-top:10px">
-      </article>
-      <article class="card">
-        <h3 style="margin-top:0">Fortinet 60F Rollout</h3>
-        <p class="muted">Implemented firewall with IPS/AV policies, VLAN segmentation, and SD-WAN configuration across dual ISPs, ensuring secure, uninterrupted internet connectivity while reducing security incidents and improving overall network hygiene.</p>
-        <div class="chip" style="margin-top:8px"><span>FortiGate</span><span>VLAN</span><span>IPSec</span></div>
-        <p style="margin-top:10px">
-   
-<p style="margin-top:10px">
-</article>
-<article class="card">
-  <h3 style="margin-top:0">Ai Cost Sheet Builder (Web App)</h3>
-  <p class="muted">
-    Built a no-code web application at Graiin Milling Solutions using Lovable AI to automate and simplify cost sheet generation a crucial process for accurate project costing and business decisions. The tool integrated secure login, automated calculations, and PDF/Excel export, significantly improving accuracy, efficiency, and reliability for the company.<br>
-    <a href="https://master-quote-builder.lovable.app/login" target="_blank" style="display:inline-block;padding:6px 14px;background:#3878e0;color:#fff;border-radius:5px;text-decoration:none;margin-top:10px;font-weight:600;">
-      &#128279; View App
-    </a>
-  </p>
-  <div class="chip" style="margin-top:8px"><span>Lovable AI</span><span>No-code</span><span>Automation</span><span>Prompt Engineering</span><span>UI/UX</span></div>
-  <p style="margin-top:10px">
-   
-  </section>
+<section id="projects" class="container">
+  <div class="section-head">
+    <h2 class="section-title">Projects</h2>
+    <p class="section-desc">Selected work & case studies</p>
+  </div>
 
+  <style>
+    .projects-horizontal {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+    .project-row {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+      align-items: flex-start;
+    }
+    .project-left {
+      flex: 0 0 240px;
+      font-weight: 600;
+      font-size: 20px;
+    }
+    .project-right {
+      flex: 1;
+    }
+    .project-right p {
+      margin: 4px 0 12px;
+    }
+    .project-chip {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .project-chip span {
+      background: #f1f3f4;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+  </style>
+
+  <div class="projects-horizontal">
+
+    <!-- Project 1 -->
+    <div class="project-row">
+      <div class="project-left">Enterprise AD & GPO Setup</div>
+      <div class="project-right">
+        <p class="muted">
+          Designed and deployed Windows Server 2016 Active Directory with OU structure, GPOs for security baselines and organizational requirements, and WSUS for centralized patch management across 120+ endpoints; additionally configured RAID, implemented Acronis Backup Server, and set up a centralized Printer Server to ensure secure, reliable, and efficient IT operations.
+        </p>
+        <div class="project-chip">
+          <span>Windows Server 2016</span><span>GPO</span><span>WSUS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-row">
+      <div class="project-left">Fortinet 60F Rollout</div>
+      <div class="project-right">
+        <p class="muted">
+          Implemented firewall with IPS/AV policies, VLAN segmentation, and SD-WAN configuration across dual ISPs, ensuring secure, uninterrupted internet connectivity while reducing security incidents and improving overall network hygiene.
+        </p>
+        <div class="project-chip">
+          <span>FortiGate</span><span>VLAN</span><span>IPSec</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-row">
+      <div class="project-left">AI Cost Sheet Builder (Web App)</div>
+      <div class="project-right">
+        <p class="muted">
+          Built a no-code web application at Graiin Milling Solutions using Lovable AI to automate and simplify cost sheet generation — a crucial process for accurate project costing and business decisions. The tool integrated secure login, automated calculations, and PDF/Excel export, significantly improving accuracy, efficiency, and reliability for the company.
+        </p>
+        <a href="https://master-quote-builder.lovable.app/login" target="_blank" style="display:inline-block;padding:6px 14px;background:#3878e0;color:#fff;border-radius:5px;text-decoration:none;margin-bottom:12px;font-weight:600;">
+          &#128279; View App
+        </a>
+        <div class="project-chip">
+          <span>Lovable AI</span><span>No-code</span><span>Automation</span><span>Prompt Engineering</span><span>UI/UX</span>
+        </div>
+      </div>
+    </div>
+<!--Project 4 -->
+<div class="project-row">
+  <div class="project-left">
+   Secure Wifi Netwrok Using FortiGate 60F
+
+  </div>
+
+  <div class="project-right">
+    <p class="muted">
+      Implemented a complete wireless network upgrade for the MD’s workspace using <strong>TP-Link Deco Mesh integrated with FortiGate 60F</strong>. The goal was to provide fast connectivity, secure access control, and seamless roaming across all devices within the corporate environment.
+    </p>
+    
+    <p class="muted" style="margin-top:12px">
+      Configured Deco Mesh through FortiGate Internal2 interface with proper LAN roles, IP addressing, and subnet planning. Enabled key administrative services <strong>(HTTPS, HTTP, SSH, PING)</strong> for network monitoring. <strong>Applied firewall policies to secure</strong> and filter outbound traffic while ensuring controlled access for all devices.
+    </p>
+
+    <p class="muted" style="margin-top:12px">
+      Conducted routing checks, DHCP verification, and segmentation validation to ensure stable communication. Completed full functional tests including connectivity, signal strength monitoring, mesh synchronization, and device roaming performance.
+    </p>
+
+    <p class="muted" style="margin-top:12px">
+      Final deployment included rack-mounting Deco units, optimizing cable management, verifying WAN/LAN connections, and confirming stable,<strong> Secure WiFi connectivity across MD’s devices</strong>. The result was a high-performance wireless environment with improved reliability, coverage, and overall network hygiene.
+    </p>
+        <div class="project-chip">
+      <span>Deco Mesh</span>
+      <span>FortiGate 60F</span>
+      <span>LAN Configuration</span>
+      <span>Firewall Policies</span>
+      <span>DHCP</span>
+      <span>Routing</span>
+    </div>
+  </div>
+
+  </div>
   <!-- Certifications -->
   <!-- Certifications -->
 <section id="certs" class="container">
