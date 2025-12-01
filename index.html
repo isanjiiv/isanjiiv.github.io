@@ -14,10 +14,6 @@
 
 <!-- Apple devices (iPhone/iPad) -->
 <link rel="apple-touch-icon" href="https://isanjiiv.github.io/Logo.png">
-
-
-
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sanjeev Kumar | IT Engineer </title>
@@ -598,7 +594,7 @@ themeToggle.addEventListener("click", () => {
     </div>
   </section>
 
-  <!-- Projects -->
+<!-- Projects -->
 <section id="projects" class="container">
   <div class="section-head">
     <h2 class="section-title">Projects</h2>
@@ -606,43 +602,82 @@ themeToggle.addEventListener("click", () => {
   </div>
 
   <style>
+    /* --------------------------------------------------
+       THEME VARIABLES (Auto-switch with data-theme)
+       -------------------------------------------------- */
+    :root {
+      --card-bg: #ffffff;
+      --card-shadow: rgba(0, 0, 0, 0.08);
+      --text-color: #1f1f1f;
+      --chip-bg: #f1f3f4;
+    }
+
+    html[data-theme="dark"] {
+      --card-bg: #1e1f22;
+      --card-shadow: rgba(0, 0, 0, 0.4);
+      --text-color: #e6e6e6;
+      --chip-bg: #2a2b2f;
+    }
+
+    /* --------------------------------------------------
+       PROJECT SECTION STYLES
+       -------------------------------------------------- */
+    #projects * {
+      color: var(--text-color);
+    }
+
     .projects-horizontal {
       display: flex;
       flex-direction: column;
       gap: 25px;
     }
+
     .project-row {
       display: flex;
       gap: 20px;
       padding: 20px;
       border-radius: 14px;
-      background: #fff;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+      background: var(--card-bg);
+      box-shadow: 0 4px 18px var(--card-shadow);
       align-items: flex-start;
+      transition: background 0.25s ease, box-shadow 0.25s ease;
     }
+
     .project-left {
       flex: 0 0 240px;
       font-weight: 600;
       font-size: 20px;
+      color: var(--text-color);
     }
-    .project-right {
-      flex: 1;
-    }
+
     .project-right p {
       margin: 4px 0 12px;
+      color: var(--text-color);
     }
+
     .project-chip {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
       margin-top: 10px;
     }
+
     .project-chip span {
-      background: #f1f3f4;
+      background: var(--chip-bg);
       padding: 5px 12px;
       border-radius: 6px;
       font-size: 13px;
       font-weight: 500;
+      color: var(--text-color);
+      transition: background 0.25s ease;
+    }
+
+    /* Button inside Project 3 */
+    .project-right a {
+      transition: opacity 0.25s ease;
+    }
+    .project-right a:hover {
+      opacity: 0.8;
     }
   </style>
 
@@ -689,41 +724,43 @@ themeToggle.addEventListener("click", () => {
         </div>
       </div>
     </div>
-<!--Project 4 -->
-<div class="project-row">
-  <div class="project-left">
-   Secure Wifi Netwrok Using FortiGate 60F
 
-  </div>
+    <!-- Project 4 -->
+    <div class="project-row">
+      <div class="project-left">Secure Wifi Network Using FortiGate 60F</div>
 
-  <div class="project-right">
-    <p class="muted">
-      Implemented a complete wireless network upgrade for the MD’s workspace using <strong>TP-Link Deco Mesh integrated with FortiGate 60F</strong>. The goal was to provide fast connectivity, secure access control, and seamless roaming across all devices within the corporate environment.
-    </p>
-    
-    <p class="muted" style="margin-top:12px">
-      Configured Deco Mesh through FortiGate Internal2 interface with proper LAN roles, IP addressing, and subnet planning. Enabled key administrative services <strong>(HTTPS, HTTP, SSH, PING)</strong> for network monitoring. <strong>Applied firewall policies to secure</strong> and filter outbound traffic while ensuring controlled access for all devices.
-    </p>
+      <div class="project-right">
+        <p class="muted">
+          Implemented a complete wireless network upgrade for the MD’s workspace using <strong>TP-Link Deco Mesh integrated with FortiGate 60F</strong>. The goal was to provide fast connectivity, secure access control, and seamless roaming across all devices within the corporate environment.
+        </p>
 
-    <p class="muted" style="margin-top:12px">
-      Conducted routing checks, DHCP verification, and segmentation validation to ensure stable communication. Completed full functional tests including connectivity, signal strength monitoring, mesh synchronization, and device roaming performance.
-    </p>
+        <p class="muted" style="margin-top:12px">
+          Configured Deco Mesh through FortiGate Internal2 interface with proper LAN roles, IP addressing, and subnet planning. Enabled key administrative services <strong>(HTTPS, HTTP, SSH, PING)</strong> for network monitoring. <strong>Applied firewall policies to secure</strong> and filter outbound traffic while ensuring controlled access for all devices.
+        </p>
 
-    <p class="muted" style="margin-top:12px">
-      Final deployment included rack-mounting Deco units, optimizing cable management, verifying WAN/LAN connections, and confirming stable,<strong> Secure WiFi connectivity across MD’s devices</strong>. The result was a high-performance wireless environment with improved reliability, coverage, and overall network hygiene.
-    </p>
+        <p class="muted" style="margin-top:12px">
+          Conducted routing checks, DHCP verification, and segmentation validation to ensure stable communication. Completed full functional tests including connectivity, signal strength monitoring, mesh synchronization, and device roaming performance.
+        </p>
+
+        <p class="muted" style="margin-top:12px">
+          Final deployment included rack-mounting Deco units, optimizing cable management, verifying WAN/LAN connections, and confirming stable,<strong> Secure WiFi connectivity across MD’s devices</strong>. The result was a high-performance wireless environment with improved reliability, coverage, and overall network hygiene.
+        </p>
+
         <div class="project-chip">
-      <span>Deco Mesh</span>
-      <span>FortiGate 60F</span>
-      <span>LAN Configuration</span>
-      <span>Firewall Policies</span>
-      <span>DHCP</span>
-      <span>Routing</span>
+          <span>Deco Mesh</span>
+          <span>FortiGate 60F</span>
+          <span>LAN Configuration</span>
+          <span>Firewall Policies</span>
+          <span>DHCP</span>
+          <span>Routing</span>
+        </div>
+      </div>
     </div>
-  </div>
 
   </div>
-  <!-- Certifications -->
+</section>
+
+ 
   <!-- Certifications -->
 <section id="certs" class="container">
   <div class="section-head">
