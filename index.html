@@ -186,10 +186,11 @@
       background:var(--text);
       border-radius:2px;
     }
-    #mobileMenu{
-      display:none;
-      padding:6px 0 10px;
-    }
+  #mobileMenu{
+  padding:8px 0 12px;
+  width:100%;
+}
+
     #mobileMenu a{
       display:block;
       padding:10px 6px;
@@ -241,7 +242,7 @@
       flex-wrap:wrap;
       align-items:center;
     }
-   .avatar {
+    .avatar {
   width: clamp(200px, 20vw, 400px);
   height: clamp(200px, 20vw, 400px);
   border-radius: 50%;
@@ -253,7 +254,6 @@
   object-fit: cover;
   margin: auto;
 }
-
 
     /* Sections head */
     .section-head{
@@ -459,6 +459,8 @@
       border:0;
     }
     .hide{display:none}
+    <div class="container hide" id="mobileMenu">...</div>
+
 
     :is(a,button,input,textarea,select):focus{
       outline:none;
@@ -482,11 +484,14 @@
     }
 
     @media (max-width: 860px){
-      .menu{display:none;}
-      .hamburger{display:flex;}
-      #mobileMenu{display:block;border-top:1px solid rgba(148,163,184,.18);}
-      header .icon-buttons{display:none;}
-    }
+  .menu{display:none;}
+  .hamburger{display:flex;}
+  #mobileMenu{
+    border-top:1px solid rgba(148,163,184,.18);
+  }
+  header .icon-buttons{display:none;}
+}
+
 
     @media (max-width: 640px){
       .grid{grid-template-columns:1fr;}
@@ -983,6 +988,14 @@
       burger.setAttribute('aria-expanded', String(!expanded));
       mobile.classList.toggle('hide');
     });
+    
+// Close mobile menu automatically when a link is clicked
+document.querySelectorAll('#mobileMenu a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobile.classList.add('hide');
+    burger.setAttribute('aria-expanded', 'false');
+  });
+});
 
     // Theme toggle (light/dark) + icon + remember choice
     const themeToggle = document.getElementById("themeToggle");
