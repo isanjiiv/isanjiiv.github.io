@@ -1,112 +1,249 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-    <link rel="canonical" href="https://isanjiiv.github.io/" />
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link rel="canonical" href="https://isanjiiv.github.io/" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
-<!-- Favicon for all browsers -->
-<link rel="icon" type="image/x-icon" href="https://isanjiiv.github.io/Logo.ico">
-<link rel="shortcut icon" href="https://isanjiiv.github.io/Logo.ico">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="https://isanjiiv.github.io/Logo.ico">
+  <link rel="shortcut icon" href="https://isanjiiv.github.io/Logo.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://isanjiiv.github.io/Logo.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="https://isanjiiv.github.io/Logo.png">
+  <link rel="apple-touch-icon" href="https://isanjiiv.github.io/Logo.png">
 
-<!-- PNG fallback for modern browsers -->
-<link rel="icon" type="image/png" sizes="32x32" href="https://isanjiiv.github.io/Logo.png">
-<link rel="icon" type="image/png" sizes="64x64" href="https://isanjiiv.github.io/Logo.png">
-
-<!-- Apple devices (iPhone/iPad) -->
-<link rel="apple-touch-icon" href="https://isanjiiv.github.io/Logo.png">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sanjeev Kumar | IT Engineer </title>
+  <title>Sanjeev Kumar | IT Engineer</title>
 
-<!-- Google Verification -->
-<meta name="google-site-verification" content="google55bb3e2dfb255c1c" />
+  <!-- Google Verification -->
+  <meta name="google-site-verification" content="google55bb3e2dfb255c1c" />
 
-<meta name="description" content="Sanjeev Kumar is an IT Engineer specializing in Windows Server Administration, Networking, Fortinet Firewall, AWS, Azure, and Cybersecurity. Explore projects, certifications, and contact information." />
-<meta name="keywords" content="Sanjeev Kumar, IT Engineer, Windows Server Administrator, Network Engineer, Fortinet Engineer, AWS Cloud, Azure Cloud, Cybersecurity Expert, IT Support Engineer, Noida IT Engineer" />
-<meta name="author" content="Sanjeev Kumar" />
-<meta name="theme-color" content="#f59e0b" />
-
+  <meta name="description" content="Sanjeev Kumar is an IT Engineer specializing in Windows Server Administration, Networking, Fortinet Firewall, AWS, Azure, and Cybersecurity. Explore projects, certifications, and contact information." />
+  <meta name="keywords" content="Sanjeev Kumar, IT Engineer, Windows Server Administrator, Network Engineer, Fortinet Engineer, AWS Cloud, Azure Cloud, Cybersecurity Expert, IT Support Engineer, Noida IT Engineer" />
+  <meta name="author" content="Sanjeev Kumar" />
+  <meta name="theme-color" content="#f59e0b" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Sanjeev Kumar | IT Engineer" />
   <meta property="og:description" content="Windows Server • Networking • Cloud • Cybersecurity" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://i.postimg.cc/5yjw6gtC/1743306279616.jpg" />
-<meta property="og:url" content="https://isanjiiv.github.io/" />
-<meta property="og:site_name" content="Sanjeev Kumar" />
-
+  <meta property="og:url" content="https://isanjiiv.github.io/" />
+  <meta property="og:site_name" content="Sanjeev Kumar" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Fonts -->
- 
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+  <!-- Base Styles & Layout -->
   <style>
     /* THEME VARIABLES */
     :root{
-      /* Light theme (default) */
       --bg:#ffffff;
-      --panel:#f8fafc; /* slate-50 */
-      --muted:#334155; /* slate-700 */
-      --text:#0f172a; /* slate-900 */
-      --accent:#f59e0b; /* amber-500 (primary yellow) */
-      --accent-2:#fbbf24; /* amber-400 */
+      --panel:#f8fafc;
+      --muted:#334155;
+      --text:#0f172a;
+      --accent:#f59e0b;
+      --accent-2:#fbbf24;
       --card:#ffffff;
       --ring: 0 0 0 3px rgba(245,158,11,.35);
+
+      /* Projects local vars (default light) */
+      --proj-card-bg:#ffffff;
+      --proj-card-shadow:rgba(0,0,0,0.08);
+      --proj-text-color:#1f1f1f;
+      --proj-chip-bg:#f1f3f4;
     }
-    /* Dark theme overrides */
     [data-theme="dark"]{
-      --bg: #0b1220;
-      --panel:#0f172a; /* slate-900 */
-      --muted:#94a3b8; /* slate-400 */
-      --text:#e2e8f0; /* slate-200 */
-      --accent:#f59e0b; /* keep yellow in dark */
+      --bg:#0b1220;
+      --panel:#0f172a;
+      --muted:#94a3b8;
+      --text:#e2e8f0;
+      --accent:#f59e0b;
       --accent-2:#fbbf24;
-      --card:#111827e6;/* gray-900 alpha */
-      --ring: 0 0 0 3px rgba(245,158,11,.35);
+      --card:#111827e6;
+      --ring:0 0 0 3px rgba(245,158,11,.35);
+
+      --proj-card-bg:#1e1f22;
+      --proj-card-shadow:rgba(0,0,0,0.4);
+      --proj-text-color:#e6e6e6;
+      --proj-chip-bg:#2a2b2f;
     }
 
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:'Inter',system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);scroll-behavior:smooth}
+    html,body{
+      margin:0;
+      padding:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      scroll-behavior:smooth;
+    }
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     .container{width:min(1200px,92%);margin-inline:auto}
 
+    /* Sections (anchor offset for sticky header) */
+    section{
+      padding:48px 0;
+      scroll-margin-top:100px; /* fixes heading being half-hidden */
+    }
+
     /* Header */
-    header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(253,224,71,.25),rgba(253,224,71,.05) 60%,transparent), var(--bg);backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid rgba(148,163,184,.18)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.3px}
-    .brand .dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 0 22px var(--accent-2)}
-    .menu{display:flex;gap:22px;align-items:center}
-    .menu a{opacity:.85;border-bottom:2px solid transparent;padding-bottom:6px;font-weight:600}
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:linear-gradient(180deg,rgba(253,224,71,.25),rgba(253,224,71,.05) 60%,transparent),var(--bg);
+      backdrop-filter:saturate(140%) blur(6px);
+      border-bottom:1px solid rgba(148,163,184,.18);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:700;
+      letter-spacing:.3px;
+      white-space:nowrap;
+    }
+    .brand .dot{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      box-shadow:0 0 22px var(--accent-2);
+    }
+    .menu{
+      display:flex;
+      gap:22px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .menu a{
+      opacity:.85;
+      border-bottom:2px solid transparent;
+      padding-bottom:6px;
+      font-weight:600;
+      font-size:14px;
+    }
     .menu a:hover{opacity:1;border-color:var(--accent)}
-    .cta{display:flex;gap:10px}
-    .btn{padding:10px 14px;border-radius:14px;border:1px solid rgba(148,163,184,.25);background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,0));box-shadow:0 6px 18px rgba(245,158,11,.12);transition:.2s ease;cursor:pointer;color:var(--text)}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(245,158,11,.25)}
-    .btn-primary{border-color:transparent;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#18120a;font-weight:800}
+
+    /* Icon buttons (download, social, etc.) */
+    .icon-buttons{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .icon-btn{
+      width:46px;
+      height:46px;
+      border-radius:999px;
+      background:linear-gradient(135deg,#FFD43B,#FFB800);
+      color:#222;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:20px;
+      border:none;
+      cursor:pointer;
+      transition:all .25s ease;
+      box-shadow:0 4px 10px rgba(0,0,0,0.25);
+      text-decoration:none;
+    }
+    .icon-btn:hover{
+      transform:translateY(-2px) scale(1.05);
+      box-shadow:0 6px 14px rgba(0,0,0,0.3);
+      background:linear-gradient(135deg,#FFC107,#FFB300);
+    }
+    [data-theme="dark"] .icon-btn{
+      background:linear-gradient(135deg,#CFAF00,#9A8200);
+      color:#fff;
+      box-shadow:0 4px 10px rgba(255,215,0,0.3);
+    }
 
     /* Mobile menu */
-    .hamburger{display:none;flex-direction:column;gap:4px}
-    .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px}
-    #mobileMenu{display:none;}
-    @media (max-width: 860px){
-      .menu{display:none}
-      .hamburger{display:flex}
-      #mobileMenu{display:block;border-top:1px solid rgba(148,163,184,.18);padding:6px 0 10px}
-      #mobileMenu a{display:block;padding:10px 6px;border-radius:10px}
-      #mobileMenu a:hover{background:rgba(253,224,71,.18)}
-      header .cta{display:none}
+    .hamburger{
+      display:none;
+      flex-direction:column;
+      gap:4px;
+      border:none;
+      background:transparent;
+      cursor:pointer;
+    }
+    .hamburger span{
+      width:24px;
+      height:2px;
+      background:var(--text);
+      border-radius:2px;
+    }
+    #mobileMenu{
+      display:none;
+      padding:6px 0 10px;
+    }
+    #mobileMenu a{
+      display:block;
+      padding:10px 6px;
+      border-radius:10px;
+    }
+    #mobileMenu a:hover{
+      background:rgba(253,224,71,.18);
     }
 
     /* Hero */
-    .hero{padding:72px 0 36px;display:grid;grid-template-columns:1.2fr .8fr;gap:34px;align-items:center}
-    .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid rgba(148,163,184,.35);font-size:12px;color:var(--muted)}
-    .badge i{width:8px;height:8px;background:radial-gradient(circle at 30% 30%,var(--accent-2),var(--accent));display:inline-block;border-radius:99px;box-shadow:0 0 18px var(--accent)}
-    h1{font-size:clamp(28px,4.4vw,54px);line-height:1.05;margin:10px 0 12px}
-    .subtitle{font-size:clamp(16px,1.9vw,20px);color:var(--muted);max-width:64ch}
-    .hero-cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
- .avatar {
-  width: 160px;
-  height: 160px;
+    .hero{
+      padding:72px 0 36px;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:34px;
+      align-items:center;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.35);
+      font-size:12px;
+      color:var(--muted);
+    }
+    .badge i{
+      width:8px;height:8px;
+      background:radial-gradient(circle at 30% 30%,var(--accent-2),var(--accent));
+      display:inline-block;
+      border-radius:99px;
+      box-shadow:0 0 18px var(--accent);
+    }
+    h1{
+      font-size:clamp(28px,4.4vw,54px);
+      line-height:1.05;
+      margin:10px 0 12px;
+    }
+    .subtitle{
+      font-size:clamp(16px,1.9vw,20px);
+      color:var(--muted);
+      max-width:64ch;
+    }
+    .hero-cta{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .avatar {
+  width: clamp(140px, 20vw, 400px);
+  height: clamp(140px, 20vw, 400px);
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid rgba(148,163,184,.25);
@@ -116,229 +253,364 @@
   object-fit: cover;
   margin: auto;
 }
-img.avatar {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;   /* Make image itself circular */
-  object-fit: cover;    /* Crops the image */
-  display: block;
-}
 
+    /* Sections head */
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:22px;
+      flex-wrap:wrap;
+    }
+    .section-title{
+      font-size:28px;
+      margin:0;
+      position:relative;
+      display:inline-block;
+    }
+    .section-desc{color:var(--muted);margin:0;}
 
-/* Sections */
-section{
-  padding:48px 0;
-  scroll-margin-top: 90px; /* adjust if needed (header height) */
-}
-
+    /* Section heading accent line */
+    .section-title::after{
+      content:"";
+      position:absolute;
+      bottom:-6px;
+      left:0;
+      height:3px;
+      width:60px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    }
 
     /* Cards Grid */
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    @media (max-width: 980px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width: 640px){.grid{grid-template-columns:1fr}}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
 
-    .card{background:var(--card);border:1px solid rgba(148,163,184,.22);border-radius:18px;padding:18px;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;position:relative;overflow:hidden}
-    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(245,158,11,.18);border-color:rgba(245,158,11,.55)}
+    .card{
+      background:var(--card);
+      border:1px solid rgba(148,163,184,.22);
+      border-radius:18px;
+      padding:18px;
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 18px 40px rgba(245,158,11,.18);
+      border-color:rgba(245,158,11,.55);
+    }
 
-    .chip{display:inline-flex;gap:8px;flex-wrap:wrap}
-    .chip span{font-size:12px;padding:6px 10px;border:1px solid rgba(148,163,184,.25);border-radius:999px;color:var(--muted)}
+    .chip{
+      display:inline-flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .chip span{
+      font-size:12px;
+      padding:6px 10px;
+      border:1px solid rgba(148,163,184,.25);
+      border-radius:999px;
+      color:var(--muted);
+    }
 
     /* Skills */
-    .skill{display:grid;grid-template-columns:220px 1fr;gap:14px;align-items:center}
-    .bar{height:10px;background:rgba(148,163,184,.22);border-radius:999px;overflow:hidden}
-    .bar > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:inset 0 0 8px rgba(245,158,11,.35)}
+    .skill{
+      display:grid;
+      grid-template-columns:180px 1fr;
+      gap:14px;
+      align-items:center;
+      margin-bottom:14px;
+    }
+    .bar{
+      height:10px;
+      background:rgba(148,163,184,.22);
+      border-radius:999px;
+      overflow:hidden;
+    }
+    .bar > i{
+      display:block;
+      height:100%;
+      width:0;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      box-shadow:inset 0 0 8px rgba(245,158,11,.35);
+    }
+
+    /* Projects */
+    #projects *{color:var(--proj-text-color);}
+    .projects-horizontal{
+      display:flex;
+      flex-direction:column;
+      gap:25px;
+    }
+    .project-row{
+      display:flex;
+      gap:20px;
+      padding:20px;
+      border-radius:14px;
+      background:var(--proj-card-bg);
+      box-shadow:0 4px 18px var(--proj-card-shadow);
+      align-items:flex-start;
+      transition:background .25s ease, box-shadow .25s ease, transform .2s ease;
+    }
+    .project-row:hover{
+      transform:translateY(-4px);
+    }
+    .project-left{
+      flex:0 0 240px;
+      font-weight:600;
+      font-size:20px;
+    }
+    .project-right p{
+      margin:4px 0 12px;
+    }
+    .project-chip{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .project-chip span{
+      background:var(--proj-chip-bg);
+      padding:5px 12px;
+      border-radius:6px;
+      font-size:13px;
+      font-weight:500;
+      transition:background .25s ease, transform .2s ease;
+    }
+    .project-chip span:hover{
+      transform:translateY(-1px);
+    }
+    .project-right a{
+      display:inline-block;
+      padding:6px 14px;
+      background:#3878e0;
+      color:#fff;
+      border-radius:5px;
+      text-decoration:none;
+      margin-bottom:12px;
+      font-weight:600;
+      transition:opacity .25s ease, transform .15s ease;
+    }
+    .project-right a:hover{
+      opacity:.9;
+      transform:translateY(-1px);
+    }
 
     /* Timeline */
-.timeline {
-  position: relative;
-  margin: 2rem 0;
-  padding-left: 2rem;
-  border-left: 2px solid #FFD700; /* yellow line */
-}
+    .timeline{
+      position:relative;
+      margin:2rem 0;
+      padding-left:1.5rem;
+      border-left:2px solid var(--accent);
+    }
+    .t-item{
+      position:relative;
+      margin-bottom:1.4rem;
+    }
+    .t-item::before{
+      content:"";
+      position:absolute;
+      left:-10px;
+      top:4px;
+      width:10px;
+      height:10px;
+      border-radius:999px;
+    
+    }
+    .t-role{
+      font-weight:600;
+      margin-bottom:4px;
+    }
+    .t-org{
+      font-size:14px;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
 
-.timeline-item {
-  position: relative;
-  margin-bottom: 2rem;
-  padding-left: 1rem;
-}
-
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  left: -10px;
-  top: 0;
-  height: 100%;
-  width: 2px;
-  background: transparent;
-}
-
-
+    /* Certifications */
+    .cert-icon{
+      width:80px;
+      height:80px;
+      object-fit:contain;
+      display:block;
+      margin:0 auto 10px;
+    }
 
     /* Footer */
-    footer{border-top:1px solid rgba(148,163,184,.18);padding:26px 0 40px;color:var(--muted)}
+    footer{
+      border-top:1px solid rgba(148,163,184,.18);
+      padding:26px 0 40px;
+      color:var(--muted);
+    }
 
     /* Utility */
     .muted{color:var(--muted)}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+    .sr-only{
+      position:absolute;
+      width:1px;height:1px;
+      padding:0;margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      border:0;
+    }
     .hide{display:none}
 
-    /* Focus outlines */
-    :is(a,button,input,textarea,select):focus{outline:none;box-shadow:var(--ring)}
+    :is(a,button,input,textarea,select):focus{
+      outline:none;
+      box-shadow:var(--ring);
+    }
+
+    /* ===== RESPONSIVE BREAKPOINTS ===== */
+    @media (max-width: 980px){
+      .grid{grid-template-columns:repeat(2,1fr);}
+      .hero{
+        grid-template-columns:1fr;
+        text-align:left;
+      }
+      .hero-card{
+        order:-1;
+        justify-self:center;
+      }
+      .nav{
+        flex-wrap:wrap;
+      }
+    }
+
+    @media (max-width: 860px){
+      .menu{display:none;}
+      .hamburger{display:flex;}
+      #mobileMenu{display:block;border-top:1px solid rgba(148,163,184,.18);}
+      header .icon-buttons{display:none;}
+    }
+
+    @media (max-width: 640px){
+      .grid{grid-template-columns:1fr;}
+      .hero{
+        padding:56px 0 28px;
+      }
+      .section-head{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .skill{
+        grid-template-columns:1fr;
+      }
+      .project-row{
+        flex-direction:column;
+      }
+      .project-left{
+        flex:1 1 auto;
+        font-size:18px;
+      }
+      .nav{
+        padding:10px 0;
+      }
+    }
   </style>
-<style>
-  /* --- Animations --- */
-  @keyframes fadeInUp {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
-  }
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
-  @keyframes float {
-    0% { transform: translateY(0);}
-    50% { transform: translateY(-6px);}
-    100% { transform: translateY(0);}
-  }
-  @keyframes slideAccent {
-    from {width: 0;}
-    to {width: 60px;}
-  }
 
-  /* Hero fade-in */
-  .hero > div, 
-  .hero .hero-card {
-    opacity: 0;
-    animation: fadeInUp .9s ease forwards;
-  }
-  .hero > div { animation-delay: .2s; }
-  .hero .hero-card { animation-delay: .4s; }
+  <!-- Animations & subtle effects -->
+  <style>
+    @keyframes fadeInUp {
+      from {opacity:0;transform:translateY(20px);}
+      to {opacity:1;transform:translateY(0);}
+    }
+    @keyframes float {
+      0% {transform:translateY(0);}
+      50% {transform:translateY(-6px);}
+      100% {transform:translateY(0);}
+    }
 
-  /* Avatar float */
-  .avatar {
-    animation: float 4s ease-in-out infinite;
-  }
+    .hero > div,
+    .hero .hero-card{
+      opacity:0;
+      animation:fadeInUp .9s ease forwards;
+    }
+    .hero > div{animation-delay:.2s;}
+    .hero .hero-card{animation-delay:.4s;}
+    .avatar{animation:float 4s ease-in-out infinite;}
 
-  /* Cards entrance */
-  .card {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp .8s ease forwards;
-  }
-  .grid .card:nth-child(1){animation-delay:.2s}
-  .grid .card:nth-child(2){animation-delay:.4s}
-  .grid .card:nth-child(3){animation-delay:.6s}
-  .grid .card:nth-child(4){animation-delay:.8s}
-  .grid .card:nth-child(5){animation-delay:1s}
-  .grid .card:nth-child(6){animation-delay:1.2s}
+    .card{
+      opacity:0;
+      transform:translateY(20px);
+      animation:fadeInUp .8s ease forwards;
+    }
+    .grid .card:nth-child(1){animation-delay:.2s}
+    .grid .card:nth-child(2){animation-delay:.4s}
+    .grid .card:nth-child(3){animation-delay:.6s}
+    .grid .card:nth-child(4){animation-delay:.8s}
+    .grid .card:nth-child(5){animation-delay:1s}
+    .grid .card:nth-child(6){animation-delay:1.2s}
 
-  /* Section heading accent */
-  .section-title {
-    position: relative;
-    display: inline-block;
-  }
-  .section-title::after {
-    content: "";
-    position: absolute;
-    bottom: -6px;
-    left: 0;
-    height: 3px;
-    width: 0;
-    background: linear-gradient(90deg,var(--accent),var(--accent-2));
-    animation: slideAccent 1s ease forwards;
-  }
-
-  /* Timeline animation */
-  .timeline {
-    border-left: 2px solid transparent;
-    position: relative;
-    overflow: hidden;
-  }
-  .timeline::before {
-    content: "";
-    position: absolute;
-    top: 0; left: -2px;
-    width: 2px; height: 0;
-    background: var(--accent);
-    animation: growLine 2s ease forwards;
-  }
-  @keyframes growLine {
-    to {height: 100%;}
-  }
-  .timeline .t-item {
-    opacity: 0;
-    transform: translateX(20px);
-    animation: fadeInUp .8s ease forwards;
-  }
-  .timeline .t-item:nth-child(1){animation-delay:.3s}
-  .timeline .t-item:nth-child(2){animation-delay:.6s}
-
-  /* Button ripple effect */
-  .btn {
-    position: relative;
-    overflow: hidden;
-  }
-  .btn::after {
-    content:"";
-    position:absolute;
-    top:50%; left:50%;
-    width:0; height:0;
-    background:rgba(255,255,255,.3);
-    border-radius:50%;
-    transform:translate(-50%,-50%);
-    opacity:0;
-    transition:width .4s ease,height .4s ease,opacity .6s ease;
-  }
-  .btn:active::after {
-    width:200%; height:200%;
-    opacity:0;
-    transition:0s;
-  }
-</style>
+    .btn{
+      position:relative;
+      overflow:hidden;
+    }
+    .btn::after{
+      content:"";
+      position:absolute;
+      top:50%;left:50%;
+      width:0;height:0;
+      background:rgba(255,255,255,.3);
+      border-radius:50%;
+      transform:translate(-50%,-50%);
+      opacity:0;
+      transition:width .4s ease,height .4s ease,opacity .6s ease;
+    }
+    .btn:active::after{
+      width:200%;height:200%;
+      opacity:0;
+      transition:0s;
+    }
+  </style>
 
   <!-- JSON-LD Person Schema -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Sanjeev Kumar",
-  "jobTitle": "IT Engineer",
-  "url": "https://isanjiiv.github.io/",
-  "image": "https://i.postimg.cc/5yjw6gtC/1743306279616.jpg",
-  "description": "IT Engineer specializing in Windows Server Administration, Networking, Fortinet Firewall, AWS, Azure, and Cybersecurity.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Noida",
-    "addressCountry": "India"
-  },
-  "sameAs": [
-    "https://www.linkedin.com/in/isanjiiv/",
-    "https://github.com/isanjiiv/",
-    "https://www.instagram.com/isanjiiv/"
-  ],
-  "knowsAbout": [
-    "Windows Server",
-    "Networking",
-    "Fortinet Firewall",
-    "AWS",
-    "Azure",
-    "Cybersecurity",
-    "Acronis Backup",
-    "AutoCAD",
-    "SolidWorks"
-  ]
-}
-</script>
-
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sanjeev Kumar",
+    "jobTitle": "IT Engineer",
+    "url": "https://isanjiiv.github.io/",
+    "image": "https://i.postimg.cc/5yjw6gtC/1743306279616.jpg",
+    "description": "IT Engineer specializing in Windows Server Administration, Networking, Fortinet Firewall, AWS, Azure, and Cybersecurity.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Noida",
+      "addressCountry": "India"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/isanjiiv/",
+      "https://github.com/isanjiiv/",
+      "https://www.instagram.com/isanjiiv/"
+    ],
+    "knowsAbout": [
+      "Windows Server",
+      "Networking",
+      "Fortinet Firewall",
+      "AWS",
+      "Azure",
+      "Cybersecurity",
+      "Acronis Backup",
+      "AutoCAD",
+      "SolidWorks"
+    ]
+  }
+  </script>
 </head>
+
 <body>
   <!-- Header -->
   <header>
     <div class="container nav" aria-label="Primary">
       <a class="brand" href="#home" aria-label="Sanjeev Kumar Home">
         <span class="dot" aria-hidden="true"></span>
-       <span>Sanjeev Kumar</span>
+        <span>Sanjeev Kumar</span>
       </a>
+
       <nav class="menu" aria-label="Main menu">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -347,99 +619,28 @@ section{
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
       </nav>
-      <div style="display:flex; align-items:center; gap:10px;">
-  <!-- Download Button -->
- <!-- Font Awesome for icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<!-- Buttons Section -->
-<div class="icon-buttons">
-  <!-- Download Resume Button -->
-  <a href="http://isanjiiv.github.io/Resume.pdf" 
-     class="icon-btn" 
-     target="_blank" 
-     title="Download Resume">
-     <i class="fa-solid fa-download"></i>
-  </a>
+      <div class="icon-buttons">
+        <!-- Download Resume -->
+        <a href="https://isanjiiv.github.io/Resume.pdf"
+           class="icon-btn"
+           target="_blank"
+           title="Download Resume">
+          <i class="fa-solid fa-download"></i>
+        </a>
 
-  <!-- Theme Toggle Button -->
-  <button class="icon-btn" id="themeToggle" aria-pressed="false" title="Toggle Theme">
-    <i class="fa-solid fa-sun" id="themeIcon"></i>
-  </button>
-</div>
-
-<!-- Styles -->
-<style>
-.icon-buttons {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  justify-content: center; /* This centers items horizontally */
-}
-
-.icon-btn {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #FFD43B, #FFB800);
-  color: #222;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-  text-decoration: none;
-}
-
-.icon-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
-  background: linear-gradient(135deg, #FFC107, #FFB300);
-}
-
-/* Dark Mode Styles */
-.dark-theme {
-  background-color: #121212;
-  color: #f1f1f1;
-  transition: background 0.4s ease, color 0.4s ease;
-}
-
-.dark-theme .icon-btn {
-  background: linear-gradient(135deg, #CFAF00, #9A8200);
-  color: #fff;
-  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
-}
-</style>
-
-<!-- JavaScript -->
-<script>
-const themeToggle = document.getElementById("themeToggle");
-const themeIcon = document.getElementById("themeIcon");
-
-themeToggle.addEventListener("click", () => {
-  const isDark = document.body.classList.toggle("dark-theme");
-  themeToggle.setAttribute("aria-pressed", isDark);
-
-  if (isDark) {
-    themeIcon.classList.replace("fa-sun", "fa-moon");
-  } else {
-    themeIcon.classList.replace("fa-moon", "fa-sun");
-  }
-});
-</script>
-
-
-</style>
-
+        <!-- Theme Toggle -->
+        <button class="icon-btn" id="themeToggle" aria-pressed="false" title="Toggle Theme">
+          <i class="fa-solid fa-sun" id="themeIcon"></i>
+        </button>
       </div>
+
       <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
-    <div class="container" id="mobileMenu" role="navigation" aria-label="Mobile menu">
+
+    <div class="container hide" id="mobileMenu" role="navigation" aria-label="Mobile menu">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
@@ -454,78 +655,34 @@ themeToggle.addEventListener("click", () => {
     <div>
       <span class="badge"><i></i> Open to Opportunities</span>
       <h1>Hi, I'm Sanjeev <span style="background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent"></span> from Noida.</h1>
-      <p class="subtitle">I specialize in <strong>Windows Server Administration</strong>, <strong>Networking</strong> (VLANs, DHCP, DNS), <strong>Cloud</strong> (AWS & Azure), <strong>Firewall</strong> (Fortinet 60F), and <strong>Cybersecurity</strong>. I love building reliable systems and helping teams ship fast and safe.</p>
+      <p class="subtitle">
+        I specialize in <strong>Windows Server Administration</strong>, <strong>Networking</strong> (VLANs, DHCP, DNS),
+        <strong>Cloud</strong> (AWS &amp; Azure), <strong>Firewall</strong> (Fortinet 60F), and <strong>Cybersecurity</strong>.
+        I love building reliable systems and helping teams ship fast and safe.
+      </p>
+
       <div class="hero-cta">
-        <!-- Font Awesome for icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <!-- Email -->
+        <a class="icon-btn" href="mailto:sanjeev753304@gmail.com" title="Email Me">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
 
-<!-- Icon Buttons -->
-
-
-<div class="hero-cta">
-    
-  <!-- Existing buttons ... -->
-  <div class="icon-buttons">
-   
-  </div>
-  <!-- Email -->
-<a class="icon-btn" href="mailto:sanjeev753304@gmail.com" title="Email Me">
-  <i class="fa-solid fa-envelope"></i>
-</a>
-
-<div class="icon-buttons">
-  <!-- LinkedIn -->
-  <a class="icon-btn" href="https://www.linkedin.com/in/isanjiiv/" target="_blank" title="LinkedIn">
-    <i class="fa-brands fa-linkedin"></i>
-  </a>
-  <!-- Instagram -->
-  <a class="icon-btn" href="https://www.instagram.com/isanjiiv/" target="_blank" title="Instagram">
-    <i class="fa-brands fa-instagram"></i>
-  </a>
-  <!-- GitHub -->
-  <a class="icon-btn" href="https://github.com/isanjiiv" target="_blank" title="GitHub">
-    <i class="fa-brands fa-github"></i>
-  </a>
-  
-</div>
-
-</div>
-
-</div>
-
-<!-- Styles -->
-<style>
-.icon-buttons {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-}
-
-.icon-btn {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #FFD43B, #FFB800);
-  color: #222;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-  text-decoration: none;
-}
-
-.icon-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
-  background: linear-gradient(135deg, #FFC107, #FFB300);
-}
-</style>
-
+        <div class="icon-buttons">
+          <!-- LinkedIn -->
+          <a class="icon-btn" href="https://www.linkedin.com/in/isanjiiv/" target="_blank" title="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <!-- Instagram -->
+          <a class="icon-btn" href="https://www.instagram.com/isanjiiv/" target="_blank" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <!-- GitHub -->
+          <a class="icon-btn" href="https://github.com/isanjiiv" target="_blank" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
       </div>
+    </div>
 
     <div class="hero-card" aria-label="Profile photo">
       <img class="avatar" src="https://i.postimg.cc/5yjw6gtC/1743306279616.jpg" alt="Sanjeev Kumar profile" />
@@ -540,18 +697,21 @@ themeToggle.addEventListener("click", () => {
     </div>
     <div class="card">
       <p>
-    I am an <strong>IT Engineer</strong> with proven expertise in 
-    <strong>Windows Server administration (AD, GPO, WSUS)</strong>, 
-    <strong>network troubleshooting</strong>, 
-    <strong>cloud server management (AWS and Azure)</strong>, and 
-    <strong>firewall configuration (Fortinet 60F)</strong>.
-  </p>
-  <p>
-    With a strong foundation in <strong>system administration, cloud technologies,</strong> and IT infrastructure support, 
-    I bring a results-oriented approach and a commitment to delivering reliable and secure solutions.
-    <p>Skilled in leveraging <Strong>AI technologies to build no-code applications, automate workflows, and enhance business processes, driving efficiency and innovation.</Strong> Adept at integrating AI solutions within traditional IT frameworks to deliver impactful results and improve operational reliability.
-  </p>
-  
+        I am an <strong>IT Engineer</strong> with proven expertise in
+        <strong>Windows Server administration (AD, GPO, WSUS)</strong>,
+        <strong>network troubleshooting</strong>,
+        <strong>cloud server management (AWS and Azure)</strong>, and
+        <strong>firewall configuration (Fortinet 60F)</strong>.
+      </p>
+      <p>
+        With a strong foundation in <strong>system administration, cloud technologies,</strong> and IT infrastructure support,
+        I bring a results-oriented approach and a commitment to delivering reliable and secure solutions.
+      </p>
+      <p>
+        Skilled in leveraging <strong>AI technologies to build no-code applications, automate workflows, and enhance business processes</strong>,
+        driving efficiency and innovation. Adept at integrating AI solutions within traditional IT frameworks to improve operational reliability.
+      </p>
+
       <div class="chip" style="margin-top:12px">
         <span>Noida, India</span>
         <span>Hindi • English • Maithili</span>
@@ -567,16 +727,16 @@ themeToggle.addEventListener("click", () => {
       <p class="section-desc">Core strengths</p>
     </div>
     <div class="card">
-        <div class="skill" aria-label="Scripting">
-        <div>Ai & Prompting</div>
+      <div class="skill" aria-label="AI & Prompting">
+        <div>AI &amp; Prompting</div>
         <div class="bar"><i style="width:90%"></i></div>
       </div>
       <div class="skill" aria-label="Windows Server">
-        <div>Windows Server </div>
-        <div class="bar" aria-hidden="true"><i style="width:90%"></i></div>
+        <div>Windows Server</div>
+        <div class="bar"><i style="width:90%"></i></div>
       </div>
       <div class="skill" aria-label="Networking">
-        <div>Networking </div>
+        <div>Networking</div>
         <div class="bar"><i style="width:88%"></i></div>
       </div>
       <div class="skill" aria-label="Cloud">
@@ -587,241 +747,164 @@ themeToggle.addEventListener("click", () => {
         <div>Security</div>
         <div class="bar"><i style="width:65%"></i></div>
       </div>
-      <div class="skill" aria-label="Scripting">
-        <div>Word Press</div>
+      <div class="skill" aria-label="WordPress">
+        <div>WordPress</div>
         <div class="bar"><i style="width:70%"></i></div>
       </div>
-     
     </div>
   </section>
 
-<!-- Projects -->
-<section id="projects" class="container">
-  <div class="section-head">
-    <h2 class="section-title">Projects</h2>
-    <p class="section-desc">Selected work & case studies</p>
-  </div>
+  <!-- Projects -->
+  <section id="projects" class="container">
+    <div class="section-head">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-desc">Selected work &amp; case studies</p>
+    </div>
 
-  <style>
-    /* --------------------------------------------------
-       THEME VARIABLES (Auto-switch with data-theme)
-       -------------------------------------------------- */
-    :root {
-      --card-bg: #ffffff;
-      --card-shadow: rgba(0, 0, 0, 0.08);
-      --text-color: #1f1f1f;
-      --chip-bg: #f1f3f4;
-    }
+    <div class="projects-horizontal">
+      <!-- Project 1 -->
+      <div class="project-row">
+        <div class="project-left">Enterprise AD &amp; GPO Setup</div>
+        <div class="project-right">
+          <p class="muted">
+            Designed and deployed Windows Server 2016 Active Directory with OU structure, GPOs for security baselines and organizational
+            requirements, and WSUS for centralized patch management across 120+ endpoints; additionally configured RAID, implemented
+            Acronis Backup Server, and set up a centralized Printer Server to ensure secure, reliable, and efficient IT operations.
+          </p>
+          <div class="project-chip">
+            <span>Windows Server 2016</span><span>GPO</span><span>WSUS</span>
+          </div>
+        </div>
+      </div>
 
-    html[data-theme="dark"] {
-      --card-bg: #1e1f22;
-      --card-shadow: rgba(0, 0, 0, 0.4);
-      --text-color: #e6e6e6;
-      --chip-bg: #2a2b2f;
-    }
+      <!-- Project 2 -->
+      <div class="project-row">
+        <div class="project-left">Fortinet 60F Rollout</div>
+        <div class="project-right">
+          <p class="muted">
+            Implemented firewall with IPS/AV policies, VLAN segmentation, and SD-WAN configuration across dual ISPs, ensuring secure,
+            uninterrupted internet connectivity while reducing security incidents and improving overall network hygiene.
+          </p>
+          <div class="project-chip">
+            <span>FortiGate</span><span>VLAN</span><span>IPSec</span>
+          </div>
+        </div>
+      </div>
 
-    /* --------------------------------------------------
-       PROJECT SECTION STYLES
-       -------------------------------------------------- */
-    #projects * {
-      color: var(--text-color);
-    }
+      <!-- Project 3 -->
+      <div class="project-row">
+        <div class="project-left">AI Cost Sheet Builder (Web App)</div>
+        <div class="project-right">
+          <p class="muted">
+            Built a no-code web application at Graiin Milling Solutions using Lovable AI to automate and simplify cost sheet generation —
+            a crucial process for accurate project costing and business decisions. The tool integrated secure login, automated
+            calculations, and PDF/Excel export, significantly improving accuracy, efficiency, and reliability for the company.
+          </p>
+          <a href="https://master-quote-builder.lovable.app/login" target="_blank">
+            &#128279; View App
+          </a>
+          <div class="project-chip">
+            <span>Lovable AI</span><span>No-code</span><span>Automation</span><span>Prompt Engineering</span><span>UI/UX</span>
+          </div>
+        </div>
+      </div>
 
-    .projects-horizontal {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-    }
+      <!-- Project 4 -->
+      <div class="project-row">
+        <div class="project-left">Secure Wifi Network Using FortiGate 60F</div>
+        <div class="project-right">
+          <p class="muted">
+            Implemented a complete wireless network upgrade for the MD’s workspace using
+            <strong>TP-Link Deco Mesh integrated with FortiGate 60F</strong>. The goal was to provide fast connectivity, secure access
+            control, and seamless roaming across all devices within the corporate environment.
+          </p>
 
-    .project-row {
-      display: flex;
-      gap: 20px;
-      padding: 20px;
-      border-radius: 14px;
-      background: var(--card-bg);
-      box-shadow: 0 4px 18px var(--card-shadow);
-      align-items: flex-start;
-      transition: background 0.25s ease, box-shadow 0.25s ease;
-    }
+          <p class="muted">
+            Configured Deco Mesh through FortiGate Internal2 interface with proper LAN roles, IP addressing, and subnet planning.
+            Enabled key administrative services <strong>(HTTPS, HTTP, SSH, PING)</strong> for network monitoring.
+            <strong>Applied firewall policies to secure</strong> and filter outbound traffic while ensuring controlled access for all devices.
+          </p>
 
-    .project-left {
-      flex: 0 0 240px;
-      font-weight: 600;
-      font-size: 20px;
-      color: var(--text-color);
-    }
+          <p class="muted">
+            Conducted routing checks, DHCP verification, and segmentation validation to ensure stable communication. Completed full
+            functional tests including connectivity, signal strength monitoring, mesh synchronization, and device roaming performance.
+          </p>
 
-    .project-right p {
-      margin: 4px 0 12px;
-      color: var(--text-color);
-    }
+          <p class="muted">
+            Final deployment included rack-mounting Deco units, optimizing cable management, verifying WAN/LAN connections, and confirming
+            stable,<strong> Secure WiFi connectivity across MD’s devices</strong>. The result was a high-performance wireless environment
+            with improved reliability, coverage, and overall network hygiene.
+          </p>
 
-    .project-chip {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-
-    .project-chip span {
-      background: var(--chip-bg);
-      padding: 5px 12px;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-color);
-      transition: background 0.25s ease;
-    }
-
-    /* Button inside Project 3 */
-    .project-right a {
-      transition: opacity 0.25s ease;
-    }
-    .project-right a:hover {
-      opacity: 0.8;
-    }
-  </style>
-
-  <div class="projects-horizontal">
-
-    <!-- Project 1 -->
-    <div class="project-row">
-      <div class="project-left">Enterprise AD & GPO Setup</div>
-      <div class="project-right">
-        <p class="muted">
-          Designed and deployed Windows Server 2016 Active Directory with OU structure, GPOs for security baselines and organizational requirements, and WSUS for centralized patch management across 120+ endpoints; additionally configured RAID, implemented Acronis Backup Server, and set up a centralized Printer Server to ensure secure, reliable, and efficient IT operations.
-        </p>
-        <div class="project-chip">
-          <span>Windows Server 2016</span><span>GPO</span><span>WSUS</span>
+          <div class="project-chip">
+            <span>Deco Mesh</span>
+            <span>FortiGate 60F</span>
+            <span>LAN Configuration</span>
+            <span>Firewall Policies</span>
+            <span>DHCP</span>
+            <span>Routing</span>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Project 2 -->
-    <div class="project-row">
-      <div class="project-left">Fortinet 60F Rollout</div>
-      <div class="project-right">
-        <p class="muted">
-          Implemented firewall with IPS/AV policies, VLAN segmentation, and SD-WAN configuration across dual ISPs, ensuring secure, uninterrupted internet connectivity while reducing security incidents and improving overall network hygiene.
-        </p>
-        <div class="project-chip">
-          <span>FortiGate</span><span>VLAN</span><span>IPSec</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 3 -->
-    <div class="project-row">
-      <div class="project-left">AI Cost Sheet Builder (Web App)</div>
-      <div class="project-right">
-        <p class="muted">
-          Built a no-code web application at Graiin Milling Solutions using Lovable AI to automate and simplify cost sheet generation — a crucial process for accurate project costing and business decisions. The tool integrated secure login, automated calculations, and PDF/Excel export, significantly improving accuracy, efficiency, and reliability for the company.
-        </p>
-        <a href="https://master-quote-builder.lovable.app/login" target="_blank" style="display:inline-block;padding:6px 14px;background:#3878e0;color:#fff;border-radius:5px;text-decoration:none;margin-bottom:12px;font-weight:600;">
-          &#128279; View App
-        </a>
-        <div class="project-chip">
-          <span>Lovable AI</span><span>No-code</span><span>Automation</span><span>Prompt Engineering</span><span>UI/UX</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 4 -->
-    <div class="project-row">
-      <div class="project-left">Secure Wifi Network Using FortiGate 60F</div>
-
-      <div class="project-right">
-        <p class="muted">
-          Implemented a complete wireless network upgrade for the MD’s workspace using <strong>TP-Link Deco Mesh integrated with FortiGate 60F</strong>. The goal was to provide fast connectivity, secure access control, and seamless roaming across all devices within the corporate environment.
-        </p>
-
-        <p class="muted" style="margin-top:12px">
-          Configured Deco Mesh through FortiGate Internal2 interface with proper LAN roles, IP addressing, and subnet planning. Enabled key administrative services <strong>(HTTPS, HTTP, SSH, PING)</strong> for network monitoring. <strong>Applied firewall policies to secure</strong> and filter outbound traffic while ensuring controlled access for all devices.
-        </p>
-
-        <p class="muted" style="margin-top:12px">
-          Conducted routing checks, DHCP verification, and segmentation validation to ensure stable communication. Completed full functional tests including connectivity, signal strength monitoring, mesh synchronization, and device roaming performance.
-        </p>
-
-        <p class="muted" style="margin-top:12px">
-          Final deployment included rack-mounting Deco units, optimizing cable management, verifying WAN/LAN connections, and confirming stable,<strong> Secure WiFi connectivity across MD’s devices</strong>. The result was a high-performance wireless environment with improved reliability, coverage, and overall network hygiene.
-        </p>
-
-        <div class="project-chip">
-          <span>Deco Mesh</span>
-          <span>FortiGate 60F</span>
-          <span>LAN Configuration</span>
-          <span>Firewall Policies</span>
-          <span>DHCP</span>
-          <span>Routing</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
- 
   <!-- Certifications -->
-<section id="certs" class="container">
-  <div class="section-head">
-    <h2 class="section-title">Certifications</h2>
-    <p class="section-desc">Verified achievements</p>
-  </div>
+  <section id="certs" class="container">
+    <div class="section-head">
+      <h2 class="section-title">Certifications</h2>
+      <p class="section-desc">Verified achievements</p>
+    </div>
 
-  <div class="grid">
+    <div class="grid">
+      <a href="https://drive.google.com/file/d/1ExcnlsVy3ZHLtRs_RoF2hNQ05G4Cj154/view?usp=drive_link"
+         target="_blank" class="card" aria-label="Cisco CCNA">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg"
+             alt="Cisco CCNA" class="cert-icon"/>
+        <p style="margin:10px 0 0"><strong>Cisco CCNA</strong></p>
+        <p class="muted">Network Fundamentals</p>
+      </a>
 
-    <a href="https://drive.google.com/file/d/1ExcnlsVy3ZHLtRs_RoF2hNQ05G4Cj154/view?usp=drive_link" target="_blank" class="card" aria-label="Cisco CCNA">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg" alt="Cisco CCNA" class="cert-icon"/>
-      <p style="margin:10px 0 0"><strong>Cisco CCNA</strong></p>
-      <p class="muted">Network Fundamentals</p>
-    </a>
+      <a href="https://drive.google.com/file/d/14aOsqQTKcxbeSA23yXPuLvjPUKDfNpvb/view?usp=drive_link"
+         target="_blank" class="card" aria-label="Microsoft Azure Fundamentals">
+        <img src="https://images.credly.com/size/340x340/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png"
+             alt="Azure Fundamentals" class="cert-icon"/>
+        <p style="margin:10px 0 0"><strong>Microsoft Azure</strong></p>
+        <p class="muted">Microsoft Azure Fundamentals</p>
+      </a>
 
-    <a href="https://drive.google.com/file/d/14aOsqQTKcxbeSA23yXPuLvjPUKDfNpvb/view?usp=drive_link" target="_blank" class="card" aria-label="Microsoft Azure Fundamentals">
-      <img src="https://images.credly.com/size/340x340/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png" alt="Azure Fundamentals" class="cert-icon"/>
-      <p style="margin:10px 0 0"><strong>Microsoft Azure</strong></p>
-      <p class="muted">Microsoft Azure Fundamentals</p>
-    </a>
+      <a href="https://drive.google.com/file/d/15hSFkJXr92o4VhM5YgF13pZFv2aSakaD/view?usp=drive_link"
+         target="_blank" class="card" aria-label="Google Cloud Security">
+        <img src="https://i.ibb.co/0p00pjKb/social-icon-google-cloud-1200-630.png"
+             alt="Google Cloud Security" class="cert-icon"/>
+        <p style="margin:10px 0 0"><strong>Google Cloud</strong></p>
+        <p class="muted">Trust and Security with Google Cloud</p>
+      </a>
 
-    <a href="https://drive.google.com/file/d/15hSFkJXr92o4VhM5YgF13pZFv2aSakaD/view?usp=drive_link" target="_blank" class="card" aria-label="Google Cloud Security">
-      <img src="https://i.ibb.co/0p00pjKb/social-icon-google-cloud-1200-630.png" alt="Google Cloud Security" class="cert-icon"/>
-      <p style="margin:10px 0 0"><strong>Google Cloud</strong></p>
-      <p class="muted">Trust and Security with Google Cloud</p>
-    </a>
+      <a href="https://drive.google.com/file/d/1kUh_5kU6V_FEYsFhnyf1yHfr12Cmzkdd/view?usp=drive_link"
+         target="_blank" class="card" aria-label="Computer Networking">
+        <img src="https://i.ibb.co/TDc4TQF3/cloud-computing.png"
+             alt="Computer Networking" class="cert-icon"/>
+        <p style="margin:10px 0 0"><strong>Computer Networking</strong></p>
+        <p class="muted">Basics of Computer Networking</p>
+      </a>
 
-    <a href="https://drive.google.com/file/d/1kUh_5kU6V_FEYsFhnyf1yHfr12Cmzkdd/view?usp=drive_link" target="_blank" class="card" aria-label="Computer Networking">
-      <img src="https://i.ibb.co/TDc4TQF3/cloud-computing.png" alt="Computer Networking" class="cert-icon"/>
-      <p style="margin:10px 0 0"><strong>Computer Networking</strong></p>
-      <p class="muted">Basics of Computer Networking</p>
-    </a>
+      <a href="https://drive.google.com/file/d/1Hcgl0Drn_niSwc64zhvL0LY2tFEnL6hx/view?usp=drive_link"
+         target="_blank" class="card" aria-label="Cyber Security">
+        <img src="https://i.ibb.co/rRHQ9YBr/cyber-security-1.png"
+             alt="Cyber Security" class="cert-icon"/>
+        <p style="margin:10px 0 0"><strong>Advanced Cyber Security Threats</strong></p>
+        <p class="muted">Governance &amp; Management</p>
+      </a>
 
-    <a href="https://drive.google.com/file/d/1Hcgl0Drn_niSwc64zhvL0LY2tFEnL6hx/view?usp=drive_link" target="_blank" class="card" aria-label="Cyber Security">
-      <img src="https://i.ibb.co/rRHQ9YBr/cyber-security-1.png" alt="Cyber Security" class="cert-icon"/>
-      <p style="margin:10px 0 0"><strong>Advanced Cyber Security Threats</strong></p>
-      <p class="muted">Governance & Management</p>
-    </a>
-
-    <a href="https://drive.google.com/file/d/1OhjH3b2gffiHm4KIUrTo_2pP_5BNnKJG/view?usp=drive_link" target="_blank" class="card" aria-label="Windows Server Administration">
-      <img src="https://i.ibb.co/1f2bm3ss/mcsa.png" alt="Windows Server Administration" class="cert-icon"/>
-      <p style="margin:10px 0 0"><strong>Windows Server Administration (MCSA)</strong></p>
-      <p class="muted">Windows Server 2019</p>
-    </a>
-
-  </div>
-</section>
-
-
-<style>
-.cert-icon {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto 10px;
-}
-</style>
-
-    
+      <a href="https://drive.google.com/file/d/1OhjH3b2gffiHm4KIUrTo_2pP_5BNnKJG/view?usp=drive_link"
+         target="_blank" class="card" aria-label="Windows Server Administration">
+        <img src="https://i.ibb.co/1f2bm3ss/mcsa.png"
+             alt="Windows Server Administration" class="cert-icon"/>
+        <p style="margin:10px 0 0"><strong>Windows Server Administration (MCSA)</strong></p>
+        <p class="muted">Windows Server 2019</p>
+      </a>
+    </div>
   </section>
 
   <!-- Experience -->
@@ -832,81 +915,64 @@ themeToggle.addEventListener("click", () => {
     </div>
     <div class="card timeline">
       <div class="t-item">
-        <div class="t-role">IT Engineer •<strong> Graiin Milling Solutions</strong></div>
+        <div class="t-role">IT Engineer • <strong>Graiin Milling Solutions</strong></div>
         <div class="t-org">Apr 2024 – Present · Noida</div>
-        <p class="muted">Windows Server, network administration, firewall policies, cloud server management, backups, and end‑user support.</p>
+        <p class="muted">
+          Windows Server, network administration, firewall policies, cloud server management, backups,
+          and end-user support.
+        </p>
       </div>
       <div class="t-item">
-        <div class="t-role">System Support Engineer •<strong> Konexions Back Office Pvt Ltd</strong></div>
+        <div class="t-role">System Support Engineer • <strong>Konexions Back Office Pvt Ltd</strong></div>
         <div class="t-org">Previous Role</div>
-        <p class="muted">Hardware/software troubleshooting, OS deployment, ticketing and SLA-based support across teams.</p>
+        <p class="muted">
+          Hardware/software troubleshooting, OS deployment, ticketing and SLA-based support across teams.
+        </p>
       </div>
     </div>
   </section>
 
-<!-- Contact Section -->
-
-<section id="contact" class="container">
-    <style="text-align:center; margin:50px 0;">
-        
-  <h2 class="section-title">Get in Touch</h2>
-  <p class="section-desc">Connect with me on social platforms</p>
-
-  <div class="icon-buttons" style="margin-top:20px;">
+  <!-- Contact -->
+  <section id="contact" class="container" style="text-align:center;">
+    <h2 class="section-title">Get in Touch</h2>
+    <div class="icon-buttons" style="margin-top:20px;justify-content:center;">
       <!-- Email -->
-      <!-- Email -->
-<a class="icon-btn" href="mailto:sanjeev753304@gmail.com" title="Email Me">
-  <i class="fa-solid fa-envelope"></i>
-</a>
+      <a class="icon-btn" href="mailto:sanjeev753304@gmail.com" title="Email Me">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+      <!-- LinkedIn -->
+      <a class="icon-btn" href="https://www.linkedin.com/in/isanjiiv/" target="_blank" title="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <!-- Instagram -->
+      <a class="icon-btn" href="https://www.instagram.com/isanjiiv/" target="_blank" title="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <!-- GitHub -->
+      <a class="icon-btn" href="https://github.com/isanjiiv" target="_blank" title="GitHub">
+        <i class="fa-brands fa-github"></i>
+      </a>
+    </div>
+  </section>
 
-    <!-- LinkedIn -->
-    <a class="icon-btn" href="https://www.linkedin.com/in/isanjiiv/" target="_blank" title="LinkedIn">
-      <i class="fa-brands fa-linkedin"></i>
-    </a>
-    <!-- Instagram -->
-    <a class="icon-btn" href="https://www.instagram.com/isanjiiv/" target="_blank" title="Instagram">
-      <i class="fa-brands fa-instagram"></i>
-    </a>
-    <!-- GitHub -->
-    <a class="icon-btn" href="https://github.com/isanjiiv" target="_blank" title="GitHub">
-      <i class="fa-brands fa-github"></i>
-    </a>
-  </div>
-</section>
-
-
-<br>
-
+  <!-- Footer -->
   <footer>
-   <div class="container" style="display: flex; justify-content: center; align-items: center; text-align: center; padding: 10px 0; font-family: 'Cambria', serif;">
-  <p style="margin: 0; font-size: 16px; color: #333;">
-    © <span id="year"></span> 
-    <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" 
-       style="color: #ffcc00; text-decoration: none; font-weight: bold; transition: color 0.3s;">
-       Sanjeev Kumar
-    </a>. All rights reserved.
-  </p>
-</div>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
+    <div class="container" style="display:flex;justify-content:center;align-items:center;text-align:center;padding:10px 0;">
+      <p style="margin:0;font-size:16px;">
+        © <span id="year"></span>
+        <a href="https://www.linkedin.com/in/isanjiiv/"
+           target="_blank"
+           style="color:#ffcc00;text-decoration:none;font-weight:bold;transition:color .3s;">
+          Sanjeev Kumar
+        </a>. All rights reserved.
+      </p>
+    </div>
   </footer>
 
+  <!-- Scripts -->
   <script>
     // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
 
     // Mobile menu toggle
     const burger = document.getElementById('hamburger');
@@ -917,30 +983,40 @@ themeToggle.addEventListener("click", () => {
       mobile.classList.toggle('hide');
     });
 
-    // Theme toggle (light/dark)
-    const toggle = document.getElementById('themeToggle');
-    toggle?.addEventListener('click', () => {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      const next = isDark ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      const meta = document.querySelector('meta[name="theme-color"]');
-      meta?.setAttribute('content', next === 'dark' ? '#0b1220' : '#f59e0b');
-      toggle.setAttribute('aria-pressed', String(next === 'dark'));
-    });
+    // Theme toggle (light/dark) + icon + remember choice
+    const themeToggle = document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("themeIcon");
 
-    // Simple demo handler for contact form (feel free to replace with Formspree)
-    function handleSubmit(e){
-      e.preventDefault();
-      const status = document.getElementById('formStatus');
-      status.textContent = 'Thanks! Your message was captured locally. Connect Formspree to send emails.';
-      e.target.reset();
-      return false;
+    // Load saved theme
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+      themeToggle.setAttribute("aria-pressed", "true");
+      themeIcon.classList.replace("fa-sun", "fa-moon");
+      const meta = document.querySelector('meta[name="theme-color"]');
+      meta?.setAttribute('content', '#0b1220');
     }
+
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      const next = isDark ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      themeToggle.setAttribute("aria-pressed", String(next === "dark"));
+      const meta = document.querySelector('meta[name="theme-color"]');
+      meta?.setAttribute("content", next === "dark" ? "#0b1220" : "#f59e0b");
+
+      if (next === "dark") {
+        themeIcon.classList.replace("fa-sun", "fa-moon");
+      } else {
+        themeIcon.classList.replace("fa-moon", "fa-sun");
+      }
+      localStorage.setItem("theme", next);
+    });
 
     // Animate skill bars on scroll
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => {
-        if(e.isIntersecting){
+        if (e.isIntersecting) {
           e.target.querySelectorAll('.bar > i').forEach(i => {
             const w = i.style.width;
             i.style.width = '0';
@@ -951,9 +1027,10 @@ themeToggle.addEventListener("click", () => {
           });
           io.unobserve(e.target);
         }
-      })
-    },{threshold:.25});
-    document.querySelectorAll('#skills .card').forEach(el=>io.observe(el));
+      });
+    }, {threshold:.25});
+
+    document.querySelectorAll('#skills .card').forEach(el => io.observe(el));
   </script>
 </body>
 </html>
