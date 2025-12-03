@@ -443,6 +443,29 @@
       display:block;
       margin:0 auto 10px;
     }
+    .view-btn {
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #000;
+  font-weight: 600;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.25s ease;
+}
+
+.view-btn i {
+  font-size: 14px;
+}
+
+.card:hover .view-btn {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
 
     /* Footer */
     footer{
@@ -930,63 +953,72 @@
     </div>
   </section>
 
-  <!-- Certifications -->
-  <section id="certs" class="container">
-    <div class="section-head">
-      <h2 class="section-title">Certifications</h2>
-      <p class="section-desc">Verified achievements</p>
-    </div>
+ <!-- Certifications -->
+<section id="certs" class="container">
+  <div class="section-head">
+    <h2 class="section-title">Certifications</h2>
+    <p class="section-desc">Verified achievements</p>
+  </div>
 
-    <div class="grid">
-      <a href="https://drive.google.com/file/d/1ExcnlsVy3ZHLtRs_RoF2hNQ05G4Cj154/view?usp=drive_link"
-         target="_blank" class="card" aria-label="Cisco CCNA">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg"
-             alt="Cisco CCNA" class="cert-icon"/>
-        <p style="margin:10px 0 0"><strong>Cisco CCNA</strong></p>
-        <p class="muted">Network Fundamentals</p>
-      </a>
+  <div class="grid">
 
-      <a href="https://drive.google.com/file/d/14aOsqQTKcxbeSA23yXPuLvjPUKDfNpvb/view?usp=drive_link"
-         target="_blank" class="card" aria-label="Microsoft Azure Fundamentals">
-        <img src="https://images.credly.com/size/340x340/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png"
-             alt="Azure Fundamentals" class="cert-icon"/>
-        <p style="margin:10px 0 0"><strong>Microsoft Azure</strong></p>
-        <p class="muted">Microsoft Azure Fundamentals</p>
-      </a>
+    <a href="https://drive.google.com/file/d/1ExcnlsVy3ZHLtRs_RoF2hNQ05G4Cj154/view?usp=drive_link"
+       target="_blank" class="card" aria-label="Cisco CCNA">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg"
+           alt="Cisco CCNA" class="cert-icon"/>
+      <p style="margin:10px 0 0"><strong>Cisco CCNA</strong></p>
+      <p class="muted">Network Fundamentals</p>
+      <div class="view-btn">View <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+    </a>
 
-      <a href="https://drive.google.com/file/d/15hSFkJXr92o4VhM5YgF13pZFv2aSakaD/view?usp=drive_link"
-         target="_blank" class="card" aria-label="Google Cloud Security">
-        <img src="https://i.ibb.co/0p00pjKb/social-icon-google-cloud-1200-630.png"
-             alt="Google Cloud Security" class="cert-icon"/>
-        <p style="margin:10px 0 0"><strong>Google Cloud</strong></p>
-        <p class="muted">Trust and Security with Google Cloud</p>
-      </a>
+    <a href="https://drive.google.com/file/d/14aOsqQTKcxbeSA23yXPuLvjPUKDfNpvb/view?usp=drive_link"
+       target="_blank" class="card" aria-label="Microsoft Azure Fundamentals">
+      <img src="https://images.credly.com/size/340x340/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png"
+           alt="Azure Fundamentals" class="cert-icon"/>
+      <p style="margin:10px 0 0"><strong>Microsoft Azure</strong></p>
+      <p class="muted">Microsoft Azure Fundamentals</p>
+      <div class="view-btn">View <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+    </a>
 
-      <a href="https://drive.google.com/file/d/1kUh_5kU6V_FEYsFhnyf1yHfr12Cmzkdd/view?usp=drive_link"
-         target="_blank" class="card" aria-label="Computer Networking">
-        <img src="https://i.ibb.co/TDc4TQF3/cloud-computing.png"
-             alt="Computer Networking" class="cert-icon"/>
-        <p style="margin:10px 0 0"><strong>Computer Networking</strong></p>
-        <p class="muted">Basics of Computer Networking</p>
-      </a>
+    <a href="https://drive.google.com/file/d/15hSFkJXr92o4VhM5YgF13pZFv2aSakaD/view?usp=drive_link"
+       target="_blank" class="card" aria-label="Google Cloud Security">
+      <img src="https://i.ibb.co/0p00pjKb/social-icon-google-cloud-1200-630.png"
+           alt="Google Cloud Security" class="cert-icon"/>
+      <p style="margin:10px 0 0"><strong>Google Cloud</strong></p>
+      <p class="muted">Trust and Security with Google Cloud</p>
+      <div class="view-btn">View <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+    </a>
 
-      <a href="https://drive.google.com/file/d/1Hcgl0Drn_niSwc64zhvL0LY2tFEnL6hx/view?usp=drive_link"
-         target="_blank" class="card" aria-label="Cyber Security">
-        <img src="https://i.ibb.co/rRHQ9YBr/cyber-security-1.png"
-             alt="Cyber Security" class="cert-icon"/>
-        <p style="margin:10px 0 0"><strong>Advanced Cyber Security Threats</strong></p>
-        <p class="muted">Governance &amp; Management</p>
-      </a>
+    <a href="https://drive.google.com/file/d/1kUh_5kU6V_FEYsFhnyf1yHfr12Cmzkdd/view?usp=drive_link"
+       target="_blank" class="card" aria-label="Computer Networking">
+      <img src="https://i.ibb.co/TDc4TQF3/cloud-computing.png"
+           alt="Computer Networking" class="cert-icon"/>
+      <p style="margin:10px 0 0"><strong>Computer Networking</strong></p>
+      <p class="muted">Basics of Computer Networking</p>
+      <div class="view-btn">View <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+    </a>
 
-      <a href="https://drive.google.com/file/d/1OhjH3b2gffiHm4KIUrTo_2pP_5BNnKJG/view?usp=drive_link"
-         target="_blank" class="card" aria-label="Windows Server Administration">
-        <img src="https://i.ibb.co/1f2bm3ss/mcsa.png"
-             alt="Windows Server Administration" class="cert-icon"/>
-        <p style="margin:10px 0 0"><strong>Windows Server Administration (MCSA)</strong></p>
-        <p class="muted">Windows Server 2019</p>
-      </a>
-    </div>
-  </section>
+    <a href="https://drive.google.com/file/d/1Hcgl0Drn_niSwc64zhvL0LY2tFEnL6hx/view?usp=drive_link"
+       target="_blank" class="card" aria-label="Cyber Security">
+      <img src="https://i.ibb.co/rRHQ9YBr/cyber-security-1.png"
+           alt="Cyber Security" class="cert-icon"/>
+      <p style="margin:10px 0 0"><strong>Advanced Cyber Security Threats</strong></p>
+      <p class="muted">Governance &amp; Management</p>
+      <div class="view-btn">View <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1OhjH3b2gffiHm4KIUrTo_2pP_5BNnKJG/view?usp=drive_link"
+       target="_blank" class="card" aria-label="Windows Server Administration">
+      <img src="https://i.ibb.co/1f2bm3ss/mcsa.png"
+           alt="Windows Server Administration" class="cert-icon"/>
+      <p style="margin:10px 0 0"><strong>Windows Server Administration (MCSA)</strong></p>
+      <p class="muted">Windows Server 2019</p>
+      <div class="view-btn">View <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+    </a>
+
+  </div>
+</section>
+
 
   <!-- Experience -->
   <section id="experience" class="container">
