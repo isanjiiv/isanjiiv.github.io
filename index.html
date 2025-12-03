@@ -102,7 +102,7 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding:14px 0;
+      padding:16px 0;
       gap:16px;
     }
     .brand{
@@ -131,7 +131,7 @@
       opacity:.85;
       border-bottom:2px solid transparent;
       padding-bottom:6px;
-      font-weight:600;
+      font-weight:700;
       font-size:14px;
     }
     .menu a:hover{opacity:1;border-color:var(--accent)}
@@ -186,10 +186,13 @@
       background:var(--text);
       border-radius:2px;
     }
-  #mobileMenu{
-  padding:8px 0 12px;
-  width:100%;
+#mobileMenu a{
+  display:block;
+  padding:10px 6px;
+  border-radius:10px;
+  font-weight:700;   /* make mobile menu bold */
 }
+
 
     #mobileMenu a{
       display:block;
@@ -483,14 +486,12 @@
       }
     }
 
-    @media (max-width: 860px){
+ @media (max-width: 860px){
   .menu{display:none;}
   .hamburger{display:flex;}
-  #mobileMenu{
-    border-top:1px solid rgba(148,163,184,.18);
-  }
-  header .icon-buttons{display:none;}
+  /* Remove: header .icon-buttons{display:none;} */
 }
+
 
 
     @media (max-width: 640px){
@@ -513,7 +514,7 @@
         font-size:18px;
       }
       .nav{
-        padding:10px 0;
+        padding:16px 0;
       }
     }
   </style>
@@ -633,7 +634,7 @@
 /* On small screens center everything nicely */
 @media (max-width:640px){
   .contact-card{
-    padding:16px;
+    padding:22px;
   }
   .contact-submit{
     width:100%;
