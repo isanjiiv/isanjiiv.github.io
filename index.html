@@ -669,6 +669,50 @@
   }
 }
 
+/* ===== MOBILE FRIENDLY TEXT SIZING ===== */
+:root {
+  --fs-h1: clamp(26px, 6vw, 48px);
+  --fs-h2: clamp(22px, 4.5vw, 32px);
+  --fs-normal: clamp(14px, 3.5vw, 18px);
+  --fs-small: clamp(12px, 3vw, 16px);
+}
+
+/* Apply fluid typography */
+h1 { font-size: var(--fs-h1) !important; }
+h2.section-title { font-size: var(--fs-h2) !important; }
+p, li, .subtitle, .muted { font-size: var(--fs-normal) !important; }
+.menu a, #mobileMenu a { font-size: var(--fs-normal) !important; }
+.badge { font-size: var(--fs-small) !important; }
+
+/* Hero subtitle spacing fix */
+.subtitle {
+  line-height: 1.55;
+}
+
+/* Improve project text readability */
+.project-right p {
+  font-size: var(--fs-normal) !important;
+  line-height: 1.55;
+}
+
+/* About section */
+#about .card p {
+  font-size: var(--fs-normal) !important;
+}
+
+/* Skills labels */
+.skill div:first-child {
+  font-size: var(--fs-normal) !important;
+}
+
+/* Contact form text */
+.contact-field label,
+.contact-field input,
+.contact-field textarea {
+  font-size: var(--fs-normal) !important;
+}
+
+
   </style>
 
   <!-- JSON-LD Person Schema -->
@@ -909,8 +953,7 @@
         <div class="project-left">AI Cost Sheet Builder (Web App)</div>
         <div class="project-right">
           <p class="muted">
-            Built a no-code web application at Graiin Milling Solutions using Lovable AI to automate and simplify cost sheet generation —
-            a crucial process for accurate project costing and business decisions. The tool integrated secure login, automated
+            Built a no-code web application at Graiin Milling Solutions using Lovable AI to automate and simplify cost sheet generationa crucial process for accurate project costing and business decisions. The tool integrated secure login, automated
             calculations, and PDF/Excel export, significantly improving accuracy, efficiency, and reliability for the company.
           </p>
           <a href="https://master-quote-builder.lovable.app/login" target="_blank">
