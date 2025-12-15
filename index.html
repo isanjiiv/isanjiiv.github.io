@@ -752,52 +752,66 @@ p, li, .subtitle, .muted { font-size: var(--fs-normal) !important; }
 </head>
 
 <body>
-  <!-- Header -->
-  <header>
-    <div class="container nav" aria-label="Primary">
-      <a class="brand" href="#home" aria-label="Sanjeev Kumar Home">
-        <span class="dot" aria-hidden="true"></span>
-        <span>Sanjeev Kumar</span>
-      </a>
+ <!-- Header -->
+<header>
+  <div class="container nav" aria-label="Primary">
+    <a class="brand" href="#home" aria-label="Sanjeev Kumar Home">
+      <span class="dot" aria-hidden="true"></span>
+      <span>Sanjeev Kumar</span>
+    </a>
 
-      <nav class="menu" aria-label="Main menu">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#certs">Certifications</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <div class="icon-buttons">
-        <!-- Download Resume -->
-        <a href="https://isanjiiv.github.io/Resume.pdf"
-           class="icon-btn"
-           target="_blank"
-           title="Download Resume">
-          <i class="fa-solid fa-download"></i>
-        </a>
-
-        <!-- Theme Toggle -->
-        <button class="icon-btn" id="themeToggle" aria-pressed="false" title="Toggle Theme">
-          <i class="fa-solid fa-sun" id="themeIcon"></i>
-        </button>
-      </div>
-
-      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-
-    <div class="container hide" id="mobileMenu" role="navigation" aria-label="Mobile menu">
+    <nav class="menu" aria-label="Main menu">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#certs">Certifications</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="icon-buttons">
+           
+    <!-- WAY OF TECH Logo -->
+      <a href="https://www.wayoftech.net/"
+         class="icon-btn site-logo-btn"
+         target="_blank"
+         title="WAY OF TECH">
+        <img src="https://www.wayoftech.net/favicon.ico"
+             alt="WAY OF TECH"
+             class="site-logo">
+      </a>
+
+      <!-- Download Resume -->
+      <a href="https://isanjiiv.github.io/Resume.pdf"
+         class="icon-btn"
+         target="_blank"
+         title="Download Resume">
+        <i class="fa-solid fa-download"></i>
+      </a>
+
+   
+      <!-- Theme Toggle -->
+      <button class="icon-btn" id="themeToggle" aria-pressed="false" title="Toggle Theme">
+        <i class="fa-solid fa-sun" id="themeIcon"></i>
+      </button>
     </div>
-  </header>
+
+    <button class="hamburger" id="hamburger" aria-label="Open menu"
+            aria-controls="mobileMenu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="container hide" id="mobileMenu" role="navigation" aria-label="Mobile menu">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certs">Certifications</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
 
   <!-- Hero -->
   <main id="home" class="container hero" aria-label="Intro">
