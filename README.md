@@ -87,6 +87,9 @@ https://isanjiiv.github.io/Resume.pdf
 If you are looking for an **IT Engineer**, **System Administrator**, or **Technical Support Professional**, feel free to connect.
 
 - 🌐 Website: https://isanjiiv.github.io/
+- Linkedin: https://www.linkedin.com/in/isanjiiv/
+- Instagram: https://www.instagram.com/isanjiiv/
+- Youtube: https://www.youtube.com/@isanjiiv
 
 ---
 
