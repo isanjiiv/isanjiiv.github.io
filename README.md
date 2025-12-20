@@ -6,12 +6,11 @@ Welcome to my professional portfolio website built using **HTML, CSS, and JavaSc
 
 ---
 
-## 👨‍💻 About Me
+## 👨‍💻 Professional Summary
 
-I am **Sanjeev Kumar**, an experienced **IT Engineer and System Administrator** based in **Noida, India**.  
-I specialize in **Windows Server Administration, Networking, Cloud Platforms, Firewall Security, and IT Infrastructure Support**.
+I am **Sanjeev Kumar**, an experienced **IT Engineer and System Administrator** based in **Noida, India**, with hands-on expertise in **Windows Server, Networking, Cloud Computing, Firewall Security, and Enterprise IT Support**.
 
-This portfolio showcases my **skills, certifications, projects, and professional experience** in a clean and performance-optimized format.
+I specialize in building **secure, reliable, and scalable IT infrastructure** while ensuring smooth day-to-day IT operations for organizations.
 
 ---
 
@@ -22,22 +21,29 @@ This portfolio showcases my **skills, certifications, projects, and professional
 - Networking Fundamentals (TCP/IP, VLAN, Routing, Switching)
 - Firewall & Security (Fortinet FortiGate, IPS/IDS)
 - Cloud Platforms: AWS & Microsoft Azure
-- Backup & Recovery (Acronis)
+- Backup & Disaster Recovery (Acronis)
 - Hardware & Software Troubleshooting
-- Remote Support & IT Operations
+- Remote IT Support & System Maintenance
 - GitHub Pages & Static Website Hosting
 
 ---
 
-## 📂 Portfolio Features
+## 🏆 Key Achievements
 
-- Fully responsive design (Desktop & Mobile Friendly)
-- SEO-optimized HTML structure
-- Fast loading static website
-- Custom domain-ready
-- Google Search Console verified
-- Sitemap.xml & robots.txt configured
-- Clean UI with modern design
+- Designed and deployed **SD-WAN solution using FortiGate 60F** with dual ISP redundancy  
+- Configured **firewall rules, IPS/IDS, WAN optimization, and network security policies**  
+- Managed **Windows Server & Active Directory environments** for enterprise users  
+- Improved system uptime through structured troubleshooting and monitoring  
+- Provided IT support for **AutoCAD and SolidWorks** workstation environments  
+
+---
+
+## 📁 Projects & Practical Experience
+
+- **SD-WAN & Firewall Deployment** – Fortinet FortiGate 60F  
+- **Windows Server Setup** – AD, DNS, DHCP, Group Policy  
+- **Cloud Virtual Machines** – AWS EC2 & Azure VM  
+- **Enterprise IT Support** – Hardware, OS, Network & Security  
 
 ---
 
@@ -59,6 +65,23 @@ https://isanjiiv.github.io/Resume.pdf
 
 ---
 
+## 🌐 Portfolio Features
+
+- Fully responsive design (Desktop & Mobile Friendly)
+- SEO-optimized HTML structure
+- Fast-loading static website
+- Google Search Console verified
+- Sitemap.xml & robots.txt configured
+- Clean, modern UI for recruiters
+
+---
+
+## 🗂️ Website Structure
+
+
+
+---
+
 ## 🌐 Website Structure
 
 ├── index.html  
@@ -72,25 +95,36 @@ https://isanjiiv.github.io/Resume.pdf
 
 ---
 
+
+---
+
 ## 🔍 SEO & Performance Optimization
 
-- Proper meta tags & headings
-- Structured content for search engines
-- Image optimization
+- Proper meta tags and heading hierarchy
+- Structured, keyword-focused content
+- Image optimization for faster loading
 - Canonical URL configured
 - Sitemap submitted to Google Search Console
 
 ---
 
-## 📬 Contact
+## 📬 Contact & Social Profiles
 
 If you are looking for an **IT Engineer**, **System Administrator**, or **Technical Support Professional**, feel free to connect.
 
-- Website: https://isanjiiv.github.io/
-- Linkedin: https://www.linkedin.com/in/isanjiiv/
-- Instagram: https://www.instagram.com/isanjiiv/
-- Youtube: https://www.youtube.com/@isanjiiv
+- 🌐 Website: https://isanjiiv.github.io/
+- 💼 LinkedIn: https://www.linkedin.com/in/isanjiiv/
+- 📸 Instagram: https://www.instagram.com/isanjiiv/
+- ▶️ YouTube: https://www.youtube.com/@isanjiiv
 
 ---
 
-**© Sanjeev Kumar | IT Engineer | Portfolio Website**
+## ⭐ Call to Action
+
+Recruiters and hiring managers are welcome to review my portfolio and resume.  
+If you find this portfolio useful, feel free to ⭐ star the repository.
+
+---
+
+© Sanjeev Kumar | IT Engineer | System Administrator | Portfolio Website
+
