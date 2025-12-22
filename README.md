@@ -112,7 +112,7 @@ https://isanjiiv.github.io/Resume.pdf
 
 If you are looking for an **IT Engineer**, **System Administrator**, or **Technical Support Professional**, feel free to connect.
 
-- 🌐 Website: https://isanjiiv.github.io/
+- 🌐 Website: https://www.wayoftech.net/
 - 💼 LinkedIn: https://www.linkedin.com/in/isanjiiv/
 - 📸 Instagram: https://www.instagram.com/isanjiiv/
 - ▶️ YouTube: https://www.youtube.com/@isanjiiv
@@ -127,3 +127,4 @@ If you find this portfolio useful, feel free to ⭐ star the repository.
 ---
 
 © Sanjeev Kumar | IT Engineer | System Administrator | Portfolio Website
+
