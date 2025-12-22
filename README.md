@@ -76,28 +76,6 @@ https://isanjiiv.github.io/Resume.pdf
 
 ---
 
-## 🗂️ Website Structure
-
-
-
----
-
-## 🌐 Website Structure
-
-├── index.html  
-├── README.md  
-├── Resume.pdf  
-├── Logo.png  
-├── Logo.ico  
-├── sitemap.xml  
-├── robots.txt  
-├── google-site-verification.html  
-
----
-
-
----
-
 ## 🔍 SEO & Performance Optimization
 
 - Proper meta tags and heading hierarchy
@@ -127,4 +105,5 @@ If you find this portfolio useful, feel free to ⭐ star the repository.
 ---
 
 © Sanjeev Kumar | IT Engineer | System Administrator | Portfolio Website
+
 
