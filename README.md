@@ -58,13 +58,6 @@ I specialize in building **secure, reliable, and scalable IT infrastructure** wh
 
 ---
 
-## 📄 Resume
-
-📥 **Download Resume:**  
-https://isanjiiv.github.io/assets/docs/Resume.pdf
-
----
-
 ## 🌐 Portfolio Features
 
 - Fully responsive design (Desktop & Mobile Friendly)
@@ -105,6 +98,7 @@ If you find this portfolio useful, feel free to ⭐ star the repository.
 ---
 
 © Sanjeev Kumar | IT Engineer | System Administrator | Portfolio Website
+
 
 
 
