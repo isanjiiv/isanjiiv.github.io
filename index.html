@@ -179,16 +179,15 @@
     .nav-actions { display: flex; gap: 10px; align-items: center; }
 
     /* --- HERO SECTION (DEFAULT DESKTOP) --- */
-    .hero {
-      /* Uses 85vh to center nicely on desktop without being too tall */
-      min-height: 85vh; 
-      display: grid; 
-      grid-template-columns: 1.2fr 0.8fr;
-      align-items: center; 
-      gap: 2rem; 
-      padding-top: 100px;
-      padding-bottom: 50px;
-    }
+.hero {
+  min-height: auto;  /* <--- You updated this */
+  display: grid; 
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center; 
+  gap: 2rem; 
+  padding-top: 150px; /* <--- You updated this */
+  padding-bottom: 80px;
+}
     .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1.1; margin-bottom: 1rem; }
     .typing-text { color: var(--primary); }
 
@@ -282,24 +281,19 @@
     /* FIX FOR MOBILE CENTERING                  */
     /* ======================================================== */
     @media (max-width: 900px) {
-      .hero {
-        /* Use Flexbox for better vertical stacking on mobile */
-        display: flex;
-        flex-direction: column;
-        
-        /* Center content vertically and horizontally */
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        
-        /* 80vh ensures it centers in the visible screen area without creating a huge gap */
-        min-height: 80vh; 
-        
-        /* Reduced top padding so the center point isn't pushed too far down */
-        padding-top: 80px; 
-        padding-bottom: 40px;
-        gap: 2rem;
-      }
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    min-height: auto; /* <--- You updated this */
+    
+    padding-top: 120px; /* <--- You updated this */
+    padding-bottom: 40px;
+    gap: 2rem;
+  }
       
       /* Order -1 puts image above text (Flexbox feature) */
       .hero-img-container {
