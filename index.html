@@ -178,9 +178,9 @@
     
     .nav-actions { display: flex; gap: 10px; align-items: center; }
 
-    /* Hero Section - UPDATED FOR FIX */
+    /* --- HERO SECTION (DEFAULT DESKTOP) --- */
     .hero {
-      /* Changed from 100vh to 85vh to prevent overly tall layout on desktop mode mobile */
+      /* Uses 85vh to center nicely on desktop without being too tall */
       min-height: 85vh; 
       display: grid; 
       grid-template-columns: 1.2fr 0.8fr;
@@ -221,7 +221,6 @@
     .cert-img { height: 60px; margin-bottom: 1rem; object-fit: contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
     .cert-link { margin-top: auto; font-size: 0.9rem; color: var(--primary); font-weight: 600; pointer-events: none;}
     
-    /* Vibrant Icons for Non-Brand Certs */
     .vibrant-icon {
         font-size: 3.5rem;
         margin-bottom: 1rem;
@@ -231,10 +230,36 @@
         filter: drop-shadow(0 4px 10px rgba(245, 158, 11, 0.3));
     }
 
-    /* Timeline */
-    .timeline { border-left: 2px solid var(--card-border); padding-left: 2rem; margin-left: 1rem; }
-    .timeline-item { position: relative; margin-bottom: 3rem; }
-    .timeline-item::before { content: ''; position: absolute; left: -2.6rem; top: 5px; width: 16px; height: 16px; background: var(--bg); border: 3px solid var(--primary); border-radius: 50%; }
+   /* Timeline */
+    .timeline {
+      border-left: 2px solid var(--card-border);
+      /* Changed from rem to px to ensure perfect math with the dot */
+      padding-left: 40px; 
+      margin-left: 10px;
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      /* PERFECT CENTER CALCULATION:
+         Padding (40px) + Half Dot (8px) + Half Line (1px) = 49px 
+      */
+      left: -49px; 
+      top: 5px;
+      width: 16px;
+      height: 16px;
+      background: var(--bg);
+      border: 3px solid var(--primary);
+      border-radius: 50%;
+      /* This box-shadow creates the white gap around the dot */
+      box-shadow: 0 0 0 4px var(--bg); 
+      z-index: 1;
+    }
 
     /* Contact Form */
     .contact-wrapper { display: grid; grid-template-columns: 1fr 1.5fr; gap: 2rem; }
@@ -246,7 +271,7 @@
     .mobile-menu.open { transform: translateY(0); }
     .mobile-menu a { display: block; padding: 12px; font-weight: 600; }
 
-    /* --- CERTIFICATE MODAL STYLES --- */
+    /* Certificate Modal */
     .modal {
       display: none; 
       position: fixed; 
@@ -261,7 +286,6 @@
       transition: opacity 0.3s ease;
     }
     .modal.show { display: flex; opacity: 1; }
-    
     .modal-content {
       background: var(--bg);
       padding: 1rem;
@@ -273,46 +297,45 @@
       box-shadow: 0 25px 50px rgba(0,0,0,0.25);
       animation: scaleUp 0.3s ease;
     }
-    
-    .close-modal {
-      position: absolute;
-      top: -40px; right: 0;
-      color: #fff;
-      font-size: 2rem;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
+    .close-modal { position: absolute; top: -40px; right: 0; color: #fff; font-size: 2rem; cursor: pointer; transition: transform 0.2s; }
     .close-modal:hover { transform: scale(1.1); color: var(--primary); }
-    
     iframe { width: 100%; height: 100%; border: none; border-radius: 8px; }
 
     @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
     @keyframes scaleUp { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-    /* FIX FOR "DESKTOP MODE" ON MOBILE (Portrait screens) */
-    @media (orientation: portrait) {
-      .hero {
-        min-height: auto; /* Stop forcing 100vh on tall phones */
-        padding-top: 140px;
-        padding-bottom: 60px;
-        align-items: flex-start; /* Push content to top */
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .hero-img-container { order: -1; margin-bottom: 2rem; }
-    }
-
-    /* Standard Responsive fix */
+    /* ======================================================== */
+    /* FIX FOR MOBILE CENTERING                  */
+    /* ======================================================== */
     @media (max-width: 900px) {
-      .hero { 
-        grid-template-columns: 1fr; 
-        text-align: center; 
-        gap: 3rem;
-        min-height: auto;
-        padding-top: 120px;
-        padding-bottom: 80px;
+      .hero {
+        /* Use Flexbox for better vertical stacking on mobile */
+        display: flex;
+        flex-direction: column;
+        
+        /* Center content vertically and horizontally */
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+        /* 80vh ensures it centers in the visible screen area without creating a huge gap */
+        min-height: 80vh; 
+        
+        /* Reduced top padding so the center point isn't pushed too far down */
+        padding-top: 80px; 
+        padding-bottom: 40px;
+        gap: 2rem;
       }
-      .hero-img-container { order: -1; }
+      
+      /* Order -1 puts image above text (Flexbox feature) */
+      .hero-img-container {
+        order: -1;
+        width: 100%;
+        max-width: 280px;
+        margin-bottom: 1rem;
+      }
+      
+      /* Other Mobile Adjustments */
       .nav-menu { display: none; }
       .hamburger { display: block; }
       .project-card, .contact-wrapper { grid-template-columns: 1fr; }
@@ -394,7 +417,7 @@
           I build reliable systems and help teams ship fast and safe.
         </p>
         
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
           <a href="#contact" class="btn-primary">Get in Touch</a>
           <div style="display: flex; gap: 10px;">
             <a href="mailto:sanjeev753304@gmail.com" class="btn-icon" title="Email"><i class="fa-solid fa-envelope"></i></a>
@@ -715,9 +738,7 @@
       if (count === texts.length) { count = 0; }
       currentText = texts[count];
       letter = currentText.slice(0, ++index);
-      
-      const target = document.querySelector('.typing-text');
-      if (target) target.textContent = letter;
+      document.querySelector('.typing-text').textContent = letter;
       
       if (letter.length === currentText.length) {
         count++; index = 0;
@@ -727,13 +748,13 @@
       }
     })();
 
-    // 4. Scroll Animations (FIXED: Handles MULTIPLE skill bars)
+    // 4. Scroll Animations (Fixed: Animates ALL skill bars)
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.style.opacity = 1;
           entry.target.style.transform = 'translateY(0)';
-          // Fix: Select ALL progress bars inside the card
+          // Find ALL skill bars in this card
           const progressBars = entry.target.querySelectorAll('.skill-bar-fill');
           progressBars.forEach(bar => {
             bar.style.width = bar.getAttribute('data-width');
@@ -755,7 +776,7 @@
 
     certLinks.forEach(link => {
       link.addEventListener('click', (e) => {
-        e.preventDefault(); 
+        e.preventDefault(); // Stop from opening in new tab
         const url = link.getAttribute('href');
         // Convert 'view' link to 'preview' link for embedding
         const previewUrl = url.replace('/view', '/preview');
@@ -766,7 +787,7 @@
 
     closeModal.addEventListener('click', () => {
       certModal.classList.remove('show');
-      certFrame.src = ''; 
+      certFrame.src = ''; // Stop video/iframe content
     });
 
     // Close on click outside
