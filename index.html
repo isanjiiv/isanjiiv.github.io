@@ -1,723 +1,303 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Sanjeev Kumar | IT Engineer</title>
+  <meta name="description" content="Portfolio of Sanjeev Kumar, an IT Engineer specializing in Windows Server Administration, Networking, Fortinet Firewall, AWS, Azure, and Cybersecurity." />
+  <meta name="keywords" content="Sanjeev Kumar, IT Engineer, Windows Server, Network Engineer, Fortinet, AWS, Azure, Cybersecurity, Noida" />
+  <meta name="author" content="Sanjeev Kumar" />
+  <meta name="theme-color" content="#f59e0b" />
+  
   <link rel="canonical" href="https://isanjiiv.github.io/" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
- <!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
-<link rel="shortcut icon" href="/assets/images/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
-<link rel="icon" type="image/png" sizes="64x64" href="/assets/images/favicon.png">
-<link rel="apple-touch-icon" href="/assets/images/favicon.png">
-
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Sanjeev Kumar | IT Engineer</title>
-
-
-  <!-- Google Verification -->
-  <meta name="google-site-verification" content="google55bb3e2dfb255c1c" />
-
-  <meta name="description" content="Sanjeev Kumar is an IT Engineer specializing in Windows Server Administration, Networking, Fortinet Firewall, AWS, Azure, and Cybersecurity. Explore projects, certifications, and contact information." />
-  <meta name="keywords" content="Sanjeev Kumar, IT Engineer, Windows Server Administrator, Network Engineer, Fortinet Engineer, AWS Cloud, Azure Cloud, Cybersecurity Expert, IT Support Engineer, Noida IT Engineer" />
-  <meta name="author" content="Sanjeev Kumar" />
-  <meta name="theme-color" content="#f59e0b" />
-
-  <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Sanjeev Kumar | IT Engineer" />
   <meta property="og:description" content="Windows Server • Networking • Cloud • Cybersecurity" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://isanjiiv.github.io/assets/images/Sanjeev.jpg"/>
   <meta property="og:url" content="https://isanjiiv.github.io/" />
-  <meta property="og:site_name" content="Sanjeev Kumar" />
-  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Font Awesome -->
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Base Styles & Layout -->
   <style>
-    /* THEME VARIABLES */
-    :root{
-      --bg:#ffffff;
-      --panel:#f8fafc;
-      --muted:#334155;
-      --text:#0f172a;
-      --accent:#f59e0b;
-      --accent-2:#fbbf24;
-      --card:#ffffff;
-      --ring: 0 0 0 3px rgba(245,158,11,.35);
+    /* --- 1. VARIABLES & THEME --- */
+    :root {
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
 
-      /* Projects local vars (default light) */
-      --proj-card-bg:#ffffff;
-      --proj-card-shadow:rgba(0,0,0,0.08);
-      --proj-text-color:#1f1f1f;
-      --proj-chip-bg:#f1f3f4;
-    }
-    [data-theme="dark"]{
-      --bg:#0b1220;
-      --panel:#0f172a;
-      --muted:#94a3b8;
-      --text:#e2e8f0;
-      --accent:#f59e0b;
-      --accent-2:#fbbf24;
-      --card:#111827e6;
-      --ring:0 0 0 3px rgba(245,158,11,.35);
-
-      --proj-card-bg:#1e1f22;
-      --proj-card-shadow:rgba(0,0,0,0.4);
-      --proj-text-color:#e6e6e6;
-      --proj-chip-bg:#2a2b2f;
+      /* Light Theme */
+      --bg: #ffffff;
+      --bg-secondary: #f8fafc;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --primary: #f59e0b; /* Amber */
+      --primary-glow: rgba(245, 158, 11, 0.4);
+      --card-bg: rgba(255, 255, 255, 0.75);
+      --card-border: rgba(226, 232, 240, 0.8);
+      --glass-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+      --nav-bg: rgba(255, 255, 255, 0.85);
+      
+      --radius-md: 16px;
+      --container: 1100px;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
-    *{box-sizing:border-box}
-    html,body{
-      margin:0;
-      padding:0;
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      scroll-behavior:smooth;
+    [data-theme="dark"] {
+      /* Dark Theme */
+      --bg: #0b1220; 
+      --bg-secondary: #0f172a;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #fbbf24; 
+      --primary-glow: rgba(251, 191, 36, 0.25);
+      --card-bg: rgba(30, 41, 59, 0.6);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --glass-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      --nav-bg: rgba(11, 18, 32, 0.85);
     }
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .container{width:min(1200px,92%);margin-inline:auto}
 
-    /* Sections (anchor offset for sticky header) */
-    section{
-      padding:48px 0;
-      scroll-margin-top:100px; /* fixes heading being half-hidden */
+    /* --- 2. GLOBAL RESET --- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      /* Subtle animated background mesh */
+      background-image: 
+        radial-gradient(at 0% 0%, var(--primary-glow) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.1) 0px, transparent 50%);
+      background-attachment: fixed;
+      transition: background-color 0.4s ease, color 0.4s ease;
     }
+
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    img { max-width: 100%; display: block; }
+    h1, h2, h3, .brand { font-family: var(--font-heading); }
+    
+    .container {
+      width: min(100%, var(--container));
+      margin-inline: auto;
+      padding-inline: 1.5rem;
+    }
+
+    /* --- 3. COMPONENTS --- */
+    
+    /* Buttons */
+    .btn-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      backdrop-filter: blur(8px);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    
+    .btn-icon:hover {
+      background: var(--primary);
+      color: #000;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px var(--primary-glow);
+      border-color: var(--primary);
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.8rem 1.8rem;
+      background: linear-gradient(135deg, var(--primary), #d97706);
+      color: #fff;
+      font-weight: 600;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px var(--primary-glow);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px var(--primary-glow); }
+
+    /* Glass Cards */
+    .glass-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      box-shadow: var(--glass-shadow);
+      transition: var(--transition);
+    }
+    .glass-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+
+    /* Section Headings */
+    .section-header { margin-bottom: 3rem; }
+    .section-header h2 {
+      font-size: 2.2rem; display: inline-block; position: relative;
+    }
+    .section-header h2::after {
+      content: ''; display: block; width: 40%; height: 4px;
+      background: var(--primary); border-radius: 2px; margin-top: 4px;
+    }
+
+    /* --- 4. LAYOUT --- */
 
     /* Header */
-    header{
-      position:sticky;
-      top:0;
-      z-index:50;
-      background:linear-gradient(180deg,rgba(253,224,71,.25),rgba(253,224,71,.05) 60%,transparent),var(--bg);
-      backdrop-filter:saturate(140%) blur(6px);
-      border-bottom:1px solid rgba(148,163,184,.18);
+    header {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: var(--nav-bg); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--card-border);
     }
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:16px 0;
-      gap:16px;
+    .nav-inner {
+      display: flex; justify-content: space-between; align-items: center; height: 70px;
     }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:700;
-      letter-spacing:.3px;
-      white-space:nowrap;
-    }
-    .brand .dot{
-      width:10px;
-      height:10px;
-      border-radius:999px;
-      background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      box-shadow:0 0 22px var(--accent-2);
-    }
-    .menu{
-      display:flex;
-      gap:22px;
-      align-items:center;
-      flex-wrap:wrap;
-      justify-content:center;
-    }
-    .menu a{
-      opacity:.85;
-      border-bottom:2px solid transparent;
-      padding-bottom:6px;
-      font-weight:700;
-      font-size:14px;
-    }
-    .menu a:hover{opacity:1;border-color:var(--accent)}
-
-    /* Icon buttons (download, social, etc.) */
-    .icon-buttons{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-    .icon-btn{
-      width:46px;
-      height:46px;
-      border-radius:999px;
-      background:linear-gradient(135deg,#FFD43B,#FFB800);
-      color:#222;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      font-size:20px;
-      border:none;
-      cursor:pointer;
-      transition:all .25s ease;
-      box-shadow:0 4px 10px rgba(0,0,0,0.25);
-      text-decoration:none;
-    }
-    .icon-btn:hover{
-      transform:translateY(-2px) scale(1.05);
-      box-shadow:0 6px 14px rgba(0,0,0,0.3);
-      background:linear-gradient(135deg,#FFC107,#FFB300);
-    }
-    [data-theme="dark"] .icon-btn{
-      background:linear-gradient(135deg,#CFAF00,#9A8200);
-      color:#fff;
-      box-shadow:0 4px 10px rgba(255,215,0,0.3);
-    }
-
-    /* Mobile menu */
-    .hamburger{
-      display:none;
-      flex-direction:column;
-      gap:4px;
-      border:none;
-      background:transparent;
-      cursor:pointer;
-    }
-    .hamburger span{
-      width:24px;
-      height:2px;
-      background:var(--text);
-      border-radius:2px;
-    }
-#mobileMenu a{
-  display:block;
-  padding:10px 6px;
-  border-radius:10px;
-  font-weight:700;   /* make mobile menu bold */
-}
-
-
-    #mobileMenu a{
-      display:block;
-      padding:10px 6px;
-      border-radius:10px;
-    }
-    #mobileMenu a:hover{
-      background:rgba(253,224,71,.18);
-    }
+    .brand { font-size: 1.3rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    .brand span:first-child { color: var(--primary); }
+    
+    .nav-menu { display: flex; gap: 2rem; }
+    .nav-menu a { font-weight: 500; color: var(--text-muted); position: relative; }
+    .nav-menu a:hover { color: var(--text-main); }
+    
+    .nav-actions { display: flex; gap: 10px; align-items: center; }
 
     /* Hero */
-    .hero{
-      padding:72px 0 36px;
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:34px;
-      align-items:center;
+    .hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1.2fr 0.8fr;
+      align-items: center; gap: 2rem; padding-top: 80px;
     }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(148,163,184,.35);
-      font-size:12px;
-      color:var(--muted);
-    }
-    .badge i{
-      width:8px;height:8px;
-      background:radial-gradient(circle at 30% 30%,var(--accent-2),var(--accent));
-      display:inline-block;
-      border-radius:99px;
-      box-shadow:0 0 18px var(--accent);
-    }
-    h1{
-      font-size:clamp(28px,4.4vw,54px);
-      line-height:1.05;
-      margin:10px 0 12px;
-    }
-    .subtitle{
-      font-size:clamp(16px,1.9vw,20px);
-      color:var(--muted);
-      max-width:64ch;
-    }
-    .hero-cta{
-      margin-top:18px;
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-.avatar {
-  width: clamp(300px, 26vw, 480px);
-  height: clamp(300px, 26vw, 480px);
-  border-radius: 50%;
-  overflow: hidden;
-  border: 3px solid rgba(148,163,184,.25);
-  display: block;
-  box-shadow: 0 10px 30px rgba(2,6,23,.15);
-  background: #fff;
-  object-fit: cover;
-  margin: auto;
-}
+    .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1.1; margin-bottom: 1rem; }
+    .typing-text { color: var(--primary); }
 
-
-    /* Sections head */
-    .section-head{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:22px;
-      flex-wrap:wrap;
+    /* Circular Profile Image */
+    .hero-img-container { position: relative; display: flex; justify-content: center; }
+    .avatar {
+      width: clamp(280px, 30vw, 400px);
+      height: clamp(280px, 30vw, 400px);
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--bg);
+      box-shadow: 0 0 30px var(--primary-glow);
+      transition: var(--transition);
+      animation: float 4s ease-in-out infinite;
     }
-    .section-title{
-      font-size:28px;
-      margin:0;
-      position:relative;
-      display:inline-block;
-    }
-    .section-desc{color:var(--muted);margin:0;}
-
-    /* Section heading accent line */
-    .section-title::after{
-      content:"";
-      position:absolute;
-      bottom:-6px;
-      left:0;
-      height:3px;
-      width:60px;
-      background:linear-gradient(90deg,var(--accent),var(--accent-2));
-    }
-
-    /* Cards Grid */
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-
-    .card{
-      background:var(--card);
-      border:1px solid rgba(148,163,184,.22);
-      border-radius:18px;
-      padding:18px;
-      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-      position:relative;
-      overflow:hidden;
-    }
-    .card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 18px 40px rgba(245,158,11,.18);
-      border-color:rgba(245,158,11,.55);
-    }
-
-    .chip{
-      display:inline-flex;
-      gap:8px;
-      flex-wrap:wrap;
-    }
-    .chip span{
-      font-size:12px;
-      padding:6px 10px;
-      border:1px solid rgba(148,163,184,.25);
-      border-radius:999px;
-      color:var(--muted);
-    }
+    .avatar:hover { transform: scale(1.02); }
 
     /* Skills */
-    .skill{
-      display:grid;
-      grid-template-columns:180px 1fr;
-      gap:14px;
-      align-items:center;
-      margin-bottom:14px;
-    }
-    .bar{
-      height:10px;
-      background:rgba(148,163,184,.22);
-      border-radius:999px;
-      overflow:hidden;
-    }
-    .bar > i{
-      display:block;
-      height:100%;
-      width:0;
-      background:linear-gradient(90deg,var(--accent),var(--accent-2));
-      box-shadow:inset 0 0 8px rgba(245,158,11,.35);
-    }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .skill-bar-bg { height: 8px; background: var(--bg-secondary); border-radius: 10px; overflow: hidden; }
+    .skill-bar-fill { height: 100%; background: linear-gradient(90deg, var(--primary), #fb923c); width: 0; transition: width 1.5s ease; }
 
     /* Projects */
-    #projects *{color:var(--proj-text-color);}
-    .projects-horizontal{
-      display:flex;
-      flex-direction:column;
-      gap:25px;
-    }
-    .project-row{
-      display:flex;
-      gap:20px;
-      padding:20px;
-      border-radius:14px;
-      background:var(--proj-card-bg);
-      box-shadow:0 4px 18px var(--proj-card-shadow);
-      align-items:flex-start;
-      transition:background .25s ease, box-shadow .25s ease, transform .2s ease;
-    }
-    .project-row:hover{
-      transform:translateY(-4px);
-    }
-    .project-left{
-      flex:0 0 240px;
-      font-weight:600;
-      font-size:20px;
-    }
-    .project-right p{
-      margin:4px 0 12px;
-    }
-    .project-chip{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      margin-top:10px;
-    }
-    .project-chip span{
-      background:var(--proj-chip-bg);
-      padding:5px 12px;
-      border-radius:6px;
-      font-size:13px;
-      font-weight:500;
-      transition:background .25s ease, transform .2s ease;
-    }
-    .project-chip span:hover{
-      transform:translateY(-1px);
-    }
-    .project-right a{
-      display:inline-block;
-      padding:6px 14px;
-      background:#3878e0;
-      color:#fff;
-      border-radius:5px;
-      text-decoration:none;
-      margin-bottom:12px;
-      font-weight:600;
-      transition:opacity .25s ease, transform .15s ease;
-    }
-    .project-right a:hover{
-      opacity:.9;
-      transform:translateY(-1px);
+    .project-card { display: grid; grid-template-columns: 1fr 240px; gap: 2rem; margin-bottom: 2rem; }
+    .tech-tag { font-size: 0.75rem; padding: 4px 10px; background: var(--bg-secondary); border-radius: 20px; color: var(--text-muted); font-weight: 600; display: inline-block; margin: 4px 0;}
+
+    /* Certifications Grid */
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .cert-card { text-align: center; display: flex; flex-direction: column; align-items: center; height: 100%; cursor: pointer; }
+    .cert-img { height: 60px; margin-bottom: 1rem; object-fit: contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
+    .cert-link { margin-top: auto; font-size: 0.9rem; color: var(--primary); font-weight: 600; pointer-events: none;}
+    
+    /* Vibrant Icons for Non-Brand Certs */
+    .vibrant-icon {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        background: -webkit-linear-gradient(45deg, var(--primary), #f43f5e);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 4px 10px rgba(245, 158, 11, 0.3));
     }
 
     /* Timeline */
-    .timeline{
-      position:relative;
-      margin:2rem 0;
-      padding-left:1.5rem;
-      border-left:2px solid var(--accent);
+    .timeline { border-left: 2px solid var(--card-border); padding-left: 2rem; margin-left: 1rem; }
+    .timeline-item { position: relative; margin-bottom: 3rem; }
+    .timeline-item::before { content: ''; position: absolute; left: -2.6rem; top: 5px; width: 16px; height: 16px; background: var(--bg); border: 3px solid var(--primary); border-radius: 50%; }
+
+    /* Contact Form */
+    .contact-wrapper { display: grid; grid-template-columns: 1fr 1.5fr; gap: 2rem; }
+    .form-control { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--card-border); background: var(--bg-secondary); color: var(--text-main); margin-bottom: 1rem; }
+
+    /* Mobile Menu */
+    .hamburger { display: none; background: none; border: none; font-size: 1.5rem; color: var(--text-main); }
+    .mobile-menu { position: fixed; top: 71px; left: 0; width: 100%; background: var(--bg); padding: 1rem; transform: translateY(-150%); transition: 0.4s; z-index: 999; border-bottom: 1px solid var(--card-border); }
+    .mobile-menu.open { transform: translateY(0); }
+    .mobile-menu a { display: block; padding: 12px; font-weight: 600; }
+
+    /* --- CERTIFICATE MODAL STYLES --- */
+    .modal {
+      display: none; 
+      position: fixed; 
+      z-index: 2000; 
+      left: 0; top: 0; 
+      width: 100%; height: 100%; 
+      background-color: rgba(0,0,0,0.8); 
+      backdrop-filter: blur(5px);
+      align-items: center; 
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
-    .t-item{
-      position:relative;
-      margin-bottom:1.4rem;
-    }
-    .t-item::before{
-      content:"";
-      position:absolute;
-      left:-10px;
-      top:4px;
-      width:10px;
-      height:10px;
-      border-radius:999px;
+    .modal.show { display: flex; opacity: 1; }
     
+    .modal-content {
+      background: var(--bg);
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      width: 90%;
+      max-width: 900px;
+      height: 80vh;
+      position: relative;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+      animation: scaleUp 0.3s ease;
     }
-    .t-role{
-      font-weight:600;
-      margin-bottom:4px;
+    
+    .close-modal {
+      position: absolute;
+      top: -40px; right: 0;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: transform 0.2s;
     }
-    .t-org{
-      font-size:14px;
-      color:var(--muted);
-      margin-bottom:6px;
-    }
-
-    /* Certifications */
-    .cert-icon{
-      width:80px;
-      height:80px;
-      object-fit:contain;
-      display:block;
-      margin:0 auto 10px;
-    }
-    .view-btn {
-  margin-top: 10px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #000;
-  font-weight: 600;
-  border-radius: 8px;
-  font-size: 14px;
-  transition: all 0.25s ease;
-}
-
-.view-btn i {
-  font-size: 14px;
-}
-
-.card:hover .view-btn {
-  transform: translateY(-2px);
-  opacity: 0.95;
-}
-
-
-    /* Footer */
-    footer{
-      border-top:1px solid rgba(148,163,184,.18);
-      padding:26px 0 40px;
-      color:var(--muted);
+    .close-modal:hover { transform: scale(1.1); color: var(--primary); }
+    
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
     }
 
-    /* Utility */
-    .muted{color:var(--muted)}
-    .sr-only{
-      position:absolute;
-      width:1px;height:1px;
-      padding:0;margin:-1px;
-      overflow:hidden;
-      clip:rect(0,0,0,0);
-      border:0;
-    }
-    .hide{display:none}
-    <div class="container hide" id="mobileMenu">...</div>
+    @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
+    @keyframes scaleUp { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-
-    :is(a,button,input,textarea,select):focus{
-      outline:none;
-      box-shadow:var(--ring);
-    }
-
-    /* ===== RESPONSIVE BREAKPOINTS ===== */
-    @media (max-width: 980px){
-      .grid{grid-template-columns:repeat(2,1fr);}
-      .hero{
-        grid-template-columns:1fr;
-        text-align:left;
-      }
-      .hero-card{
-        order:-1;
-        justify-self:center;
-      }
-      .nav{
-        flex-wrap:wrap;
-      }
-    }
-
- @media (max-width: 860px){
-  .menu{display:none;}
-  .hamburger{display:flex;}
-  /* Remove: header .icon-buttons{display:none;} */
-}
-
-
-
-    @media (max-width: 640px){
-      .grid{grid-template-columns:1fr;}
-      .hero{
-        padding:56px 0 28px;
-      }
-      .section-head{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-      .skill{
-        grid-template-columns:1fr;
-      }
-      .project-row{
-        flex-direction:column;
-      }
-      .project-left{
-        flex:1 1 auto;
-        font-size:18px;
-      }
-      .nav{
-        padding:16px 0;
-      }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+      .hero-img-container { order: -1; }
+      .nav-menu { display: none; }
+      .hamburger { display: block; }
+      .project-card, .contact-wrapper { grid-template-columns: 1fr; }
     }
   </style>
-
-  <!-- Animations & subtle effects -->
-  <style>
-    @keyframes fadeInUp {
-      from {opacity:0;transform:translateY(20px);}
-      to {opacity:1;transform:translateY(0);}
-    }
-    @keyframes float {
-      0% {transform:translateY(0);}
-      50% {transform:translateY(-6px);}
-      100% {transform:translateY(0);}
-    }
-
-    .hero > div,
-    .hero .hero-card{
-      opacity:0;
-      animation:fadeInUp .9s ease forwards;
-    }
-    .hero > div{animation-delay:.2s;}
-    .hero .hero-card{animation-delay:.4s;}
-    .avatar{animation:float 4s ease-in-out infinite;}
-
-    .card{
-      opacity:0;
-      transform:translateY(20px);
-      animation:fadeInUp .8s ease forwards;
-    }
-    .grid .card:nth-child(1){animation-delay:.2s}
-    .grid .card:nth-child(2){animation-delay:.4s}
-    .grid .card:nth-child(3){animation-delay:.6s}
-    .grid .card:nth-child(4){animation-delay:.8s}
-    .grid .card:nth-child(5){animation-delay:1s}
-    .grid .card:nth-child(6){animation-delay:1.2s}
-
-    .btn{
-      position:relative;
-      overflow:hidden;
-    }
-    .btn::after{
-      content:"";
-      position:absolute;
-      top:50%;left:50%;
-      width:0;height:0;
-      background:rgba(255,255,255,.3);
-      border-radius:50%;
-      transform:translate(-50%,-50%);
-      opacity:0;
-      transition:width .4s ease,height .4s ease,opacity .6s ease;
-    }
-    .btn:active::after{
-      width:200%;height:200%;
-      opacity:0;
-      transition:0s;
-    }
-    /* Contact section */
-.contact-card{
-  max-width:640px;
-  margin-inline:auto;
-}
-
-.contact-form-fields{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-}
-
-.contact-field label{
-  display:block;
-  font-weight:600;
-  margin-bottom:4px;
-}
-
-.contact-field input,
-.contact-field textarea{
-  width:100%;
-  padding:10px 12px;
-  border-radius:10px;
-  border:1px solid rgba(148,163,184,.6);
-  background:var(--panel);
-  color:var(--text);
-  font:inherit;
-  box-sizing:border-box;
-}
-
-.contact-field textarea{
-  resize:vertical;
-  min-height:120px;
-}
-
-.contact-submit{
-  align-self:flex-start;
-  padding:12px 20px;
-  border-radius:25px;
-  border:none;
-  background:linear-gradient(135deg,var(--accent),var(--accent-2));
-  font-weight:700;
-  cursor:pointer;
-  margin-top:4px;
-}
-
-.contact-status{
-  font-size:14px;
-  margin:4px 0 0;
-}
-
-.contact-icons{
-  margin-top:18px;
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  justify-content:flex-start;
-}
-
-/* On small screens center everything nicely */
-@media (max-width:640px){
-  .contact-card{
-    padding:22px;
-  }
-  .contact-submit{
-    width:100%;
-    text-align:center;
-    justify-content:center;
-  }
-  .contact-icons{
-    justify-content:center;
-  }
-}
-
-/* ===== MOBILE FRIENDLY TEXT SIZING ===== */
-:root {
-  --fs-h1: clamp(26px, 6vw, 48px);
-  --fs-h2: clamp(22px, 4.5vw, 32px);
-  --fs-normal: clamp(14px, 3.5vw, 18px);
-  --fs-small: clamp(12px, 3vw, 16px);
-}
-
-/* Apply fluid typography */
-h1 { font-size: var(--fs-h1) !important; }
-h2.section-title { font-size: var(--fs-h2) !important; }
-p, li, .subtitle, .muted { font-size: var(--fs-normal) !important; }
-.menu a, #mobileMenu a { font-size: var(--fs-normal) !important; }
-.badge { font-size: var(--fs-small) !important; }
-
-/* Hero subtitle spacing fix */
-.subtitle {
-  line-height: 1.55;
-}
-
-/* Improve project text readability */
-.project-right p {
-  font-size: var(--fs-normal) !important;
-  line-height: 1.55;
-}
-
-/* About section */
-#about .card p {
-  font-size: var(--fs-normal) !important;
-}
-
-/* Skills labels */
-.skill div:first-child {
-  font-size: var(--fs-normal) !important;
-}
-
-/* Contact form text */
-.contact-field label,
-.contact-field input,
-.contact-field textarea {
-  font-size: var(--fs-normal) !important;
-}
-
-
-  </style>
-
-  <!-- JSON-LD Person Schema -->
+  
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -725,87 +305,53 @@ p, li, .subtitle, .muted { font-size: var(--fs-normal) !important; }
     "name": "Sanjeev Kumar",
     "jobTitle": "IT Engineer",
     "url": "https://isanjiiv.github.io/",
-     "image": "https://isanjiiv.github.io/assets/images/Sanjeev.jpg",
-    "description": "IT Engineer specializing in Windows Server Administration, Networking, Fortinet Firewall, AWS, Azure, and Cybersecurity.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Noida",
-      "addressCountry": "India"
-    },
+    "image": "https://isanjiiv.github.io/assets/images/Sanjeev.jpg",
     "sameAs": [
       "https://www.linkedin.com/in/isanjiiv/",
       "https://github.com/isanjiiv/",
       "https://www.instagram.com/isanjiiv/"
-    ],
-    "knowsAbout": [
-      "Windows Server",
-      "Networking",
-      "Fortinet Firewall",
-      "AWS",
-      "Azure",
-      "Cybersecurity",
-      "Acronis Backup",
-      "AutoCAD",
-      "SolidWorks"
     ]
   }
   </script>
 </head>
 
 <body>
- <!-- Header -->
-<header>
-  <div class="container nav" aria-label="Primary">
-    <a class="brand" href="#home" aria-label="Sanjeev Kumar Home">
-      <span class="dot" aria-hidden="true"></span>
-      <span>Sanjeev Kumar</span>
-    </a>
 
-    <nav class="menu" aria-label="Main menu">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#certs">Certifications</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="icon-buttons">
-           
-    <!-- WAY OF TECH Logo -->
-      <a href="https://www.wayoftech.net/"
-         class="icon-btn site-logo-btn"
-         target="_blank"
-         title="WAY OF TECH">
-        <img src="https://www.wayoftech.net/favicon.ico"
-             alt="WAY OF TECH"
-             class="site-logo">
+  <header>
+    <div class="container nav-inner">
+      <a href="#home" class="brand">
+        <span class="dot">●</span> Sanjeev Kumar
       </a>
 
-    <!-- Download Resume -->
-<a href="https://isanjiiv.github.io/assets/docs/Resume.pdf"
-   class="icon-btn"
-   download
-   title="Download Resume">
-  <i class="fa-solid fa-download"></i>
-</a>
+      <nav class="nav-menu">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certs">Certifications</a>
+        <a href="#experience">Experience</a>
+      </nav>
 
+      <div class="nav-actions">
+        <a href="https://www.wayoftech.net/" target="_blank" class="btn-icon" title="WAY OF TECH">
+           <img src="https://www.wayoftech.net/favicon.ico" alt="Way of Tech" style="width:20px;">
+        </a>
+        
+        <button class="btn-icon" id="themeToggle" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
 
+        <a href="https://isanjiiv.github.io/assets/docs/Resume.pdf" class="btn-icon" download title="Download Resume">
+          <i class="fa-solid fa-download"></i>
+        </a>
 
-  
-      <!-- Theme Toggle -->
-      <button class="icon-btn" id="themeToggle" aria-pressed="false" title="Toggle Theme">
-        <i class="fa-solid fa-sun" id="themeIcon"></i>
-      </button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
     </div>
+  </header>
 
-    <button class="hamburger" id="hamburger" aria-label="Open menu"
-            aria-controls="mobileMenu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-
-  <div class="container hide" id="mobileMenu" role="navigation" aria-label="Mobile menu">
+  <div class="mobile-menu" id="mobileMenu">
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
@@ -813,450 +359,403 @@ p, li, .subtitle, .muted { font-size: var(--fs-normal) !important; }
     <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
   </div>
-</header>
 
-
-  <!-- Hero -->
-  <main id="home" class="container hero" aria-label="Intro">
-    <div>
-      <span class="badge"><i></i> Open to Opportunities</span>
-      <h1>Hi, I'm Sanjeev <span style="background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent"></span> from Noida.</h1>
-      <p class="subtitle">
-        I specialize in <strong>Windows Server Administration</strong>, <strong>Networking</strong> (VLANs, DHCP, DNS),
-        <strong>Cloud</strong> (AWS &amp; Azure), <strong>Firewall</strong> (Fortinet 60F), and <strong>Cybersecurity</strong>.
-        I love building reliable systems and helping teams ship fast and safe.
-      </p>
-
-      <div class="hero-cta">
-        <!-- Email -->
-        <a class="icon-btn" href="mailto:sanjeev753304@gmail.com" title="Email Me">
-          <i class="fa-solid fa-envelope"></i>
-        </a>
-
-        <div class="icon-buttons">
-          <!-- LinkedIn -->
-          <a class="icon-btn" href="https://www.linkedin.com/in/isanjiiv/" target="_blank" title="LinkedIn">
-            <i class="fa-brands fa-linkedin"></i>
-          </a>
-          <!-- Instagram -->
-          <a class="icon-btn" href="https://www.instagram.com/isanjiiv/" target="_blank" title="Instagram">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          <!-- GitHub -->
-          <a class="icon-btn" href="https://github.com/isanjiiv" target="_blank" title="GitHub">
-            <i class="fa-brands fa-github"></i>
-          </a>
+  <main>
+    <section id="home" class="hero container">
+      <div class="hero-content">
+        <div style="display:inline-block; padding:6px 14px; background:rgba(245, 158, 11, 0.1); color:var(--primary); border-radius:50px; font-weight:600; margin-bottom:1rem; border:1px solid rgba(245, 158, 11, 0.2);">
+          <i class="fa-solid fa-circle" style="font-size:8px; vertical-align:middle;"></i> Open to Opportunities
+        </div>
+        <h1>Hi, I'm Sanjeev.<br>I am a <span class="typing-text"></span></h1>
+        <p style="max-width: 600px; margin-bottom: 2rem;">
+          Specializing in <strong>Windows Server Administration</strong>, <strong>Networking</strong>, 
+          <strong>Cloud (AWS & Azure)</strong>, <strong>Firewall (Fortinet)</strong>, and <strong>Cybersecurity</strong>. 
+          I build reliable systems and help teams ship fast and safe.
+        </p>
+        
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#contact" class="btn-primary">Get in Touch</a>
+          <div style="display: flex; gap: 10px;">
+            <a href="mailto:sanjeev753304@gmail.com" class="btn-icon" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" class="btn-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/isanjiiv/" target="_blank" class="btn-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://github.com/isanjiiv" target="_blank" class="btn-icon" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="hero-card" aria-label="Profile photo">
-      <img class="avatar" src="https://isanjiiv.github.io/assets/images/Sanjeev.jpg" alt="Sanjeev Kumar profile" />
-    </div>
+      <div class="hero-img-container">
+        <img src="https://isanjiiv.github.io/assets/images/Sanjeev.jpg" alt="Sanjeev Kumar Profile" class="avatar">
+      </div>
+    </section>
+
+    <section id="about" class="container" style="padding-top: 5rem;">
+      <div class="glass-card">
+        <div class="section-header">
+          <h2>About Me</h2>
+        </div>
+        <p>
+          I am an <strong>IT Engineer</strong> with proven expertise in
+          <strong>Windows Server administration (AD, GPO, WSUS)</strong>,
+          <strong>network troubleshooting</strong>,
+          <strong>cloud server management (AWS and Azure)</strong>, and
+          <strong>firewall configuration (Fortinet 60F)</strong>.
+        </p>
+        <p>
+          Skilled in leveraging <strong>AI technologies</strong> to build no-code applications, automate workflows, and enhance business processes.
+        </p>
+        <div style="margin-top: 1.5rem;">
+          <span class="tech-tag">Noida, India</span>
+          <span class="tech-tag">Hindi • English • Maithili</span>
+          <span class="tech-tag" style="background:var(--primary); color:#fff;">Available for Full-time</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="container" style="padding-top: 5rem;">
+      <div class="section-header">
+        <h2>Skills</h2>
+      </div>
+      <div class="glass-card">
+        <div class="skills-grid">
+          <div class="skill-item">
+            <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>AI & Prompting</span><span>90%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>Windows Server</span><span>90%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>Networking</span><span>88%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>Cloud (AWS/Azure)</span><span>60%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="60%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>Security (Fortinet)</span><span>85%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>WordPress</span><span>70%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="70%"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="container" style="padding-top: 5rem;">
+      <div class="section-header">
+        <h2>Projects</h2>
+      </div>
+
+      <article class="glass-card project-card">
+        <div>
+          <h3>Enterprise AD & GPO Setup</h3>
+          <p>Planned and implemented a Windows Server 2016 Active Directory environment. Set up OU design, user access policies, GPO configurations, and WSUS for 120+ endpoints. Configured Acronis Backup for disaster recovery.</p>
+          <div style="margin-top:10px;">
+            <span class="tech-tag">Windows Server 2016</span>
+            <span class="tech-tag">Active Directory</span>
+            <span class="tech-tag">GPO</span>
+            <span class="tech-tag">Backup</span>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px;">
+          <i class="fa-brands fa-windows" style="font-size:3rem; color:var(--text-muted); opacity:0.5;"></i>
+        </div>
+      </article>
+
+      <article class="glass-card project-card">
+        <div>
+          <h3>Fortinet 60F SD-WAN Deployment</h3>
+          <p>Designed SD-WAN on FortiGate 60F to enhance network performance. Integrated two ISP connections (Jio & Spectra) with load balancing and automated failover. Applied firewall rules, IPS/AV profiles, and VLANs.</p>
+          <div style="margin-top:10px;">
+            <span class="tech-tag">FortiGate</span>
+            <span class="tech-tag">SD-WAN</span>
+            <span class="tech-tag">VLAN</span>
+            <span class="tech-tag">Security</span>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px;">
+           <i class="fa-solid fa-shield-halved" style="font-size:3rem; color:var(--text-muted); opacity:0.5;"></i>
+        </div>
+      </article>
+
+      <article class="glass-card project-card">
+        <div>
+          <h3>AI Cost Sheet Builder (Web App)</h3>
+          <p>Built a no-code web application at Graiin Milling Solutions using Lovable AI to automate cost sheet generation. Integrated secure login, automated calculations, and PDF/Excel export.</p>
+          <a href="https://costsheetcreation.lovable.app/login" target="_blank" style="color:var(--primary); font-weight:700; display:inline-block; margin-top:5px;">
+             View App <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <div style="margin-top:10px;">
+            <span class="tech-tag">Lovable AI</span>
+            <span class="tech-tag">No-Code</span>
+            <span class="tech-tag">Automation</span>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px;">
+           <i class="fa-solid fa-robot" style="font-size:3rem; color:var(--text-muted); opacity:0.5;"></i>
+        </div>
+      </article>
+      
+      <article class="glass-card project-card">
+        <div>
+          <h3>Secure Wifi Network (FortiGate + Deco Mesh)</h3>
+          <p>Implemented a secure wireless network upgrade using TP-Link Deco Mesh integrated with FortiGate 60F. Configured internal interfaces, LAN roles, DHCP, and firewall policies for secure, seamless roaming.</p>
+          <div style="margin-top:10px;">
+            <span class="tech-tag">Deco Mesh</span>
+            <span class="tech-tag">FortiGate 60F</span>
+            <span class="tech-tag">WiFi Security</span>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px;">
+           <i class="fa-solid fa-wifi" style="font-size:3rem; color:var(--text-muted); opacity:0.5;"></i>
+        </div>
+      </article>
+    </section>
+
+    <section id="certs" class="container" style="padding-top: 5rem;">
+      <div class="section-header">
+        <h2>Certifications</h2>
+        <p style="color:var(--text-muted); font-size:0.9rem;">Click any card to view the certificate.</p>
+      </div>
+      <div class="cert-grid">
+        <a href="https://drive.google.com/file/d/1ExcnlsVy3ZHLtRs_RoF2hNQ05G4Cj154/view?usp=drive_link" class="glass-card cert-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Cisco CCNA" class="cert-img">
+          <h3>Cisco CCNA</h3>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Network Fundamentals</p>
+          <span class="cert-link">View Certificate</span>
+        </a>
+        <a href="https://drive.google.com/file/d/14aOsqQTKcxbeSA23yXPuLvjPUKDfNpvb/view?usp=drive_link" class="glass-card cert-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" alt="Azure" class="cert-img">
+          <h3>Microsoft Azure</h3>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Fundamentals</p>
+          <span class="cert-link">View Certificate</span>
+        </a>
+        <a href="https://drive.google.com/file/d/15hSFkJXr92o4VhM5YgF13pZFv2aSakaD/view?usp=drive_link" class="glass-card cert-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud" class="cert-img">
+          <h3>Google Cloud</h3>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Trust & Security</p>
+          <span class="cert-link">View Certificate</span>
+        </a>
+        <a href="https://drive.google.com/file/d/1kUh_5kU6V_FEYsFhnyf1yHfr12Cmzkdd/view?usp=drive_link" class="glass-card cert-card">
+          <i class="fa-solid fa-network-wired vibrant-icon" style="background: linear-gradient(45deg, #3b82f6, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+          <h3>Computer Networking</h3>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Basics of Networking</p>
+          <span class="cert-link">View Certificate</span>
+        </a>
+        <a href="https://drive.google.com/file/d/1Hcgl0Drn_niSwc64zhvL0LY2tFEnL6hx/view?usp=drive_link" class="glass-card cert-card">
+          <i class="fa-solid fa-shield-halved vibrant-icon" style="background: linear-gradient(45deg, #ef4444, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+          <h3>Cyber Security</h3>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Threats & Governance</p>
+          <span class="cert-link">View Certificate</span>
+        </a>
+        <a href="https://drive.google.com/file/d/1OhjH3b2gffiHm4KIUrTo_2pP_5BNnKJG/view?usp=drive_link" class="glass-card cert-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="cert-img">
+          <h3>MCSA</h3>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Windows Server Admin</p>
+          <span class="cert-link">View Certificate</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="experience" class="container" style="padding-top: 5rem;">
+      <div class="section-header">
+        <h2>Experience</h2>
+      </div>
+      <div class="glass-card">
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3 style="margin-bottom:5px;">IT Engineer</h3>
+            <p style="font-weight:700; color:var(--primary);">Grain Milling Solutions Pvt Ltd</p>
+            <p style="font-size:0.9rem; margin-bottom:10px;">Apr 2024 – Present · Noida</p>
+            <p>Windows Server, network administration, firewall policies, cloud server management, backups, and end-user support.</p>
+          </div>
+          <div class="timeline-item" style="margin-bottom:0;">
+            <h3 style="margin-bottom:5px;">System Support Engineer</h3>
+            <p style="font-weight:700; color:var(--primary);">Konexions Back Office Pvt Ltd</p>
+            <p style="font-size:0.9rem; margin-bottom:10px;">Previous Role</p>
+            <p>Hardware/software troubleshooting, OS deployment, ticketing and SLA-based support across teams.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="container" style="padding: 5rem 0;">
+      <div class="section-header">
+        <h2>Get In Touch</h2>
+      </div>
+      <div class="glass-card contact-wrapper">
+        <div>
+          <h3>Let's talk tech.</h3>
+          <p>Whether you have a job opportunity, a project, or just want to say hi, my inbox is open.</p>
+          
+          <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+            <div style="display:flex; gap:12px; align-items:center;">
+              <i class="fa-solid fa-location-dot" style="color:var(--primary);"></i> <span>Noida, India</span>
+            </div>
+            <div style="display:flex; gap:12px; align-items:center;">
+              <i class="fa-solid fa-envelope" style="color:var(--primary);"></i> <span>Sanjeev753304@gmail.com</span>
+            </div>
+          </div>
+          
+          <div style="display: flex; gap: 10px; margin-top:2rem;">
+            <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" class="btn-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/isanjiiv" target="_blank" class="btn-icon"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com/isanjiiv/" target="_blank" class="btn-icon"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <form action="https://formspree.io/f/xzzabloy" method="POST">
+          <input type="text" name="name" class="form-control" required placeholder="Your Name">
+          <input type="email" name="email" class="form-control" required placeholder="Your Email">
+          <textarea name="message" rows="4" class="form-control" required placeholder="How can I help you?"></textarea>
+          
+          <input type="hidden" name="_subject" value="New message from portfolio">
+          <input type="hidden" name="_replyto" value="Sanjeev753304@gmail.com">
+          
+          <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+      </div>
+    </section>
+
   </main>
 
-  <!-- About -->
-  <section id="about" class="container">
-    <div class="section-head">
-      <h2 class="section-title">About Me</h2>
-      <p class="section-desc">Snapshot</p>
-    </div>
-    <div class="card">
-      <p>
-        I am an <strong>IT Engineer</strong> with proven expertise in
-        <strong>Windows Server administration (AD, GPO, WSUS)</strong>,
-        <strong>network troubleshooting</strong>,
-        <strong>cloud server management (AWS and Azure)</strong>, and
-        <strong>firewall configuration (Fortinet 60F)</strong>.
-      </p>
-      <p>
-        With a strong foundation in <strong>system administration, cloud technologies,</strong> and IT infrastructure support,
-        I bring a results-oriented approach and a commitment to delivering reliable and secure solutions.
-      </p>
-      <p>
-        Skilled in leveraging <strong>AI technologies to build no-code applications, automate workflows, and enhance business processes</strong>,
-        driving efficiency and innovation. Adept at integrating AI solutions within traditional IT frameworks to improve operational reliability.
-      </p>
-
-      <div class="chip" style="margin-top:12px">
-        <span>Noida, India</span>
-        <span>Hindi • English • Maithili</span>
-        <span>Available for full-time</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="container">
-    <div class="section-head">
-      <h2 class="section-title">Skills</h2>
-      <p class="section-desc">Core strengths</p>
-    </div>
-    <div class="card">
-      <div class="skill" aria-label="AI & Prompting">
-        <div>AI &amp; Prompting</div>
-        <div class="bar"><i style="width:90%"></i></div>
-      </div>
-      <div class="skill" aria-label="Windows Server">
-        <div>Windows Server</div>
-        <div class="bar"><i style="width:90%"></i></div>
-      </div>
-      <div class="skill" aria-label="Networking">
-        <div>Networking</div>
-        <div class="bar"><i style="width:88%"></i></div>
-      </div>
-      <div class="skill" aria-label="Cloud">
-        <div>Cloud</div>
-        <div class="bar"><i style="width:60%"></i></div>
-      </div>
-      <div class="skill" aria-label="Security">
-        <div>Security</div>
-        <div class="bar"><i style="width:65%"></i></div>
-      </div>
-      <div class="skill" aria-label="WordPress">
-        <div>WordPress</div>
-        <div class="bar"><i style="width:70%"></i></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="container">
-    <div class="section-head">
-      <h2 class="section-title">Projects</h2>
-      <p class="section-desc">Selected work &amp; case studies</p>
-    </div>
-
-    <div class="projects-horizontal">
-     <!-- Project 1 -->
-<div class="project-row">
-  <div class="project-left">Enterprise AD &amp; GPO Setup</div>
-  <div class="project-right">
-    <p class="muted">
-      Planned and implemented a complete Windows Server 2016 Active Directory environment for the organization, including a structured
-      OU design, user access policies, and security-based GPO configurations aligned with company standards. Set up WSUS to centrally 
-      manage updates across more than 120 endpoints, ensuring timely patching and reducing vulnerabilities. Additionally configured 
-      RAID for data redundancy, deployed an Acronis Backup Server for reliable system and data recovery, and established a centralized 
-      Printer Server to streamline printing services for all departments. This project resulted in improved security, faster 
-      onboarding/offboarding, better compliance, and a more stable and efficient IT infrastructure.
-    </p>
-    <div class="project-chip">
-      <span>Windows Server 2016</span><span>Active Directory</span><span>GPO</span><span>WSUS</span><span>Backup</span>
-    </div>
-  </div>
-</div>
-
-
-    <!-- Project 2 -->
-<div class="project-row">
-  <div class="project-left">Fortinet 60F SD-WAN Deployment</div>
-  <div class="project-right">
-    <p class="muted">
-      Designed and deployed a complete SD-WAN solution on the FortiGate 60F firewall to enhance network performance and business
-      continuity. Integrated two ISP connections (Jio and Spectra) and configured intelligent load balancing, real-time link
-      monitoring, and automated failover. This setup significantly improved internet reliability, reduced downtime, and ensured that 
-      all teams could work smoothly without interruptions. The project also strengthened overall network security by applying 
-      optimized firewall rules, IPS/AV profiles, and clean traffic segregation through VLANs, resulting in faster access to cloud apps 
-      and a more stable, productive IT environment.
-    </p>
-    <div class="project-chip">
-      <span>FortiGate</span><span>SD-WAN</span><span>Dual ISP</span><span>VLAN</span><span>Network Security</span>
-    </div>
-  </div>
-</div>
-
-
-      <!-- Project 3 -->
-      <div class="project-row">
-        <div class="project-left">AI Cost Sheet Builder (Web App)</div>
-        <div class="project-right">
-          <p class="muted">
-            Built a no-code web application at Graiin Milling Solutions using Lovable AI to automate and simplify cost sheet generationa crucial process for accurate project costing and business decisions. The tool integrated secure login, automated
-            calculations, and PDF/Excel export, significantly improving accuracy, efficiency, and reliability for the company.
-          </p>
-          <a href="https://costsheetcreation.lovable.app/login" target="_blank">
-            &#128279; View App
-          </a>
-          <div class="project-chip">
-            <span>Lovable AI</span><span>No-code</span><span>Automation</span><span>Prompt Engineering</span><span>UI/UX</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 4 -->
-      <div class="project-row">
-        <div class="project-left">Secure Wifi Network Using FortiGate 60F</div>
-        <div class="project-right">
-          <p class="muted">
-            Implemented a complete wireless network upgrade for the MD’s workspace using
-            <strong>TP-Link Deco Mesh integrated with FortiGate 60F</strong>. The goal was to provide fast connectivity, secure access
-            control, and seamless roaming across all devices within the corporate environment.
-          </p>
-
-          <p class="muted">
-            Configured Deco Mesh through FortiGate Internal2 interface with proper LAN roles, IP addressing, and subnet planning.
-            Enabled key administrative services <strong>(HTTPS, HTTP, SSH, PING)</strong> for network monitoring.
-            <strong>Applied firewall policies to secure</strong> and filter outbound traffic while ensuring controlled access for all devices.
-          </p>
-
-          <p class="muted">
-            Conducted routing checks, DHCP verification, and segmentation validation to ensure stable communication. Completed full
-            functional tests including connectivity, signal strength monitoring, mesh synchronization, and device roaming performance.
-          </p>
-
-          <p class="muted">
-            Final deployment included rack-mounting Deco units, optimizing cable management, verifying WAN/LAN connections, and confirming
-            stable,<strong> Secure WiFi connectivity across MD’s devices</strong>. The result was a high-performance wireless environment
-            with improved reliability, coverage, and overall network hygiene.
-          </p>
-
-          <div class="project-chip">
-            <span>Deco Mesh</span>
-            <span>FortiGate 60F</span>
-            <span>LAN Configuration</span>
-            <span>Firewall Policies</span>
-            <span>DHCP</span>
-            <span>Routing</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
- <!-- Certifications -->
-<section id="certs" class="container">
-  <div class="section-head">
-    <h2 class="section-title">Certifications</h2>
-    <p class="section-desc">Verified achievements</p>
-  </div>
-
-  <div class="grid">
-
-    <a href="https://drive.google.com/file/d/1ExcnlsVy3ZHLtRs_RoF2hNQ05G4Cj154/view?usp=drive_link"
-       target="_blank" class="card" aria-label="Cisco CCNA">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg"
-           alt="Cisco CCNA" class="cert-icon"/>
-      <p style="margin:10px 0 0"><strong>Cisco CCNA</strong></p>
-      <p class="muted">Network Fundamentals</p>
-      <div class="view-btn">View <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-    </a>
-
-    <a href="https://drive.google.com/file/d/14aOsqQTKcxbeSA23yXPuLvjPUKDfNpvb/view?usp=drive_link"
-       target="_blank" class="card" aria-label="Microsoft Azure Fundamentals">
-      <img src="https://images.credly.com/size/340x340/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png"
-           alt="Azure Fundamentals" class="cert-icon"/>
-      <p style="margin:10px 0 0"><strong>Microsoft Azure</strong></p>
-      <p class="muted">Microsoft Azure Fundamentals</p>
-      <div class="view-btn">View <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-    </a>
-
-    <a href="https://drive.google.com/file/d/15hSFkJXr92o4VhM5YgF13pZFv2aSakaD/view?usp=drive_link"
-       target="_blank" class="card" aria-label="Google Cloud Security">
-      <img src="https://i.ibb.co/0p00pjKb/social-icon-google-cloud-1200-630.png"
-           alt="Google Cloud Security" class="cert-icon"/>
-      <p style="margin:10px 0 0"><strong>Google Cloud</strong></p>
-      <p class="muted">Trust and Security with Google Cloud</p>
-      <div class="view-btn">View <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-    </a>
-
-    <a href="https://drive.google.com/file/d/1kUh_5kU6V_FEYsFhnyf1yHfr12Cmzkdd/view?usp=drive_link"
-       target="_blank" class="card" aria-label="Computer Networking">
-      <img src="https://i.ibb.co/TDc4TQF3/cloud-computing.png"
-           alt="Computer Networking" class="cert-icon"/>
-      <p style="margin:10px 0 0"><strong>Computer Networking</strong></p>
-      <p class="muted">Basics of Computer Networking</p>
-      <div class="view-btn">View <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-    </a>
-
-    <a href="https://drive.google.com/file/d/1Hcgl0Drn_niSwc64zhvL0LY2tFEnL6hx/view?usp=drive_link"
-       target="_blank" class="card" aria-label="Cyber Security">
-      <img src="https://i.ibb.co/rRHQ9YBr/cyber-security-1.png"
-           alt="Cyber Security" class="cert-icon"/>
-      <p style="margin:10px 0 0"><strong>Advanced Cyber Security Threats</strong></p>
-      <p class="muted">Governance &amp; Management</p>
-      <div class="view-btn">View <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-    </a>
-
-    <a href="https://drive.google.com/file/d/1OhjH3b2gffiHm4KIUrTo_2pP_5BNnKJG/view?usp=drive_link"
-       target="_blank" class="card" aria-label="Windows Server Administration">
-      <img src="https://i.ibb.co/1f2bm3ss/mcsa.png"
-           alt="Windows Server Administration" class="cert-icon"/>
-      <p style="margin:10px 0 0"><strong>Windows Server Administration (MCSA)</strong></p>
-      <p class="muted">Windows Server 2019</p>
-      <div class="view-btn">View <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-    </a>
-
-  </div>
-</section>
-
-
-  <!-- Experience -->
-  <section id="experience" class="container">
-    <div class="section-head">
-      <h2 class="section-title">Experience</h2>
-      <p class="section-desc">Work history</p>
-    </div>
-    <div class="card timeline">
-      <div class="t-item">
-        <div class="t-role">IT Engineer • <strong>Grain Milling Solutions Pvt Ltd</strong></div>
-        <div class="t-org">Apr 2024 – Present · Noida</div>
-        <p class="muted">
-          Windows Server, network administration, firewall policies, cloud server management, backups,
-          and end-user support.
-        </p>
-      </div>
-      <div class="t-item">
-        <div class="t-role">System Support Engineer • <strong>Konexions Back Office Pvt Ltd</strong></div>
-        <div class="t-org">Previous Role</div>
-        <p class="muted">
-          Hardware/software troubleshooting, OS deployment, ticketing and SLA-based support across teams.
-        </p>
-      </div>
-    </div>
-  </section>
-
-<!-- Contact -->
-<section id="contact" class="container">
-  <div class="section-head">
-    <h2 class="section-title">Get in Touch</h2>
-    <p class="section-desc">Send me a message</p>
-  </div>
-
-  <div class="card contact-card">
-    <form id="contactForm"
-          action="https://formspree.io/f/xzzabloy"
-          method="POST">
-      <div class="contact-form-fields">
-        <div class="contact-field">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required
-                 placeholder="Your name">
-        </div>
-
-        <div class="contact-field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required
-                 placeholder="your@email.com">
-        </div>
-
-        <div class="contact-field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4" required
-                    placeholder="How can I help you?"></textarea>
-        </div>
-
-        <!-- Hidden field to route all mails to your Gmail -->
-        <input type="hidden" name="_subject" value="New message from portfolio">
-        <input type="hidden" name="_replyto" value="Sanjeev75304@gmail.com">
-
-        <button type="submit" class="btn contact-submit">
-          Send Message
-        </button>
-
-        <p id="formStatus" class="muted contact-status"></p>
-      </div>
-    </form>
-
-    <div class="contact-icons">
-      <a class="icon-btn" href="mailto:Sanjeev75304@gmail.com" title="Email Me">
-        <i class="fa-solid fa-envelope"></i>
-      </a>
-      <a class="icon-btn" href="https://www.linkedin.com/in/isanjiiv/" target="_blank" title="LinkedIn">
-        <i class="fa-brands fa-linkedin"></i>
-      </a>
-      <a class="icon-btn" href="https://www.instagram.com/isanjiiv/" target="_blank" title="Instagram">
-        <i class="fa-brands fa-instagram"></i>
-      </a>
-      <a class="icon-btn" href="https://github.com/isanjiiv" target="_blank" title="GitHub">
-        <i class="fa-brands fa-github"></i>
-      </a>
-    </div>
-  </div>
-</section>
-  <!-- Footer -->
   <footer>
-    <div class="container" style="display:flex;justify-content:center;align-items:center;text-align:center;padding:10px 0;">
-      <p style="margin:0;font-size:16px;">
-        © <span id="year"></span>
-        <a href="https://www.linkedin.com/in/isanjiiv/"
-           target="_blank"
-           style="color:#ffcc00;text-decoration:none;font-weight:bold;transition:color .3s;">
-          Sanjeev Kumar
-        </a>. All rights reserved.
-      </p>
+    <div class="container" style="text-align:center; padding:3rem 0; color:var(--text-muted); border-top:1px solid var(--card-border);">
+      <p>&copy; <span id="year"></span> <span style="color:var(--primary); font-weight:700;">Sanjeev Kumar</span>. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <div id="certModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <iframe id="certFrame" src="" allow="autoplay"></iframe>
+    </div>
+  </div>
+
   <script>
-    // Year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Mobile menu toggle
-    const burger = document.getElementById('hamburger');
-    const mobile = document.getElementById('mobileMenu');
-    burger?.addEventListener('click', () => {
-      const expanded = burger.getAttribute('aria-expanded') === 'true';
-      burger.setAttribute('aria-expanded', String(!expanded));
-      mobile.classList.toggle('hide');
-    });
+    // 1. Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const icon = themeToggle.querySelector('i');
+    const savedTheme = localStorage.getItem('theme') || 'light';
     
-// Close mobile menu automatically when a link is clicked
-document.querySelectorAll('#mobileMenu a').forEach(link => {
-  link.addEventListener('click', () => {
-    mobile.classList.add('hide');
-    burger.setAttribute('aria-expanded', 'false');
-  });
-});
+    html.setAttribute('data-theme', savedTheme);
+    updateIcon(savedTheme);
 
-    // Theme toggle (light/dark) + icon + remember choice
-    const themeToggle = document.getElementById("themeToggle");
-    const themeIcon = document.getElementById("themeIcon");
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateIcon(newTheme);
+    });
 
-    // Load saved theme
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
-      themeToggle.setAttribute("aria-pressed", "true");
-      themeIcon.classList.replace("fa-sun", "fa-moon");
-      const meta = document.querySelector('meta[name="theme-color"]');
-      meta?.setAttribute('content', '#0b1220');
+    function updateIcon(theme) {
+      if (theme === 'dark') {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+      }
     }
 
-    themeToggle.addEventListener("click", () => {
-      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
-      const next = isDark ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", next);
-      themeToggle.setAttribute("aria-pressed", String(next === "dark"));
-      const meta = document.querySelector('meta[name="theme-color"]');
-      meta?.setAttribute("content", next === "dark" ? "#0b1220" : "#f59e0b");
-
-      if (next === "dark") {
-        themeIcon.classList.replace("fa-sun", "fa-moon");
-      } else {
-        themeIcon.classList.replace("fa-moon", "fa-sun");
-      }
-      localStorage.setItem("theme", next);
+    // 2. Mobile Menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      const isOpen = mobileMenu.classList.contains('open');
+      hamburger.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+    });
+    
+    // Close menu when link is clicked
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      });
     });
 
-    // Animate skill bars on scroll
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.querySelectorAll('.bar > i').forEach(i => {
-            const w = i.style.width;
-            i.style.width = '0';
-            requestAnimationFrame(()=>{
-              i.style.transition = 'width .9s ease';
-              i.style.width = w;
-            });
+    // 3. Typewriter Effect
+    const texts = ["IT Engineer", "Network Admin", "Cloud Specialist", "Cybersecurity Analyst"];
+    let count = 0;
+    let index = 0;
+    let currentText = "";
+    let letter = "";
+
+    (function type() {
+      if (count === texts.length) { count = 0; }
+      currentText = texts[count];
+      letter = currentText.slice(0, ++index);
+      document.querySelector('.typing-text').textContent = letter;
+      
+      if (letter.length === currentText.length) {
+        count++; index = 0;
+        setTimeout(type, 2000); 
+      } else {
+        setTimeout(type, 100);
+      }
+    })();
+
+    // 4. Scroll Animations (Fixed: Animates ALL skill bars)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+          // Find ALL skill bars in this card
+          const progressBars = entry.target.querySelectorAll('.skill-bar-fill');
+          progressBars.forEach(bar => {
+            bar.style.width = bar.getAttribute('data-width');
           });
-          io.unobserve(e.target);
         }
       });
-    }, {threshold:.25});
+    }, { threshold: 0.1 });
 
-    document.querySelectorAll('#skills .card').forEach(el => io.observe(el));
+    document.querySelectorAll('.glass-card').forEach(el => {
+      el.style.opacity = 0; el.style.transform = 'translateY(20px)'; el.style.transition = 'all 0.6s ease-out';
+      observer.observe(el);
+    });
+
+    // 5. Certificate Viewer Modal Logic
+    const certModal = document.getElementById('certModal');
+    const certFrame = document.getElementById('certFrame');
+    const closeModal = document.querySelector('.close-modal');
+    const certLinks = document.querySelectorAll('.cert-card');
+
+    certLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault(); // Stop from opening in new tab
+        const url = link.getAttribute('href');
+        // Convert 'view' link to 'preview' link for embedding
+        const previewUrl = url.replace('/view', '/preview');
+        certFrame.src = previewUrl;
+        certModal.classList.add('show');
+      });
+    });
+
+    closeModal.addEventListener('click', () => {
+      certModal.classList.remove('show');
+      certFrame.src = ''; // Stop video/iframe content
+    });
+
+    // Close on click outside
+    window.addEventListener('click', (e) => {
+      if (e.target === certModal) {
+        certModal.classList.remove('show');
+        certFrame.src = '';
+      }
+    });
+
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
