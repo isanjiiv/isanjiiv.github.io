@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Sanjeev Kumar | IT Engineer</title>
+  <title>Sanjeev Kumar | IT Engineer & Cloud Specialist</title>
   <meta name="description" content="Portfolio of Sanjeev Kumar, an IT Engineer specializing in Windows Server Administration, Networking, Fortinet Firewall, AWS, Azure, and Cybersecurity." />
   <meta name="keywords" content="Sanjeev Kumar, IT Engineer, Windows Server, Network Engineer, Fortinet, AWS, Azure, Cybersecurity, Noida" />
   <meta name="author" content="Sanjeev Kumar" />
@@ -230,36 +230,10 @@
         filter: drop-shadow(0 4px 10px rgba(245, 158, 11, 0.3));
     }
 
-   /* Timeline */
-    .timeline {
-      border-left: 2px solid var(--card-border);
-      /* Changed from rem to px to ensure perfect math with the dot */
-      padding-left: 40px; 
-      margin-left: 10px;
-    }
-    
-    .timeline-item {
-      position: relative;
-      margin-bottom: 3rem;
-    }
-    
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      /* PERFECT CENTER CALCULATION:
-         Padding (40px) + Half Dot (8px) + Half Line (1px) = 49px 
-      */
-      left: -49px; 
-      top: 5px;
-      width: 16px;
-      height: 16px;
-      background: var(--bg);
-      border: 3px solid var(--primary);
-      border-radius: 50%;
-      /* This box-shadow creates the white gap around the dot */
-      box-shadow: 0 0 0 4px var(--bg); 
-      z-index: 1;
-    }
+    /* Timeline */
+    .timeline { border-left: 2px solid var(--card-border); padding-left: 2rem; margin-left: 1rem; }
+    .timeline-item { position: relative; margin-bottom: 3rem; }
+    .timeline-item::before { content: ''; position: absolute; left: -2.6rem; top: 5px; width: 16px; height: 16px; background: var(--bg); border: 3px solid var(--primary); border-radius: 50%; }
 
     /* Contact Form */
     .contact-wrapper { display: grid; grid-template-columns: 1fr 1.5fr; gap: 2rem; }
@@ -417,7 +391,7 @@
           I build reliable systems and help teams ship fast and safe.
         </p>
         
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
           <a href="#contact" class="btn-primary">Get in Touch</a>
           <div style="display: flex; gap: 10px;">
             <a href="mailto:sanjeev753304@gmail.com" class="btn-icon" title="Email"><i class="fa-solid fa-envelope"></i></a>
@@ -738,7 +712,9 @@
       if (count === texts.length) { count = 0; }
       currentText = texts[count];
       letter = currentText.slice(0, ++index);
-      document.querySelector('.typing-text').textContent = letter;
+      
+      const target = document.querySelector('.typing-text');
+      if (target) target.textContent = letter;
       
       if (letter.length === currentText.length) {
         count++; index = 0;
@@ -748,13 +724,13 @@
       }
     })();
 
-    // 4. Scroll Animations (Fixed: Animates ALL skill bars)
+    // 4. Scroll Animations (FIXED: Handles MULTIPLE skill bars)
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.style.opacity = 1;
           entry.target.style.transform = 'translateY(0)';
-          // Find ALL skill bars in this card
+          // Fix: Select ALL progress bars inside the card
           const progressBars = entry.target.querySelectorAll('.skill-bar-fill');
           progressBars.forEach(bar => {
             bar.style.width = bar.getAttribute('data-width');
@@ -776,7 +752,7 @@
 
     certLinks.forEach(link => {
       link.addEventListener('click', (e) => {
-        e.preventDefault(); // Stop from opening in new tab
+        e.preventDefault(); 
         const url = link.getAttribute('href');
         // Convert 'view' link to 'preview' link for embedding
         const previewUrl = url.replace('/view', '/preview');
@@ -787,7 +763,7 @@
 
     closeModal.addEventListener('click', () => {
       certModal.classList.remove('show');
-      certFrame.src = ''; // Stop video/iframe content
+      certFrame.src = ''; 
     });
 
     // Close on click outside
