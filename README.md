@@ -1,4 +1,4 @@
-# Sanjeev Kumar – IT Engineer & System Administrator Portfolio
+# Sanjeev Kumar – IT Engineer
 
 Welcome to my professional portfolio website built using **HTML, CSS, and JavaScript** and hosted on **GitHub Pages**.
 
@@ -98,6 +98,7 @@ If you find this portfolio useful, feel free to ⭐ star the repository.
 ---
 
 © Sanjeev Kumar | IT Engineer | System Administrator | Portfolio Website
+
 
 
 
