@@ -54,8 +54,8 @@ I specialize in building **secure, reliable, and scalable IT infrastructure** wh
 - Google Cloud Security  
 - Cyber Security & Threat Management  
 - Windows Server Administration  
-- CompTIA A+  
-
+- Forinate Networking Fundamentals
+- Basics of Computer Networking
 ---
 
 ## 🌐 Portfolio Features
@@ -98,6 +98,7 @@ If you find this portfolio useful, feel free to ⭐ star the repository.
 ---
 
 © Sanjeev Kumar | IT Engineer | System Administrator | Portfolio Website
+
 
 
 
