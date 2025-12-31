@@ -97,7 +97,8 @@ If you find this portfolio useful, feel free to ⭐ star the repository.
 
 ---
 
-© Sanjeev Kumar | IT Engineer | System Administrator | Portfolio Website
+© Sanjeev Kumar | IT Engineer | Portfolio Website
+
 
 
 
