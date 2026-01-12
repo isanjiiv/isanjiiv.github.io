@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://isanjiiv.github.io/assets/images/SanjeevReadme.png" alt="Sanjeev Readme Banner" width="800">
+  <img src="https://isanjiiv.github.io/assets/images/SanjeevReadme.png" alt="Sanjeev Readme Banner" width="500">
 </p>
 
 
@@ -103,6 +103,7 @@ If you find this portfolio useful, feel free to ⭐ star the repository.
 ---
 
 © Sanjeev Kumar | IT Engineer | Portfolio Website
+
 
 
 
