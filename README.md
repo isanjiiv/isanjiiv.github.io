@@ -1,6 +1,7 @@
 <p align="center">
-  <img src="https://isanjiiv.github.io/assets/images/SanjeevReadme.png" alt="Sanjeev Readme Banner">
+  <img src="https://isanjiiv.github.io/assets/images/SanjeevReadme.png" alt="Sanjeev Readme Banner" width="300">
 </p>
+
 
 # Sanjeev Kumar – IT Engineer
 
@@ -102,6 +103,7 @@ If you find this portfolio useful, feel free to ⭐ star the repository.
 ---
 
 © Sanjeev Kumar | IT Engineer | Portfolio Website
+
 
 
 
