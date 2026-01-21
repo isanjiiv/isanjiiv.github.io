@@ -202,15 +202,15 @@
     .nav-actions { display: flex; gap: 10px; align-items: center; }
 
     /* --- HERO SECTION (DEFAULT DESKTOP) --- */
-.hero {
-  min-height: auto;  /* <--- You updated this */
-  display: grid; 
-  grid-template-columns: 1.2fr 0.8fr;
-  align-items: center; 
-  gap: 2rem; 
-  padding-top: 150px; /* <--- You updated this */
-  padding-bottom: 80px;
-}
+    .hero {
+      min-height: auto;  
+      display: grid; 
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center; 
+      gap: 2rem; 
+      padding-top: 150px; 
+      padding-bottom: 80px;
+    }
     .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1.1; margin-bottom: 1rem; }
     .typing-text { color: var(--primary); }
 
@@ -267,7 +267,7 @@
     .mobile-menu.open { transform: translateY(0); }
     .mobile-menu a { display: block; padding: 12px; font-weight: 600; }
 
-    /* Certificate Modal */
+    /* Modal Styles */
     .modal {
       display: none; 
       position: fixed; 
@@ -282,6 +282,8 @@
       transition: opacity 0.3s ease;
     }
     .modal.show { display: flex; opacity: 1; }
+    
+    /* General Modal Content */
     .modal-content {
       background: var(--bg);
       padding: 1rem;
@@ -293,6 +295,27 @@
       box-shadow: 0 25px 50px rgba(0,0,0,0.25);
       animation: scaleUp 0.3s ease;
     }
+
+    /* Specific Styles for About Content Scroll */
+    .about-content-scroll {
+        overflow-y: auto; /* Allows scrolling for long text */
+        height: 90vh;     /* Takes up most of the screen height */
+        max-width: 800px; /* Limits width for better readability */
+        padding: 2.5rem;
+    }
+    
+    /* Custom Scrollbar for the modal */
+    .about-content-scroll::-webkit-scrollbar {
+        width: 8px;
+    }
+    .about-content-scroll::-webkit-scrollbar-track {
+        background: var(--bg-secondary);
+    }
+    .about-content-scroll::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 4px;
+    }
+
     .close-modal { position: absolute; top: -40px; right: 0; color: #fff; font-size: 2rem; cursor: pointer; transition: transform 0.2s; }
     .close-modal:hover { transform: scale(1.1); color: var(--primary); }
     iframe { width: 100%; height: 100%; border: none; border-radius: 8px; }
@@ -304,21 +327,20 @@
     /* FIX FOR MOBILE CENTERING                  */
     /* ======================================================== */
     @media (max-width: 900px) {
-  .hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    
-    min-height: auto; /* <--- You updated this */
-    
-    padding-top: 120px; /* <--- You updated this */
-    padding-bottom: 40px;
-    gap: 2rem;
-  }
+      .hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+        min-height: auto; 
+        
+        padding-top: 120px; 
+        padding-bottom: 40px;
+        gap: 2rem;
+      }
       
-      /* Order -1 puts image above text (Flexbox feature) */
       .hero-img-container {
         order: -1;
         width: 100%;
@@ -326,10 +348,11 @@
         margin-bottom: 1rem;
       }
       
-      /* Other Mobile Adjustments */
       .nav-menu { display: none; }
       .hamburger { display: block; }
       .project-card, .contact-wrapper { grid-template-columns: 1fr; }
+      
+      .about-content-scroll { padding: 1.5rem; }
     }
   </style>
   
@@ -402,8 +425,8 @@
           <i class="fa-solid fa-circle" style="font-size:8px; vertical-align:middle;"></i> Open to Opportunities
         </div>
         <h1>Hi, I'm Sanjeev.<br>
-  I am a <span class="typing-container"><span class="typing-text"></span></span>
-</h1>
+          I am a <span class="typing-container"><span class="typing-text"></span></span>
+        </h1>
         <p style="max-width: 600px; margin-bottom: 2rem;">
           Specializing in <strong>Windows Server Administration</strong>, <strong>Networking</strong>, 
           <strong>Cloud (AWS & Azure)</strong>, <strong>Firewall (Fortinet)</strong>, and <strong>Cybersecurity</strong>. 
@@ -445,6 +468,12 @@
           <span class="tech-tag">Noida, India</span>
           <span class="tech-tag">Hindi • English • Maithili</span>
           <span class="tech-tag" style="background:var(--primary); color:#fff;">Available for Full-time</span>
+        </div>
+
+        <div style="margin-top: 2rem; text-align: center;">
+            <button id="openAboutBtn" class="btn-primary">
+                Know More <i class="fa-solid fa-arrow-right"></i>
+            </button>
         </div>
       </div>
     </section>
@@ -525,7 +554,7 @@
           <h3>AI Cost Sheet Builder (Web App)</h3>
           <p>Built a no-code web application at Graiin Milling Solutions using Lovable AI to automate cost sheet generation. Integrated secure login, automated calculations, and PDF/Excel export.</p>
           <a href="https://costsheetcreation.lovable.app/login" target="_blank" style="color:var(--primary); font-weight:700; display:inline-block; margin-top:5px;">
-             View App <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              View App <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
           <div style="margin-top:10px;">
             <span class="tech-tag">Lovable AI</span>
@@ -686,6 +715,95 @@
     </div>
   </div>
 
+  <div id="aboutModal" class="modal">
+    <div class="modal-content about-content-scroll">
+      <span class="close-about" style="position: absolute; top: 10px; right: 20px; font-size: 2rem; cursor: pointer; color: var(--text-main);">&times;</span>
+      
+      <div style="color: var(--text-main);">
+        <h2 style="color: var(--primary); margin-bottom: 1rem;">Professional Profile</h2>
+        
+        <p>Hello, I’m <strong>Sanjeev Kumar</strong>, an IT Engineer with strong hands-on experience in IT infrastructure support, Windows Server administration, networking, firewall security, and cloud fundamentals. I specialize in building stable, secure, and well-managed IT environments that help teams work faster, safer, and with fewer disruptions.</p>
+        <br>
+        <p>Over the years, I have worked on a wide range of IT responsibilities—from managing day-to-day technical support and troubleshooting to implementing enterprise-level solutions in Windows Server domains.</p>
+
+        <hr style="margin: 2rem 0; border: 0; border-top: 1px solid var(--card-border);">
+
+        <h3 style="margin-bottom: 1rem;">What I Do (Core Expertise)</h3>
+
+        <div style="margin-bottom: 1.5rem;">
+            <h4 style="color: var(--primary);">Windows Server Administration (AD, GPO, WSUS)</h4>
+            <ul style="padding-left: 20px; margin-top: 0.5rem;">
+                <li>Active Directory (AD) user and computer management</li>
+                <li>Group Policy (GPO) configuration and policy deployment</li>
+                <li>WSUS setup and update management</li>
+                <li>Domain joining, permissions, access control, and troubleshooting</li>
+                <li>Managing Windows-based enterprise environments and system stability</li>
+            </ul>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+            <h4 style="color: var(--primary);">Networking & Troubleshooting</h4>
+            <ul style="padding-left: 20px; margin-top: 0.5rem;">
+                <li>LAN/WAN troubleshooting and network diagnostics</li>
+                <li>DHCP, DNS, and IP addressing concepts</li>
+                <li>VLAN understanding and internal network connectivity support</li>
+                <li>Resolving real-time issues such as internet downtime, slow network performance, and system communication failures</li>
+            </ul>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+            <h4 style="color: var(--primary);">Firewall & Security (Fortinet FortiGate 60F)</h4>
+            <ul style="padding-left: 20px; margin-top: 0.5rem;">
+                <li>Firewall policy creation and management</li>
+                <li>Basic routing and network security controls</li>
+                <li>VPN configuration (as per requirement)</li>
+                <li>Traffic monitoring and troubleshooting</li>
+            </ul>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+            <h4 style="color: var(--primary);">Cloud Knowledge (AWS & Microsoft Azure)</h4>
+            <ul style="padding-left: 20px; margin-top: 0.5rem;">
+                <li>Basic cloud VM/server handling and monitoring</li>
+                <li>Understanding cloud networking and access</li>
+                <li>Assisting with deployment support and troubleshooting</li>
+            </ul>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+            <h4 style="color: var(--primary);">AI + No-Code App Development</h4>
+            <p>I leverage AI tools (Lovable, Emergent, Cursor) to:</p>
+            <ul style="padding-left: 20px; margin-top: 0.5rem;">
+                <li>Build web-based no-code applications</li>
+                <li>Automate workflows and repetitive tasks</li>
+                <li>Improve internal processes for teams and businesses</li>
+            </ul>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+            <h4 style="color: var(--primary);">Website & Web Solution Development</h4>
+            <ul style="padding-left: 20px; margin-top: 0.5rem;">
+                <li>Portfolio, Business, and E-commerce websites</li>
+                <li>Landing pages and basic web solutions</li>
+            </ul>
+        </div>
+
+        <hr style="margin: 2rem 0; border: 0; border-top: 1px solid var(--card-border);">
+
+        <h3 style="margin-bottom: 1rem;">My Work Approach</h3>
+        <p>I believe in a professional work style based on clear troubleshooting, fast issue resolution, secure setups, and continuous learning. I enjoy taking ownership of systems to contribute to long-term business improvements.</p>
+
+        <br>
+        <h3 style="margin-bottom: 1rem;">What I’m Looking For</h3>
+        <p>I am open to opportunities as an IT Engineer, System Administrator, Network Support Engineer, or Cloud Support. I am especially interested in roles that allow me to combine <strong>IT infrastructure + automation + modern AI tools</strong>.</p>
+        
+        <div style="margin-top: 2rem; text-align: center;">
+            <a href="#contact" class="btn-primary" onclick="document.getElementById('aboutModal').classList.remove('show')">Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
       
     // 1. Theme Toggle
@@ -734,7 +852,7 @@
     });
 
     // 3. Typewriter Effect
-    const texts = ["IT Engineer", "Network Admin", "Cloud Specialist", "Cybersecurity Analyst"];
+    const texts = ["IT Engineer", "Network Admin", "Windows Server Admin", "IT Security"];
     let count = 0;
     let index = 0;
     let currentText = "";
@@ -798,11 +916,27 @@
       certFrame.src = ''; 
     });
 
-    // Close on click outside
+    // 6. About Me Detail Modal Logic (ADDED)
+    const aboutModal = document.getElementById('aboutModal');
+    const openAboutBtn = document.getElementById('openAboutBtn');
+    const closeAbout = document.querySelector('.close-about');
+
+    openAboutBtn.addEventListener('click', () => {
+        aboutModal.classList.add('show');
+    });
+
+    closeAbout.addEventListener('click', () => {
+        aboutModal.classList.remove('show');
+    });
+
+    // Close Modals on click outside
     window.addEventListener('click', (e) => {
       if (e.target === certModal) {
         certModal.classList.remove('show');
         certFrame.src = '';
+      }
+      if (e.target === aboutModal) {
+        aboutModal.classList.remove('show');
       }
     });
 
