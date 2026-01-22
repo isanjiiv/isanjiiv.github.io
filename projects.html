@@ -3,340 +3,139 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Details | Sanjeev Kumar</title>
-  <meta name="description" content="Detailed project case studies by Sanjeev Kumar." />
+  <title>Windows Server Project | Sanjeev Kumar</title>
   <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  
   <style>
-    /* --- REUSING CORE VARIABLES FROM MAIN PORTFOLIO --- */
     :root {
-      --font-heading: 'Outfit', sans-serif;
-      --font-body: 'Plus Jakarta Sans', sans-serif;
-      --bg: #ffffff;
-      --bg-secondary: #f8fafc;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --primary: #f59e0b; 
-      --primary-glow: rgba(245, 158, 11, 0.4);
-      --card-bg: rgba(255, 255, 255, 0.75);
-      --card-border: rgba(226, 232, 240, 0.8);
-      --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-      --nav-bg: rgba(255, 255, 255, 0.95);
-      --radius-md: 12px;
-      --container: 900px; /* Slightly narrower for reading */
-      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --font-heading: 'Outfit', sans-serif; --font-body: 'Plus Jakarta Sans', sans-serif;
+      --bg: #ffffff; --bg-secondary: #f8fafc; --text-main: #0f172a; --text-muted: #64748b;
+      --primary: #f59e0b; --primary-glow: rgba(245, 158, 11, 0.4);
+      --card-bg: rgba(255, 255, 255, 0.75); --card-border: rgba(226, 232, 240, 0.8);
+      --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); --nav-bg: rgba(255, 255, 255, 0.95);
+      --radius-md: 12px; --container: 800px;
     }
-
     [data-theme="dark"] {
-      --bg: #0b1220; 
-      --bg-secondary: #0f172a;
-      --text-main: #f1f5f9;
-      --text-muted: #94a3b8;
-      --primary: #fbbf24; 
-      --primary-glow: rgba(251, 191, 36, 0.25);
-      --card-bg: rgba(30, 41, 59, 0.6);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-      --nav-bg: rgba(11, 18, 32, 0.95);
+      --bg: #0b1220; --bg-secondary: #0f172a; --text-main: #f1f5f9; --text-muted: #94a3b8;
+      --primary: #fbbf24; --primary-glow: rgba(251, 191, 36, 0.25); --card-bg: rgba(30, 41, 59, 0.6);
+      --card-border: rgba(255, 255, 255, 0.08); --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); --nav-bg: rgba(11, 18, 32, 0.95);
     }
-
-    /* --- BASIC RESET --- */
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-body);
-      background-color: var(--bg);
-      color: var(--text-main);
-      line-height: 1.6;
-      background-image: 
-        radial-gradient(at 0% 0%, var(--primary-glow) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.1) 0px, transparent 50%);
-      background-attachment: fixed;
-    }
-    a { text-decoration: none; color: inherit; transition: var(--transition); }
-    h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--text-main); }
+    body { font-family: var(--font-body); background-color: var(--bg); color: var(--text-main); line-height: 1.6; padding-top: 80px; padding-bottom: 50px; background-image: radial-gradient(at 0% 0%, var(--primary-glow) 0px, transparent 50%); background-attachment: fixed; }
+    .container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 1.5rem; }
+    a { text-decoration: none; color: inherit; }
+    h1, h2, h3 { font-family: var(--font-heading); color: var(--text-main); }
     
-    .container {
-      width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: 1.5rem;
-    }
-
-    /* --- HEADER --- */
-    header {
-      position: fixed; top: 0; width: 100%; z-index: 1000;
-      background: var(--nav-bg); backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--card-border);
-      height: 60px; display: flex; align-items: center;
-    }
+    /* Header */
+    header { position: fixed; top: 0; width: 100%; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(10px); border-bottom: 1px solid var(--card-border); height: 60px; display: flex; align-items: center; }
     .nav-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-    .brand { font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
-    .brand span:first-child { color: var(--primary); }
-    .back-link { font-weight: 600; display: flex; align-items: center; gap: 6px; font-size: 0.9rem;}
-    .back-link:hover { color: var(--primary); }
+    .back-btn { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+    .back-btn:hover { color: var(--primary); }
 
-    /* --- MAIN CONTENT STYLES --- */
-    main { padding-top: 100px; padding-bottom: 60px; }
+    /* Content */
+    .project-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius-md); padding: 2.5rem; box-shadow: var(--glass-shadow); backdrop-filter: blur(12px); }
+    .title { font-size: 2rem; margin-bottom: 0.5rem; line-height: 1.2; }
+    .meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 2rem; }
+    .tag { font-size: 0.75rem; padding: 4px 12px; background: var(--bg-secondary); border-radius: 20px; border: 1px solid var(--card-border); font-weight: 600; color: var(--text-muted); }
     
-    .project-detail-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      backdrop-filter: blur(12px);
-      border-radius: var(--radius-md);
-      padding: 2.5rem;
-      box-shadow: var(--glass-shadow);
-      margin-bottom: 3rem;
-    }
-
-    .project-title { font-size: 2rem; margin-bottom: 0.5rem; line-height: 1.2; }
-    .project-meta { margin-bottom: 2rem; display: flex; gap: 10px; flex-wrap: wrap; }
-    .tech-pill {
-      font-size: 0.75rem; padding: 4px 12px; 
-      background: var(--bg-secondary); border-radius: 20px; 
-      color: var(--text-muted); font-weight: 600; border: 1px solid var(--card-border);
-    }
-
-    .content-section { margin-bottom: 2rem; }
-    .content-section h3 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--primary); border-left: 4px solid var(--primary); padding-left: 12px; }
-    .content-section h4 { font-size: 1.1rem; margin-bottom: 0.5rem; margin-top: 1.5rem; }
-    .content-section p { margin-bottom: 1rem; color: var(--text-muted); }
-    .content-section ul { padding-left: 20px; margin-bottom: 1rem; color: var(--text-muted); }
-    .content-section li { margin-bottom: 0.5rem; }
-
-    /* --- GALLERY GRID --- */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    .gallery-item {
-      height: 140px;
-      background: var(--bg-secondary);
-      border-radius: 8px;
-      border: 1px solid var(--card-border);
-      overflow: hidden;
-      cursor: pointer;
-      position: relative;
-      transition: transform 0.2s;
-    }
-    .gallery-item:hover { transform: scale(1.02); border-color: var(--primary); }
-    .gallery-item img {
-      width: 100%; height: 100%; object-fit: cover;
-    }
-    .gallery-overlay {
-      position: absolute; inset: 0; background: rgba(0,0,0,0.3);
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; transition: opacity 0.2s;
-    }
-    .gallery-item:hover .gallery-overlay { opacity: 1; }
-    .gallery-overlay i { color: #fff; font-size: 1.5rem; }
-
-    /* --- LIGHTBOX MODAL --- */
-    .lightbox {
-      display: none; position: fixed; z-index: 2000;
-      left: 0; top: 0; width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.9);
-      backdrop-filter: blur(5px);
-      align-items: center; justify-content: center;
-    }
-    .lightbox.active { display: flex; animation: fadeIn 0.3s; }
-    .lightbox-content { max-width: 90%; max-height: 90vh; border-radius: 4px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
-    .lightbox-close {
-      position: absolute; top: 20px; right: 30px;
-      color: #fff; font-size: 2.5rem; cursor: pointer; transition: 0.2s;
-    }
-    .lightbox-close:hover { color: var(--primary); transform: scale(1.1); }
+    .section { margin-bottom: 2rem; }
+    .section h3 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--primary); border-left: 3px solid var(--primary); padding-left: 10px; }
+    .section h4 { font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .section p, .section ul { color: var(--text-muted); margin-bottom: 1rem; }
+    .section ul { padding-left: 20px; }
     
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-    /* --- RESPONSIVE --- */
-    @media (max-width: 768px) {
-      .project-detail-card { padding: 1.5rem; }
-      .project-title { font-size: 1.6rem; }
-    }
+    /* Gallery */
+    .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .gallery-img { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 1px solid var(--card-border); transition: transform 0.2s; }
+    .gallery-img:hover { transform: scale(1.03); border-color: var(--primary); }
+    
+    /* Lightbox */
+    .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center; }
+    .lightbox.active { display: flex; }
+    .lightbox img { max-width: 90%; max-height: 90vh; border-radius: 4px; }
+    .close-lb { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 2rem; cursor: pointer; }
   </style>
 </head>
 <body>
 
   <header>
     <div class="container nav-inner">
-      <a href="index.html" class="back-link">
-        <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
-      </a>
-      <div class="brand">
-        <span>●</span> Project Details
-      </div>
-      <button id="themeToggle" style="background:none; border:none; cursor:pointer; color:var(--text-main); font-size:1.1rem;">
-        <i class="fa-solid fa-moon"></i>
-      </button>
+      <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+      <span style="font-weight:700;">Project Details</span>
     </div>
   </header>
 
   <main class="container">
-
-    <article class="project-detail-card">
-      <h1 class="project-title">Windows Server Domain Setup + GPO Automation + Backup & Recovery</h1>
-      <div class="project-meta">
-        <span class="tech-pill">Windows Server 2016</span>
-        <span class="tech-pill">Active Directory (AD DS)</span>
-        <span class="tech-pill">GPO</span>
-        <span class="tech-pill">Acronis Cyber Protect</span>
-        <span class="tech-pill">Print Management</span>
+    <article class="project-card">
+      <h1 class="title">Windows Server Domain Setup + GPO Automation + Backup</h1>
+      <div class="meta">
+        <span class="tag">Windows Server 2016</span>
+        <span class="tag">AD DS & DNS</span>
+        <span class="tag">GPO</span>
+        <span class="tag">Acronis Cyber Protect</span>
       </div>
 
-      <div class="content-section">
+      <div class="section">
         <h3>Overview</h3>
-        <p>Designed and implemented a complete Windows Server 2016 domain infrastructure for an enterprise environment to centralize user management, enforce security policies, automate IT operations, and ensure reliable data protection. This project included Active Directory Domain Services (AD DS), DNS integration, structured OU design, Group Policy management, shared folder access control, printer deployment, and a fully scheduled Acronis Cyber Protect Cloud backup strategy for disaster recovery readiness.</p>
+        <p>Designed and implemented a complete Windows Server 2016 domain infrastructure for an enterprise environment to centralize user management, enforce security policies, automate IT operations, and ensure reliable data protection. This project included Active Directory Domain Services (AD DS), DNS integration, structured OU design, Group Policy management, shared folder access control, printer deployment, and a fully scheduled Acronis Cyber Protect Cloud backup strategy.</p>
       </div>
 
-      <div class="content-section">
-        <h3>Key Responsibilities & Implementation</h3>
-        
-        <h4>1) Active Directory Domain Services (AD DS) Deployment</h4>
-        <p>Configured and managed a Windows Server 2016 domain environment to support centralized authentication and access control across the organization.</p>
+      <div class="section">
+        <h3>Key Implementation Details</h3>
+        <h4>1) Active Directory Domain Services (AD DS)</h4>
+        <p>Configured and managed a Windows Server 2016 domain environment to support centralized authentication and access control.</p>
         <ul>
-            <li>Installed and configured AD DS and DNS roles</li>
-            <li>Created a domain structure for enterprise-level user and device management</li>
-            <li>Implemented a clean and scalable design to support future growth</li>
-            <li>Managed domain objects through Active Directory Users and Computers (ADUC)</li>
+            <li>Installed and configured AD DS and DNS roles.</li>
+            <li>Created a domain structure for enterprise-level user/device management.</li>
+            <li>Managed domain objects through Active Directory Users and Computers (ADUC).</li>
         </ul>
 
-        <h4>2) Department-Wise OU Structure & User Management</h4>
-        <p>Built a department-based Organizational Unit (OU) hierarchy to simplify administration and enable targeted policy application.</p>
-        <p><strong>Work delivered:</strong> Created OUs for Accounts, Costing, CRM, Design, HR, IT, Purchase, Reception, and Management groups. Maintained role-based access control.</p>
+        <h4>2) Department-Wise OU Structure</h4>
+        <p>Built a department-based Organizational Unit (OU) hierarchy (Accounts, HR, IT, Design, etc.) to simplify administration and enable targeted policy application.</p>
 
-        <h4>3) Group Policy (GPO) Implementation & Security Enforcement</h4>
-        <p>Implemented multiple Group Policy Objects (GPOs) to automate workstation configuration and improve security.</p>
+        <h4>3) Group Policy (GPO) Implementation</h4>
+        <p>Implemented multiple GPOs to automate workstation configuration and enforce security.</p>
         <ul>
-            <li><strong>USB Access Deny Policy:</strong> Restricted USB storage to prevent data leakage.</li>
+            <li><strong>USB Access Deny:</strong> Restricted USB storage usage to prevent unauthorized data transfer.</li>
             <li><strong>Drive Mapping:</strong> Automatically mapped shared drives for teams like Design/IT.</li>
-            <li><strong>Printer Deployment:</strong> Automated printer installation via GPO.</li>
-            <li><strong>Audit Policies:</strong> Enabled auditing for directory actions (delete/rename/modify).</li>
+            <li><strong>Printer Deployment:</strong> Automated printer deployment without manual installation.</li>
         </ul>
 
-        <h4>4) Shared Folder Setup & Access Control</h4>
-        <p>Created centralized file-sharing architecture. Configured folders for Design, IT, Software Repository, and WSUS. Ensured users received mapped drives automatically through GPO.</p>
-
-        <h4>5) Backup & Disaster Recovery (Acronis)</h4>
-        <p>Implemented a secure backup strategy using Acronis Cyber Protect Cloud. Set up daily incremental backups for critical systems and shared folders, ensuring fast recovery in case of accidental deletion or corruption.</p>
+        <h4>4) Backup & Disaster Recovery (Acronis)</h4>
+        <p>Implemented a secure backup strategy using Acronis Cyber Protect Cloud. Configured daily incremental backups for critical systems and shared folders to ensure fast recovery.</p>
       </div>
 
-      <div class="content-section">
+      <div class="section">
         <h3>Project Gallery</h3>
-        <p style="font-size:0.9rem;">Click on an image to view in full size.</p>
-        
-        <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://via.placeholder.com/600x400/0f172a/ffffff?text=AD+Structure" alt="Active Directory Structure">
-                <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
-            </div>
-
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://via.placeholder.com/600x400/0f172a/ffffff?text=GPO+Policy" alt="Group Policy Settings">
-                <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
-            </div>
-
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://via.placeholder.com/600x400/0f172a/ffffff?text=Acronis+Backup" alt="Acronis Dashboard">
-                <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
-            </div>
-
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://via.placeholder.com/600x400/0f172a/ffffff?text=Server+Manager" alt="Server Manager">
-                <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
-            </div>
+        <p style="font-size:0.9rem;">Click image to view full size.</p>
+        <div class="gallery">
+            <img src="https://via.placeholder.com/600x400?text=AD+Users" class="gallery-img" onclick="openLightbox(this)">
+            <img src="https://via.placeholder.com/600x400?text=GPO+Settings" class="gallery-img" onclick="openLightbox(this)">
+            <img src="https://via.placeholder.com/600x400?text=Acronis+Dashboard" class="gallery-img" onclick="openLightbox(this)">
+            <img src="https://via.placeholder.com/600x400?text=Server+Manager" class="gallery-img" onclick="openLightbox(this)">
         </div>
       </div>
     </article>
-
-    <article class="project-detail-card">
-      <h2 class="project-title" style="font-size:1.5rem;">Fortinet 60F SD-WAN Deployment</h2>
-      <div class="project-meta">
-        <span class="tech-pill">FortiGate 60F</span>
-        <span class="tech-pill">SD-WAN</span>
-        <span class="tech-pill">Networking</span>
-      </div>
-      <p>Designed SD-WAN on FortiGate 60F to enhance network performance. Integrated two ISP connections (Jio & Spectra) with load balancing and automated failover. Applied firewall rules, IPS/AV profiles, and VLANs to ensure a secure and stable network environment.</p>
-      </article>
-
-    <article class="project-detail-card">
-        <h2 class="project-title" style="font-size:1.5rem;">AI Cost Sheet Builder (Web App)</h2>
-        <div class="project-meta">
-          <span class="tech-pill">Lovable AI</span>
-          <span class="tech-pill">Web App</span>
-          <span class="tech-pill">Automation</span>
-        </div>
-        <p>Built a no-code web application at Graiin Milling Solutions using Lovable AI to automate cost sheet generation. Integrated secure login, automated calculations, and PDF/Excel export capabilities.</p>
-        <div style="margin-top:1rem;">
-            <a href="https://item-bill-builder.lovable.app" target="_blank" style="color:var(--primary); font-weight:700;">
-                Visit Live App <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-        </div>
-    </article>
-
   </main>
 
-  <footer>
-    <div class="container" style="text-align:center; padding:2rem 0; color:var(--text-muted); border-top:1px solid var(--card-border); font-size: 0.9rem;">
-      <p>&copy; <span id="year"></span> Sanjeev Kumar. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
-    <span class="lightbox-close">&times;</span>
-    <img id="lightbox-img" class="lightbox-content" src="" alt="Full View">
+  <div id="lightbox" class="lightbox" onclick="this.classList.remove('active')">
+    <span class="close-lb">&times;</span>
+    <img id="lb-img" src="">
   </div>
 
   <script>
-    // 1. Theme Logic (Synced with main page via localStorage)
-    const themeToggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
-    const icon = themeToggle.querySelector('i');
+    // Lightbox Logic
+    function openLightbox(img) {
+      document.getElementById('lb-img').src = img.src;
+      document.getElementById('lightbox').classList.add('active');
+    }
     
-    // Check saved theme
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    html.setAttribute('data-theme', savedTheme);
-    updateIcon(savedTheme);
-
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      html.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      updateIcon(newTheme);
-    });
-
-    function updateIcon(theme) {
-      if(theme === 'dark') {
-        icon.classList.remove('fa-moon'); icon.classList.add('fa-sun');
-      } else {
-        icon.classList.remove('fa-sun'); icon.classList.add('fa-moon');
-      }
+    // Theme Logic (Keeps theme consistent)
+    if(localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
     }
-
-    // 2. Lightbox Logic
-    function openLightbox(element) {
-        const img = element.querySelector('img');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        
-        lightboxImg.src = img.src; // Get src from clicked image
-        lightbox.classList.add('active');
-    }
-
-    function closeLightbox(event) {
-        // Close if clicked on background or close button
-        if(event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')) {
-            document.getElementById('lightbox').classList.remove('active');
-        }
-    }
-
-    // Year
-    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
