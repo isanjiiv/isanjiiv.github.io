@@ -386,6 +386,31 @@
     .lightbox.show { display: flex; animation: fadeIn 0.3s; }
     .lightbox-content { max-width: 90%; max-height: 90vh; border-radius: 4px; }
 
+    /* Lightbox Navigation Buttons */
+    .lightbox-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 15px;
+        cursor: pointer;
+        font-size: 24px;
+        border-radius: 50%;
+        transition: 0.3s;
+        z-index: 3001;
+        user-select: none;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .lightbox-btn:hover { background: rgba(255, 255, 255, 0.2); }
+    .prev { left: 20px; }
+    .next { right: 20px; }
+
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
     @keyframes scaleUp { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
@@ -468,6 +493,8 @@
            color: #000;
            width: 32px; height: 32px; font-size: 1.5rem;
        }
+       
+       .lightbox-btn { padding: 10px; width: 40px; height: 40px; font-size: 18px; }
     }
  /* --- CONTACT SECTION STYLES --- */
 
@@ -973,9 +1000,30 @@
         <div class="detail-block">
           <h3>Gallery</h3>
           <div class="gallery-grid">
-             <div class="gallery-item" onclick="openLightbox(this)"><img src="https://via.placeholder.com/600x400?text=AD+Structure" alt="AD"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-             <div class="gallery-item" onclick="openLightbox(this)"><img src="https://via.placeholder.com/600x400?text=GPO+Settings" alt="GPO"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-             <div class="gallery-item" onclick="openLightbox(this)"><img src="https://via.placeholder.com/600x400?text=Backup+Dashboard" alt="Backup"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+             <div class="gallery-item" onclick="openLightbox(this)">
+               <img src="https://lh3.googleusercontent.com/d/1ZnGdTn_fKq4QBGefs-shCwvMkk_AyaUn" alt="Server Dashboard" referrerpolicy="no-referrer">
+               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+             </div>
+             <div class="gallery-item" onclick="openLightbox(this)">
+               <img src="https://lh3.googleusercontent.com/d/1inyWgMWxzt5bllljVpYW7ON-ZdinqfQx" alt="AD DS Structure" referrerpolicy="no-referrer">
+               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+             </div>
+             <div class="gallery-item" onclick="openLightbox(this)">
+               <img src="https://lh3.googleusercontent.com/d/1aFtsM3ZlIp3sHi2XiGM7P-r0dD9WU84K" alt="Group Policy (GPO)" referrerpolicy="no-referrer">
+               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+             </div>
+             <div class="gallery-item" onclick="openLightbox(this)">
+               <img src="https://lh3.googleusercontent.com/d/12-8dF8_BAoeELIvCiNeY4yyVB6QRQrSP" alt="Acronis Backup" referrerpolicy="no-referrer">
+               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+             </div>
+             <div class="gallery-item" onclick="openLightbox(this)">
+               <img src="https://lh3.googleusercontent.com/d/1B8KH3Z7KDHwuOfmhkbYkclC6pkelnnx-" alt="Folder Sharing" referrerpolicy="no-referrer">
+               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+             </div>
+             <div class="gallery-item" onclick="openLightbox(this)">
+               <img src="https://lh3.googleusercontent.com/d/13xGHGpYbyf4CWA4MjzRgMowhMzv5xa6y" alt="Printer Management" referrerpolicy="no-referrer">
+               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+             </div>
           </div>
         </div>
       </div>
@@ -1115,10 +1163,11 @@
     </div>
   </div>
 
-  <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
-    <span class="close-lightbox">&times;</span>
-    <img id="lightbox-img" class="lightbox-content" src="" alt="Full View">
-  </div>
+  <div id="lightbox" class="lightbox">
+    <span class="close-lightbox" onclick="closeLightbox(event)">&times;</span>
+    
+    <button class="lightbox-btn prev" onclick="changeImage(-1)">&#10094;</button> <img id="lightbox-img" class="lightbox-content" src="" alt="Full View">
+    <button class="lightbox-btn next" onclick="changeImage(1)">&#10095;</button> </div>
 
   <script>
     
@@ -1293,20 +1342,64 @@
         }, 50);
     }
 
-    // Lightbox Logic for Projects
+    // ============================================
+    // UPDATED LIGHTBOX LOGIC (SWITCH BUTTONS)
+    // ============================================
+    
+    let currentImageIndex = 0;
+    let currentGalleryImages = [];
+
     function openLightbox(element) {
-        const img = element.querySelector('img');
-        const lightbox = document.getElementById('lightbox');
+        // 1. Find the parent gallery grid
+        const galleryGrid = element.closest('.gallery-grid');
+        
+        // 2. Get all images in this specific grid
+        currentGalleryImages = Array.from(galleryGrid.querySelectorAll('img'));
+        
+        // 3. Find index of clicked image
+        const clickedImg = element.querySelector('img');
+        currentImageIndex = currentGalleryImages.indexOf(clickedImg);
+
+        // 4. Show Lightbox
+        updateLightboxImage();
+        document.getElementById('lightbox').classList.add('show');
+    }
+
+    function changeImage(direction) {
+        currentImageIndex += direction;
+        
+        // Loop logic
+        if (currentImageIndex >= currentGalleryImages.length) {
+            currentImageIndex = 0;
+        } else if (currentImageIndex < 0) {
+            currentImageIndex = currentGalleryImages.length - 1;
+        }
+        
+        updateLightboxImage();
+    }
+
+    function updateLightboxImage() {
+        const imgSource = currentGalleryImages[currentImageIndex].src;
         const lightboxImg = document.getElementById('lightbox-img');
-        lightboxImg.src = img.src;
-        lightbox.classList.add('show');
+        lightboxImg.src = imgSource;
     }
 
     function closeLightbox(event) {
+        // Only close if clicking background or X button (not arrows)
         if(event.target.id === 'lightbox' || event.target.classList.contains('close-lightbox')) {
             document.getElementById('lightbox').classList.remove('show');
         }
     }
+
+    // Keyboard navigation support
+    document.addEventListener('keydown', function(e) {
+        if (!document.getElementById('lightbox').classList.contains('show')) return;
+        
+        if (e.key === "ArrowLeft") changeImage(-1);
+        if (e.key === "ArrowRight") changeImage(1);
+        if (e.key === "Escape") document.getElementById('lightbox').classList.remove('show');
+    });
+
   </script>
 </body>
 </html>
