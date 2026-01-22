@@ -30,7 +30,6 @@
 
   <style>
   
-  
   /* --- TYPING EFFECT CURSOR --- */
   .typing-container { position: relative; }
   .typing-container::after {
@@ -102,7 +101,7 @@
       background-attachment: fixed;
     }
 
-    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    a { text-decoration: none; color: inherit; transition: var(--transition); cursor: pointer; }
     img { max-width: 100%; display: block; }
     h1, h2, h3, .brand { font-family: var(--font-heading); }
     
@@ -186,11 +185,11 @@
     .nav-inner {
       display: flex; justify-content: space-between; align-items: center; height: 100%;
     }
-    .brand { font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    .brand { font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 8px; cursor: pointer; }
     .brand span:first-child { color: var(--primary); }
     
     .nav-menu { display: flex; gap: 1.5rem; }
-    .nav-menu a { font-weight: 500; font-size: 0.95rem; color: var(--text-muted); position: relative; }
+    .nav-menu a { font-weight: 500; font-size: 0.95rem; color: var(--text-muted); position: relative; cursor: pointer; }
     .nav-menu a:hover { color: var(--text-main); }
     
     .nav-actions { display: flex; gap: 8px; align-items: center; }
@@ -243,10 +242,14 @@
         grid-template-columns: 1fr 180px; 
         gap: 1.5rem; 
         margin-bottom: 1.5rem; /* Less margin between cards */
+        cursor: pointer; /* MAKE CLICKABLE */
+        transition: transform 0.3s;
     }
+    .project-card:hover { transform: translateY(-5px); border-color: var(--primary); }
     .project-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
     .project-card p { font-size: 0.95rem; color: var(--text-muted); }
     .tech-tag { font-size: 0.7rem; padding: 3px 10px; background: var(--bg-secondary); border-radius: 20px; color: var(--text-muted); font-weight: 600; display: inline-block; margin: 4px 4px 4px 0;}
+    .click-hint { font-size: 0.85rem; color: var(--primary); font-weight: 600; margin-top: 10px; display: inline-flex; align-items: center; gap: 5px; }
 
     /* Certifications Grid */
     .cert-grid { 
@@ -280,7 +283,7 @@
     .mobile-menu a { display: block; padding: 12px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid var(--bg-secondary); }
     .mobile-menu a:last-child { border-bottom: none; }
 
-    /* Modal Styles */
+    /* Modal Styles (Original) */
     .modal {
       display: none; 
       position: fixed; 
@@ -331,7 +334,7 @@
     .about-content-scroll::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
 
     /* Close Button */
-    .close-modal, .close-about { 
+    .close-modal, .close-about, .close-lightbox { 
         position: absolute; 
         top: 8px; 
         right: 12px; 
@@ -350,14 +353,46 @@
         line-height: 1;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .close-modal:hover, .close-about:hover { transform: scale(1.1); color: var(--primary); }
+    .close-modal:hover, .close-about:hover, .close-lightbox:hover { transform: scale(1.1); color: var(--primary); }
 
+    /* ======================================================== */
+    /* NEW: SPA & DETAIL PAGE STYLES                            */
+    /* ======================================================== */
+    
+    .page-view { display: none; padding-top: 100px; padding-bottom: 60px; animation: fadeIn 0.4s ease-out; }
+    .page-view.active { display: block; }
+    
+    .project-header { margin-bottom: 2rem; border-bottom: 1px solid var(--card-border); padding-bottom: 1.5rem; }
+    .project-title { font-size: 2.2rem; line-height: 1.2; margin-bottom: 1rem; font-weight: 700; }
+    
+    .detail-block { margin-bottom: 2rem; }
+    .detail-block h3 { font-size: 1.4rem; color: var(--primary); margin-bottom: 1rem; border-left: 4px solid var(--primary); padding-left: 12px; }
+    .detail-block h4 { font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 0.5rem; font-weight: 700; }
+    .detail-block p { color: var(--text-muted); margin-bottom: 1rem; }
+    .detail-block ul { padding-left: 20px; color: var(--text-muted); margin-bottom: 1rem; }
+    .detail-block li { margin-bottom: 0.5rem; }
+
+    /* Gallery */
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .gallery-item { height: 140px; background: var(--bg-secondary); border-radius: 8px; border: 1px solid var(--card-border); overflow: hidden; cursor: pointer; position: relative; transition: transform 0.2s; }
+    .gallery-item:hover { transform: scale(1.02); border-color: var(--primary); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+    .gallery-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s; }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay i { color: #fff; font-size: 1.5rem; }
+
+    /* Lightbox specific */
+    .lightbox { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); align-items: center; justify-content: center; }
+    .lightbox.show { display: flex; animation: fadeIn 0.3s; }
+    .lightbox-content { max-width: 90%; max-height: 90vh; border-radius: 4px; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
     @keyframes scaleUp { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
 
     /* ======================================================== */
-    /* COMPACT MOBILE & TABLET OPTIMIZATIONS                   */
+    /* COMPACT MOBILE & TABLET OPTIMIZATIONS                    */
     /* ======================================================== */
     
     /* Tablet & Small Laptop (max-width: 900px) */
@@ -427,7 +462,7 @@
        .about-content-scroll li { font-size: 0.9rem; margin-bottom: 5px; }
        
        /* Fix close button visibility on mobile overlay */
-       .close-modal, .close-about { 
+       .close-modal, .close-about, .close-lightbox { 
            top: 5px; right: 5px; 
            background: rgba(255,255,255,0.9); 
            color: #000;
@@ -473,7 +508,7 @@
 /* --- FIXED BUTTON CENTERING --- */
 /* This makes sure the button centers inside the form */
 .btn-submit {
-  display: flex;           
+  display: flex;            
   justify-content: center; 
   align-items: center;
   margin: 1rem auto 0 auto; /* auto left/right margins center it */
@@ -512,12 +547,12 @@
   form {
       width: 100%;
       max-width: 500px; 
-      margin: 0 auto;   
+      margin: 0 auto;    
   }
 
   /* On mobile, button stays centered but can be wider if you want */
   .btn-submit {
-      width: 100%;       /* Makes it full width on small screens */
+      width: 100%;        /* Makes it full width on small screens */
       max-width: 300px;  /* But not too wide */
   }
 }
@@ -544,16 +579,16 @@
 
   <header>
     <div class="container nav-inner">
-      <a href="#home" class="brand">
+      <a onclick="showHomeView()" class="brand">
         <span class="dot">●</span> Sanjeev Kumar
       </a>
 
       <nav class="nav-menu">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#certs">Certifications</a>
-        <a href="#experience">Experience</a>
+        <a onclick="showHomeViewAndScroll('about')">About</a>
+        <a onclick="showHomeViewAndScroll('skills')">Skills</a>
+        <a onclick="showHomeViewAndScroll('projects')">Projects</a>
+        <a onclick="showHomeViewAndScroll('certs')">Certifications</a>
+        <a onclick="showHomeViewAndScroll('experience')">Experience</a>
       </nav>
 
       <div class="nav-actions">
@@ -577,305 +612,469 @@
   </header>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#certs">Certifications</a>
-    <a href="#experience">Experience</a>
-    <a href="#contact">Contact</a>
+    <a onclick="showHomeViewAndScroll('about')">About</a>
+    <a onclick="showHomeViewAndScroll('skills')">Skills</a>
+    <a onclick="showHomeViewAndScroll('projects')">Projects</a>
+    <a onclick="showHomeViewAndScroll('certs')">Certifications</a>
+    <a onclick="showHomeViewAndScroll('experience')">Experience</a>
+    <a onclick="showHomeViewAndScroll('contact')">Contact</a>
   </div>
 
   <main>
-    <section id="home" class="hero container">
-      <div class="hero-content">
-        <div style="display:inline-block; padding:4px 12px; background:rgba(245, 158, 11, 0.1); color:var(--primary); border-radius:50px; font-weight:600; font-size: 0.8rem; margin-bottom:0.8rem; border:1px solid rgba(245, 158, 11, 0.2);">
-          <i class="fa-solid fa-circle" style="font-size:6px; vertical-align:middle;"></i> Open to Opportunities
-        </div>
-        <h1>Hi, I'm Sanjeev.<br>
-          I am a <span class="typing-container"><span class="typing-text"></span></span>
-        </h1>
-        <p style="max-width: 600px; margin-bottom: 1.5rem; font-size: 0.95rem;">
-          Specializing in <strong>Windows Server Administration</strong>, <strong>Networking</strong>, 
-          <strong>Cloud (AWS & Azure)</strong>, <strong>Firewall (Fortinet)</strong>, and <strong>Cybersecurity</strong>. 
-          I build reliable systems and help teams ship fast and safe.
-        </p>
-        
-        <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center;">
-          <a href="#contact" class="btn-primary">Get in Touch</a>
-          <div style="display: flex; gap: 8px;">
-            <a href="mailto:sanjeev753304@gmail.com" class="btn-icon" title="Email"><i class="fa-solid fa-envelope"></i></a>
-            <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" class="btn-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://www.instagram.com/isanjiiv/" target="_blank" class="btn-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://github.com/isanjiiv" target="_blank" class="btn-icon" title="GitHub"><i class="fa-brands fa-github"></i></a>
-          </div>
-        </div>
-      </div>
+    
+    <div id="home-view" class="page-view active">
 
-      <div class="hero-img-container">
-        <img src="https://isanjiiv.github.io/assets/images/Sanjeev.jpg" alt="Sanjeev Kumar Profile" class="avatar">
-      </div>
-    </section>
-
-    <section id="about" class="container" style="padding-top: var(--section-spacing);">
-      <div class="glass-card">
-        <div class="section-header">
-          <h2>About Me</h2>
-        </div>
-        <p style="font-size: 0.95rem;">
-          I am an <strong>IT Engineer</strong> with proven expertise in
-          <strong>Windows Server administration (AD, GPO, WSUS)</strong>,
-          <strong>network troubleshooting</strong>,
-          <strong>cloud server management (AWS and Azure)</strong>, and
-          <strong>firewall configuration (Fortinet 60F)</strong>.
-        </p>
-        <p style="font-size: 0.95rem; margin-top: 10px;">
-          Skilled in leveraging <strong>AI technologies</strong> to build no-code applications, automate workflows, and enhance business processes.
-        </p>
-        <div style="margin-top: 1.25rem;">
-          <span class="tech-tag">Noida, India</span>
-          <span class="tech-tag">Hindi • English • Maithili</span>
-          <span class="tech-tag" style="background:var(--primary); color:#fff;">Available for Full-time</span>
-        </div>
-
-        <div style="margin-top: 1.5rem; text-align: center;">
-            <button id="openAboutBtn" class="btn-primary">
-                Know More <i class="fa-solid fa-arrow-right"></i>
-            </button>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="container" style="padding-top: var(--section-spacing);">
-      <div class="section-header">
-        <h2>Skills</h2>
-      </div>
-      <div class="glass-card">
-        <div class="skills-grid">
-          <div class="skill-item">
-            <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>AI & Prompting</span><span>90%</span></div>
-            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
+      <section id="home" class="hero container">
+        <div class="hero-content">
+          <div style="display:inline-block; padding:4px 12px; background:rgba(245, 158, 11, 0.1); color:var(--primary); border-radius:50px; font-weight:600; font-size: 0.8rem; margin-bottom:0.8rem; border:1px solid rgba(245, 158, 11, 0.2);">
+            <i class="fa-solid fa-circle" style="font-size:6px; vertical-align:middle;"></i> Open to Opportunities
           </div>
-          <div class="skill-item">
-            <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>Windows Server</span><span>90%</span></div>
-            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
-          </div>
-          <div class="skill-item">
-            <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>Networking</span><span>88%</span></div>
-            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88%"></div></div>
-          </div>
-          <div class="skill-item">
-            <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>Cloud (AWS/Azure)</span><span>60%</span></div>
-            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="60%"></div></div>
-          </div>
-          <div class="skill-item">
-            <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>Security (Fortinet)</span><span>85%</span></div>
-            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85%"></div></div>
-          </div>
-          <div class="skill-item">
-            <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>WordPress</span><span>70%</span></div>
-            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="70%"></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="container" style="padding-top: var(--section-spacing);">
-      <div class="section-header">
-        <h2>Projects</h2>
-      </div>
-
-      <article class="glass-card project-card">
-        <div>
-          <h3>Enterprise AD & GPO Setup</h3>
-          <p>Planned and implemented a Windows Server 2016 Active Directory environment. Set up OU design, user access policies, GPO configurations, and WSUS for 120+ endpoints. Configured Acronis Backup for disaster recovery.</p>
-          <div style="margin-top:8px;">
-            <span class="tech-tag">Windows Server 2016</span>
-            <span class="tech-tag">Active Directory</span>
-            <span class="tech-tag">GPO</span>
-            <span class="tech-tag">Backup</span>
-          </div>
-        </div>
-        <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px;">
-          <i class="fa-brands fa-windows" style="font-size:2.5rem; color:var(--text-muted); opacity:0.5;"></i>
-        </div>
-      </article>
-
-      <article class="glass-card project-card">
-        <div>
-          <h3>Fortinet 60F SD-WAN Deployment</h3>
-          <p>Designed SD-WAN on FortiGate 60F to enhance network performance. Integrated two ISP connections (Jio & Spectra) with load balancing and automated failover. Applied firewall rules, IPS/AV profiles, and VLANs.</p>
-          <div style="margin-top:8px;">
-            <span class="tech-tag">FortiGate</span>
-            <span class="tech-tag">SD-WAN</span>
-            <span class="tech-tag">VLAN</span>
-            <span class="tech-tag">Security</span>
-          </div>
-        </div>
-        <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px;">
-           <i class="fa-solid fa-shield-halved" style="font-size:2.5rem; color:var(--text-muted); opacity:0.5;"></i>
-        </div>
-      </article>
-
-      <article class="glass-card project-card">
-        <div>
-          <h3>AI Cost Sheet Builder (Web App)</h3>
-          <p>Built a no-code web application at Graiin Milling Solutions using Lovable AI to automate cost sheet generation. Integrated secure login, automated calculations, and PDF/Excel export.</p>
-          <a href="https://item-bill-builder.lovable.app" target="_blank" style="color:var(--primary); font-weight:700; display:inline-block; margin-top:5px; font-size:0.9rem;">
-              View App <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </a>
-          <div style="margin-top:8px;">
-            <span class="tech-tag">Lovable AI</span>
-            <span class="tech-tag">No-Code</span>
-            <span class="tech-tag">Automation</span>
-          </div>
-        </div>
-        <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px;">
-           <i class="fa-solid fa-robot" style="font-size:2.5rem; color:var(--text-muted); opacity:0.5;"></i>
-        </div>
-      </article>
-      
-      <article class="glass-card project-card">
-        <div>
-          <h3>Secure Wifi Network (FortiGate + Deco Mesh)</h3>
-          <p>Implemented a secure wireless network upgrade using TP-Link Deco Mesh integrated with FortiGate 60F. Configured internal interfaces, LAN roles, DHCP, and firewall policies for secure, seamless roaming.</p>
-          <div style="margin-top:8px;">
-            <span class="tech-tag">Deco Mesh</span>
-            <span class="tech-tag">FortiGate 60F</span>
-            <span class="tech-tag">WiFi Security</span>
-          </div>
-        </div>
-        <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px;">
-           <i class="fa-solid fa-wifi" style="font-size:2.5rem; color:var(--text-muted); opacity:0.5;"></i>
-        </div>
-      </article>
-    </section>
-
-    <section id="certs" class="container" style="padding-top: var(--section-spacing);">
-      <div class="section-header">
-        <h2>Certifications</h2>
-        <p style="color:var(--text-muted); font-size:0.85rem;">Click any card to view the certificate.</p>
-      </div>
-      <div class="cert-grid">
-        <a href="https://drive.google.com/file/d/1ExcnlsVy3ZHLtRs_RoF2hNQ05G4Cj154/view?usp=drive_link" class="glass-card cert-card">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Cisco CCNA" class="cert-img">
-          <h3>Cisco CCNA</h3>
-          <p style="font-size:0.8rem; color:var(--text-muted);">Network Fundamentals</p>
-          <span class="cert-link">View Certificate</span>
-        </a>
-        <a href="https://drive.google.com/file/d/14aOsqQTKcxbeSA23yXPuLvjPUKDfNpvb/view?usp=drive_link" class="glass-card cert-card">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" alt="Azure" class="cert-img">
-          <h3>Microsoft Azure</h3>
-          <p style="font-size:0.8rem; color:var(--text-muted);">Fundamentals</p>
-          <span class="cert-link">View Certificate</span>
-        </a>
-        <a href="https://drive.google.com/file/d/15hSFkJXr92o4VhM5YgF13pZFv2aSakaD/view?usp=drive_link" class="glass-card cert-card">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud" class="cert-img">
-          <h3>Google Cloud</h3>
-          <p style="font-size:0.8rem; color:var(--text-muted);">Trust & Security</p>
-          <span class="cert-link">View Certificate</span>
-        </a>
-        <a href="https://drive.google.com/file/d/1kUh_5kU6V_FEYsFhnyf1yHfr12Cmzkdd/view?usp=drive_link" class="glass-card cert-card">
-          <img src="https://cdn-icons-png.flaticon.com/512/5723/5723238.png" alt="Microsoft" class="cert-img">
-          <h3>Computer Networking</h3>
-          <p style="font-size:0.8rem; color:var(--text-muted);">Basics of Networking</p>
-          <span class="cert-link">View Certificate</span>
-        </a>
-        <a href="https://drive.google.com/file/d/1Hcgl0Drn_niSwc64zhvL0LY2tFEnL6hx/view?usp=drive_link" class="glass-card cert-card">
-          <img src="https://cdn3d.iconscout.com/3d/premium/thumb/cyber-securityprotect-shield-3d-icon-png-download-7277200.png" alt="Microsoft" class="cert-img">
-          <h3>Advance Cyber Security</h3>
-          <p style="font-size:0.8rem; color:var(--text-muted);">Threats & Governance</p>
-          <span class="cert-link">View Certificate</span>
-        </a>
-        <a href="https://drive.google.com/file/d/1OhjH3b2gffiHm4KIUrTo_2pP_5BNnKJG/view?usp=drive_link" class="glass-card cert-card">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="cert-img">
-          <h3>MCSA</h3>
-          <p style="font-size:0.8rem; color:var(--text-muted);">Windows Server Admin</p>
-          <span class="cert-link">View Certificate</span>
-        </a>
-        <a href="https://drive.google.com/file/d/17KrwhkqjLYgkR_UPLiW4GigtmFC7_GSn/view?usp=drive_link" class="glass-card cert-card">
-          <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/fortinet.svg" alt="Microsoft" class="cert-img">
-          <h3>Fortinet Networking Fundamentals</h3>
-          <p style="font-size:0.8rem; color:var(--text-muted);">Network Security</p>
-          <span class="cert-link">View Certificate</span>
-        </a>
-        <a href="https://drive.google.com/file/d/1kZ7mK0qGC0HcqfpSaZSwQtqHS4atjt0C/view?usp=drive_link" class="glass-card cert-card">
-          <img src="https://training.fortinet.com/pluginfile.php/2226728/block_html/content/ftnt_nse_1_introduction_threat_landscape_v3.0.png" alt="Microsoft" class="cert-img">
-          <h3>Introduction to the Threat Landscape 3.0</h3>
-          <p style="font-size:0.8rem; color:var(--text-muted);">Cybersecurity & Threat Intelligence</p>
-          <span class="cert-link">View Certificate</span>
-        </a>
-      </div>
-    </section>
-
-    <section id="experience" class="container" style="padding-top: var(--section-spacing);">
-      <div class="section-header">
-        <h2>Experience</h2>
-      </div>
-      <div class="glass-card">
-        <div class="timeline">
-          <div class="timeline-item">
-            <h3 style="margin-bottom:2px;">IT Engineer</h3>
-            <p style="font-weight:700; color:var(--primary); font-size:0.9rem;">Grain Milling Solutions Pvt Ltd</p>
-            <p style="font-size:0.85rem; margin-bottom:8px; color:var(--text-muted);">Apr 2024 – Present · Noida</p>
-            <p style="font-size:0.95rem;">Windows Server, network administration, firewall policies, cloud server management, backups, and end-user support.</p>
-          </div>
-          <div class="timeline-item" style="margin-bottom:0;">
-            <h3 style="margin-bottom:2px;">System Support Engineer</h3>
-            <p style="font-weight:700; color:var(--primary); font-size:0.9rem;">Konexions Back Office Pvt Ltd</p>
-            <p style="font-size:0.85rem; margin-bottom:8px; color:var(--text-muted);">Previous Role</p>
-            <p style="font-size:0.95rem;">Hardware/software troubleshooting, OS deployment, ticketing and SLA-based support across teams.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="container" style="padding: var(--section-spacing) 0;">
-      <div class="section-header"> 
-        <h2>Get In Touch</h2>
-      </div>
-      
-      <div class="glass-card contact-wrapper">
-        
-        <div class="contact-text-side">
-          <h3>Let's talk tech.</h3>
-          <p style="font-size:0.95rem; margin-bottom: 1.5rem; color: var(--text-muted);">
-            Whether you have a job opportunity, a project, or just want to say hi, my inbox is open.
+          <h1>Hi, I'm Sanjeev.<br>
+            I am a <span class="typing-container"><span class="typing-text"></span></span>
+          </h1>
+          <p style="max-width: 600px; margin-bottom: 1.5rem; font-size: 0.95rem;">
+            Specializing in <strong>Windows Server Administration</strong>, <strong>Networking</strong>, 
+            <strong>Cloud (AWS & Azure)</strong>, <strong>Firewall (Fortinet)</strong>, and <strong>Cybersecurity</strong>. 
+            I build reliable systems and help teams ship fast and safe.
           </p>
           
-          <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2rem;">
-            <div class="contact-info-item">
-              <i class="fa-solid fa-location-dot" style="color:var(--primary); font-size: 1.2rem; width: 24px;"></i> 
-              <span>Noida, India</span>
+          <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center;">
+            <a href="#contact" class="btn-primary">Get in Touch</a>
+            <div style="display: flex; gap: 8px;">
+              <a href="mailto:sanjeev753304@gmail.com" class="btn-icon" title="Email"><i class="fa-solid fa-envelope"></i></a>
+              <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" class="btn-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="https://www.instagram.com/isanjiiv/" target="_blank" class="btn-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://github.com/isanjiiv" target="_blank" class="btn-icon" title="GitHub"><i class="fa-brands fa-github"></i></a>
             </div>
-            <div class="contact-info-item">
-              <i class="fa-solid fa-envelope" style="color:var(--primary); font-size: 1.2rem; width: 24px;"></i> 
-              <span>Sanjeev753304@gmail.com</span>
-            </div>
-          </div>
-          
-          <div style="display: flex; gap: 15px;">
-            <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" class="btn-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="https://github.com/isanjiiv" target="_blank" class="btn-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.instagram.com/isanjiiv/" target="_blank" class="btn-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
           </div>
         </div>
 
-        <form action="https://formspree.io/f/xzzabloy" method="POST">
-          <input type="text" name="name" class="form-control" required placeholder="Your Name">
-          <input type="email" name="email" class="form-control" required placeholder="Your Email">
-          <textarea name="message" rows="5" class="form-control" required placeholder="How can I help you?"></textarea>
-          
-          <input type="hidden" name="_subject" value="New message from portfolio">
-          <input type="hidden" name="_replyto" value="Sanjeev753304@gmail.com">
-          
-          <button type="submit" class="btn-primary btn-submit">
-            Send Message <i class="fa-solid fa-paper-plane" style="margin-left:8px;"></i>
-          </button>
-        </form>
+        <div class="hero-img-container">
+          <img src="https://isanjiiv.github.io/assets/images/Sanjeev.jpg" alt="Sanjeev Kumar Profile" class="avatar">
+        </div>
+      </section>
+
+      <section id="about" class="container" style="padding-top: var(--section-spacing);">
+        <div class="glass-card">
+          <div class="section-header">
+            <h2>About Me</h2>
+          </div>
+          <p style="font-size: 0.95rem;">
+            I am an <strong>IT Engineer</strong> with proven expertise in
+            <strong>Windows Server administration (AD, GPO, WSUS)</strong>,
+            <strong>network troubleshooting</strong>,
+            <strong>cloud server management (AWS and Azure)</strong>, and
+            <strong>firewall configuration (Fortinet 60F)</strong>.
+          </p>
+          <p style="font-size: 0.95rem; margin-top: 10px;">
+            Skilled in leveraging <strong>AI technologies</strong> to build no-code applications, automate workflows, and enhance business processes.
+          </p>
+          <div style="margin-top: 1.25rem;">
+            <span class="tech-tag">Noida, India</span>
+            <span class="tech-tag">Hindi • English • Maithili</span>
+            <span class="tech-tag" style="background:var(--primary); color:#fff;">Available for Full-time</span>
+          </div>
+
+          <div style="margin-top: 1.5rem; text-align: center;">
+              <button id="openAboutBtn" class="btn-primary">
+                  Know More <i class="fa-solid fa-arrow-right"></i>
+              </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="container" style="padding-top: var(--section-spacing);">
+        <div class="section-header">
+          <h2>Skills</h2>
+        </div>
+        <div class="glass-card">
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>AI & Prompting</span><span>90%</span></div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>Windows Server</span><span>90%</span></div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>Networking</span><span>88%</span></div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>Cloud (AWS/Azure)</span><span>60%</span></div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="60%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>Security (Fortinet)</span><span>85%</span></div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>WordPress</span><span>70%</span></div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="70%"></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="container" style="padding-top: var(--section-spacing);">
+        <div class="section-header">
+          <h2>Projects</h2>
+        </div>
+
+        <article class="glass-card project-card" onclick="showProjectView('project-1')">
+          <div>
+            <h3>Enterprise AD & GPO Setup</h3>
+            <p>Planned and implemented a Windows Server 2016 Active Directory environment. Set up OU design, user access policies, GPO configurations, and WSUS for 120+ endpoints. Configured Acronis Backup for disaster recovery.</p>
+            <div style="margin-top:8px;">
+              <span class="tech-tag">Windows Server 2016</span>
+              <span class="tech-tag">Active Directory</span>
+              <span class="tech-tag">GPO</span>
+              <span class="tech-tag">Backup</span>
+            </div>
+            <div class="click-hint">View Case Study <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px;">
+            <i class="fa-brands fa-windows" style="font-size:2.5rem; color:var(--text-muted); opacity:0.5;"></i>
+          </div>
+        </article>
+
+        <article class="glass-card project-card" onclick="showProjectView('project-2')">
+          <div>
+            <h3>Fortinet 60F SD-WAN Deployment</h3>
+            <p>Designed SD-WAN on FortiGate 60F to enhance network performance. Integrated two ISP connections (Jio & Spectra) with load balancing and automated failover. Applied firewall rules, IPS/AV profiles, and VLANs.</p>
+            <div style="margin-top:8px;">
+              <span class="tech-tag">FortiGate</span>
+              <span class="tech-tag">SD-WAN</span>
+              <span class="tech-tag">VLAN</span>
+              <span class="tech-tag">Security</span>
+            </div>
+            <div class="click-hint">View Case Study <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px;">
+             <i class="fa-solid fa-shield-halved" style="font-size:2.5rem; color:var(--text-muted); opacity:0.5;"></i>
+          </div>
+        </article>
+
+        <article class="glass-card project-card" onclick="showProjectView('project-3')">
+          <div>
+            <h3>AI Cost Sheet Builder (Web App)</h3>
+            <p>Built a no-code web application at Graiin Milling Solutions using Lovable AI to automate cost sheet generation. Integrated secure login, automated calculations, and PDF/Excel export.</p>
+            <div style="margin-top:8px;">
+              <span class="tech-tag">Lovable AI</span>
+              <span class="tech-tag">No-Code</span>
+              <span class="tech-tag">Automation</span>
+            </div>
+            <div class="click-hint">View Case Study <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px;">
+             <i class="fa-solid fa-robot" style="font-size:2.5rem; color:var(--text-muted); opacity:0.5;"></i>
+          </div>
+        </article>
         
+        <article class="glass-card project-card" onclick="showProjectView('project-4')">
+          <div>
+            <h3>Secure Wifi Network (FortiGate + Deco Mesh)</h3>
+            <p>Implemented a secure wireless network upgrade using TP-Link Deco Mesh integrated with FortiGate 60F. Configured internal interfaces, LAN roles, DHCP, and firewall policies for secure, seamless roaming.</p>
+            <div style="margin-top:8px;">
+              <span class="tech-tag">Deco Mesh</span>
+              <span class="tech-tag">FortiGate 60F</span>
+              <span class="tech-tag">WiFi Security</span>
+            </div>
+            <div class="click-hint">View Case Study <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px;">
+             <i class="fa-solid fa-wifi" style="font-size:2.5rem; color:var(--text-muted); opacity:0.5;"></i>
+          </div>
+        </article>
+      </section>
+
+      <section id="certs" class="container" style="padding-top: var(--section-spacing);">
+        <div class="section-header">
+          <h2>Certifications</h2>
+          <p style="color:var(--text-muted); font-size:0.85rem;">Click any card to view the certificate.</p>
+        </div>
+        <div class="cert-grid">
+          <a href="https://drive.google.com/file/d/1ExcnlsVy3ZHLtRs_RoF2hNQ05G4Cj154/view?usp=drive_link" class="glass-card cert-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Cisco CCNA" class="cert-img">
+            <h3>Cisco CCNA</h3>
+            <p style="font-size:0.8rem; color:var(--text-muted);">Network Fundamentals</p>
+            <span class="cert-link">View Certificate</span>
+          </a>
+          <a href="https://drive.google.com/file/d/14aOsqQTKcxbeSA23yXPuLvjPUKDfNpvb/view?usp=drive_link" class="glass-card cert-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" alt="Azure" class="cert-img">
+            <h3>Microsoft Azure</h3>
+            <p style="font-size:0.8rem; color:var(--text-muted);">Fundamentals</p>
+            <span class="cert-link">View Certificate</span>
+          </a>
+          <a href="https://drive.google.com/file/d/15hSFkJXr92o4VhM5YgF13pZFv2aSakaD/view?usp=drive_link" class="glass-card cert-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud" class="cert-img">
+            <h3>Google Cloud</h3>
+            <p style="font-size:0.8rem; color:var(--text-muted);">Trust & Security</p>
+            <span class="cert-link">View Certificate</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1kUh_5kU6V_FEYsFhnyf1yHfr12Cmzkdd/view?usp=drive_link" class="glass-card cert-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/5723/5723238.png" alt="Microsoft" class="cert-img">
+            <h3>Computer Networking</h3>
+            <p style="font-size:0.8rem; color:var(--text-muted);">Basics of Networking</p>
+            <span class="cert-link">View Certificate</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1Hcgl0Drn_niSwc64zhvL0LY2tFEnL6hx/view?usp=drive_link" class="glass-card cert-card">
+            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/cyber-securityprotect-shield-3d-icon-png-download-7277200.png" alt="Microsoft" class="cert-img">
+            <h3>Advance Cyber Security</h3>
+            <p style="font-size:0.8rem; color:var(--text-muted);">Threats & Governance</p>
+            <span class="cert-link">View Certificate</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1OhjH3b2gffiHm4KIUrTo_2pP_5BNnKJG/view?usp=drive_link" class="glass-card cert-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="cert-img">
+            <h3>MCSA</h3>
+            <p style="font-size:0.8rem; color:var(--text-muted);">Windows Server Admin</p>
+            <span class="cert-link">View Certificate</span>
+          </a>
+          <a href="https://drive.google.com/file/d/17KrwhkqjLYgkR_UPLiW4GigtmFC7_GSn/view?usp=drive_link" class="glass-card cert-card">
+            <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/fortinet.svg" alt="Microsoft" class="cert-img">
+            <h3>Fortinet Networking Fundamentals</h3>
+            <p style="font-size:0.8rem; color:var(--text-muted);">Network Security</p>
+            <span class="cert-link">View Certificate</span>
+          </a>
+          <a href="https://drive.google.com/file/d/1kZ7mK0qGC0HcqfpSaZSwQtqHS4atjt0C/view?usp=drive_link" class="glass-card cert-card">
+            <img src="https://training.fortinet.com/pluginfile.php/2226728/block_html/content/ftnt_nse_1_introduction_threat_landscape_v3.0.png" alt="Microsoft" class="cert-img">
+            <h3>Introduction to the Threat Landscape 3.0</h3>
+            <p style="font-size:0.8rem; color:var(--text-muted);">Cybersecurity & Threat Intelligence</p>
+            <span class="cert-link">View Certificate</span>
+          </a>
+        </div>
+      </section>
+
+      <section id="experience" class="container" style="padding-top: var(--section-spacing);">
+        <div class="section-header">
+          <h2>Experience</h2>
+        </div>
+        <div class="glass-card">
+          <div class="timeline">
+            <div class="timeline-item">
+              <h3 style="margin-bottom:2px;">IT Engineer</h3>
+              <p style="font-weight:700; color:var(--primary); font-size:0.9rem;">Grain Milling Solutions Pvt Ltd</p>
+              <p style="font-size:0.85rem; margin-bottom:8px; color:var(--text-muted);">Apr 2024 – Present · Noida</p>
+              <p style="font-size:0.95rem;">Windows Server, network administration, firewall policies, cloud server management, backups, and end-user support.</p>
+            </div>
+            <div class="timeline-item" style="margin-bottom:0;">
+              <h3 style="margin-bottom:2px;">System Support Engineer</h3>
+              <p style="font-weight:700; color:var(--primary); font-size:0.9rem;">Konexions Back Office Pvt Ltd</p>
+              <p style="font-size:0.85rem; margin-bottom:8px; color:var(--text-muted);">Previous Role</p>
+              <p style="font-size:0.95rem;">Hardware/software troubleshooting, OS deployment, ticketing and SLA-based support across teams.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="container" style="padding: var(--section-spacing) 0;">
+        <div class="section-header"> 
+          <h2>Get In Touch</h2>
+        </div>
+        
+        <div class="glass-card contact-wrapper">
+          
+          <div class="contact-text-side">
+            <h3>Let's talk tech.</h3>
+            <p style="font-size:0.95rem; margin-bottom: 1.5rem; color: var(--text-muted);">
+              Whether you have a job opportunity, a project, or just want to say hi, my inbox is open.
+            </p>
+            
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2rem;">
+              <div class="contact-info-item">
+                <i class="fa-solid fa-location-dot" style="color:var(--primary); font-size: 1.2rem; width: 24px;"></i> 
+                <span>Noida, India</span>
+              </div>
+              <div class="contact-info-item">
+                <i class="fa-solid fa-envelope" style="color:var(--primary); font-size: 1.2rem; width: 24px;"></i> 
+                <span>Sanjeev753304@gmail.com</span>
+              </div>
+            </div>
+            
+            <div style="display: flex; gap: 15px;">
+              <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" class="btn-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://github.com/isanjiiv" target="_blank" class="btn-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              <a href="https://www.instagram.com/isanjiiv/" target="_blank" class="btn-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+          </div>
+
+          <form action="https://formspree.io/f/xzzabloy" method="POST">
+            <input type="text" name="name" class="form-control" required placeholder="Your Name">
+            <input type="email" name="email" class="form-control" required placeholder="Your Email">
+            <textarea name="message" rows="5" class="form-control" required placeholder="How can I help you?"></textarea>
+            
+            <input type="hidden" name="_subject" value="New message from portfolio">
+            <input type="hidden" name="_replyto" value="Sanjeev753304@gmail.com">
+            
+            <button type="submit" class="btn-primary btn-submit">
+              Send Message <i class="fa-solid fa-paper-plane" style="margin-left:8px;"></i>
+            </button>
+          </form>
+          
+        </div>
+      </section>
+
+    </div>
+
+    <div id="project-1" class="page-view container">
+      <button onclick="showHomeView()" class="btn-primary" style="margin-bottom:2rem; font-size:0.85rem;"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</button>
+      
+      <div class="glass-card">
+        <div class="project-header">
+          <h1 class="project-title">Windows Server Domain Setup + GPO Automation + Backup & Recovery</h1>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <span class="tech-tag">Windows Server 2016</span>
+              <span class="tech-tag">Active Directory (AD DS)</span>
+              <span class="tech-tag">GPO</span>
+              <span class="tech-tag">Acronis Cyber Protect</span>
+          </div>
+        </div>
+
+        <div class="detail-block">
+          <h3>Overview</h3>
+          <p>Designed and implemented a complete Windows Server 2016 domain infrastructure for an enterprise environment to centralize user management, enforce security policies, automate IT operations, and ensure reliable data protection. This project included Active Directory Domain Services (AD DS), DNS integration, structured OU design, Group Policy management, shared folder access control, printer deployment, and a fully scheduled Acronis Cyber Protect Cloud backup strategy for disaster recovery readiness.</p>
+        </div>
+
+        <div class="detail-block">
+          <h3>Key Responsibilities & Implementation</h3>
+          
+          <h4>1) Active Directory Domain Services (AD DS) Deployment</h4>
+          <p>Configured and managed a Windows Server 2016 domain environment to support centralized authentication and access control across the organization.</p>
+          <ul>
+              <li>Installed and configured AD DS and DNS roles</li>
+              <li>Created a domain structure for enterprise-level user and device management</li>
+              <li>Managed domain objects through Active Directory Users and Computers (ADUC)</li>
+          </ul>
+
+          <h4>2) Department-Wise OU Structure & User Management</h4>
+          <p>Built a department-based Organizational Unit (OU) hierarchy to simplify administration and enable targeted policy application.</p>
+          <ul>
+              <li>Created OUs for multiple teams: Accounts, Costing, CRM, Design, HR, IT, Purchase, Reception, and Management.</li>
+              <li>Added and managed user accounts, security groups, and role-based access.</li>
+          </ul>
+
+          <h4>3) Group Policy (GPO) Implementation</h4>
+          <p>Implemented multiple Group Policy Objects (GPOs) to automate workstation configuration and improve security.</p>
+          <ul>
+              <li><strong>USB Access Deny Policy:</strong> Restricted USB storage usage.</li>
+              <li><strong>Drive Mapping Policy:</strong> Automatically mapped shared drives for teams like Design/IT.</li>
+              <li><strong>Printer Deployment Policy:</strong> Automated printer deployment without manual installation.</li>
+          </ul>
+
+          <h4>4) Backup & Disaster Recovery using Acronis</h4>
+          <p>Implemented a secure backup strategy using Acronis Cyber Protect Cloud to protect critical user data and business folders.</p>
+          <ul>
+              <li>Configured backup plans for important systems and shared folders.</li>
+              <li>Set up scheduled daily incremental backups.</li>
+          </ul>
+        </div>
+
+        <div class="detail-block">
+          <h3>Gallery</h3>
+          <div class="gallery-grid">
+             <div class="gallery-item" onclick="openLightbox(this)"><img src="https://via.placeholder.com/600x400?text=AD+Structure" alt="AD"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+             <div class="gallery-item" onclick="openLightbox(this)"><img src="https://via.placeholder.com/600x400?text=GPO+Settings" alt="GPO"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+             <div class="gallery-item" onclick="openLightbox(this)"><img src="https://via.placeholder.com/600x400?text=Backup+Dashboard" alt="Backup"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+          </div>
+        </div>
       </div>
-    </section>
-    </main>
+    </div>
+
+    <div id="project-2" class="page-view container">
+      <button onclick="showHomeView()" class="btn-primary" style="margin-bottom:2rem; font-size:0.85rem;"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</button>
+      <div class="glass-card">
+        <div class="project-header">
+          <h1 class="project-title">Fortinet 60F SD-WAN Deployment</h1>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <span class="tech-tag">FortiGate 60F</span>
+              <span class="tech-tag">SD-WAN</span>
+              <span class="tech-tag">VLAN</span>
+          </div>
+        </div>
+        <div class="detail-block">
+          <h3>Overview</h3>
+          <p>Configured and deployed a FortiGate 60F firewall to secure the company network and improve internet reliability. The key focus was implementing SD-WAN to manage two ISP connections (Jio & Spectra) for redundancy and load balancing.</p>
+        </div>
+        <div class="detail-block">
+          <h3>Key Implementation Details</h3>
+          <h4>1) SD-WAN Configuration</h4>
+          <p>Integrated multiple ISP links (Jio Fiber and Spectra) into a single logical interface using SD-WAN. Configured rules to route business-critical traffic through the most stable line and enabled automatic failover.</p>
+          <h4>2) Security Policies</h4>
+          <p>Applied strict firewall policies to control traffic flow between internal VLANs and the WAN. Enabled Web Filtering and Application Control to block non-business websites and risky applications.</p>
+        </div>
+        <div class="detail-block">
+          <h3>Gallery</h3>
+          <div class="gallery-grid">
+             <div class="gallery-item" onclick="openLightbox(this)"><img src="https://via.placeholder.com/600x400?text=SD-WAN" alt="SD-WAN"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="project-3" class="page-view container">
+      <button onclick="showHomeView()" class="btn-primary" style="margin-bottom:2rem; font-size:0.85rem;"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</button>
+      <div class="glass-card">
+        <div class="project-header">
+          <h1 class="project-title">AI Cost Sheet Builder (Web App)</h1>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <span class="tech-tag">Lovable AI</span>
+              <span class="tech-tag">Automation</span>
+          </div>
+        </div>
+        <div class="detail-block">
+          <h3>Overview</h3>
+          <p>Built a no-code web application at Graiin Milling Solutions using Lovable AI to automate cost sheet generation. Integrated secure login, automated calculations, and PDF/Excel export.</p>
+          <p><a href="https://item-bill-builder.lovable.app" target="_blank" style="color:var(--primary); font-weight:700;">Visit Live App <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+        </div>
+        <div class="detail-block">
+          <h3>Key Features</h3>
+          <ul>
+              <li><strong>Automated Calculations:</strong> Automatically calculates total costs, taxes (GST), and profit margins.</li>
+              <li><strong>PDF & Excel Export:</strong> Integrated functionality to export the final cost sheet as a professional file.</li>
+          </ul>
+        </div>
+        <div class="detail-block">
+          <h3>Gallery</h3>
+          <div class="gallery-grid">
+             <div class="gallery-item" onclick="openLightbox(this)"><img src="https://via.placeholder.com/600x400?text=App+Interface" alt="App"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="project-4" class="page-view container">
+      <button onclick="showHomeView()" class="btn-primary" style="margin-bottom:2rem; font-size:0.85rem;"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</button>
+      <div class="glass-card">
+        <div class="project-header">
+          <h1 class="project-title">Secure Wifi Network (FortiGate + Deco Mesh)</h1>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <span class="tech-tag">Deco Mesh</span>
+              <span class="tech-tag">Fortinet</span>
+              <span class="tech-tag">WiFi Security</span>
+          </div>
+        </div>
+        <div class="detail-block">
+          <h3>Overview</h3>
+          <p>Implemented a secure wireless network upgrade using TP-Link Deco Mesh systems integrated with the existing FortiGate 60F firewall. The goal was to provide seamless roaming coverage while ensuring strong security.</p>
+        </div>
+        <div class="detail-block">
+          <h3>Key Implementation Details</h3>
+          <h4>1) Mesh Network Setup</h4>
+          <p>Deployed multiple Deco Mesh units in Access Point mode to cover dead zones in the office. Configured seamless roaming.</p>
+          <h4>2) Integration with FortiGate</h4>
+          <p>Connected the Mesh system to a dedicated interface on the FortiGate 60F. This allows the firewall to inspect all WiFi traffic.</p>
+        </div>
+        <div class="detail-block">
+          <h3>Gallery</h3>
+          <div class="gallery-grid">
+             <div class="gallery-item" onclick="openLightbox(this)"><img src="https://via.placeholder.com/600x400?text=Wifi+Map" alt="Wifi"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
 
   <footer>
     <div class="container" style="text-align:center; padding:2rem 0; color:var(--text-muted); border-top:1px solid var(--card-border); font-size: 0.9rem;">
@@ -893,18 +1092,13 @@
   <div id="aboutModal" class="modal">
     <div class="modal-content about-content-scroll">
       <span class="close-about">&times;</span>
-      
       <div style="color: var(--text-main);">
         <h2 style="color: var(--primary); margin-bottom: 1rem;">Professional Profile</h2>
-        
         <p>Hello, I’m <strong>Sanjeev Kumar</strong>, an IT Engineer with strong hands-on experience in IT infrastructure support, Windows Server administration, networking, firewall security, and cloud fundamentals. I specialize in building stable, secure, and well-managed IT environments that help teams work faster, safer, and with fewer disruptions.</p>
         <br>
         <p>Over the years, I have worked on a wide range of IT responsibilities—from managing day-to-day technical support and troubleshooting to implementing enterprise-level solutions in Windows Server domains.</p>
-
         <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid var(--card-border);">
-
         <h3 style="margin-bottom: 0.8rem;">What I Do (Core Expertise)</h3>
-
         <div style="margin-bottom: 1.2rem;">
             <h4 style="color: var(--primary); font-size:1.05rem;">Windows Server Administration (AD, GPO, WSUS)</h4>
             <ul style="padding-left: 18px; margin-top: 0.4rem;">
@@ -912,75 +1106,22 @@
                 <li>Group Policy (GPO) configuration and policy deployment</li>
                 <li>WSUS setup and update management</li>
                 <li>Domain joining, permissions, access control, and troubleshooting</li>
-                <li>Managing Windows-based enterprise environments and system stability</li>
             </ul>
         </div>
-
-        <div style="margin-bottom: 1.2rem;">
-            <h4 style="color: var(--primary); font-size:1.05rem;">Networking & Troubleshooting</h4>
-            <ul style="padding-left: 18px; margin-top: 0.4rem;">
-                <li>LAN/WAN troubleshooting and network diagnostics</li>
-                <li>DHCP, DNS, and IP addressing concepts</li>
-                <li>VLAN understanding and internal network connectivity support</li>
-                <li>Resolving real-time issues such as internet downtime, slow network performance, and system communication failures</li>
-            </ul>
-        </div>
-
-        <div style="margin-bottom: 1.2rem;">
-            <h4 style="color: var(--primary); font-size:1.05rem;">Firewall & Security (Fortinet FortiGate 60F)</h4>
-            <ul style="padding-left: 18px; margin-top: 0.4rem;">
-                <li>Firewall policy creation and management</li>
-                <li>Basic routing and network security controls</li>
-                <li>VPN configuration (as per requirement)</li>
-                <li>Traffic monitoring and troubleshooting</li>
-            </ul>
-        </div>
-
-        <div style="margin-bottom: 1.2rem;">
-            <h4 style="color: var(--primary); font-size:1.05rem;">Cloud Knowledge (AWS & Microsoft Azure)</h4>
-            <ul style="padding-left: 18px; margin-top: 0.4rem;">
-                <li>Basic cloud VM/server handling and monitoring</li>
-                <li>Understanding cloud networking and access</li>
-                <li>Assisting with deployment support and troubleshooting</li>
-            </ul>
-        </div>
-
-        <div style="margin-bottom: 1.2rem;">
-            <h4 style="color: var(--primary); font-size:1.05rem;">AI + No-Code App Development</h4>
-            <p>I leverage AI tools (Lovable, Emergent, Cursor) to:</p>
-            <ul style="padding-left: 18px; margin-top: 0.4rem;">
-                <li>Build web-based no-code applications</li>
-                <li>Automate workflows and repetitive tasks</li>
-                <li>Improve internal processes for teams and businesses</li>
-            </ul>
-        </div>
-
-        <div style="margin-bottom: 1.2rem;">
-            <h4 style="color: var(--primary); font-size:1.05rem;">Website & Web Solution Development</h4>
-            <ul style="padding-left: 18px; margin-top: 0.4rem;">
-                <li>Portfolio, Business, and E-commerce websites</li>
-                <li>Landing pages and basic web solutions</li>
-            </ul>
-        </div>
-
-        <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid var(--card-border);">
-
-        <h3 style="margin-bottom: 0.8rem;">My Work Approach</h3>
-        <p>I believe in a professional work style based on clear troubleshooting, fast issue resolution, secure setups, and continuous learning. I enjoy taking ownership of systems to contribute to long-term business improvements.</p>
-
-        <br>
-        <h3 style="margin-bottom: 0.8rem;">What I’m Looking For</h3>
-        <p>I am open to opportunities as an IT Engineer, System Administrator, Network Support Engineer, or Cloud Support. I am especially interested in roles that allow me to combine <strong>IT infrastructure + automation + modern AI tools</strong>.</p>
-        
         <div style="margin-top: 2rem; text-align: center;">
-            <a href="#contact" class="btn-primary" onclick="document.getElementById('aboutModal').classList.remove('show')">Contact Me</a>
+            <a href="#contact" class="btn-primary" onclick="document.getElementById('aboutModal').classList.remove('show'); showHomeViewAndScroll('contact')">Contact Me</a>
         </div>
       </div>
     </div>
   </div>
 
+  <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+    <span class="close-lightbox">&times;</span>
+    <img id="lightbox-img" class="lightbox-content" src="" alt="Full View">
+  </div>
+
   <script>
-      
+    
     // 1. Theme Toggle
     const themeToggle = document.getElementById('themeToggle');
     const html = document.documentElement;
@@ -1055,7 +1196,6 @@
         if (entry.isIntersecting) {
           entry.target.style.opacity = 1;
           entry.target.style.transform = 'translateY(0)';
-          // Fix: Select ALL progress bars inside the card
           const progressBars = entry.target.querySelectorAll('.skill-bar-fill');
           progressBars.forEach(bar => {
             bar.style.width = bar.getAttribute('data-width');
@@ -1116,6 +1256,57 @@
 
     // Year
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ============================================
+    // NEW SPA NAVIGATION LOGIC
+    // ============================================
+    
+    function showProjectView(projectId) {
+        // Hide Home
+        document.getElementById('home-view').classList.remove('active');
+        // Hide All Other Project Views if any open
+        document.querySelectorAll('.page-view').forEach(view => {
+            if(view.id !== 'home-view') view.classList.remove('active');
+        });
+        // Show Target Project
+        document.getElementById(projectId).classList.add('active');
+        // Scroll Top
+        window.scrollTo(0,0);
+    }
+
+    function showHomeView() {
+        // Hide All Projects
+        document.querySelectorAll('.page-view').forEach(view => {
+            if(view.id !== 'home-view') view.classList.remove('active');
+        });
+        // Show Home
+        document.getElementById('home-view').classList.add('active');
+        window.scrollTo(0,0);
+    }
+
+    function showHomeViewAndScroll(sectionId) {
+        showHomeView();
+        // Wait briefly for home view to render then scroll
+        setTimeout(() => {
+            const section = document.getElementById(sectionId);
+            if(section) section.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+    }
+
+    // Lightbox Logic for Projects
+    function openLightbox(element) {
+        const img = element.querySelector('img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        lightboxImg.src = img.src;
+        lightbox.classList.add('show');
+    }
+
+    function closeLightbox(event) {
+        if(event.target.id === 'lightbox' || event.target.classList.contains('close-lightbox')) {
+            document.getElementById('lightbox').classList.remove('show');
+        }
+    }
   </script>
 </body>
 </html>
