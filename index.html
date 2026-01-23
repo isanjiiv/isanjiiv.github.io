@@ -1337,237 +1337,283 @@
     <button class="lightbox-btn prev" onclick="changeImage(-1)">❮</button> <img id="lightbox-img" class="lightbox-content" src="" alt="Full View">
     <button class="lightbox-btn next" onclick="changeImage(1)">❯</button> </div>
 
-  <script>
-    
-    // 1. Theme Toggle
-    const themeToggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
-    const icon = themeToggle.querySelector('i');
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    
-    html.setAttribute('data-theme', savedTheme);
-    updateIcon(savedTheme);
+ <script>
+    // ============================================
+    // 1. GLOBAL NAVIGATION FUNCTIONS
+    // ============================================
 
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      html.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      updateIcon(newTheme);
-    });
-
-    function updateIcon(theme) {
-      if (theme === 'dark') {
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-      } else {
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-      }
-    }
-
-    // 2. Mobile Menu
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    
-    hamburger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-      const isOpen = mobileMenu.classList.contains('open');
-      hamburger.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
-    });
-    
-    // Close menu when link is clicked
-    document.querySelectorAll('.mobile-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
-      });
-    });
-
-    // 3. Typewriter Effect
-    const texts = ["IT Engineer", "Network Admin", "Windows Server Admin", "IT Security"];
-    let count = 0;
-    let index = 0;
-    let currentText = "";
-    let letter = "";
-
-    (function type() {
-      if (count === texts.length) { count = 0; }
-      currentText = texts[count];
-      letter = currentText.slice(0, ++index);
-      
-      const target = document.querySelector('.typing-text');
-      if (target) target.textContent = letter;
-      
-      if (letter.length === currentText.length) {
-        count++; index = 0;
-        setTimeout(type, 2000); 
-      } else {
-        setTimeout(type, 100);
-      }
-    })();
-
-    // 4. Scroll Animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = 'translateY(0)';
-          const progressBars = entry.target.querySelectorAll('.skill-bar-fill');
-          progressBars.forEach(bar => {
-            bar.style.width = bar.getAttribute('data-width');
-          });
+    // HELPER: Switches the visual div logic only
+    function switchPageVisuals(viewId) {
+        // 1. Get Elements safely
+        const homeView = document.getElementById('home-view');
+        
+        // 2. Hide/Show Home
+        if (viewId === 'home-view') {
+            homeView.classList.add('active');
+        } else {
+            homeView.classList.remove('active');
         }
-      });
-    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.glass-card').forEach(el => {
-      el.style.opacity = 0; el.style.transform = 'translateY(20px)'; el.style.transition = 'all 0.6s ease-out';
-      observer.observe(el);
-    });
-
-    // 5. Certificate Viewer Modal Logic
-    const certModal = document.getElementById('certModal');
-    const certFrame = document.getElementById('certFrame');
-    const closeModal = document.querySelector('.close-modal');
-    const certLinks = document.querySelectorAll('.cert-card');
-
-    certLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault(); 
-        const url = link.getAttribute('href');
-        const previewUrl = url.replace('/view', '/preview');
-        certFrame.src = previewUrl;
-        certModal.classList.add('show');
-      });
-    });
-
-    closeModal.addEventListener('click', () => {
-      certModal.classList.remove('show');
-      certFrame.src = ''; 
-    });
-
-    // 6. About Me Detail Modal Logic
-    const aboutModal = document.getElementById('aboutModal');
-    const openAboutBtn = document.getElementById('openAboutBtn');
-    const closeAbout = document.querySelector('.close-about');
-
-    openAboutBtn.addEventListener('click', () => {
-        aboutModal.classList.add('show');
-    });
-
-    closeAbout.addEventListener('click', () => {
-        aboutModal.classList.remove('show');
-    });
-
-    // Close Modals on click outside
-    window.addEventListener('click', (e) => {
-      if (e.target === certModal) {
-        certModal.classList.remove('show');
-        certFrame.src = '';
-      }
-      if (e.target === aboutModal) {
-        aboutModal.classList.remove('show');
-      }
-    });
-
-    // Year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // ============================================
-    // NEW SPA NAVIGATION LOGIC
-    // ============================================
-    
-    function showProjectView(projectId) {
-        // Hide Home
-        document.getElementById('home-view').classList.remove('active');
-        // Hide All Other Project Views if any open
+        // 3. Hide/Show Projects
         document.querySelectorAll('.page-view').forEach(view => {
-            if(view.id !== 'home-view') view.classList.remove('active');
+            if (view.id !== 'home-view') {
+                if (view.id === viewId) {
+                    view.classList.add('active');
+                } else {
+                    view.classList.remove('active');
+                }
+            }
         });
-        // Show Target Project
-        document.getElementById(projectId).classList.add('active');
-        // Scroll Top
-        window.scrollTo(0,0);
+
+        // 4. Scroll to top
+        window.scrollTo(0, 0);
     }
 
-    function showHomeView() {
-        // Hide All Projects
-        document.querySelectorAll('.page-view').forEach(view => {
-            if(view.id !== 'home-view') view.classList.remove('active');
-        });
-        // Show Home
-        document.getElementById('home-view').classList.add('active');
-        window.scrollTo(0,0);
-    }
+    // FUNCTION: Called when you click a project card
+    window.showProjectView = function(projectId) {
+        // Add entry to browser history
+        history.pushState({ page: projectId }, null, "#" + projectId);
+        // Switch view
+        switchPageVisuals(projectId);
+    };
 
-    function showHomeViewAndScroll(sectionId) {
-        showHomeView();
-        // Wait briefly for home view to render then scroll
+    // FUNCTION: Called when you click "Back to Portfolio" button
+    window.showHomeView = function() {
+        // 1. Force the visual switch immediately (So it always works)
+        switchPageVisuals('home-view');
+        
+        // 2. Update the URL to remove the #project-id
+        // We use pushState so if they click the Browser Back button, they go back to the project.
+        history.pushState(null, null, " "); 
+    };
+
+    // FUNCTION: Navbar Scroll Links
+    window.showHomeViewAndScroll = function(sectionId) {
+        const homeView = document.getElementById('home-view');
+        
+        // If we are deep in a project, go back to home visually first
+        if (!homeView.classList.contains('active')) {
+            switchPageVisuals('home-view');
+            history.pushState(null, null, " ");
+        }
+
+        // Standard Scroll with slight delay to allow rendering
         setTimeout(() => {
             const section = document.getElementById(sectionId);
-            if(section) section.scrollIntoView({ behavior: 'smooth' });
+            if (section) section.scrollIntoView({ behavior: 'smooth' });
         }, 50);
-    }
+    };
 
     // ============================================
-    // UPDATED LIGHTBOX LOGIC (SWITCH BUTTONS)
+    // 2. INITIALIZATION (Wait for Page Load)
     // ============================================
-    
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // --- A. BROWSER BACK BUTTON LISTENER ---
+        window.addEventListener('popstate', function(event) {
+            // If the history has a page ID, show that project
+            if (event.state && event.state.page) {
+                switchPageVisuals(event.state.page);
+            } else {
+                // Otherwise show home
+                switchPageVisuals('home-view');
+            }
+        });
+
+        // --- B. HANDLE PAGE REFRESH (Keep user on project) ---
+        const hash = window.location.hash.substring(1);
+        if (hash && document.getElementById(hash)) {
+            switchPageVisuals(hash);
+            // Update history so back button works immediately
+            history.replaceState({ page: hash }, null, "#" + hash);
+        }
+
+        // --- C. THEME TOGGLE ---
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        if (themeToggle) {
+            const icon = themeToggle.querySelector('i');
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            updateIcon(icon, savedTheme);
+
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcon(icon, newTheme);
+            });
+        }
+
+        function updateIcon(icon, theme) {
+            if (!icon) return;
+            if (theme === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+
+        // --- D. MOBILE MENU ---
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (hamburger && mobileMenu) {
+            hamburger.addEventListener('click', () => {
+                mobileMenu.classList.toggle('open');
+                const isOpen = mobileMenu.classList.contains('open');
+                hamburger.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+            });
+
+            document.querySelectorAll('.mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                    hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                });
+            });
+        }
+
+        // --- E. SCROLL ANIMATION ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    const progressBars = entry.target.querySelectorAll('.skill-bar-fill');
+                    progressBars.forEach(bar => {
+                        bar.style.width = bar.getAttribute('data-width');
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.glass-card').forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // --- F. TYPING EFFECT ---
+        const texts = ["IT Engineer", "Network Admin", "Windows Server Admin", "IT Security"];
+        let count = 0;
+        let index = 0;
+        let currentText = "";
+        let letter = "";
+        
+        (function type() {
+            if (count === texts.length) { count = 0; }
+            currentText = texts[count];
+            letter = currentText.slice(0, ++index);
+            const target = document.querySelector('.typing-text');
+            if (target) {
+                target.textContent = letter;
+                if (letter.length === currentText.length) {
+                    count++; index = 0;
+                    setTimeout(type, 2000);
+                } else {
+                    setTimeout(type, 100);
+                }
+            }
+        })();
+
+        // --- G. YEAR ---
+        const yearSpan = document.getElementById("year");
+        if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+        // --- H. MODALS (Cert & About) ---
+        const certModal = document.getElementById('certModal');
+        const certFrame = document.getElementById('certFrame');
+        const closeModal = document.querySelector('.close-modal');
+        const certLinks = document.querySelectorAll('.cert-card');
+        const aboutModal = document.getElementById('aboutModal');
+        const openAboutBtn = document.getElementById('openAboutBtn');
+        const closeAbout = document.querySelector('.close-about');
+
+        if(certModal) {
+            certLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const url = link.getAttribute('href');
+                    const previewUrl = url.replace('/view', '/preview');
+                    if(certFrame) certFrame.src = previewUrl;
+                    certModal.classList.add('show');
+                });
+            });
+            if(closeModal) {
+                closeModal.addEventListener('click', () => {
+                    certModal.classList.remove('show');
+                    if(certFrame) certFrame.src = '';
+                });
+            }
+        }
+
+        if(aboutModal) {
+            if(openAboutBtn) openAboutBtn.addEventListener('click', () => aboutModal.classList.add('show'));
+            if(closeAbout) closeAbout.addEventListener('click', () => aboutModal.classList.remove('show'));
+        }
+
+        window.addEventListener('click', (e) => {
+            if (certModal && e.target === certModal) {
+                certModal.classList.remove('show');
+                if(certFrame) certFrame.src = '';
+            }
+            if (aboutModal && e.target === aboutModal) {
+                aboutModal.classList.remove('show');
+            }
+        });
+    });
+
+    // ============================================
+    // 3. LIGHTBOX LOGIC
+    // ============================================
     let currentImageIndex = 0;
     let currentGalleryImages = [];
 
-    function openLightbox(element) {
-        // 1. Find the parent gallery grid
+    window.openLightbox = function(element) {
         const galleryGrid = element.closest('.gallery-grid');
-        
-        // 2. Get all images in this specific grid
+        if(!galleryGrid) return;
         currentGalleryImages = Array.from(galleryGrid.querySelectorAll('img'));
-        
-        // 3. Find index of clicked image
         const clickedImg = element.querySelector('img');
         currentImageIndex = currentGalleryImages.indexOf(clickedImg);
-
-        // 4. Show Lightbox
         updateLightboxImage();
         document.getElementById('lightbox').classList.add('show');
-    }
+    };
 
-    function changeImage(direction) {
+    window.changeImage = function(direction) {
         currentImageIndex += direction;
-        
-        // Loop logic
         if (currentImageIndex >= currentGalleryImages.length) {
             currentImageIndex = 0;
         } else if (currentImageIndex < 0) {
             currentImageIndex = currentGalleryImages.length - 1;
         }
-        
         updateLightboxImage();
-    }
+    };
 
     function updateLightboxImage() {
-        const imgSource = currentGalleryImages[currentImageIndex].src;
-        const lightboxImg = document.getElementById('lightbox-img');
-        lightboxImg.src = imgSource;
-    }
-
-    function closeLightbox(event) {
-        // Only close if clicking background or X button (not arrows)
-        if(event.target.id === 'lightbox' || event.target.classList.contains('close-lightbox')) {
-            document.getElementById('lightbox').classList.remove('show');
+        if(currentGalleryImages.length > 0) {
+            const imgSource = currentGalleryImages[currentImageIndex].src;
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imgSource;
         }
     }
 
-    // Keyboard navigation support
-    document.addEventListener('keydown', function(e) {
-        if (!document.getElementById('lightbox').classList.contains('show')) return;
-        
-        if (e.key === "ArrowLeft") changeImage(-1);
-        if (e.key === "ArrowRight") changeImage(1);
-        if (e.key === "Escape") document.getElementById('lightbox').classList.remove('show');
-    });
+    window.closeLightbox = function(event) {
+        if(event.target.id === 'lightbox' || event.target.classList.contains('close-lightbox')) {
+            document.getElementById('lightbox').classList.remove('show');
+        }
+    };
 
-  </script>
+    document.addEventListener('keydown', function(e) {
+        const lb = document.getElementById('lightbox');
+        if (lb && lb.classList.contains('show')) {
+            if (e.key === "ArrowLeft") changeImage(-1);
+            if (e.key === "ArrowRight") changeImage(1);
+            if (e.key === "Escape") lb.classList.remove('show');
+        }
+    });
+</script>
 </body>
 </html>
