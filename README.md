@@ -14,9 +14,60 @@ Welcome to my professional portfolio website built using **HTML, CSS, and JavaSc
 
 ## 👨‍💻 Professional Summary
 
-I am **Sanjeev Kumar**, an experienced **IT Engineer and System Administrator** based in **Noida, India**, with hands-on expertise in **Windows Server, Networking, Cloud Computing, Firewall Security, and Enterprise IT Support**.
+I am **Sanjeev Kumar**, an experienced **IT Engineer and System Administrator** based in **Noida, India**, with hands-on expertise in **Windows Server, Networking, Cloud Computing, Firewall Security, and Enterprise IT Support**.  
 
 I specialize in building **secure, reliable, and scalable IT infrastructure** while ensuring smooth day-to-day IT operations for organizations.
+
+---
+
+## ✅ What I Do (Core Expertise)
+
+### 🖥️ Windows Server Administration (AD, GPO, WSUS)
+- Active Directory (AD) user and computer management  
+- Group Policy (GPO) configuration and policy deployment  
+- WSUS setup and update management  
+- Domain joining, permissions, access control, and troubleshooting  
+- Managing Windows-based enterprise environments and system stability  
+
+### 🌐 Networking & Troubleshooting
+- LAN/WAN troubleshooting and network diagnostics  
+- DHCP, DNS, and IP addressing concepts  
+- VLAN understanding and internal network connectivity support  
+- Resolving real-time issues such as internet downtime, slow network performance, and system communication failures  
+
+### 🔐 Firewall & Security (Fortinet FortiGate 60F)
+- Firewall policy creation and management  
+- Basic routing and network security controls  
+- VPN configuration (as per requirement)  
+- Traffic monitoring and troubleshooting  
+
+### ☁️ Cloud Knowledge (AWS & Microsoft Azure)
+- Basic cloud VM/server handling and monitoring  
+- Understanding cloud networking and access  
+- Assisting with deployment support and troubleshooting  
+
+### 🤖 AI + No-Code App Development
+I leverage AI tools (**Lovable, Emergent, Cursor**) to:  
+- Build web-based no-code applications  
+- Automate workflows and repetitive tasks  
+- Improve internal processes for teams and businesses  
+
+### 🌍 Website & Web Solution Development
+- Portfolio, Business, and E-commerce websites  
+- Landing pages and basic web solutions  
+
+---
+
+## 🧠 My Work Approach
+I believe in a professional work style based on **clear troubleshooting, fast issue resolution, secure setups, and continuous learning**.  
+I enjoy taking ownership of systems to contribute to long-term business improvements.
+
+---
+
+## 🎯 What I’m Looking For
+I am open to opportunities as an **IT Engineer**, **System Administrator**, **Network Support Engineer**, or **Cloud Support Engineer**.  
+I am especially interested in roles that allow me to combine **IT infrastructure + automation + modern AI tools**.
+
 
 ---
 
@@ -83,6 +134,7 @@ If you find this portfolio useful, feel free to ⭐ star the repository.
 ---
 
 © Sanjeev Kumar | IT Engineer | Portfolio Website
+
 
 
 
