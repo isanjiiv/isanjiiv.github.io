@@ -48,8 +48,8 @@ I specialize in building **secure, reliable, and scalable IT infrastructure** wh
 
 - **SD-WAN & Firewall Deployment** – Fortinet FortiGate 60F  
 - **Windows Server Setup** – AD, DNS, DHCP, Group Policy  
-- **Cloud Virtual Machines** – AWS EC2 & Azure VM  
-- **Enterprise IT Support** – Hardware, OS, Network & Security  
+- **Enterprise IT Support** – Hardware, OS, Network & Security
+- **Using Ai (Lovable) Web Based app** - GMS Cost sheet Creation (App link: https://item-bill-builder.lovable.app/login)
 
 ---
 
@@ -83,6 +83,7 @@ If you find this portfolio useful, feel free to ⭐ star the repository.
 ---
 
 © Sanjeev Kumar | IT Engineer | Portfolio Website
+
 
 
 
