@@ -68,8 +68,8 @@ I specialize in building **secure, reliable, and scalable IT infrastructure** wh
 
 If you are looking for an **IT Engineer**, **System Administrator**, or **Technical Support Professional**, feel free to connect.
 
-- <img src="https://cdn.simpleicons.org/googlechrome/0A66C2" width="18" /> Website: https://www.wayoftech.net/
-- <img src="https://cdn.simpleicons.org/linkedin/0A66C2" width="18" /> LinkedIn: https://www.linkedin.com/in/isanjiiv/
+- <img src="https://www.wayoftech.net/web/image/website/1/logo/Way%20Of%20Tech?unique=cbb1e15" width="18" /> Website: https://www.wayoftech.net/
+- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/960px-LinkedIn_icon.svg.png" width="18" /> LinkedIn: https://www.linkedin.com/in/isanjiiv/
 - <img src="https://cdn.simpleicons.org/instagram/E4405F" width="18" /> Instagram: https://www.instagram.com/isanjiiv/
 - <img src="https://cdn.simpleicons.org/youtube/FF0000" width="18" /> YouTube: https://www.youtube.com/@isanjiiv
 
@@ -83,6 +83,7 @@ If you find this portfolio useful, feel free to ⭐ star the repository.
 ---
 
 © Sanjeev Kumar | IT Engineer | Portfolio Website
+
 
 
 
