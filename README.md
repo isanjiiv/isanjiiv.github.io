@@ -4,7 +4,7 @@
 
 ⭐⭐⭐⭐
 
-# Sanjeev Kumar – IT Engineer
+# Sanjeev Kumar | IT Engineer
 
 Welcome to my professional portfolio website built using **HTML, CSS, and JavaScript** and hosted on **GitHub Pages**.
 
@@ -64,35 +64,14 @@ I specialize in building **secure, reliable, and scalable IT infrastructure** wh
 - Basics of Computer Networking
 ---
 
-## 🌐 Portfolio Features
-
-- Fully responsive design (Desktop & Mobile Friendly)
-- SEO-optimized HTML structure
-- Fast-loading static website
-- Google Search Console verified
-- Sitemap.xml & robots.txt configured
-- Clean, modern UI for recruiters
-
----
-
-## 🔍 SEO & Performance Optimization
-
-- Proper meta tags and heading hierarchy
-- Structured, keyword-focused content
-- Image optimization for faster loading
-- Canonical URL configured
-- Sitemap submitted to Google Search Console
-
----
-
 ## 📬 Contact & Social Profiles
 
 If you are looking for an **IT Engineer**, **System Administrator**, or **Technical Support Professional**, feel free to connect.
 
-- 🌐 Website: https://www.wayoftech.net/
-- 💼 LinkedIn: https://www.linkedin.com/in/isanjiiv/
-- 📸 Instagram: https://www.instagram.com/isanjiiv/
-- ▶️ YouTube: https://www.youtube.com/@isanjiiv
+- <img src="https://cdn.simpleicons.org/googlechrome/0A66C2" width="18" /> Website: https://www.wayoftech.net/
+- <img src="https://cdn.simpleicons.org/linkedin/0A66C2" width="18" /> LinkedIn: https://www.linkedin.com/in/isanjiiv/
+- <img src="https://cdn.simpleicons.org/instagram/E4405F" width="18" /> Instagram: https://www.instagram.com/isanjiiv/
+- <img src="https://cdn.simpleicons.org/youtube/FF0000" width="18" /> YouTube: https://www.youtube.com/@isanjiiv
 
 ---
 
@@ -104,6 +83,7 @@ If you find this portfolio useful, feel free to ⭐ star the repository.
 ---
 
 © Sanjeev Kumar | IT Engineer | Portfolio Website
+
 
 
 
