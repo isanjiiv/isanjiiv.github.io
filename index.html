@@ -13,7 +13,7 @@
     gtag('config', 'G-YEH8LE17NF');
   </script>
   <meta name="google-site-verification" content="google55bb3e2dfb255c1c" />
-  
+   
   <meta name="robots" content="index, follow" />
 
   <title>Sanjeev Kumar | IT Engineer</title>
@@ -21,7 +21,7 @@
   <meta name="keywords" content="Sanjeev Kumar, IT Engineer, Windows Server, Network Engineer, Fortinet, AWS, Azure, Cybersecurity, Noida" />
   <meta name="author" content="Sanjeev Kumar" />
   <meta name="theme-color" content="#f59e0b" />
-   
+    
   <link rel="canonical" href="https://isanjiiv.github.io/" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
@@ -46,7 +46,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-   
+    
   /* --- TYPING EFFECT CURSOR --- */
   .typing-container { position: relative; }
   .typing-container::after {
@@ -74,11 +74,11 @@
       --card-border: rgba(226, 232, 240, 0.8);
       --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); /* Reduced shadow size */
       --nav-bg: rgba(255, 255, 255, 0.95);
-      
+       
       --radius-md: 12px; /* Slightly smaller radius for compactness */
       --container: 1000px;
       --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      
+       
       /* Default Desktop Spacing */
       --section-spacing: 4rem;
     }
@@ -166,6 +166,33 @@
       box-shadow: 0 4px 10px var(--primary-glow);
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 15px var(--primary-glow); }
+
+    .btn-danger-outline {
+        padding: 0.4rem 1rem;
+        border: 1px solid #ef4444;
+        color: #ef4444;
+        background: transparent;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 0.85rem;
+        transition: var(--transition);
+    }
+    .btn-danger-outline:hover { background: #ef4444; color: #fff; }
+
+    .btn-secondary-outline {
+        padding: 0.4rem 1rem;
+        border: 1px solid var(--text-main);
+        color: var(--text-main);
+        background: transparent;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 0.85rem;
+        transition: var(--transition);
+        text-decoration: none;
+        display: inline-block;
+    }
+    .btn-secondary-outline:hover { background: var(--text-main); color: var(--bg); }
+
 
     /* Glass Cards */
     .glass-card {
@@ -428,6 +455,84 @@
     .prev { left: 20px; }
     .next { right: 20px; }
 
+    /* ======================================================== */
+    /* LOVABLE AI APPS STYLES (MATCHED TO PORTFOLIO THEME)      */
+    /* ======================================================== */
+    .lovable-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-bottom: 25px;
+    }
+
+    .lovable-app-card {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .lovable-app-card h3 {
+        margin: 0 0 10px;
+        font-size: 1.3rem;
+        color: var(--text-main);
+    }
+    
+    .lovable-app-card p {
+        margin: 0 0 15px;
+        color: var(--text-muted);
+        line-height: 1.6;
+        font-size: 0.95rem;
+        flex-grow: 1;
+    }
+
+    /* Preview Box */
+    .app-preview-box {
+        margin-top: 30px;
+        border: 1px solid var(--card-border);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        background: var(--bg);
+        display: none; /* Hidden by default */
+        box-shadow: var(--glass-shadow);
+        animation: fadeIn 0.4s ease;
+    }
+
+    .app-preview-header {
+        padding: 10px 15px;
+        background: var(--bg-secondary);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 1px solid var(--card-border);
+        flex-wrap: wrap;
+    }
+
+    .app-preview-title {
+        font-weight: 700;
+        color: var(--text-main);
+    }
+
+    .app-preview-actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .app-iframe {
+        width: 100%;
+        border: none;
+        height: 650px; /* Desktop default */
+        background: #ffffff; /* Frame background always white */
+    }
+
+    /* Mobile Responsive Auto Height for Iframe */
+    @media (max-width: 768px){
+        .app-iframe{
+            height: 65vh; 
+        }
+    }
+
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
     @keyframes scaleUp { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
@@ -552,11 +657,11 @@
 /* --- FIXED BUTTON CENTERING --- */
 /* This makes sure the button centers inside the form */
 .btn-submit {
-  display: flex;             
+  display: flex;              
   justify-content: center; 
   align-items: center;
   margin: 1rem auto 0 auto; /* auto left/right margins center it */
-  min-width: 180px;         /* Consistent width */
+  min-width: 180px;          /* Consistent width */
 }
 
 /* Contact Info Icons */
@@ -586,22 +691,22 @@
   .contact-info-item {
       justify-content: center;
   }
-  
+   
   /* Center the form box */
   form {
       width: 100%;
       max-width: 500px; 
-      margin: 0 auto;     
+      margin: 0 auto;      
   }
 
   /* On mobile, button stays centered but can be wider if you want */
   .btn-submit {
-      width: 100%;         /* Makes it full width on small screens */
-      max-width: 300px;   /* But not too wide */
+      width: 100%;          /* Makes it full width on small screens */
+      max-width: 300px;    /* But not too wide */
   }
 }
   </style>
-  
+   
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -640,7 +745,7 @@
         <a href="https://www.wayoftech.net/" target="_blank" class="btn-icon" title="WAY OF TECH">
            <img src="https://www.wayoftech.net/favicon.ico" alt="Way of Tech" style="width:18px;">
         </a>
-        
+         
         <button class="btn-icon" id="themeToggle" aria-label="Toggle Theme">
           <i class="fa-solid fa-moon"></i>
         </button>
@@ -682,7 +787,7 @@
             <strong>Cloud (AWS & Azure)</strong>, <strong>Firewall (Fortinet)</strong>, and <strong>Cybersecurity</strong>. 
             I build reliable systems and help teams ship fast and safe.
           </p>
-          
+           
           <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center;">
             <a href="#contact" class="btn-primary">Get in Touch</a>
             <div style="display: flex; gap: 8px;">
@@ -803,8 +908,8 @@
 
         <article class="glass-card project-card" onclick="showProjectView('project-3')">
           <div>
-            <h3>AI Cost Sheet Builder (Web App)</h3>
-            <p>Built a no-code web application at Graiin Milling Solutions using Lovable AI to automate cost sheet generation. Integrated secure login, automated calculations, and PDF/Excel export.</p>
+            <h3>AI Cost Sheet Builder & Lovable Apps</h3>
+            <p>Built a no-code web application at Graiin Milling Solutions using Lovable AI to automate cost sheet generation. Also developed Resume Builders and Notes apps.</p>
             <div style="margin-top:8px;">
               <span class="tech-tag">Lovable AI</span>
               <span class="tech-tag">No-Code</span>
@@ -983,7 +1088,7 @@
 
         <div class="detail-block">
           <h3>Key Responsibilities & Implementation</h3>
-           
+            
           <h4>1) Active Directory Domain Services (AD DS) Deployment</h4>
           <p>Configured and managed a Windows Server 2016 domain environment to support centralized authentication and access control across the organization.</p>
           <ul>
@@ -1082,30 +1187,83 @@
       <button onclick="showHomeView()" class="btn-primary" style="margin-bottom:2rem; font-size:0.85rem;"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</button>
       <div class="glass-card">
         <div class="project-header">
-          <h1 class="project-title">AI Cost Sheet Builder (Web App)</h1>
+          <h1 class="project-title">AI Cost Sheet Builder & Other Apps</h1>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
               <span class="tech-tag">Lovable AI</span>
               <span class="tech-tag">Automation</span>
+              <span class="tech-tag">Web Apps</span>
           </div>
         </div>
+        
         <div class="detail-block">
-          <h3>Overview</h3>
+          <h3>AI Cost Sheet Builder</h3>
           <p>Built a no-code web application at Graiin Milling Solutions using Lovable AI to automate cost sheet generation. Integrated secure login, automated calculations, and PDF/Excel export.</p>
           <p><a href="https://item-bill-builder.lovable.app" target="_blank" style="color:var(--primary); font-weight:700;">Visit Live App <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
-        </div>
-        <div class="detail-block">
-          <h3>Key Features</h3>
+          
+          <h4>Key Features</h4>
           <ul>
               <li><strong>Automated Calculations:</strong> Automatically calculates total costs, taxes (GST), and profit margins.</li>
               <li><strong>PDF & Excel Export:</strong> Integrated functionality to export the final cost sheet as a professional file.</li>
           </ul>
         </div>
+
         <div class="detail-block">
-          <h3>Project Gallery</h3>
-          <div class="gallery-grid">
-             <div class="gallery-item" onclick="openLightbox(this)"><img src="https://via.placeholder.com/600x400?text=App+Interface" alt="App"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-          </div>
-        </div>
+            <h3>More Lovable AI Apps</h3>
+            <p>Here are some other applications I created using Lovable AI. Click on View App to preview the project inside this page.</p>
+            
+            <div class="lovable-grid">
+
+                <div class="glass-card lovable-app-card">
+                  <h3 class="lovable-card-title">BuildResume</h3>
+                  <p class="lovable-card-text">
+                    An AI resume builder that helps users create modern and professional resumes.
+                    Simple, fast, and easy to use for job-ready output.
+                  </p>
+                  <button class="btn-primary" onclick="loadApp('https://buildresume.lovable.app/', 'BuildResume')">
+                    View App
+                  </button>
+                </div>
+            
+                <div class="glass-card lovable-app-card">
+                  <h3 class="lovable-card-title">HappyNote</h3>
+                  <p class="lovable-card-text">
+                    A clean notes app for writing and organizing daily tasks quickly.
+                    Helps users stay productive with a smooth interface.
+                  </p>
+                  <button class="btn-primary" onclick="loadApp('https://happynote.lovable.app/', 'HappyNote')">
+                    View App
+                  </button>
+                </div>
+            
+                <div class="glass-card lovable-app-card">
+                  <h3 class="lovable-card-title">My Moments</h3>
+                  <p class="lovable-card-text">
+                    A personal moments app where users can store important memories securely.
+                    Includes authentication for privacy and controlled access.
+                  </p>
+                  <button class="btn-primary" onclick="loadApp('https://mymoments.lovable.app/auth', 'My Moments')">
+                    View App
+                  </button>
+                </div>
+            
+            </div>
+            
+            <div id="previewBox" class="app-preview-box">
+                <div class="app-preview-header">
+                  <strong id="previewTitle" class="app-preview-title">App Preview</strong>
+            
+                  <div class="app-preview-actions">
+                    <a id="openFullBtn" href="#" target="_blank" class="btn-secondary-outline">
+                      Open Full <i class="fa-solid fa-external-link-alt"></i>
+                    </a>
+                    <button class="btn-danger-outline" onclick="closeApp()">Close</button>
+                  </div>
+                </div>
+            
+                <iframe id="appFrame" src="" class="app-iframe"></iframe>
+            </div>
+            </div>
+
       </div>
     </div>
 
@@ -1403,9 +1561,34 @@
             if (section) section.scrollIntoView({ behavior: 'smooth' });
         }, 50);
     };
+    
+    // ============================================
+    // 2. APP PREVIEW LOGIC (NEW ADDITION)
+    // ============================================
+    window.loadApp = function(url, title) {
+        const previewBox = document.getElementById("previewBox");
+        const frame = document.getElementById("appFrame");
+        const openFullBtn = document.getElementById("openFullBtn");
+        const previewTitle = document.getElementById("previewTitle");
+
+        previewTitle.innerText = title + " - Preview";
+        previewBox.style.display = "block";
+        frame.src = url;
+        openFullBtn.href = url;
+
+        previewBox.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    window.closeApp = function() {
+        const previewBox = document.getElementById("previewBox");
+        const frame = document.getElementById("appFrame");
+
+        frame.src = "";
+        previewBox.style.display = "none";
+    }
 
     // ============================================
-    // 2. INITIALIZATION (Wait for Page Load)
+    // 3. INITIALIZATION (Wait for Page Load)
     // ============================================
     document.addEventListener('DOMContentLoaded', () => {
         
@@ -1567,7 +1750,7 @@
     });
 
     // ============================================
-    // 3. LIGHTBOX LOGIC
+    // 4. LIGHTBOX LOGIC
     // ============================================
     let currentImageIndex = 0;
     let currentGalleryImages = [];
