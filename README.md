@@ -98,9 +98,34 @@ I am especially interested in roles that allow me to combine **IT infrastructure
 ## 📁 Projects & Practical Experience
 
 - **SD-WAN & Firewall Deployment** – Fortinet FortiGate 60F  
+  Hands-on experience in firewall policy creation, routing, traffic control, and basic VPN setup.
+
 - **Windows Server Setup** – AD, DNS, DHCP, Group Policy  
-- **Enterprise IT Support** – Hardware, OS, Network & Security
-- **Using Ai (Lovable) Web Based app** - GMS Cost sheet Creation (App link: https://item-bill-builder.lovable.app/login)
+  Implemented and managed Windows Server environments including domain setup, user/computer management, and policy enforcement.
+
+- **Enterprise IT Support** – Hardware, OS, Network & Security  
+  Provided end-to-end IT support covering system troubleshooting, network issues, and security-related tasks.
+
+- **AI-Based Web Application (Lovable)** – GMS Cost Sheet Creation  
+  Built a web-based cost sheet application using AI no-code tools for business cost calculation and automation.  
+  🔗 App Link: https://item-bill-builder.lovable.app/login
+
+---
+
+## 🌐 Live Web Applications (AI / No-Code Projects)
+
+### 🚀 BuildResume
+An AI-powered resume builder that helps users create **modern, professional, and job-ready resumes** quickly and easily.  
+🔗 View App: https://buildresume.lovable.app/
+
+### 📝 HappyNote
+A clean and lightweight notes application for **writing, organizing, and managing daily tasks** with a smooth user experience.  
+🔗 View App: https://happynote.lovable.app/
+
+### 📸 My Moments
+A personal moments application that allows users to **securely store important memories**. Includes authentication for privacy and controlled access.  
+🔗 View App: https://mymoments.lovable.app/auth
+
 
 ---
 
@@ -134,6 +159,7 @@ If you find this portfolio useful, feel free to ⭐ star the repository.
 ---
 
 © Sanjeev Kumar | IT Engineer | Portfolio Website
+
 
 
 
