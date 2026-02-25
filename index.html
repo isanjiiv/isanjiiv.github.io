@@ -9,7 +9,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-YEH8LE17NF');
   </script>
   <meta name="msvalidate.01" content="80657E80486CC69215B9C64BCB2CB7FC" />
@@ -328,7 +327,7 @@
     .mobile-menu a { display: block; padding: 12px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid var(--bg-secondary); }
     .mobile-menu a:last-child { border-bottom: none; }
 
-    /* Modal Styles (Original) */
+    /* Modal Styles */
     .modal {
       display: none; 
       position: fixed; 
@@ -343,7 +342,6 @@
     }
     .modal.show { display: flex; opacity: 1; }
     
-    /* General Modal Content */
     .modal-content {
       background: var(--bg);
       padding: 1rem;
@@ -364,22 +362,7 @@
         border-radius: 8px;
     }
 
-    /* Scrollable Content for About */
-    .about-content-scroll {
-        overflow-y: auto; 
-        height: 80vh;      
-        max-width: 800px; 
-        padding: 1.5rem;
-        display: block; 
-    }
-    
-    /* Custom Scrollbar */
-    .about-content-scroll::-webkit-scrollbar { width: 6px; }
-    .about-content-scroll::-webkit-scrollbar-track { background: var(--bg-secondary); }
-    .about-content-scroll::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
-
-    /* Close Button */
-    .close-modal, .close-about, .close-lightbox { 
+    .close-modal, .close-lightbox { 
         position: absolute; 
         top: 8px; 
         right: 12px; 
@@ -398,7 +381,7 @@
         line-height: 1;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .close-modal:hover, .close-about:hover, .close-lightbox:hover { transform: scale(1.1); color: var(--primary); }
+    .close-modal:hover, .close-lightbox:hover { transform: scale(1.1); color: var(--primary); }
 
     /* ======================================================== */
     /* NEW: SPA & DETAIL PAGE STYLES                            */
@@ -602,15 +585,9 @@
        
        /* 1 Column Grids */
        .skills-grid, .cert-grid { grid-template-columns: 1fr; gap: 1rem; }
-
-       /* About Modal Text size */
-       .about-content-scroll { padding: 1rem; }
-       .about-content-scroll h3 { font-size: 1.1rem; }
-       .about-content-scroll h4 { font-size: 1rem; }
-       .about-content-scroll li { font-size: 0.9rem; margin-bottom: 5px; }
        
        /* Fix close button visibility on mobile overlay */
-       .close-modal, .close-about, .close-lightbox { 
+       .close-modal, .close-lightbox { 
            top: 5px; right: 5px; 
            background: rgba(255,255,255,0.9); 
            color: #000;
@@ -734,7 +711,7 @@
       </a>
 
       <nav class="nav-menu">
-        <a onclick="showHomeViewAndScroll('about')">About</a>
+        <a href="about.html">About</a>
         <a onclick="showHomeViewAndScroll('skills')">Skills</a>
         <a onclick="showHomeViewAndScroll('projects')">Projects</a>
         <a onclick="showHomeViewAndScroll('certs')">Certifications</a>
@@ -763,7 +740,7 @@
   </header>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a onclick="showHomeViewAndScroll('about')">About</a>
+    <a href="about.html">About</a>
     <a onclick="showHomeViewAndScroll('skills')">Skills</a>
     <a onclick="showHomeViewAndScroll('projects')">Projects</a>
     <a onclick="showHomeViewAndScroll('certs')">Certifications</a>
@@ -788,7 +765,7 @@
             <strong>Cloud (AWS & Azure)</strong>, <strong>Firewall (Fortinet)</strong>, and <strong>Cybersecurity</strong>. 
             I build reliable systems and help teams ship fast and safe.
           </p>
-           
+            
           <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center;">
             <a href="#contact" class="btn-primary">Get in Touch</a>
             <div style="display: flex; gap: 8px;">
@@ -827,9 +804,9 @@
           </div>
 
           <div style="margin-top: 1.5rem; text-align: center;">
-              <button id="openAboutBtn" class="btn-primary">
+              <a href="about.html" class="btn-primary">
                   Know More <i class="fa-solid fa-arrow-right"></i>
-              </button>
+              </a>
           </div>
         </div>
       </section>
@@ -1389,182 +1366,6 @@
     </div>
   </div>
 
-  <div id="aboutModal" class="modal">
-
-    <div class="modal-content about-content-scroll">
-
-      <span class="close-about">×</span>
-
-      
-
-      <div style="color: var(--text-main);">
-
-        <h2 style="color: var(--primary); margin-bottom: 1rem;">Professional Profile</h2>
-
-        
-
-        <p>Hello, I’m <strong>Sanjeev Kumar</strong>, an IT Engineer with strong hands-on experience in IT infrastructure support, Windows Server administration, networking, firewall security, and cloud fundamentals. I specialize in building stable, secure, and well-managed IT environments that help teams work faster, safer, and with fewer disruptions.</p>
-
-        <br>
-
-        <p>Over the years, I have worked on a wide range of IT responsibilities—from managing day-to-day technical support and troubleshooting to implementing enterprise-level solutions in Windows Server domains.</p>
-
-
-
-        <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid var(--card-border);">
-
-
-
-        <h3 style="margin-bottom: 0.8rem;">What I Do (Core Expertise)</h3>
-
-
-
-        <div style="margin-bottom: 1.2rem;">
-
-            <h4 style="color: var(--primary); font-size:1.05rem;">Windows Server Administration (AD, GPO, WSUS)</h4>
-
-            <ul style="padding-left: 18px; margin-top: 0.4rem;">
-
-                <li>Active Directory (AD) user and computer management</li>
-
-                <li>Group Policy (GPO) configuration and policy deployment</li>
-
-                <li>WSUS setup and update management</li>
-
-                <li>Domain joining, permissions, access control, and troubleshooting</li>
-
-                <li>Managing Windows-based enterprise environments and system stability</li>
-
-            </ul>
-
-        </div>
-
-
-
-        <div style="margin-bottom: 1.2rem;">
-
-            <h4 style="color: var(--primary); font-size:1.05rem;">Networking & Troubleshooting</h4>
-
-            <ul style="padding-left: 18px; margin-top: 0.4rem;">
-
-                <li>LAN/WAN troubleshooting and network diagnostics</li>
-
-                <li>DHCP, DNS, and IP addressing concepts</li>
-
-                <li>VLAN understanding and internal network connectivity support</li>
-
-                <li>Resolving real-time issues such as internet downtime, slow network performance, and system communication failures</li>
-
-            </ul>
-
-        </div>
-
-
-
-        <div style="margin-bottom: 1.2rem;">
-
-            <h4 style="color: var(--primary); font-size:1.05rem;">Firewall & Security (Fortinet FortiGate 60F)</h4>
-
-            <ul style="padding-left: 18px; margin-top: 0.4rem;">
-
-                <li>Firewall policy creation and management</li>
-
-                <li>Basic routing and network security controls</li>
-
-                <li>VPN configuration (as per requirement)</li>
-
-                <li>Traffic monitoring and troubleshooting</li>
-
-            </ul>
-
-        </div>
-
-
-
-        <div style="margin-bottom: 1.2rem;">
-
-            <h4 style="color: var(--primary); font-size:1.05rem;">Cloud Knowledge (AWS & Microsoft Azure)</h4>
-
-            <ul style="padding-left: 18px; margin-top: 0.4rem;">
-
-                <li>Basic cloud VM/server handling and monitoring</li>
-
-                <li>Understanding cloud networking and access</li>
-
-                <li>Assisting with deployment support and troubleshooting</li>
-
-            </ul>
-
-        </div>
-
-
-
-        <div style="margin-bottom: 1.2rem;">
-
-            <h4 style="color: var(--primary); font-size:1.05rem;">AI + No-Code App Development</h4>
-
-            <p>I leverage AI tools (Lovable, Emergent, Cursor) to:</p>
-
-            <ul style="padding-left: 18px; margin-top: 0.4rem;">
-
-                <li>Build web-based no-code applications</li>
-
-                <li>Automate workflows and repetitive tasks</li>
-
-                <li>Improve internal processes for teams and businesses</li>
-
-            </ul>
-
-        </div>
-
-
-
-        <div style="margin-bottom: 1.2rem;">
-
-            <h4 style="color: var(--primary); font-size:1.05rem;">Website & Web Solution Development</h4>
-
-            <ul style="padding-left: 18px; margin-top: 0.4rem;">
-
-                <li>Portfolio, Business, and E-commerce websites</li>
-
-                <li>Landing pages and basic web solutions</li>
-
-            </ul>
-
-        </div>
-
-
-
-        <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid var(--card-border);">
-
-
-
-        <h3 style="margin-bottom: 0.8rem;">My Work Approach</h3>
-
-        <p>I believe in a professional work style based on clear troubleshooting, fast issue resolution, secure setups, and continuous learning. I enjoy taking ownership of systems to contribute to long-term business improvements.</p>
-
-
-
-        <br>
-
-        <h3 style="margin-bottom: 0.8rem;">What I’m Looking For</h3>
-
-        <p>I am open to opportunities as an IT Engineer, System Administrator, Network Support Engineer, or Cloud Support. I am especially interested in roles that allow me to combine <strong>IT infrastructure + automation + modern AI tools</strong>.</p>
-
-        
-
-        <div style="margin-top: 2rem; text-align: center;">
-
-            <a href="#contact" class="btn-primary" onclick="document.getElementById('aboutModal').classList.remove('show')">Contact Me</a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
   <div id="lightbox" class="lightbox">
     <span class="close-lightbox" onclick="closeLightbox(event)">×</span>
     
@@ -1782,14 +1583,11 @@
         const yearSpan = document.getElementById("year");
         if(yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-        // --- H. MODALS (Cert & About) ---
+        // --- H. MODALS (Cert) ---
         const certModal = document.getElementById('certModal');
         const certFrame = document.getElementById('certFrame');
         const closeModal = document.querySelector('.close-modal');
         const certLinks = document.querySelectorAll('.cert-card');
-        const aboutModal = document.getElementById('aboutModal');
-        const openAboutBtn = document.getElementById('openAboutBtn');
-        const closeAbout = document.querySelector('.close-about');
 
         if(certModal) {
             certLinks.forEach(link => {
@@ -1809,18 +1607,10 @@
             }
         }
 
-        if(aboutModal) {
-            if(openAboutBtn) openAboutBtn.addEventListener('click', () => aboutModal.classList.add('show'));
-            if(closeAbout) closeAbout.addEventListener('click', () => aboutModal.classList.remove('show'));
-        }
-
         window.addEventListener('click', (e) => {
             if (certModal && e.target === certModal) {
                 certModal.classList.remove('show');
                 if(certFrame) certFrame.src = '';
-            }
-            if (aboutModal && e.target === aboutModal) {
-                aboutModal.classList.remove('show');
             }
         });
     });
