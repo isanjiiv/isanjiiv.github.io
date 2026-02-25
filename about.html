@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YEH8LE17NF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YEH8LE17NF');
+  </script>
+  <meta name="msvalidate.01" content="80657E80486CC69215B9C64BCB2CB7FC" />
+  <meta name="google-site-verification" content="google55bb3e2dfb255c1c" />
+   
+  <meta name="robots" content="index, follow" />
+
+  <title>About | Sanjeev Kumar</title>
+  <meta name="description" content="Portfolio of Sanjeev Kumar, an IT Engineer specializing in Windows Server Administration, Networking, Fortinet Firewall, AWS, Azure, and Cybersecurity." />
+  <meta name="keywords" content="Sanjeev Kumar, IT Engineer, Windows Server, Network Engineer, Fortinet, AWS, Azure, Cybersecurity, Noida" />
+  <meta name="author" content="Sanjeev Kumar" />
+  <meta name="theme-color" content="#f59e0b" />
+    
+  <link rel="canonical" href="https://isanjiiv.github.io/" />
+  
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* --- 1. VARIABLES & THEME --- */
+    :root {
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+
+      /* Light Theme */
+      --bg: #ffffff;
+      --bg-secondary: #f8fafc;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --primary: #f59e0b; /* Amber */
+      --primary-glow: rgba(245, 158, 11, 0.4);
+      --card-bg: rgba(255, 255, 255, 0.75);
+      --card-border: rgba(226, 232, 240, 0.8);
+      --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); 
+      --nav-bg: rgba(255, 255, 255, 0.95);
+       
+      --radius-md: 12px;
+      --container: 1000px;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    [data-theme="dark"] {
+      /* Dark Theme */
+      --bg: #0b1220; 
+      --bg-secondary: #0f172a;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #fbbf24; 
+      --primary-glow: rgba(251, 191, 36, 0.25);
+      --card-bg: rgba(30, 41, 59, 0.6);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      --nav-bg: rgba(11, 18, 32, 0.95);
+    }
+
+    /* --- 2. GLOBAL RESET --- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.5; 
+      font-size: 16px;  
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(at 0% 0%, var(--primary-glow) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.1) 0px, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    a { text-decoration: none; color: inherit; transition: var(--transition); cursor: pointer; }
+    img { max-width: 100%; display: block; }
+    h1, h2, h3, h4, .brand { font-family: var(--font-heading); }
+    
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin-inline: auto;
+      padding-inline: 1.5rem;
+    }
+
+    /* --- 3. COMPONENTS --- */
+    .btn-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; 
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      backdrop-filter: blur(8px);
+      transition: var(--transition);
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    
+    .btn-icon:hover {
+      background: var(--primary);
+      color: #000;
+      border-color: var(--primary);
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.6rem 1.4rem; 
+      background: linear-gradient(135deg, var(--primary), #d97706);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem; 
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 10px var(--primary-glow);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 15px var(--primary-glow); }
+
+    .glass-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--radius-md);
+      padding: 1.75rem; 
+      box-shadow: var(--glass-shadow);
+      transition: var(--transition);
+    }
+
+    /* --- 4. LAYOUT --- */
+    header {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: var(--nav-bg); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--card-border);
+      height: 60px; 
+    }
+    .nav-inner {
+      display: flex; justify-content: space-between; align-items: center; height: 100%;
+    }
+    .brand { font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 8px; cursor: pointer; }
+    .brand span:first-child { color: var(--primary); }
+    
+    .nav-menu { display: flex; gap: 1.5rem; }
+    .nav-menu a { font-weight: 500; font-size: 0.95rem; color: var(--text-muted); position: relative; cursor: pointer; }
+    .nav-menu a:hover { color: var(--text-main); }
+    
+    .nav-actions { display: flex; gap: 8px; align-items: center; }
+
+    /* Mobile Menu */
+    .hamburger { display: none; background: none; border: none; font-size: 1.2rem; color: var(--text-main); cursor: pointer; }
+    .mobile-menu { position: fixed; top: 61px; left: 0; width: 100%; background: var(--bg); padding: 0.5rem 1rem; transform: translateY(-150%); transition: 0.3s; z-index: 999; border-bottom: 1px solid var(--card-border); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+    .mobile-menu.open { transform: translateY(0); }
+    .mobile-menu a { display: block; padding: 12px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid var(--bg-secondary); }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* Page specific layout */
+    main { padding-top: 100px; padding-bottom: 60px; animation: fadeIn 0.4s ease-out; }
+    .about-content-wrapper { padding: 2rem; }
+    
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .nav-menu { display: none; }
+      .hamburger { display: block; }
+    }
+    @media (max-width: 600px) {
+      body { font-size: 14.5px; }
+      .container { padding-inline: 1rem; }
+      .glass-card { padding: 1.25rem; }
+      .about-content-wrapper { padding: 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <span class="dot">●</span> Sanjeev Kumar
+      </a>
+
+      <nav class="nav-menu">
+        <a href="about.html">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#certs">Certifications</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://www.wayoftech.net/" target="_blank" class="btn-icon" title="WAY OF TECH">
+           <img src="https://www.wayoftech.net/favicon.ico" alt="Way of Tech" style="width:18px;">
+        </a>
+         
+        <button class="btn-icon" id="themeToggle" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <a href="https://isanjiiv.github.io/assets/docs/Resume.pdf" class="btn-icon" download title="Download Resume">
+          <i class="fa-solid fa-download"></i>
+        </a>
+
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="about.html">About</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#certs">Certifications</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+
+  <main class="container">
+      <a href="index.html" class="btn-primary" style="margin-bottom:2rem; font-size:0.85rem;"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+      
+      <div class="glass-card about-content-wrapper">
+        <div style="color: var(--text-main);">
+          <h2 style="color: var(--primary); margin-bottom: 1rem;">Professional Profile</h2>
+          
+          <p>Hello, I’m <strong>Sanjeev Kumar</strong>, an IT Engineer with strong hands-on experience in IT infrastructure support, Windows Server administration, networking, firewall security, and cloud fundamentals. I specialize in building stable, secure, and well-managed IT environments that help teams work faster, safer, and with fewer disruptions.</p>
+          <br>
+          <p>Over the years, I have worked on a wide range of IT responsibilities—from managing day-to-day technical support and troubleshooting to implementing enterprise-level solutions in Windows Server domains.</p>
+
+          <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid var(--card-border);">
+
+          <h3 style="margin-bottom: 0.8rem;">What I Do (Core Expertise)</h3>
+
+          <div style="margin-bottom: 1.2rem;">
+              <h4 style="color: var(--primary); font-size:1.05rem;">Windows Server Administration (AD, GPO, WSUS)</h4>
+              <ul style="padding-left: 18px; margin-top: 0.4rem;">
+                  <li>Active Directory (AD) user and computer management</li>
+                  <li>Group Policy (GPO) configuration and policy deployment</li>
+                  <li>WSUS setup and update management</li>
+                  <li>Domain joining, permissions, access control, and troubleshooting</li>
+                  <li>Managing Windows-based enterprise environments and system stability</li>
+              </ul>
+          </div>
+
+          <div style="margin-bottom: 1.2rem;">
+              <h4 style="color: var(--primary); font-size:1.05rem;">Networking & Troubleshooting</h4>
+              <ul style="padding-left: 18px; margin-top: 0.4rem;">
+                  <li>LAN/WAN troubleshooting and network diagnostics</li>
+                  <li>DHCP, DNS, and IP addressing concepts</li>
+                  <li>VLAN understanding and internal network connectivity support</li>
+                  <li>Resolving real-time issues such as internet downtime, slow network performance, and system communication failures</li>
+              </ul>
+          </div>
+
+          <div style="margin-bottom: 1.2rem;">
+              <h4 style="color: var(--primary); font-size:1.05rem;">Firewall & Security (Fortinet FortiGate 60F)</h4>
+              <ul style="padding-left: 18px; margin-top: 0.4rem;">
+                  <li>Firewall policy creation and management</li>
+                  <li>Basic routing and network security controls</li>
+                  <li>VPN configuration (as per requirement)</li>
+                  <li>Traffic monitoring and troubleshooting</li>
+              </ul>
+          </div>
+
+          <div style="margin-bottom: 1.2rem;">
+              <h4 style="color: var(--primary); font-size:1.05rem;">Cloud Knowledge (AWS & Microsoft Azure)</h4>
+              <ul style="padding-left: 18px; margin-top: 0.4rem;">
+                  <li>Basic cloud VM/server handling and monitoring</li>
+                  <li>Understanding cloud networking and access</li>
+                  <li>Assisting with deployment support and troubleshooting</li>
+              </ul>
+          </div>
+
+          <div style="margin-bottom: 1.2rem;">
+              <h4 style="color: var(--primary); font-size:1.05rem;">AI + No-Code App Development</h4>
+              <p>I leverage AI tools (Lovable, Emergent, Cursor) to:</p>
+              <ul style="padding-left: 18px; margin-top: 0.4rem;">
+                  <li>Build web-based no-code applications</li>
+                  <li>Automate workflows and repetitive tasks</li>
+                  <li>Improve internal processes for teams and businesses</li>
+              </ul>
+          </div>
+
+          <div style="margin-bottom: 1.2rem;">
+              <h4 style="color: var(--primary); font-size:1.05rem;">Website & Web Solution Development</h4>
+              <ul style="padding-left: 18px; margin-top: 0.4rem;">
+                  <li>Portfolio, Business, and E-commerce websites</li>
+                  <li>Landing pages and basic web solutions</li>
+              </ul>
+          </div>
+
+          <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid var(--card-border);">
+
+          <h3 style="margin-bottom: 0.8rem;">My Work Approach</h3>
+          <p>I believe in a professional work style based on clear troubleshooting, fast issue resolution, secure setups, and continuous learning. I enjoy taking ownership of systems to contribute to long-term business improvements.</p>
+
+          <br>
+          <h3 style="margin-bottom: 0.8rem;">What I’m Looking For</h3>
+          <p>I am open to opportunities as an IT Engineer, System Administrator, Network Support Engineer, or Cloud Support. I am especially interested in roles that allow me to combine <strong>IT infrastructure + automation + modern AI tools</strong>.</p>
+          
+          <div style="margin-top: 2rem; text-align: center;">
+              <a href="index.html#contact" class="btn-primary">Contact Me</a>
+          </div>
+        </div>
+      </div>
+  </main>
+
+  <footer>
+    <div class="container" style="text-align:center; padding:2rem 0; color:var(--text-muted); border-top:1px solid var(--card-border); font-size: 0.9rem;">
+      <p>© <span id="year"></span> <span style="color:var(--primary); font-weight:700;">Sanjeev Kumar</span>. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- THEME TOGGLE ---
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        if (themeToggle) {
+            const icon = themeToggle.querySelector('i');
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            updateIcon(icon, savedTheme);
+
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcon(icon, newTheme);
+            });
+        }
+
+        function updateIcon(icon, theme) {
+            if (!icon) return;
+            if (theme === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+
+        // --- MOBILE MENU ---
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (hamburger && mobileMenu) {
+            hamburger.addEventListener('click', () => {
+                mobileMenu.classList.toggle('open');
+                const isOpen = mobileMenu.classList.contains('open');
+                hamburger.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+            });
+
+            document.querySelectorAll('.mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                    hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                });
+            });
+        }
+
+        // --- YEAR ---
+        const yearSpan = document.getElementById("year");
+        if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>
