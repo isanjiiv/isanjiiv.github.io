@@ -159,7 +159,7 @@
     .brand span:first-child { color: var(--primary); }
     
     .nav-menu { display: flex; gap: 1.5rem; }
-    .nav-menu a { font-weight: 500; font-size: 0.95rem; color: var(--text-muted); position: relative; cursor: pointer; }
+    .nav-menu a { font-weight: 00; font-size: 0.95rem; color: var(--text-muted); position: relative; cursor: pointer; }
     .nav-menu a:hover { color: var(--text-main); }
     
     .nav-actions { display: flex; gap: 8px; align-items: center; }
@@ -175,6 +175,21 @@
     main { padding-top: 100px; padding-bottom: 60px; animation: fadeIn 0.4s ease-out; }
     .about-content-wrapper { padding: 2rem; }
     
+    /* NEW: Centered Image Layout */
+    .about-image-centered {
+      text-align: center;
+      margin: 2.5rem 0; /* Spacing above and below */
+    }
+    .about-image {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--primary);
+      box-shadow: 0 4px 20px var(--primary-glow);
+      display: inline-block;
+    }
+
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
     /* Responsive */
@@ -187,6 +202,7 @@
       .container { padding-inline: 1rem; }
       .glass-card { padding: 1.25rem; }
       .about-content-wrapper { padding: 1rem; }
+      .about-image { width: 180px; height: 180px; } /* Slightly smaller on mobile */
     }
   </style>
 </head>
@@ -238,15 +254,21 @@
   </div>
 
   <main class="container">
+
       <a href="index.html" class="btn-primary" style="margin-bottom:2rem; font-size:0.85rem;"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
       
       <div class="glass-card about-content-wrapper">
         <div style="color: var(--text-main);">
-          <h2 style="color: var(--primary); margin-bottom: 1rem;">Professional Profile</h2>
-          
+            <div class="about-image-centered">
+            <img src="https://isanjiiv.github.io/assets/images/sanjeev%20kumar.png" alt="Sanjeev Kumar" class="about-image">
+          </div>
+                    <h2 style="color: var(--primary); margin-bottom: 1rem;">Professional Profile</h2>
+
           <p>Hello, I’m <strong>Sanjeev Kumar</strong>, an IT Engineer with strong hands-on experience in IT infrastructure support, Windows Server administration, networking, firewall security, and cloud fundamentals. I specialize in building stable, secure, and well-managed IT environments that help teams work faster, safer, and with fewer disruptions.</p>
           <br>
           <p>Over the years, I have worked on a wide range of IT responsibilities—from managing day-to-day technical support and troubleshooting to implementing enterprise-level solutions in Windows Server domains.</p>
+
+        
 
           <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid var(--card-border);">
 
