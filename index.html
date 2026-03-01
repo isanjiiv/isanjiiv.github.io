@@ -289,9 +289,9 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; 
         position: relative; /* required for z-index */
     }
-    /* Grow Animation */
+    /* Fixed Grow Animation */
     .skill-item:hover {
-        transform: scale(1.05);
+        transform: scale(1.05) !important;
         background: var(--bg-secondary);
         border-color: var(--card-border);
         box-shadow: 0 8px 20px rgba(0,0,0,0.05);
@@ -308,9 +308,9 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         position: relative;
     }
-    /* Grow Animation */
+    /* Fixed Grow Animation */
     .project-card:hover { 
-        transform: scale(1.03); 
+        transform: scale(1.03) !important; 
         border-color: var(--primary); 
         box-shadow: 0 10px 25px var(--primary-glow); 
         z-index: 2;
@@ -333,9 +333,9 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
         position: relative;
     }
-    /* Grow Animation */
+    /* Fixed Grow Animation */
     .cert-card:hover {
-        transform: scale(1.05);
+        transform: scale(1.05) !important;
         border-color: var(--primary);
         box-shadow: 0 10px 25px var(--primary-glow);
         z-index: 2;
@@ -459,9 +459,9 @@
         overflow: hidden; cursor: pointer; position: relative; 
         transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
-    /* Grow Animation */
+    /* Fixed Grow Animation */
     .gallery-item:hover { 
-        transform: scale(1.05); 
+        transform: scale(1.05) !important; 
         border-color: var(--primary); 
         box-shadow: 0 8px 20px var(--glass-shadow); 
         z-index: 2;
@@ -501,9 +501,9 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         position: relative;
     }
-    /* Grow Animation */
+    /* Fixed Grow Animation */
     .lovable-app-card:hover {
-        transform: scale(1.03);
+        transform: scale(1.03) !important;
         border-color: var(--primary);
         box-shadow: 0 10px 25px var(--primary-glow);
         z-index: 2;
@@ -1649,10 +1649,21 @@
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = 1;
                     entry.target.style.transform = 'translateY(0)';
+                    
+                    // NEW FIX: Clear the inline style after the fade-in finishes
+                    // This allows the CSS hover transforms to work properly!
+                    setTimeout(() => {
+                        entry.target.style.transform = '';
+                        entry.target.style.transition = '';
+                    }, 600); // Wait for the 0.6s animation to finish
+                    
                     const progressBars = entry.target.querySelectorAll('.skill-bar-fill');
                     progressBars.forEach(bar => {
                         bar.style.width = bar.getAttribute('data-width');
                     });
+                    
+                    // Stop observing once animated so we don't accidentally re-apply inline styles
+                    observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.1 });
