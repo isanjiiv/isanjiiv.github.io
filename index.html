@@ -73,10 +73,10 @@
       --primary-glow: rgba(245, 158, 11, 0.4);
       --card-bg: rgba(255, 255, 255, 0.75);
       --card-border: rgba(226, 232, 240, 0.8);
-      --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); /* Reduced shadow size */
+      --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); 
       --nav-bg: rgba(255, 255, 255, 0.95);
        
-      --radius-md: 12px; /* Slightly smaller radius for compactness */
+      --radius-md: 12px; 
       --container: 1000px;
       --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
        
@@ -110,8 +110,8 @@
       font-family: var(--font-body);
       background-color: var(--bg);
       color: var(--text-main);
-      line-height: 1.5; /* Tighter line height */
-      font-size: 16px;  /* Desktop Base Size */
+      line-height: 1.5; 
+      font-size: 16px; 
       overflow-x: hidden;
       background-image: 
         radial-gradient(at 0% 0%, var(--primary-glow) 0px, transparent 50%),
@@ -136,7 +136,7 @@
     /* Buttons */
     .btn-icon {
       display: inline-flex; align-items: center; justify-content: center;
-      width: 40px; height: 40px; /* Smaller icon buttons */
+      width: 40px; height: 40px; 
       border-radius: 50%;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -155,11 +155,11 @@
 
     .btn-primary {
       display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-      padding: 0.6rem 1.4rem; /* Smaller padding */
+      padding: 0.6rem 1.4rem; 
       background: linear-gradient(135deg, var(--primary), #d97706);
       color: #fff;
       font-weight: 600;
-      font-size: 0.95rem; /* Slightly smaller text */
+      font-size: 0.95rem; 
       border-radius: 50px;
       border: none;
       cursor: pointer;
@@ -202,13 +202,12 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-radius: var(--radius-md);
-      padding: 1.75rem; /* Reduced Padding */
+      padding: 1.75rem; 
       box-shadow: var(--glass-shadow);
-      transition: var(--transition);
     }
 
     /* Section Headings */
-    .section-header { margin-bottom: 2rem; } /* Reduced spacing */
+    .section-header { margin-bottom: 2rem; } 
     .section-header h2 {
       font-size: 2rem; 
       display: inline-block; position: relative;
@@ -225,7 +224,7 @@
       position: fixed; top: 0; width: 100%; z-index: 1000;
       background: var(--nav-bg); backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--card-border);
-      height: 60px; /* Shorter header */
+      height: 60px; 
     }
     .nav-inner {
       display: flex; justify-content: space-between; align-items: center; height: 100%;
@@ -234,7 +233,7 @@
     .brand span:first-child { color: var(--primary); }
     
     .nav-menu { display: flex; gap: 1.5rem; }
-    .nav-menu a { font-weight: 500; font-size: 0.95rem; color: var(--text-muted); position: relative; cursor: pointer; }
+    .nav-menu a { font-weight: 500; font-size: 0.95rem; color: var(--text-muted); cursor: pointer; }
     .nav-menu a:hover { color: var(--text-main); }
     
     .nav-actions { display: flex; gap: 8px; align-items: center; }
@@ -249,7 +248,6 @@
       padding-top: 120px; 
       padding-bottom: 60px;
     }
-    /* Fluid Font Size for H1 */
     .hero h1 { 
         font-size: 3rem; 
         font-weight: 700; 
@@ -267,9 +265,12 @@
       border-radius: 50%;
       border: 4px solid var(--bg);
       box-shadow: 0 0 25px var(--primary-glow);
-      transition: var(--transition);
       animation: float 4s ease-in-out infinite;
     }
+
+    /* ======================================================== */
+    /* GRID GROW ANIMATIONS (Skills, Projects, Certs, Apps, Gallery) */
+    /* ======================================================== */
 
     /* Skills Grid */
     .skills-grid { 
@@ -277,23 +278,47 @@
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
         gap: 1.25rem; 
     }
-    .skill-bar-bg { height: 6px; background: var(--bg-secondary); border-radius: 10px; overflow: hidden; } /* Thinner bar */
+    .skill-bar-bg { height: 6px; background: var(--bg-secondary); border-radius: 10px; overflow: hidden; } 
     .skill-bar-fill { height: 100%; background: linear-gradient(90deg, var(--primary), #fb923c); width: 0; transition: width 1.5s ease; }
-    .skill-item { font-size: 0.95rem; } /* Compact text */
+    
+    .skill-item { 
+        font-size: 0.95rem; 
+        padding: 10px; 
+        border-radius: 8px; 
+        border: 1px solid transparent;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; 
+        position: relative; /* required for z-index */
+    }
+    /* Grow Animation */
+    .skill-item:hover {
+        transform: scale(1.05);
+        background: var(--bg-secondary);
+        border-color: var(--card-border);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        z-index: 2;
+    }
 
-    /* Projects */
+    /* Projects Grid */
     .project-card { 
         display: grid; 
         grid-template-columns: 1fr 180px; 
         gap: 1.5rem; 
-        margin-bottom: 1.5rem; /* Less margin between cards */
-        cursor: pointer; /* MAKE CLICKABLE */
-        transition: transform 0.3s;
+        margin-bottom: 1.5rem; 
+        cursor: pointer; 
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        position: relative;
     }
-    .project-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+    /* Grow Animation */
+    .project-card:hover { 
+        transform: scale(1.03); 
+        border-color: var(--primary); 
+        box-shadow: 0 10px 25px var(--primary-glow); 
+        z-index: 2;
+    }
+    
     .project-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
     .project-card p { font-size: 0.95rem; color: var(--text-muted); }
-    .tech-tag { font-size: 0.7rem; padding: 3px 10px; background: var(--bg-secondary); border-radius: 20px; color: var(--text-muted); font-weight: 600; display: inline-block; margin: 4px 4px 4px 0;}
+    .tech-tag { font-size: 0.7rem; padding: 3px 10px; background: var(--bg-secondary); border-radius: 20px; color: var(--text-muted); font-weight: 600; display: inline-block; margin: 4px 4px 4px 0; }
     .click-hint { font-size: 0.85rem; color: var(--primary); font-weight: 600; margin-top: 10px; display: inline-flex; align-items: center; gap: 5px; }
 
     /* Certifications Grid */
@@ -302,16 +327,31 @@
         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
         gap: 1.25rem; 
     }
-    .cert-card { padding: 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; height: 100%; cursor: pointer; }
+    .cert-card { 
+        padding: 1.5rem; text-align: center; display: flex; flex-direction: column; 
+        align-items: center; height: 100%; cursor: pointer; 
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
+        position: relative;
+    }
+    /* Grow Animation */
+    .cert-card:hover {
+        transform: scale(1.05);
+        border-color: var(--primary);
+        box-shadow: 0 10px 25px var(--primary-glow);
+        z-index: 2;
+    }
     .cert-img { height: 50px; margin-bottom: 0.8rem; object-fit: contain; }
     .cert-card h3 { font-size: 1rem; margin-bottom: 0.2rem; }
     .cert-link { margin-top: auto; font-size: 0.8rem; color: var(--primary); font-weight: 600; pointer-events: none;}
     
-    /* Timeline */
+    /* Timeline (Not a grid, kept standard) */
     .timeline { border-left: 2px solid var(--card-border); padding-left: 1.5rem; margin-left: 0.5rem; }
     .timeline-item { position: relative; margin-bottom: 2rem; }
     .timeline-item h3 { font-size: 1.1rem; }
-    .timeline-item::before { content: ''; position: absolute; left: -1.95rem; top: 5px; width: 12px; height: 12px; background: var(--bg); border: 2px solid var(--primary); border-radius: 50%; }
+    .timeline-item::before { 
+        content: ''; position: absolute; left: -1.95rem; top: 5px; width: 12px; height: 12px; 
+        background: var(--bg); border: 2px solid var(--primary); border-radius: 50%;
+    }
 
     /* Contact Form */
     .contact-wrapper { 
@@ -328,7 +368,7 @@
     .mobile-menu a { display: block; padding: 12px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid var(--bg-secondary); }
     .mobile-menu a:last-child { border-bottom: none; }
 
-    /* Modal Styles (Original) */
+    /* Modal Styles */
     .modal {
       display: none; 
       position: fixed; 
@@ -343,7 +383,6 @@
     }
     .modal.show { display: flex; opacity: 1; }
     
-    /* General Modal Content */
     .modal-content {
       background: var(--bg);
       padding: 1rem;
@@ -364,7 +403,6 @@
         border-radius: 8px;
     }
 
-    /* Scrollable Content for About */
     .about-content-scroll {
         overflow-y: auto; 
         height: 80vh;      
@@ -373,12 +411,10 @@
         display: block; 
     }
     
-    /* Custom Scrollbar */
     .about-content-scroll::-webkit-scrollbar { width: 6px; }
     .about-content-scroll::-webkit-scrollbar-track { background: var(--bg-secondary); }
     .about-content-scroll::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
 
-    /* Close Button */
     .close-modal, .close-about, .close-lightbox { 
         position: absolute; 
         top: 8px; 
@@ -386,7 +422,6 @@
         color: var(--text-main); 
         font-size: 1.8rem; 
         cursor: pointer; 
-        transition: transform 0.2s; 
         z-index: 10;
         background: var(--bg); 
         border-radius: 50%;
@@ -398,10 +433,10 @@
         line-height: 1;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .close-modal:hover, .close-about:hover, .close-lightbox:hover { transform: scale(1.1); color: var(--primary); }
+    .close-modal:hover, .close-about:hover, .close-lightbox:hover { color: var(--primary); }
 
     /* ======================================================== */
-    /* NEW: SPA & DETAIL PAGE STYLES                            */
+    /* SPA & DETAIL PAGE STYLES                            */
     /* ======================================================== */
     
     .page-view { display: none; padding-top: 100px; padding-bottom: 60px; animation: fadeIn 0.4s ease-out; }
@@ -417,10 +452,20 @@
     .detail-block ul { padding-left: 20px; color: var(--text-muted); margin-bottom: 1rem; }
     .detail-block li { margin-bottom: 0.5rem; }
 
-    /* Gallery */
+    /* Gallery Grid */
     .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-    .gallery-item { height: 140px; background: var(--bg-secondary); border-radius: 8px; border: 1px solid var(--card-border); overflow: hidden; cursor: pointer; position: relative; transition: transform 0.2s; }
-    .gallery-item:hover { transform: scale(1.02); border-color: var(--primary); }
+    .gallery-item { 
+        height: 140px; background: var(--bg-secondary); border-radius: 8px; border: 1px solid var(--card-border); 
+        overflow: hidden; cursor: pointer; position: relative; 
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    /* Grow Animation */
+    .gallery-item:hover { 
+        transform: scale(1.05); 
+        border-color: var(--primary); 
+        box-shadow: 0 8px 20px var(--glass-shadow); 
+        z-index: 2;
+    }
     .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
     .gallery-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s; }
     .gallery-item:hover .gallery-overlay { opacity: 1; }
@@ -431,33 +476,18 @@
     .lightbox.show { display: flex; animation: fadeIn 0.3s; }
     .lightbox-content { max-width: 90%; max-height: 90vh; border-radius: 4px; }
 
-    /* Lightbox Navigation Buttons */
     .lightbox-btn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(0, 0, 0, 0.5);
-        color: white;
-        border: none;
-        padding: 15px;
-        cursor: pointer;
-        font-size: 24px;
-        border-radius: 50%;
-        transition: 0.3s;
-        z-index: 3001;
-        user-select: none;
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5);
+        color: white; border: none; padding: 15px; cursor: pointer; font-size: 24px;
+        border-radius: 50%; transition: 0.3s; z-index: 3001; user-select: none;
+        width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
     }
     .lightbox-btn:hover { background: rgba(255, 255, 255, 0.2); }
     .prev { left: 20px; }
     .next { right: 20px; }
 
     /* ======================================================== */
-    /* LOVABLE AI APPS STYLES (MATCHED TO PORTFOLIO THEME)      */
+    /* LOVABLE AI APPS STYLES                                   */
     /* ======================================================== */
     .lovable-grid {
         display: grid;
@@ -467,72 +497,43 @@
     }
 
     .lovable-app-card {
-        padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
+        padding: 1.5rem; display: flex; flex-direction: column; 
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        position: relative;
     }
-    
+    /* Grow Animation */
+    .lovable-app-card:hover {
+        transform: scale(1.03);
+        border-color: var(--primary);
+        box-shadow: 0 10px 25px var(--primary-glow);
+        z-index: 2;
+    }
     .lovable-app-card h3 {
-        margin: 0 0 10px;
-        font-size: 1.3rem;
-        color: var(--text-main);
+        margin: 0 0 10px; font-size: 1.3rem; color: var(--text-main);
     }
     
     .lovable-app-card p {
-        margin: 0 0 15px;
-        color: var(--text-muted);
-        line-height: 1.6;
-        font-size: 0.95rem;
-        flex-grow: 1;
+        margin: 0 0 15px; color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; flex-grow: 1;
     }
 
     /* Preview Box */
     .app-preview-box {
-        margin-top: 30px;
-        border: 1px solid var(--card-border);
-        border-radius: var(--radius-md);
-        overflow: hidden;
-        background: var(--bg);
-        display: none; /* Hidden by default */
-        box-shadow: var(--glass-shadow);
+        margin-top: 30px; border: 1px solid var(--card-border); border-radius: var(--radius-md);
+        overflow: hidden; background: var(--bg); display: none; box-shadow: var(--glass-shadow);
         animation: fadeIn 0.4s ease;
     }
 
     .app-preview-header {
-        padding: 10px 15px;
-        background: var(--bg-secondary);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 10px;
-        border-bottom: 1px solid var(--card-border);
-        flex-wrap: wrap;
+        padding: 10px 15px; background: var(--bg-secondary); display: flex;
+        justify-content: space-between; align-items: center; gap: 10px;
+        border-bottom: 1px solid var(--card-border); flex-wrap: wrap;
     }
 
-    .app-preview-title {
-        font-weight: 700;
-        color: var(--text-main);
-    }
+    .app-preview-title { font-weight: 700; color: var(--text-main); }
+    .app-preview-actions { display: flex; gap: 10px; align-items: center; }
+    .app-iframe { width: 100%; border: none; height: 650px; background: #ffffff; }
 
-    .app-preview-actions {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-    }
-
-    .app-iframe {
-        width: 100%;
-        border: none;
-        height: 650px; /* Desktop default */
-        background: #ffffff; /* Frame background always white */
-    }
-
-    /* Mobile Responsive Auto Height for Iframe */
-    @media (max-width: 768px){
-        .app-iframe{
-            height: 65vh; 
-        }
-    }
+    @media (max-width: 768px){ .app-iframe{ height: 65vh; } }
 
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
@@ -543,168 +544,74 @@
     /* COMPACT MOBILE & TABLET OPTIMIZATIONS                    */
     /* ======================================================== */
     
-    /* Tablet & Small Laptop (max-width: 900px) */
     @media (max-width: 900px) {
       :root { --section-spacing: 3rem; }
-      
-      .hero {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        padding-top: 100px; 
-        padding-bottom: 30px;
-        gap: 1.5rem;
-      }
-      
+      .hero { display: flex; flex-direction: column; text-align: center; padding-top: 100px; padding-bottom: 30px; gap: 1.5rem; }
       .hero-img-container { order: -1; width: 100%; margin-bottom: 0.5rem; }
       .avatar { width: 240px; height: 240px; }
-      
       .nav-menu { display: none; }
       .hamburger { display: block; }
-      
-      .project-card { 
-          grid-template-columns: 1fr; /* Stack project card */
-          gap: 1rem;
-      }
-      .project-card > div:last-child {
-          height: 80px; /* Smaller icon area */
-          width: 80px;
-          margin: 0 auto;
-      }
+      .project-card { grid-template-columns: 1fr; gap: 1rem; }
+      .project-card > div:last-child { height: 80px; width: 80px; margin: 0 auto; }
       .project-card i { font-size: 2rem !important; }
-
       .contact-wrapper { grid-template-columns: 1fr; gap: 1.5rem; }
     }
 
-    /* Mobile (max-width: 600px) */
     @media (max-width: 600px) {
-       :root { --section-spacing: 2.5rem; } /* Very tight spacing */
-       
-       body { font-size: 14.5px; } /* Smaller base font */
-       
+       :root { --section-spacing: 2.5rem; } 
+       body { font-size: 14.5px; } 
        .container { padding-inline: 1rem; }
-       
-       .glass-card { padding: 1.25rem; } /* Less card padding */
-       
+       .glass-card { padding: 1.25rem; } 
        .section-header h2 { font-size: 1.6rem; }
        .section-header { margin-bottom: 1.5rem; }
-       
        .hero h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-       .avatar { width: 200px; height: 200px; } /* Smaller Image */
-       
-       /* Stack buttons vertically on mobile for easy tapping */
-       .hero-content > div:last-child {
-           flex-direction: column;
-           align-items: center;
-           gap: 1rem !important;
-       }
+       .avatar { width: 200px; height: 200px; } 
+       .hero-content > div:last-child { flex-direction: column; align-items: center; gap: 1rem !important; }
        .btn-primary { width: 100%; max-width: 250px; }
        
-       /* 1 Column Grids */
-       .skills-grid, .cert-grid { grid-template-columns: 1fr; gap: 1rem; }
-
-       /* About Modal Text size */
+       .skills-grid { grid-template-columns: 1fr; gap: 1rem; }
+       .cert-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+       .cert-card { padding: 1rem 0.5rem; } 
        .about-content-scroll { padding: 1rem; }
        .about-content-scroll h3 { font-size: 1.1rem; }
        .about-content-scroll h4 { font-size: 1rem; }
        .about-content-scroll li { font-size: 0.9rem; margin-bottom: 5px; }
        
-       /* Fix close button visibility on mobile overlay */
        .close-modal, .close-about, .close-lightbox { 
-           top: 5px; right: 5px; 
-           background: rgba(255,255,255,0.9); 
-           color: #000;
-           width: 32px; height: 32px; font-size: 1.5rem;
+           top: 5px; right: 5px; background: rgba(255,255,255,0.9); 
+           color: #000; width: 32px; height: 32px; font-size: 1.5rem;
        }
-       
        .lightbox-btn { padding: 10px; width: 40px; height: 40px; font-size: 18px; }
     }
- /* --- CONTACT SECTION STYLES --- */
 
-/* Wrapper for Desktop */
-.contact-wrapper { 
-  display: grid; 
-  grid-template-columns: 1fr 1.5fr; 
-  gap: 3rem; 
-  align-items: center; 
-}
+/* --- CONTACT SECTION STYLES --- */
+.contact-wrapper { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: center; }
+.contact-text-side { display: flex; flex-direction: column; justify-content: center; }
 
-.contact-text-side {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Form Fields */
 .form-control { 
-  width: 100%; 
-  padding: 14px; 
-  border-radius: 12px; 
-  border: 1px solid var(--card-border); 
-  background: var(--bg-secondary); 
-  color: var(--text-main); 
-  margin-bottom: 1rem; 
-  font-family: inherit; 
-  font-size: 0.95rem;
-  transition: border-color 0.3s ease;
+  width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--card-border); 
+  background: var(--bg-secondary); color: var(--text-main); margin-bottom: 1rem; 
+  font-family: inherit; font-size: 0.95rem; transition: border-color 0.3s ease;
 }
 
-.form-control:focus {
-  outline: none;
-  border-color: var(--primary);
-  background: var(--bg);
-}
+.form-control:focus { outline: none; border-color: var(--primary); background: var(--bg); }
 
-/* --- FIXED BUTTON CENTERING --- */
-/* This makes sure the button centers inside the form */
 .btn-submit {
-  display: flex;              
-  justify-content: center; 
-  align-items: center;
-  margin: 1rem auto 0 auto; /* auto left/right margins center it */
-  min-width: 180px;          /* Consistent width */
+  display: flex; justify-content: center; align-items: center;
+  margin: 1rem auto 0 auto; min-width: 180px; 
 }
 
-/* Contact Info Icons */
 .contact-info-item {
-  display: flex; 
-  gap: 12px; 
-  align-items: center; 
-  font-size: 1rem; 
-  color: var(--text-main);
-  margin-bottom: 0.8rem;
+  display: flex; gap: 12px; align-items: center; font-size: 1rem; 
+  color: var(--text-main); margin-bottom: 0.8rem;
 }
 
-/* ============================ */
-/* MOBILE CENTERING FIX         */
-/* ============================ */
 @media (max-width: 900px) {
-  .contact-wrapper { 
-      grid-template-columns: 1fr; 
-      gap: 2rem; 
-      text-align: center; 
-  }
-
-  .contact-text-side {
-      align-items: center; 
-  }
-
-  .contact-info-item {
-      justify-content: center;
-  }
-   
-  /* Center the form box */
-  form {
-      width: 100%;
-      max-width: 500px; 
-      margin: 0 auto;      
-  }
-
-  /* On mobile, button stays centered but can be wider if you want */
-  .btn-submit {
-      width: 100%;          /* Makes it full width on small screens */
-      max-width: 300px;    /* But not too wide */
-  }
+  .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+  .contact-text-side { align-items: center; }
+  .contact-info-item { justify-content: center; }
+  form { width: 100%; max-width: 500px; margin: 0 auto; }
+  .btn-submit { width: 100%; max-width: 300px; }
 }
   </style>
    
@@ -788,7 +695,7 @@
             <strong>Cloud (AWS & Azure)</strong>, <strong>Firewall (Fortinet)</strong>, and <strong>Cybersecurity</strong>. 
             I build reliable systems and help teams ship fast and safe.
           </p>
-           
+            
           <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center;">
             <a href="#contact" class="btn-primary">Get in Touch</a>
             <div style="display: flex; gap: 8px;">
@@ -996,7 +903,7 @@
             <p style="font-size:0.8rem; color:var(--text-muted);">Network Security</p>
             <span class="cert-link">View Certificate</span>
           </a>
-         
+          
         </div>
       </section>
 
@@ -1641,7 +1548,7 @@
     };
     
     // ============================================
-    // 2. APP PREVIEW LOGIC (NEW ADDITION)
+    // 2. APP PREVIEW LOGIC
     // ============================================
     window.loadApp = function(url, title) {
         const previewBox = document.getElementById("previewBox");
