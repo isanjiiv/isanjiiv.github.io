@@ -558,38 +558,60 @@
       .contact-wrapper { grid-template-columns: 1fr; gap: 1.5rem; }
     }
 
+    /* --- MOBILE ONLY SMALLER FONT SIZES --- */
     @media (max-width: 600px) {
        :root { --section-spacing: 2.5rem; } 
-       body { font-size: 14.5px; } 
+       
+       body { font-size: 13.5px; } /* Main Base Font Size reduced */
+       
        .container { padding-inline: 1rem; }
        .glass-card { padding: 1.25rem; } 
-       .section-header h2 { font-size: 1.6rem; }
+       
+       .section-header h2 { font-size: 1.4rem; } /* Slightly smaller heading */
        .section-header { margin-bottom: 1.5rem; }
-       .hero h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+       
+       .hero h1 { font-size: 1.8rem; margin-bottom: 0.5rem; } 
+       .hero p { font-size: 0.9rem !important; }
        .avatar { width: 200px; height: 200px; } 
        .hero-content > div:last-child { flex-direction: column; align-items: center; gap: 1rem !important; }
-       .btn-primary { width: 100%; max-width: 250px; }
+       .btn-primary { width: 100%; max-width: 250px; font-size: 0.9rem;} /* Smaller button */
        
        .skills-grid { grid-template-columns: 1fr; gap: 1rem; }
+       .skill-item { font-size: 0.85rem; padding: 8px; }
+       
        .cert-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
        .cert-card { padding: 1rem 0.5rem; } 
+       .cert-card h3 { font-size: 0.85rem; }
+       .cert-card p { font-size: 0.75rem !important; }
+       .cert-link { font-size: 0.75rem; }
        
        /* Fix to keep project layout Text | Image on mobile */
        .project-card { 
-           grid-template-columns: 1fr 100px; /* Scale down the image space so text fits */
-           gap: 1rem; 
-           align-items: center; /* Center items vertically */
+           grid-template-columns: 1fr 90px; /* Scale down the image space so text fits */
+           gap: 0.8rem; 
+           align-items: center; 
            padding: 1rem;
        }
-       .project-card h3 { font-size: 1.1rem; margin-bottom: 0.3rem;}
-       .project-card p { font-size: 0.85rem; line-height: 1.4; margin-bottom: 0.5rem; }
-       .tech-tag { padding: 3px 8px; font-size: 0.65rem; margin: 2px 2px 2px 0; }
-       .click-hint { font-size: 0.8rem; margin-top: 5px; }
+       .project-card h3 { font-size: 1rem; margin-bottom: 0.3rem;}
+       .project-card p { font-size: 0.8rem; line-height: 1.4; margin-bottom: 0.5rem; }
+       .tech-tag { padding: 3px 6px; font-size: 0.6rem; margin: 2px 2px 2px 0; }
+       .click-hint { font-size: 0.75rem; margin-top: 5px; }
        
-       .about-content-scroll { padding: 1rem; }
-       .about-content-scroll h3 { font-size: 1.1rem; }
-       .about-content-scroll h4 { font-size: 1rem; }
-       .about-content-scroll li { font-size: 0.9rem; margin-bottom: 5px; }
+       .lovable-app-card h3 { font-size: 1.1rem; }
+       .lovable-app-card p { font-size: 0.85rem; }
+       
+       .timeline-item h3 { font-size: 1rem; }
+       .timeline-item p, .timeline-item ul, .timeline-item li { font-size: 0.85rem !important; }
+       .timeline-item h4 { font-size: 0.9rem !important; }
+       
+       .about-content-scroll { padding: 1rem; font-size: 0.85rem;}
+       .about-content-scroll p { font-size: 0.85rem; }
+       .about-content-scroll h3 { font-size: 1rem; }
+       .about-content-scroll h4 { font-size: 0.9rem; }
+       .about-content-scroll li { font-size: 0.85rem; margin-bottom: 5px; }
+       
+       .form-control { font-size: 0.85rem; padding: 12px; }
+       .contact-info-item { font-size: 0.85rem; }
        
        .close-modal, .close-about, .close-lightbox { 
            top: 5px; right: 5px; background: rgba(255,255,255,0.9); 
@@ -1664,7 +1686,7 @@
                     entry.target.style.opacity = 1;
                     entry.target.style.transform = 'translateY(0)';
                     
-                    // NEW FIX: Clear the inline style after the fade-in finishes
+                    // Clear the inline style after the fade-in finishes
                     // This allows the CSS hover transforms to work properly!
                     setTimeout(() => {
                         entry.target.style.transform = '';
