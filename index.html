@@ -19,7 +19,7 @@
 
   <title>Sanjeev Kumar | IT Engineer</title>
   <meta name="description" content="Portfolio of Sanjeev Kumar, an IT Engineer specializing in Windows Server Administration, Networking, Fortinet Firewall, AWS, Azure, and Cybersecurity." />
-  <meta name="keywords" content="Sanjeev Kumar, IT Engineer, Windows Server, Network Engineer, Fortinet, AWS, Azure, Cybersecurity, Noida" />
+  <meta name="keywords" content="Sanjeev Kumar, IT Engineer, Windows Server, Network Engineer, Fortinet, AWS, Azure, Cybersecurity, Noida, isanjiiv" />
   <meta name="author" content="Sanjeev Kumar" />
   <meta name="theme-color" content="#f59e0b" />
     
@@ -403,6 +403,14 @@
         background: var(--bg); border: 2px solid var(--primary); border-radius: 50%;
     }
 
+    /* Contact Form */
+    .contact-wrapper { 
+        display: grid; 
+        grid-template-columns: 1fr 1.5fr; 
+        gap: 2rem; 
+    }
+    .form-control { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--card-border); background: var(--bg-secondary); color: var(--text-main); margin-bottom: 0.8rem; font-family: inherit; font-size: 0.9rem;}
+
     /* Mobile Menu */
     .hamburger { display: none; background: none; border: none; font-size: 1.2rem; color: var(--text-main); cursor: pointer; }
     .mobile-menu { position: fixed; top: 61px; left: 0; width: 100%; background: var(--bg); padding: 0.5rem 1rem; transform: translateY(-150%); transition: 0.3s; z-index: 999; border-bottom: 1px solid var(--card-border); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
@@ -594,10 +602,7 @@
       
       .project-card { grid-template-columns: 1fr 150px; gap: 1.5rem; align-items: center; }
       
-      .contact-wrapper { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
-      .contact-image-side { margin-bottom: 1rem; }
-      .contact-form-side { text-align: center; }
-      form { width: 100%; max-width: 500px; margin: 0 auto; }
+      .contact-wrapper { grid-template-columns: 1fr; gap: 1.5rem; }
     }
 
     /* --- MOBILE ONLY SMALLER FONT SIZES --- */
@@ -656,22 +661,18 @@
        .about-content-scroll li { font-size: 0.85rem; margin-bottom: 5px; }
        
        .form-control { font-size: 0.85rem; padding: 12px; }
+       .contact-info-item { font-size: 0.85rem; }
        
        .close-modal, .close-about, .close-lightbox { 
            top: 5px; right: 5px; background: rgba(255,255,255,0.9); 
            color: #000; width: 32px; height: 32px; font-size: 1.5rem;
        }
        .lightbox-btn { padding: 10px; width: 40px; height: 40px; font-size: 18px; }
-
-       /* Footer mobile adjustments */
-       .footer-info-wrapper { flex-direction: column; gap: 1.5rem; justify-content: center; align-items: center; }
-       .footer-contact-details { flex-direction: column; gap: 1rem; align-items: center; }
     }
 
 /* --- CONTACT SECTION STYLES --- */
 .contact-wrapper { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: center; }
-.contact-image-side { display: flex; align-items: center; justify-content: center; height: 100%; }
-.contact-form-side { display: flex; flex-direction: column; justify-content: center; text-align: left; }
+.contact-text-side { display: flex; flex-direction: column; justify-content: center; }
 
 .form-control { 
   width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--card-border); 
@@ -686,18 +687,18 @@
   margin: 1rem auto 0 auto; min-width: 180px; 
 }
 
-/* Footer Contact Item */
 .contact-info-item {
-  display: flex; gap: 12px; align-items: center; font-size: 0.95rem; 
+  display: flex; gap: 12px; align-items: center; font-size: 1rem; 
   color: var(--text-main); margin-bottom: 0.8rem;
 }
-.footer-info-wrapper {
-  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1.5rem;
-}
-.footer-contact-details {
-  display: flex; gap: 1.5rem; flex-wrap: wrap;
-}
 
+@media (max-width: 900px) {
+  .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+  .contact-text-side { align-items: center; }
+  .contact-info-item { justify-content: center; }
+  form { width: 100%; max-width: 500px; margin: 0 auto; }
+  .btn-submit { width: 100%; max-width: 300px; }
+}
   </style>
    
   <script type="application/ld+json">
@@ -1119,36 +1120,50 @@
   </div>
 </section>
 
+
       <section id="contact" class="container" style="padding: var(--section-spacing) 0;">
         <div class="section-header"> 
-          <h2>Contact Me</h2>
+          <h2>Get In Touch</h2>
         </div>
         
         <div class="glass-card contact-wrapper">
           
-          <div class="contact-image-side">
-            <img src="https://isanjiiv.github.io/assets/images/sanjeev%20kumar.png" alt="Contact Sanjeev" style="border-radius: var(--radius-md); width: 100%; height: 100%; object-fit: cover; max-height: 400px; box-shadow: var(--glass-shadow);">
-          </div>
-
-          <div class="contact-form-side">
-            <div style="margin-bottom: 1.5rem;">
-              <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text-main); font-family: var(--font-heading);">Let's talk tech.</h3>
-              <p style="font-size: 0.95rem; color: var(--text-muted);">Whether you have a job opportunity, a project, or just want to say hi, my inbox is open.</p>
+          <div class="contact-text-side">
+            <h3>Let's talk tech.</h3>
+            <p style="font-size:0.95rem; margin-bottom: 1.5rem; color: var(--text-muted);">
+              Whether you have a job opportunity, a project, or just want to say hi, my inbox is open.
+            </p>
+            
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2rem;">
+              <div class="contact-info-item">
+                <i class="fa-solid fa-location-dot" style="color:var(--primary); font-size: 1.2rem; width: 24px;"></i> 
+                <span>Noida, India</span>
+              </div>
+              <div class="contact-info-item">
+                <i class="fa-solid fa-envelope" style="color:var(--primary); font-size: 1.2rem; width: 24px;"></i> 
+                <span>Sanjeev753304@gmail.com</span>
+              </div>
             </div>
             
-            <form action="https://formspree.io/f/xzzabloy" method="POST">
-              <input type="text" name="name" class="form-control" required placeholder="Your Name">
-              <input type="email" name="email" class="form-control" required placeholder="Your Email">
-              <textarea name="message" rows="5" class="form-control" required placeholder="How can I help you?"></textarea>
-              
-              <input type="hidden" name="_subject" value="New message from portfolio">
-              <input type="hidden" name="_replyto" value="Sanjeev753304@gmail.com">
-              
-              <button type="submit" class="btn-primary btn-submit">
-                Send Message <i class="fa-solid fa-paper-plane" style="margin-left:8px;"></i>
-              </button>
-            </form>
+            <div style="display: flex; gap: 15px;">
+              <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" class="btn-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://github.com/isanjiiv" target="_blank" class="btn-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              <a href="https://www.instagram.com/isanjiiv/" target="_blank" class="btn-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
           </div>
+
+          <form action="https://formspree.io/f/xzzabloy" method="POST">
+            <input type="text" name="name" class="form-control" required placeholder="Your Name">
+            <input type="email" name="email" class="form-control" required placeholder="Your Email">
+            <textarea name="message" rows="5" class="form-control" required placeholder="How can I help you?"></textarea>
+            
+            <input type="hidden" name="_subject" value="New message from portfolio">
+            <input type="hidden" name="_replyto" value="Sanjeev753304@gmail.com">
+            
+            <button type="submit" class="btn-primary btn-submit">
+              Send Message <i class="fa-solid fa-paper-plane" style="margin-left:8px;"></i>
+            </button>
+          </form>
           
         </div>
       </section>
@@ -1406,30 +1421,8 @@
   </main>
 
   <footer>
-    <div class="container" style="padding: 3rem 1.5rem 1.5rem 1.5rem; border-top: 1px solid var(--card-border);">
-      
-      <div class="footer-info-wrapper">
-        <div class="footer-contact-details">
-          <div class="contact-info-item" style="margin-bottom: 0;">
-            <i class="fa-solid fa-location-dot" style="color:var(--primary); font-size: 1.2rem; width: 24px; text-align:center;"></i> 
-            <span>Noida, India</span>
-          </div>
-          <div class="contact-info-item" style="margin-bottom: 0;">
-            <i class="fa-solid fa-envelope" style="color:var(--primary); font-size: 1.2rem; width: 24px; text-align:center;"></i> 
-            <span>Sanjeev753304@gmail.com</span>
-          </div>
-        </div>
-        
-        <div style="display: flex; gap: 15px; justify-content: center;">
-          <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" class="btn-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="https://github.com/isanjiiv" target="_blank" class="btn-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a href="https://www.instagram.com/isanjiiv/" target="_blank" class="btn-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        </div>
-      </div>
-      
-      <div style="text-align:center; padding-top: 1.5rem; color:var(--text-muted); border-top: 1px solid rgba(100,116,139,0.1); font-size: 0.85rem;">
-        <p>© <span id="year"></span> <span style="color:var(--primary); font-weight:700;">Sanjeev Kumar</span>. All rights reserved.</p>
-      </div>
+    <div class="container" style="text-align:center; padding:2rem 0; color:var(--text-muted); border-top:1px solid var(--card-border); font-size: 0.9rem;">
+      <p>© <span id="year"></span> <span style="color:var(--primary); font-weight:700;">Sanjeev Kumar</span>. All rights reserved.</p>
     </div>
   </footer>
 
@@ -1819,7 +1812,7 @@
         });
 
         // --- F. TYPING EFFECT ---
-      const texts = ["IT Engineer", "Networking", "Windows Server"," Ai Prompting","WordPress","Cloud Server","Firewall"];
+        const texts = ["IT Engineer", "Networking", "Windows Server"," Ai Prompting","WordPress","Cloud Server","Firewall"];
         let count = 0;
         let index = 0;
         let currentText = "";
