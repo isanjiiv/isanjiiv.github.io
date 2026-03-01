@@ -269,34 +269,86 @@
     }
 
     /* ======================================================== */
-    /* GRID GROW ANIMATIONS (Skills, Projects, Certs, Apps, Gallery) */
+    /* GRID GROW ANIMATIONS & NEW CIRCULAR SKILLS GRID          */
     /* ======================================================== */
 
-    /* Skills Grid */
-    .skills-grid { 
+    /* --- NEW CIRCULAR SKILLS GRID --- */
+    .skills-circle-grid { 
         display: grid; 
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
-        gap: 1.25rem; 
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 1.5rem; 
+        justify-items: center;
     }
-    .skill-bar-bg { height: 6px; background: var(--bg-secondary); border-radius: 10px; overflow: hidden; } 
-    .skill-bar-fill { height: 100%; background: linear-gradient(90deg, var(--primary), #fb923c); width: 0; transition: width 1.5s ease; }
     
-    .skill-item { 
-        font-size: 0.95rem; 
-        padding: 10px; 
-        border-radius: 8px; 
-        border: 1px solid transparent;
-        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; 
-        position: relative; /* required for z-index */
+    .skill-circle-card { 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem; 
+        border-radius: var(--radius-md); 
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
+        position: relative;
+        width: 100%;
     }
-    /* Fixed Grow Animation */
-    .skill-item:hover {
+    
+    /* Using custom CSS variables per-card for unique colored glow/border */
+    .skill-circle-card:hover {
         transform: scale(1.05) !important;
-        background: var(--bg-secondary);
-        border-color: var(--card-border);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        border-color: var(--skill-color, var(--primary));
+        box-shadow: 0 10px 25px var(--skill-glow, var(--primary-glow));
         z-index: 2;
     }
+
+    .circle-container {
+        position: relative;
+        width: 90px;  
+        height: 90px;
+        margin-bottom: 1rem;
+    }
+
+    .circular-chart {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        max-height: 250px;
+    }
+
+    /* Apply custom backgrounds per skill */
+    .circle-bg {
+        fill: none;
+        stroke: var(--skill-bg, rgba(245, 158, 11, 0.15));
+        stroke-width: 2.5;
+    }
+
+    /* Apply custom stroke color per skill */
+    .circle {
+        fill: none;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke: var(--skill-color, var(--primary)); 
+        stroke-dasharray: 0, 100;
+        transition: stroke-dasharray 1.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .percentage {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: var(--font-heading);
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--text-main);
+    }
+
+    .skill-title {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text-main);
+        text-align: center;
+    }
+
 
     /* Projects Grid */
     .project-card { 
@@ -308,7 +360,6 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         position: relative;
     }
-    /* Fixed Grow Animation */
     .project-card:hover { 
         transform: scale(1.03) !important; 
         border-color: var(--primary); 
@@ -333,7 +384,6 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
         position: relative;
     }
-    /* Fixed Grow Animation */
     .cert-card:hover {
         transform: scale(1.05) !important;
         border-color: var(--primary);
@@ -459,7 +509,6 @@
         overflow: hidden; cursor: pointer; position: relative; 
         transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
-    /* Fixed Grow Animation */
     .gallery-item:hover { 
         transform: scale(1.05) !important; 
         border-color: var(--primary); 
@@ -501,7 +550,6 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         position: relative;
     }
-    /* Fixed Grow Animation */
     .lovable-app-card:hover {
         transform: scale(1.03) !important;
         border-color: var(--primary);
@@ -552,7 +600,6 @@
       .nav-menu { display: none; }
       .hamburger { display: block; }
       
-      /* Keep side-by-side layout for projects on tablet */
       .project-card { grid-template-columns: 1fr 150px; gap: 1.5rem; align-items: center; }
       
       .contact-wrapper { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -562,22 +609,26 @@
     @media (max-width: 600px) {
        :root { --section-spacing: 2.5rem; } 
        
-       body { font-size: 13.5px; } /* Main Base Font Size reduced */
+       body { font-size: 13.5px; } 
        
        .container { padding-inline: 1rem; }
        .glass-card { padding: 1.25rem; } 
        
-       .section-header h2 { font-size: 1.4rem; } /* Slightly smaller heading */
+       .section-header h2 { font-size: 1.4rem; } 
        .section-header { margin-bottom: 1.5rem; }
        
        .hero h1 { font-size: 1.8rem; margin-bottom: 0.5rem; } 
        .hero p { font-size: 0.9rem !important; }
        .avatar { width: 200px; height: 200px; } 
        .hero-content > div:last-child { flex-direction: column; align-items: center; gap: 1rem !important; }
-       .btn-primary { width: 100%; max-width: 250px; font-size: 0.9rem;} /* Smaller button */
+       .btn-primary { width: 100%; max-width: 250px; font-size: 0.9rem;} 
        
-       .skills-grid { grid-template-columns: 1fr; gap: 1rem; }
-       .skill-item { font-size: 0.85rem; padding: 8px; }
+       /* Skills circular grid on mobile */
+       .skills-circle-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+       .skill-circle-card { padding: 1rem 0.5rem; }
+       .circle-container { width: 75px; height: 75px; }
+       .percentage { font-size: 1.1rem; }
+       .skill-title { font-size: 0.85rem; }
        
        .cert-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
        .cert-card { padding: 1rem 0.5rem; } 
@@ -585,9 +636,8 @@
        .cert-card p { font-size: 0.75rem !important; }
        .cert-link { font-size: 0.75rem; }
        
-       /* Fix to keep project layout Text | Image on mobile */
        .project-card { 
-           grid-template-columns: 1fr 90px; /* Scale down the image space so text fits */
+           grid-template-columns: 1fr 90px; 
            gap: 0.8rem; 
            align-items: center; 
            padding: 1rem;
@@ -781,36 +831,85 @@
         <div class="section-header">
           <h2>Skills</h2>
         </div>
-        <div class="glass-card">
-          <div class="skills-grid">
-            <div class="skill-item">
-              <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>AI & Prompting</span><span>90%</span></div>
-              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
+        
+        <div class="skills-circle-grid">
+            
+          <div class="skill-circle-card glass-card" style="--skill-color: #a855f7; --skill-bg: rgba(168, 85, 247, 0.15); --skill-glow: rgba(168, 85, 247, 0.3);">
+            <div class="circle-container">
+              <svg class="circular-chart" viewBox="0 0 36 36">
+                <path class="circle-bg"
+                  d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                />
+                <path class="circle" data-percent="90"
+                  d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                />
+              </svg>
+              <div class="percentage">90%</div>
             </div>
-            <div class="skill-item">
-              <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>Windows Server</span><span>90%</span></div>
-              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>Networking</span><span>88%</span></div>
-              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>Cloud (AWS/Azure)</span><span>60%</span></div>
-              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="60%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>Security (Fortinet)</span><span>85%</span></div>
-              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-weight:600;"><span>WordPress</span><span>70%</span></div>
-              <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="70%"></div></div>
-            </div>
+            <h3 class="skill-title">AI & Prompting</h3>
           </div>
+
+          <div class="skill-circle-card glass-card" style="--skill-color: #0ea5e9; --skill-bg: rgba(14, 165, 233, 0.15); --skill-glow: rgba(14, 165, 233, 0.3);">
+            <div class="circle-container">
+              <svg class="circular-chart" viewBox="0 0 36 36">
+                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="circle" data-percent="90" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              </svg>
+              <div class="percentage">90%</div>
+            </div>
+            <h3 class="skill-title">Windows Server</h3>
+          </div>
+
+          <div class="skill-circle-card glass-card" style="--skill-color: #22c55e; --skill-bg: rgba(34, 197, 94, 0.15); --skill-glow: rgba(34, 197, 94, 0.3);">
+            <div class="circle-container">
+              <svg class="circular-chart" viewBox="0 0 36 36">
+                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="circle" data-percent="88" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              </svg>
+              <div class="percentage">88%</div>
+            </div>
+            <h3 class="skill-title">Networking</h3>
+          </div>
+
+          <div class="skill-circle-card glass-card" style="--skill-color: #f59e0b; --skill-bg: rgba(245, 158, 11, 0.15); --skill-glow: rgba(245, 158, 11, 0.3);">
+            <div class="circle-container">
+              <svg class="circular-chart" viewBox="0 0 36 36">
+                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="circle" data-percent="60" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              </svg>
+              <div class="percentage">60%</div>
+            </div>
+            <h3 class="skill-title">Cloud (AWS/Azure)</h3>
+          </div>
+
+          <div class="skill-circle-card glass-card" style="--skill-color: #ef4444; --skill-bg: rgba(239, 68, 68, 0.15); --skill-glow: rgba(239, 68, 68, 0.3);">
+            <div class="circle-container">
+              <svg class="circular-chart" viewBox="0 0 36 36">
+                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="circle" data-percent="85" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              </svg>
+              <div class="percentage">85%</div>
+            </div>
+            <h3 class="skill-title">Security (Fortinet)</h3>
+          </div>
+
+          <div class="skill-circle-card glass-card" style="--skill-color: #3b82f6; --skill-bg: rgba(59, 130, 246, 0.15); --skill-glow: rgba(59, 130, 246, 0.3);">
+            <div class="circle-container">
+              <svg class="circular-chart" viewBox="0 0 36 36">
+                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="circle" data-percent="70" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              </svg>
+              <div class="percentage">70%</div>
+            </div>
+            <h3 class="skill-title">WordPress</h3>
+          </div>
+
         </div>
       </section>
-
       <section id="projects" class="container" style="padding-top: var(--section-spacing);">
         <div class="section-header">
           <h2>Projects</h2>
@@ -870,7 +969,7 @@
         <article class="glass-card project-card" onclick="showProjectView('project-4')">
           <div>
             <h3>Secure Wifi Network (FortiGate + Deco Mesh)</h3>
-            <p>Implemented a secure wireless network upgrade using TP-Link Deco Mesh integrated with FortiGate 60F. Configured internal interfaces, LAN roles, DHCP, and firewall policies for secure, seamless roaming.</p>
+            <p>Implemented a secure wireless network upgrade using TP-Link Deco Mesh systems integrated with the existing FortiGate 60F firewall. The goal was to provide seamless roaming coverage while ensuring strong security.</p>
             <div style="margin-top:8px;">
               <span class="tech-tag">Deco Mesh</span>
               <span class="tech-tag">FortiGate 60F</span>
@@ -1686,19 +1785,20 @@
                     entry.target.style.opacity = 1;
                     entry.target.style.transform = 'translateY(0)';
                     
-                    // Clear the inline style after the fade-in finishes
-                    // This allows the CSS hover transforms to work properly!
                     setTimeout(() => {
                         entry.target.style.transform = '';
                         entry.target.style.transition = '';
-                    }, 600); // Wait for the 0.6s animation to finish
+                    }, 600);
                     
-                    const progressBars = entry.target.querySelectorAll('.skill-bar-fill');
-                    progressBars.forEach(bar => {
-                        bar.style.width = bar.getAttribute('data-width');
+                    // --- NEW ANIMATION LOGIC FOR SVG CIRCLES ---
+                    const progressCircles = entry.target.querySelectorAll('.circle');
+                    progressCircles.forEach(circle => {
+                        const val = circle.getAttribute('data-percent');
+                        // stroke-dasharray format is "dashLength, gapLength". 
+                        // Because our circle circumference is exactly 100, the % value maps perfectly to dashLength.
+                        circle.style.strokeDasharray = `${val}, 100`;
                     });
                     
-                    // Stop observing once animated so we don't accidentally re-apply inline styles
                     observer.unobserve(entry.target);
                 }
             });
