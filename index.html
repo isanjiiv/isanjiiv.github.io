@@ -344,7 +344,7 @@
     .cert-card h3 { font-size: 1rem; margin-bottom: 0.2rem; }
     .cert-link { margin-top: auto; font-size: 0.8rem; color: var(--primary); font-weight: 600; pointer-events: none;}
     
-    /* Timeline (Not a grid, kept standard) */
+    /* Timeline */
     .timeline { border-left: 2px solid var(--card-border); padding-left: 1.5rem; margin-left: 0.5rem; }
     .timeline-item { position: relative; margin-bottom: 2rem; }
     .timeline-item h3 { font-size: 1.1rem; }
@@ -551,9 +551,10 @@
       .avatar { width: 240px; height: 240px; }
       .nav-menu { display: none; }
       .hamburger { display: block; }
-      .project-card { grid-template-columns: 1fr; gap: 1rem; }
-      .project-card > div:last-child { height: 80px; width: 80px; margin: 0 auto; }
-      .project-card i { font-size: 2rem !important; }
+      
+      /* Keep side-by-side layout for projects on tablet */
+      .project-card { grid-template-columns: 1fr 150px; gap: 1.5rem; align-items: center; }
+      
       .contact-wrapper { grid-template-columns: 1fr; gap: 1.5rem; }
     }
 
@@ -572,6 +573,19 @@
        .skills-grid { grid-template-columns: 1fr; gap: 1rem; }
        .cert-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
        .cert-card { padding: 1rem 0.5rem; } 
+       
+       /* Fix to keep project layout Text | Image on mobile */
+       .project-card { 
+           grid-template-columns: 1fr 100px; /* Scale down the image space so text fits */
+           gap: 1rem; 
+           align-items: center; /* Center items vertically */
+           padding: 1rem;
+       }
+       .project-card h3 { font-size: 1.1rem; margin-bottom: 0.3rem;}
+       .project-card p { font-size: 0.85rem; line-height: 1.4; margin-bottom: 0.5rem; }
+       .tech-tag { padding: 3px 8px; font-size: 0.65rem; margin: 2px 2px 2px 0; }
+       .click-hint { font-size: 0.8rem; margin-top: 5px; }
+       
        .about-content-scroll { padding: 1rem; }
        .about-content-scroll h3 { font-size: 1.1rem; }
        .about-content-scroll h4 { font-size: 1rem; }
