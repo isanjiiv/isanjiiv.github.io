@@ -80,6 +80,9 @@
       --card-border: rgba(226, 232, 240, 0.8);
       --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); 
       --nav-bg: rgba(255, 255, 255, 0.95);
+      
+      /* Subtle dot pattern color for Light Mode */
+      --pattern-dot: rgba(15, 23, 42, 0.07);
        
       --radius-md: 12px; 
       --container: 1000px;
@@ -101,6 +104,9 @@
       --card-border: rgba(255, 255, 255, 0.08);
       --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
       --nav-bg: rgba(11, 18, 32, 0.95);
+      
+      /* Subtle dot pattern color for Dark Mode */
+      --pattern-dot: rgba(255, 255, 255, 0.06);
     }
 
     /* --- 2. GLOBAL RESET --- */
@@ -118,9 +124,14 @@
       line-height: 1.5; 
       font-size: 16px; 
       overflow-x: hidden;
+      
+      /* Layered Background: Orbs + Tech Dot Matrix Pattern */
       background-image: 
         radial-gradient(at 0% 0%, var(--primary-glow) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.1) 0px, transparent 50%);
+        radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.1) 0px, transparent 50%),
+        radial-gradient(var(--pattern-dot) 1.5px, transparent 1.5px);
+      background-size: 100% 100%, 100% 100%, 24px 24px;
+      background-position: 0 0, 0 0, center center;
       background-attachment: fixed;
     }
 
