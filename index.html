@@ -9,9 +9,14 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-YEH8LE17NF');
   </script>
+
+  <script>
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+
   <meta name="msvalidate.01" content="80657E80486CC69215B9C64BCB2CB7FC" />
   <meta name="google-site-verification" content="google55bb3e2dfb255c1c" />
    
@@ -21,7 +26,7 @@
   <meta name="description" content="Portfolio of Sanjeev Kumar, an IT Engineer specializing in Windows Server Administration, Networking, Fortinet Firewall, AWS, Azure, and Cybersecurity." />
   <meta name="keywords" content="Sanjeev Kumar, IT Engineer, Windows Server, Network Engineer, Fortinet, AWS, Azure, Cybersecurity, Noida, isanjiiv" />
   <meta name="author" content="Sanjeev Kumar" />
-  <meta name="theme-color" content="#f59e0b" />
+  <meta name="theme-color" content="#00ADB5" />
     
   <link rel="canonical" href="https://isanjiiv.github.io/" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
@@ -69,8 +74,8 @@
       --bg-secondary: #f8fafc;
       --text-main: #0f172a;
       --text-muted: #64748b;
-      --primary: #f59e0b; /* Amber */
-      --primary-glow: rgba(245, 158, 11, 0.4);
+      --primary: #00ADB5; /* Teal */
+      --primary-glow: rgba(0, 173, 181, 0.4);
       --card-bg: rgba(255, 255, 255, 0.75);
       --card-border: rgba(226, 232, 240, 0.8);
       --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); 
@@ -90,8 +95,8 @@
       --bg-secondary: #0f172a;
       --text-main: #f1f5f9;
       --text-muted: #94a3b8;
-      --primary: #fbbf24; 
-      --primary-glow: rgba(251, 191, 36, 0.25);
+      --primary: #00ADB5; 
+      --primary-glow: rgba(0, 173, 181, 0.25);
       --card-bg: rgba(30, 41, 59, 0.6);
       --card-border: rgba(255, 255, 255, 0.08);
       --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
@@ -156,7 +161,7 @@
     .btn-primary {
       display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
       padding: 0.6rem 1.4rem; 
-      background: linear-gradient(135deg, var(--primary), #d97706);
+      background: linear-gradient(135deg, var(--primary), #008289);
       color: #fff;
       font-weight: 600;
       font-size: 0.95rem; 
@@ -317,7 +322,7 @@
     /* Apply custom backgrounds per skill */
     .circle-bg {
         fill: none;
-        stroke: var(--skill-bg, rgba(245, 158, 11, 0.15));
+        stroke: var(--skill-bg, rgba(0, 173, 181, 0.15));
         stroke-width: 2.5;
     }
 
@@ -770,7 +775,7 @@
 
       <section id="home" class="hero container">
         <div class="hero-content">
-          <div style="display:inline-block; padding:4px 12px; background:rgba(245, 158, 11, 0.1); color:var(--primary); border-radius:50px; font-weight:600; font-size: 0.8rem; margin-bottom:0.8rem; border:1px solid rgba(245, 158, 11, 0.2);">
+          <div style="display:inline-block; padding:4px 12px; background:rgba(0, 173, 181, 0.1); color:var(--primary); border-radius:50px; font-weight:600; font-size: 0.8rem; margin-bottom:0.8rem; border:1px solid rgba(0, 173, 181, 0.2);">
             <i class="fa-solid fa-circle" style="font-size:6px; vertical-align:middle;"></i> Open to Opportunities
           </div>
           <h1>Hi, I'm Sanjeev.<br>
@@ -1723,29 +1728,37 @@
             }
         });
 
-        // --- B. HANDLE PAGE REFRESH (Keep user on project) ---
+        // --- B. HANDLE PAGE REFRESH (Keep user on project or section) ---
         const hash = window.location.hash.substring(1);
-        if (hash && document.getElementById(hash)) {
-            switchPageVisuals(hash);
-            // Update history so back button works immediately
-            history.replaceState({ page: hash }, null, "#" + hash);
+        const targetElement = document.getElementById(hash);
+        
+        if (hash && targetElement) {
+            // Check if it's a dedicated page view (like a project)
+            if (targetElement.classList.contains('page-view')) {
+                switchPageVisuals(hash);
+                // Update history so back button works immediately
+                history.replaceState({ page: hash }, null, "#" + hash);
+            } else {
+                // It's just a regular section anchor (like #about) inside the home page
+                switchPageVisuals('home-view');
+                // Allow the browser to naturally scroll to the anchor element
+            }
         }
 
         // --- C. THEME TOGGLE ---
         const themeToggle = document.getElementById('themeToggle');
         const html = document.documentElement;
+        
         if (themeToggle) {
             const icon = themeToggle.querySelector('i');
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            html.setAttribute('data-theme', savedTheme);
-            updateIcon(icon, savedTheme);
+            const currentTheme = html.getAttribute('data-theme') || 'light';
+            updateIcon(icon, currentTheme);
 
             themeToggle.addEventListener('click', () => {
-                const currentTheme = html.getAttribute('data-theme');
-                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-                html.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                updateIcon(icon, newTheme);
+                const updatedTheme = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                html.setAttribute('data-theme', updatedTheme);
+                localStorage.setItem('theme', updatedTheme);
+                updateIcon(icon, updatedTheme);
             });
         }
 
@@ -1812,7 +1825,8 @@
         });
 
         // --- F. TYPING EFFECT ---
-        const texts = ["IT Engineer", "Networking", "Windows Server"," Ai Prompting","WordPress","Cloud Server","Firewall"];
+        // BUG FIX: Removed extra space from " AI Prompting"
+        const texts = ["IT Engineer", "Networking", "Windows Server", "AI Prompting", "WordPress", "Cloud Server", "Firewall"];
         let count = 0;
         let index = 0;
         let currentText = "";
