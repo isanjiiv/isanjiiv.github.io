@@ -552,7 +552,7 @@
     .close-modal:hover, .close-about:hover, .close-lightbox:hover { color: var(--primary); }
 
     /* ======================================================== */
-    /* SPA & DETAIL PAGE STYLES                            */
+    /* SPA & DETAIL PAGE STYLES                                */
     /* ======================================================== */
     
     .page-view { display: none; padding-top: 100px; padding-bottom: 60px; animation: fadeIn 0.4s ease-out; }
@@ -766,12 +766,20 @@
     "@type": "Person",
     "name": "Sanjeev Kumar",
     "jobTitle": "IT Engineer",
+    "description": "IT Engineer specializing in Windows Server Administration, Networking, Fortinet Firewall, AWS, Azure, and Cybersecurity.",
     "url": "https://isanjiiv.github.io/",
     "image": "https://isanjiiv.github.io/assets/images/Sanjeev.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Noida",
+      "addressCountry": "IN"
+    },
+    "knowsAbout": ["Windows Server", "Networking", "Fortinet", "AWS", "Azure", "Cybersecurity", "Active Directory"],
     "sameAs": [
       "https://www.linkedin.com/in/isanjiiv/",
       "https://github.com/isanjiiv/",
-      "https://www.instagram.com/isanjiiv/"
+      "https://www.instagram.com/isanjiiv/",
+      "https://www.youtube.com/@isanjiiv/"
     ]
   }
   </script>
@@ -781,21 +789,21 @@
 
   <header>
     <div class="container nav-inner">
-      <a onclick="showHomeView()" class="brand">
+      <a href="#" onclick="event.preventDefault(); showHomeView()" class="brand">
         <span class="dot">●</span> Sanjeev Kumar
       </a>
 
       <nav class="nav-menu">
-        <a onclick="showHomeViewAndScroll('about')">About</a>
-        <a onclick="showHomeViewAndScroll('skills')">Skills</a>
-        <a onclick="showHomeViewAndScroll('projects')">Projects</a>
-        <a onclick="showHomeViewAndScroll('certs')">Certifications</a>
-        <a onclick="showHomeViewAndScroll('experience')">Experience</a>
-        <a onclick="showHomeViewAndScroll('contact')">Contact</a>
+        <a href="#about" onclick="event.preventDefault(); showHomeViewAndScroll('about')">About</a>
+        <a href="#skills" onclick="event.preventDefault(); showHomeViewAndScroll('skills')">Skills</a>
+        <a href="#projects" onclick="event.preventDefault(); showHomeViewAndScroll('projects')">Projects</a>
+        <a href="#certs" onclick="event.preventDefault(); showHomeViewAndScroll('certs')">Certifications</a>
+        <a href="#experience" onclick="event.preventDefault(); showHomeViewAndScroll('experience')">Experience</a>
+        <a href="#contact" onclick="event.preventDefault(); showHomeViewAndScroll('contact')">Contact</a>
       </nav>
 
       <div class="nav-actions">
-        <a href="https://www.wayoftech.net/" target="_blank" class="btn-icon" title="WAY OF TECH">
+        <a href="https://www.wayoftech.net/" target="_blank" rel="noopener noreferrer" class="btn-icon" title="WAY OF TECH">
            <img src="https://www.wayoftech.net/favicon.ico" alt="Way of Tech" style="width:18px;">
         </a>
          
@@ -815,12 +823,12 @@
   </header>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a onclick="showHomeViewAndScroll('about')">About</a>
-    <a onclick="showHomeViewAndScroll('skills')">Skills</a>
-    <a onclick="showHomeViewAndScroll('projects')">Projects</a>
-    <a onclick="showHomeViewAndScroll('certs')">Certifications</a>
-    <a onclick="showHomeViewAndScroll('experience')">Experience</a>
-    <a onclick="showHomeViewAndScroll('contact')">Contact</a>
+    <a href="#about" onclick="event.preventDefault(); showHomeViewAndScroll('about')">About</a>
+    <a href="#skills" onclick="event.preventDefault(); showHomeViewAndScroll('skills')">Skills</a>
+    <a href="#projects" onclick="event.preventDefault(); showHomeViewAndScroll('projects')">Projects</a>
+    <a href="#certs" onclick="event.preventDefault(); showHomeViewAndScroll('certs')">Certifications</a>
+    <a href="#experience" onclick="event.preventDefault(); showHomeViewAndScroll('experience')">Experience</a>
+    <a href="#contact" onclick="event.preventDefault(); showHomeViewAndScroll('contact')">Contact</a>
   </div>
 
   <main>
@@ -845,9 +853,10 @@
             <a href="#contact" class="btn-primary">Get in Touch</a>
             <div style="display: flex; gap: 8px;">
               <a href="mailto:sanjeev753304@gmail.com" class="btn-icon" title="Email"><i class="fa-solid fa-envelope"></i></a>
-              <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" class="btn-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-              <a href="https://www.instagram.com/isanjiiv/" target="_blank" class="btn-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-              <a href="https://github.com/isanjiiv" target="_blank" class="btn-icon" title="GitHub"><i class="fa-brands fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-icon" title="GitHub"><i class="fa-brands fa-github"></i></a>
+              <a href="https://www.youtube.com/@isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
             </div>
           </div>
         </div>
@@ -974,7 +983,7 @@
           <h2>Projects</h2>
         </div>
 
-    <article class="glass-card project-card" onclick="showProjectView('project-1')">
+        <a href="#project-1" class="glass-card project-card" onclick="event.preventDefault(); showProjectView('project-1')">
           <div>
             <h3>Enterprise AD & GPO Setup</h3>
             <p>Planned and implemented a Windows Server 2016 Active Directory environment. Set up OU design, user access policies, GPO configurations, and WSUS for 120+ endpoints. Configured Acronis Backup for disaster recovery.</p>
@@ -984,15 +993,15 @@
               <span class="tech-tag">GPO</span>
               <span class="tech-tag">Backup</span>
             </div>
-            <div class="click-hint">View Case Study <i class="fa-solid fa-arrow-right"></i></div>
+            <span class="click-hint">View Case Study <i class="fa-solid fa-arrow-right"></i></span>
           </div>
           
           <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px; overflow:hidden;">
-            <img src="https://brytesoft.com/media/catalog/product/cache/207e23213cf636ccdef205098cf3c8a3/m/i/microsoft-windows-server-2016-essentials-cover-brytesoft.png" alt="Windows Server" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="https://brytesoft.com/media/catalog/product/cache/207e23213cf636ccdef205098cf3c8a3/m/i/microsoft-windows-server-2016-essentials-cover-brytesoft.png" alt="Windows Server 2016 AD and GPO Setup" style="width: 100%; height: 100%; object-fit: cover;">
           </div>
-        </article>
+        </a>
 
-        <article class="glass-card project-card" onclick="showProjectView('project-2')">
+        <a href="#project-2" class="glass-card project-card" onclick="event.preventDefault(); showProjectView('project-2')">
           <div>
             <h3>Fortinet 60F SD-WAN Deployment</h3>
             <p>Designed SD-WAN on FortiGate 60F to enhance network performance. Integrated two ISP connections (Jio & Spectra) with load balancing and automated failover. Applied firewall rules, IPS/AV profiles, and VLANs.</p>
@@ -1002,14 +1011,14 @@
               <span class="tech-tag">VLAN</span>
               <span class="tech-tag">Security</span>
             </div>
-            <div class="click-hint">View Case Study <i class="fa-solid fa-arrow-right"></i></div>
+            <span class="click-hint">View Case Study <i class="fa-solid fa-arrow-right"></i></span>
           </div>
           <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px; overflow:hidden;">
-            <img src="https://com-datentechnik.de/wp-content/uploads/2024/07/Fortinet.png" alt="Windows Server" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="https://com-datentechnik.de/wp-content/uploads/2024/07/Fortinet.png" alt="Fortinet 60F SD-WAN Architecture" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-        </article>
+        </a>
 
-        <article class="glass-card project-card" onclick="showProjectView('project-3')">
+        <a href="#project-3" class="glass-card project-card" onclick="event.preventDefault(); showProjectView('project-3')">
           <div>
             <h3>AI Cost Sheet Builder & Lovable Apps</h3>
             <p>Built a no-code web application at Graiin Milling Solutions using Lovable AI to automate cost sheet generation. Also developed Resume Builders and Notes apps.</p>
@@ -1018,14 +1027,14 @@
               <span class="tech-tag">No-Code</span>
               <span class="tech-tag">Automation</span>
             </div>
-            <div class="click-hint">View Case Study <i class="fa-solid fa-arrow-right"></i></div>
+            <span class="click-hint">View Case Study <i class="fa-solid fa-arrow-right"></i></span>
           </div>
             <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px; overflow:hidden;">
-            <img src="https://lovable.dev/img/logo/lovable-icon-bg-light.png" alt="Windows Server" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="https://lovable.dev/img/logo/lovable-icon-bg-light.png" alt="Lovable AI App Interface" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-        </article>
+        </a>
         
-        <article class="glass-card project-card" onclick="showProjectView('project-4')">
+        <a href="#project-4" class="glass-card project-card" onclick="event.preventDefault(); showProjectView('project-4')">
           <div>
             <h3>Secure Wifi Network (FortiGate + Deco Mesh)</h3>
             <p>Implemented a secure wireless network upgrade using TP-Link Deco Mesh systems integrated with the existing FortiGate 60F firewall. The goal was to provide seamless roaming coverage while ensuring strong security.</p>
@@ -1034,14 +1043,12 @@
               <span class="tech-tag">FortiGate 60F</span>
               <span class="tech-tag">WiFi Security</span>
             </div>
-            <div class="click-hint">View Case Study <i class="fa-solid fa-arrow-right"></i></div>
+            <span class="click-hint">View Case Study <i class="fa-solid fa-arrow-right"></i></span>
           </div>
           <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px;">
-             <img src="https://isanjiiv.github.io/assets/images/DECO.png" 
-     alt="DECO Logo" 
-     style="width: 100%; height: 100%; object-fit: contain;">
+              <img src="https://isanjiiv.github.io/assets/images/DECO.png" alt="TP-Link Deco Mesh System" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
-        </article>
+        </a>
       </section>
 
       <section id="certs" class="container" style="padding-top: var(--section-spacing);">
@@ -1052,49 +1059,49 @@
         
         <div class="cert-grid">
            <a href="https://drive.google.com/file/d/1csso58-0QdXwAIEwJCk6NHMwRglq0fn2/view" class="glass-card cert-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Microsoft" class="cert-img">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Networking Basics Certificate" class="cert-img">
             <h3>Networking Basics</h3>
             <p style="font-size:0.8rem; color:var(--text-muted);">IPv4/IPv6 Addressing, Subnetting</p>
             <span class="cert-link">View Certificate</span>
           </a>
           <a href="https://drive.google.com/file/d/1ExcnlsVy3ZHLtRs_RoF2hNQ05G4Cj154/view?usp=drive_link" class="glass-card cert-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Cisco CCNA" class="cert-img">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Cisco CCNA Certificate" class="cert-img">
             <h3>Cisco CCNA</h3>
             <p style="font-size:0.8rem; color:var(--text-muted);">Network Fundamentals</p>
             <span class="cert-link">View Certificate</span>
           </a>
           <a href="https://drive.google.com/file/d/14aOsqQTKcxbeSA23yXPuLvjPUKDfNpvb/view?usp=drive_link" class="glass-card cert-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" alt="Azure" class="cert-img">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" alt="Microsoft Azure Fundamentals Certificate" class="cert-img">
             <h3>Microsoft Azure</h3>
             <p style="font-size:0.8rem; color:var(--text-muted);">Fundamentals</p>
             <span class="cert-link">View Certificate</span>
           </a>
           <a href="https://drive.google.com/file/d/15hSFkJXr92o4VhM5YgF13pZFv2aSakaD/view?usp=drive_link" class="glass-card cert-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud" class="cert-img">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud Trust & Security Certificate" class="cert-img">
             <h3>Google Cloud</h3>
             <p style="font-size:0.8rem; color:var(--text-muted);">Trust & Security</p>
             <span class="cert-link">View Certificate</span>
           </a>
           <a href="https://drive.google.com/file/d/1kUh_5kU6V_FEYsFhnyf1yHfr12Cmzkdd/view?usp=drive_link" class="glass-card cert-card">
-            <img src="https://cdn-icons-png.flaticon.com/512/5723/5723238.png" alt="Microsoft" class="cert-img">
+            <img src="https://cdn-icons-png.flaticon.com/512/5723/5723238.png" alt="Computer Networking Certificate" class="cert-img">
             <h3>Computer Networking</h3>
             <p style="font-size:0.8rem; color:var(--text-muted);">Basics of Networking</p>
             <span class="cert-link">View Certificate</span>
           </a>
           <a href="https://drive.google.com/file/d/1Hcgl0Drn_niSwc64zhvL0LY2tFEnL6hx/view?usp=drive_link" class="glass-card cert-card">
-            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/cyber-securityprotect-shield-3d-icon-png-download-7277200.png" alt="Microsoft" class="cert-img">
+            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/cyber-securityprotect-shield-3d-icon-png-download-7277200.png" alt="Advance Cyber Security Certificate" class="cert-img">
             <h3>Advance Cyber Security</h3>
             <p style="font-size:0.8rem; color:var(--text-muted);">Threats & Governance</p>
             <span class="cert-link">View Certificate</span>
           </a>
           <a href="https://drive.google.com/file/d/1OhjH3b2gffiHm4KIUrTo_2pP_5BNnKJG/view?usp=drive_link" class="glass-card cert-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="cert-img">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="MCSA Windows Server Admin Certificate" class="cert-img">
             <h3>MCSA</h3>
             <p style="font-size:0.8rem; color:var(--text-muted);">Windows Server Admin</p>
             <span class="cert-link">View Certificate</span>
           </a>
           <a href="https://drive.google.com/file/d/17KrwhkqjLYgkR_UPLiW4GigtmFC7_GSn/view?usp=drive_link" class="glass-card cert-card">
-            <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/fortinet.svg" alt="Microsoft" class="cert-img">
+            <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/fortinet.svg" alt="Fortinet Networking Fundamentals Certificate" class="cert-img">
             <h3>Fortinet Networking Fundamentals</h3>
             <p style="font-size:0.8rem; color:var(--text-muted);">Network Security</p>
             <span class="cert-link">View Certificate</span>
@@ -1212,9 +1219,10 @@
               </div>
               
               <div style="display: flex; gap: 15px; margin-bottom: 1rem;">
-                <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" class="btn-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://github.com/isanjiiv" target="_blank" class="btn-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.instagram.com/isanjiiv/" target="_blank" class="btn-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
               </div>
             </div>
 
@@ -1384,7 +1392,7 @@
         <div class="detail-block">
           <h3>AI Cost Sheet Builder</h3>
           <p>Built a no-code web application at Graiin Milling Solutions using Lovable AI to automate cost sheet generation. Integrated secure login, automated calculations, and PDF/Excel export.</p>
-          <p><a href="https://item-bill-builder.lovable.app" target="_blank" style="color:var(--primary); font-weight:700;">Visit Live App <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+          <p><a href="https://item-bill-builder.lovable.app" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:700;">Visit Live App <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
           
           <h4>Key Features</h4>
           <ul>
@@ -1439,7 +1447,7 @@
                   <strong id="previewTitle" class="app-preview-title">App Preview</strong>
             
                   <div class="app-preview-actions">
-                    <a id="openFullBtn" href="#" target="_blank" class="btn-secondary-outline">
+                    <a id="openFullBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-secondary-outline">
                       Open Full <i class="fa-solid fa-external-link-alt"></i>
                     </a>
                     <button class="btn-danger-outline" onclick="closeApp()">Close</button>
@@ -1478,7 +1486,7 @@
         <div class="detail-block">
           <h3>Project Gallery</h3>
           <div class="gallery-grid">
-             <div class="gallery-item" onclick="openLightbox(this)"><img src="https://isanjiiv.github.io/assets/images/DECO.png" alt="Wifi"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+             <div class="gallery-item" onclick="openLightbox(this)"><img src="https://isanjiiv.github.io/assets/images/DECO.png" alt="Wifi Mesh Map"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
           </div>
         </div>
       </div>
