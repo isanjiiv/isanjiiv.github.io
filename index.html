@@ -416,13 +416,58 @@
         background: var(--bg); border: 2px solid var(--primary); border-radius: 50%;
     }
 
-    /* Contact Form */
-    .contact-wrapper { 
-        display: grid; 
-        grid-template-columns: 1fr 1.5fr; 
-        gap: 2rem; 
+    /* --- NEW CONTACT LAYOUT STYLES --- */
+    .contact-layout {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr; /* Ratio for image vs form card */
+        gap: 2rem;
+        align-items: stretch;
     }
-    .form-control { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--card-border); background: var(--bg-secondary); color: var(--text-main); margin-bottom: 0.8rem; font-family: inherit; font-size: 0.9rem;}
+    .contact-image-container {
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        border: 1px solid var(--card-border);
+        box-shadow: var(--glass-shadow);
+        display: flex;
+        background: var(--bg-secondary);
+    }
+    .contact-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    .contact-image-container:hover img {
+        transform: scale(1.03);
+    }
+
+    .contact-wrapper { 
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* FIX: Changed from center to flex-start to remove top gap */
+        gap: 1.5rem; 
+        padding: 2.5rem 2rem;
+    }
+    .contact-text-side { text-align: left; }
+    
+    .contact-info-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-bottom: 1.5rem;
+    }
+    .contact-info-item {
+        display: flex; gap: 12px; align-items: center; font-size: 1rem; 
+        color: var(--text-main);
+    }
+    
+    .form-control { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--card-border); background: var(--bg-secondary); color: var(--text-main); margin-bottom: 0.8rem; font-family: inherit; font-size: 0.9rem; transition: border-color 0.3s ease;}
+    .form-control:focus { outline: none; border-color: var(--primary); background: var(--bg); }
+
+    .btn-submit {
+      display: flex; justify-content: center; align-items: center;
+      width: 100%; padding: 12px; font-size: 1rem;
+    }
 
     /* Mobile Menu */
     .hamburger { display: none; background: none; border: none; font-size: 1.2rem; color: var(--text-main); cursor: pointer; }
@@ -615,7 +660,29 @@
       
       .project-card { grid-template-columns: 1fr 150px; gap: 1.5rem; align-items: center; }
       
-      .contact-wrapper { grid-template-columns: 1fr; gap: 1.5rem; }
+      /* Updated mobile logic for contact */
+      .contact-layout { 
+          grid-template-columns: 1fr; 
+          gap: 1.5rem; 
+      }
+      .contact-image-container {
+          order: -1; /* Puts image on top */
+          aspect-ratio: 4 / 3; /* FIX: Allows image to scale proportionally instead of strict height */
+          height: auto;
+      }
+      .contact-wrapper {
+          padding: 1.5rem;
+          text-align: center;
+      }
+      .contact-text-side {
+          text-align: center;
+      }
+      .contact-info-item {
+          justify-content: center;
+      }
+      .contact-text-side > div:last-child {
+          justify-content: center; /* Center social icons */
+      }
     }
 
     /* --- MOBILE ONLY SMALLER FONT SIZES --- */
@@ -673,8 +740,10 @@
        .about-content-scroll h4 { font-size: 0.9rem; }
        .about-content-scroll li { font-size: 0.85rem; margin-bottom: 5px; }
        
-       .form-control { font-size: 0.85rem; padding: 12px; }
        .contact-info-item { font-size: 0.85rem; }
+       
+       /* FIX: Replaced strict height with an aspect ratio for small screens */
+       .contact-image-container { height: auto; aspect-ratio: 1 / 1; }
        
        .close-modal, .close-about, .close-lightbox { 
            top: 5px; right: 5px; background: rgba(255,255,255,0.9); 
@@ -682,36 +751,6 @@
        }
        .lightbox-btn { padding: 10px; width: 40px; height: 40px; font-size: 18px; }
     }
-
-/* --- CONTACT SECTION STYLES --- */
-.contact-wrapper { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: center; }
-.contact-text-side { display: flex; flex-direction: column; justify-content: center; }
-
-.form-control { 
-  width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--card-border); 
-  background: var(--bg-secondary); color: var(--text-main); margin-bottom: 1rem; 
-  font-family: inherit; font-size: 0.95rem; transition: border-color 0.3s ease;
-}
-
-.form-control:focus { outline: none; border-color: var(--primary); background: var(--bg); }
-
-.btn-submit {
-  display: flex; justify-content: center; align-items: center;
-  margin: 1rem auto 0 auto; min-width: 180px; 
-}
-
-.contact-info-item {
-  display: flex; gap: 12px; align-items: center; font-size: 1rem; 
-  color: var(--text-main); margin-bottom: 0.8rem;
-}
-
-@media (max-width: 900px) {
-  .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
-  .contact-text-side { align-items: center; }
-  .contact-info-item { justify-content: center; }
-  form { width: 100%; max-width: 500px; margin: 0 auto; }
-  .btn-submit { width: 100%; max-width: 300px; }
-}
   </style>
    
   <script type="application/ld+json">
@@ -990,10 +1029,8 @@
             </div>
             <div class="click-hint">View Case Study <i class="fa-solid fa-arrow-right"></i></div>
           </div>
-          <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px; overflow:hidden;">
-           <img src="https://isanjiiv.github.io/assets/images/DECO.png" 
-     alt="DECO Logo" 
-     style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px;">
+              <i class="fa-solid fa-wifi" style="font-size:2.5rem; color:var(--text-muted); opacity:0.5;"></i>
           </div>
         </article>
       </section>
@@ -1135,55 +1172,60 @@
   </div>
 </section>
 
-
       <section id="contact" class="container" style="padding: var(--section-spacing) 0;">
         <div class="section-header"> 
           <h2>Get In Touch</h2>
         </div>
         
-        <div class="glass-card contact-wrapper">
-          
-          <div class="contact-text-side">
-            <h3>Let's talk tech.</h3>
-            <p style="font-size:0.95rem; margin-bottom: 1.5rem; color: var(--text-muted);">
-              Whether you have a job opportunity, a project, or just want to say hi, my inbox is open.
-            </p>
+        <div class="contact-layout">
             
-            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2rem;">
-              <div class="contact-info-item">
-                <i class="fa-solid fa-location-dot" style="color:var(--primary); font-size: 1.2rem; width: 24px;"></i> 
-                <span>Noida, India</span>
-              </div>
-              <div class="contact-info-item">
-                <i class="fa-solid fa-envelope" style="color:var(--primary); font-size: 1.2rem; width: 24px;"></i> 
-                <span>Sanjeev753304@gmail.com</span>
-              </div>
-            </div>
-            
-            <div style="display: flex; gap: 15px;">
-              <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" class="btn-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-              <a href="https://github.com/isanjiiv" target="_blank" class="btn-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-              <a href="https://www.instagram.com/isanjiiv/" target="_blank" class="btn-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            </div>
+          <div class="contact-image-container">
+            <img src="https://isanjiiv.github.io/assets/images/sanjeev%20kumar.png" alt="Contact Sanjeev" class="contact-image">
           </div>
 
-          <form action="https://formspree.io/f/xzzabloy" method="POST">
-            <input type="text" name="name" class="form-control" required placeholder="Your Name">
-            <input type="email" name="email" class="form-control" required placeholder="Your Email">
-            <textarea name="message" rows="5" class="form-control" required placeholder="How can I help you?"></textarea>
+          <div class="glass-card contact-wrapper">
+              
+            <div class="contact-text-side">
+              <h3>Let's talk tech.</h3>
+              <p style="font-size:0.95rem; margin-bottom: 1.5rem; color: var(--text-muted);">
+                Whether you have a job opportunity, a project, or just want to say hi, my inbox is open.
+              </p>
+              
+              <div class="contact-info-container">
+                <div class="contact-info-item">
+                  <i class="fa-solid fa-location-dot" style="color:var(--primary); font-size: 1.2rem; width: 24px; text-align: center;"></i> 
+                  <span>Noida, India</span>
+                </div>
+                <div class="contact-info-item">
+                  <i class="fa-solid fa-envelope" style="color:var(--primary); font-size: 1.2rem; width: 24px; text-align: center;"></i> 
+                  <span>Sanjeev753304@gmail.com</span>
+                </div>
+              </div>
+              
+              <div style="display: flex; gap: 15px; margin-bottom: 1rem;">
+                <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" class="btn-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://github.com/isanjiiv" target="_blank" class="btn-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/isanjiiv/" target="_blank" class="btn-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              </div>
+            </div>
+
+            <form action="https://formspree.io/f/xzzabloy" method="POST">
+              <input type="text" name="name" class="form-control" required placeholder="Your Name">
+              <input type="email" name="email" class="form-control" required placeholder="Your Email">
+              <textarea name="message" rows="4" class="form-control" required placeholder="How can I help you?"></textarea>
+              
+              <input type="hidden" name="_subject" value="New message from portfolio">
+              <input type="hidden" name="_replyto" value="Sanjeev753304@gmail.com">
+              
+              <button type="submit" class="btn-primary btn-submit">
+                Send Message <i class="fa-solid fa-paper-plane" style="margin-left:8px;"></i>
+              </button>
+            </form>
             
-            <input type="hidden" name="_subject" value="New message from portfolio">
-            <input type="hidden" name="_replyto" value="Sanjeev753304@gmail.com">
-            
-            <button type="submit" class="btn-primary btn-submit">
-              Send Message <i class="fa-solid fa-paper-plane" style="margin-left:8px;"></i>
-            </button>
-          </form>
-          
+          </div>
         </div>
       </section>
-
-    </div>
+      </div>
 
     <div id="project-1" class="page-view container">
       <button onclick="showHomeView()" class="btn-primary" style="margin-bottom:2rem; font-size:0.85rem;"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</button>
@@ -1427,7 +1469,7 @@
         <div class="detail-block">
           <h3>Project Gallery</h3>
           <div class="gallery-grid">
-             <div class="gallery-item" onclick="openLightbox(this)"><img src="https://isanjiiv.github.io/assets/images/DECO.png" alt="Wifi"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+             <div class="gallery-item" onclick="openLightbox(this)"><img src="https://via.placeholder.com/600x400?text=Wifi+Map" alt="Wifi"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
           </div>
         </div>
       </div>
