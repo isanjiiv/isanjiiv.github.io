@@ -444,7 +444,7 @@
     .contact-wrapper { 
         display: flex;
         flex-direction: column;
-        justify-content: flex-start; /* FIX: Changed from center to flex-start to remove top gap */
+        justify-content: flex-start;
         gap: 1.5rem; 
         padding: 2.5rem 2rem;
     }
@@ -464,9 +464,16 @@
     .form-control { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--card-border); background: var(--bg-secondary); color: var(--text-main); margin-bottom: 0.8rem; font-family: inherit; font-size: 0.9rem; transition: border-color 0.3s ease;}
     .form-control:focus { outline: none; border-color: var(--primary); background: var(--bg); }
 
+    /* FIX: Button Centering */
     .btn-submit {
-      display: flex; justify-content: center; align-items: center;
-      width: 100%; padding: 12px; font-size: 1rem;
+      display: flex; 
+      justify-content: center; 
+      align-items: center;
+      width: max-content; /* Keeps it pill-shaped */
+      min-width: 200px;
+      margin: 1rem auto 0 auto; /* The 'auto' strictly forces it to center */
+      padding: 12px 24px; 
+      font-size: 1rem;
     }
 
     /* Mobile Menu */
@@ -667,7 +674,7 @@
       }
       .contact-image-container {
           order: -1; /* Puts image on top */
-          aspect-ratio: 4 / 3; /* FIX: Allows image to scale proportionally instead of strict height */
+          aspect-ratio: 4 / 3;
           height: auto;
       }
       .contact-wrapper {
@@ -742,7 +749,6 @@
        
        .contact-info-item { font-size: 0.85rem; }
        
-       /* FIX: Replaced strict height with an aspect ratio for small screens */
        .contact-image-container { height: auto; aspect-ratio: 1 / 1; }
        
        .close-modal, .close-about, .close-lightbox { 
@@ -1209,7 +1215,7 @@
               </div>
             </div>
 
-            <form action="https://formspree.io/f/xzzabloy" method="POST">
+            <form action="https://formspree.io/f/xzzabloy" method="POST" style="display:flex; flex-direction:column; align-items:center; width:100%;">
               <input type="text" name="name" class="form-control" required placeholder="Your Name">
               <input type="email" name="email" class="form-control" required placeholder="Your Email">
               <textarea name="message" rows="4" class="form-control" required placeholder="How can I help you?"></textarea>
