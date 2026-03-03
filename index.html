@@ -125,13 +125,10 @@
       font-size: 16px; 
       overflow-x: hidden;
       
-      /* Layered Background: Orbs + Tech Dot Matrix Pattern */
-      background-image: 
-        radial-gradient(at 0% 0%, var(--primary-glow) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.1) 0px, transparent 50%),
-        radial-gradient(var(--pattern-dot) 1.5px, transparent 1.5px);
-      background-size: 100% 100%, 100% 100%, 24px 24px;
-      background-position: 0 0, 0 0, center center;
+      /* Tech Dot Matrix Pattern Only */
+      background-image: radial-gradient(var(--pattern-dot) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+      background-position: center center;
       background-attachment: fixed;
     }
 
