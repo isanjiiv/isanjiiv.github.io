@@ -145,6 +145,19 @@
       padding-inline: 1.5rem;
     }
 
+    /* Accessibility Utility */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
     /* --- 3. COMPONENTS --- */
     
     /* Buttons */
@@ -363,7 +376,6 @@
         text-align: center;
     }
 
-
     /* Projects Grid */
     .project-card { 
         display: grid; 
@@ -465,14 +477,13 @@
     .form-control { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--card-border); background: var(--bg-secondary); color: var(--text-main); margin-bottom: 0.8rem; font-family: inherit; font-size: 0.9rem; transition: border-color 0.3s ease;}
     .form-control:focus { outline: none; border-color: var(--primary); background: var(--bg); }
 
-    /* FIX: Button Centering */
     .btn-submit {
       display: flex; 
       justify-content: center; 
       align-items: center;
-      width: max-content; /* Keeps it pill-shaped */
+      width: max-content;
       min-width: 200px;
-      margin: 1rem auto 0 auto; /* The 'auto' strictly forces it to center */
+      margin: 1rem auto 0 auto;
       padding: 12px 24px; 
       font-size: 1rem;
     }
@@ -653,6 +664,76 @@
     @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
     @keyframes scaleUp { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
+    /* ======================================================== */
+    /* NEW STACKED CIRCULAR FOOTER STYLES                       */
+    /* ======================================================== */
+    .stacked-footer {
+      background-color: var(--bg-secondary);
+      padding: 4rem 1rem;
+      border-top: 1px solid var(--card-border);
+    }
+    .stacked-footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    /* UPDATED: Removed background color and padding */
+    .footer-logo {
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* UPDATED: Targeted the img instead of svg */
+    .footer-logo img {
+      width: 50px;
+      height: auto;
+      object-fit: contain;
+    }
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .footer-nav a {
+      color: var(--text-main);
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    .footer-nav a:hover {
+      color: var(--primary);
+    }
+    .footer-socials {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .footer-subscribe {
+      display: flex;
+      width: 100%;
+      max-width: 400px;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .footer-subscribe input {
+      flex-grow: 1;
+      border-radius: 50px;
+      padding: 0.6rem 1.2rem;
+      margin-bottom: 0;
+    }
+    .footer-subscribe button {
+      border-radius: 50px;
+      padding: 0.6rem 1.5rem;
+      margin-top: 0;
+      width: auto;
+      min-width: auto;
+    }
 
     /* ======================================================== */
     /* COMPACT MOBILE & TABLET OPTIMIZATIONS                    */
@@ -668,121 +749,59 @@
       
       .project-card { grid-template-columns: 1fr 150px; gap: 1.5rem; align-items: center; }
       
-      /* Updated mobile logic for contact */
-      .contact-layout { 
-          grid-template-columns: 1fr; 
-          gap: 1.5rem; 
-      }
-      .contact-image-container {
-          order: -1; /* Puts image on top */
-          aspect-ratio: 4 / 3;
-          height: auto;
-      }
-      .contact-wrapper {
-          padding: 1.5rem;
-          text-align: center;
-      }
-      .contact-text-side {
-          text-align: center;
-      }
-      .contact-info-item {
-          justify-content: center;
-      }
-      .contact-text-side > div:last-child {
-          justify-content: center; /* Center social icons */
-      }
+      .contact-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+      .contact-image-container { order: -1; aspect-ratio: 4 / 3; height: auto; }
+      .contact-wrapper { padding: 1.5rem; text-align: center; }
+      .contact-text-side { text-align: center; }
+      .contact-info-item { justify-content: center; }
+      .contact-text-side > div:last-child { justify-content: center; }
     }
 
-    /* --- MOBILE ONLY SMALLER FONT SIZES --- */
     @media (max-width: 600px) {
        :root { --section-spacing: 2.5rem; } 
-       
        body { font-size: 13.5px; } 
-       
        .container { padding-inline: 1rem; }
        .glass-card { padding: 1.25rem; } 
-       
        .section-header h2 { font-size: 1.4rem; } 
        .section-header { margin-bottom: 1.5rem; }
-       
        .hero h1 { font-size: 1.8rem; margin-bottom: 0.5rem; } 
        .hero p { font-size: 0.9rem !important; }
        .avatar { width: 200px; height: 200px; } 
        .hero-content > div:last-child { flex-direction: column; align-items: center; gap: 1rem !important; }
        .btn-primary { width: 100%; max-width: 250px; font-size: 0.9rem;} 
-       
-       /* Skills circular grid on mobile */
        .skills-circle-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
        .skill-circle-card { padding: 1rem 0.5rem; }
        .circle-container { width: 75px; height: 75px; }
        .percentage { font-size: 1.1rem; }
        .skill-title { font-size: 0.85rem; }
-       
        .cert-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
        .cert-card { padding: 1rem 0.5rem; } 
        .cert-card h3 { font-size: 0.85rem; }
        .cert-card p { font-size: 0.75rem !important; }
        .cert-link { font-size: 0.75rem; }
-       
-       .project-card { 
-           grid-template-columns: 1fr 90px; 
-           gap: 0.8rem; 
-           align-items: center; 
-           padding: 1rem;
-       }
+       .project-card { grid-template-columns: 1fr 90px; gap: 0.8rem; align-items: center; padding: 1rem; }
        .project-card h3 { font-size: 1rem; margin-bottom: 0.3rem;}
        .project-card p { font-size: 0.8rem; line-height: 1.4; margin-bottom: 0.5rem; }
        .tech-tag { padding: 3px 6px; font-size: 0.6rem; margin: 2px 2px 2px 0; }
        .click-hint { font-size: 0.75rem; margin-top: 5px; }
-       
        .lovable-app-card h3 { font-size: 1.1rem; }
        .lovable-app-card p { font-size: 0.85rem; }
-       
        .timeline-item h3 { font-size: 1rem; }
        .timeline-item p, .timeline-item ul, .timeline-item li { font-size: 0.85rem !important; }
        .timeline-item h4 { font-size: 0.9rem !important; }
-       
        .about-content-scroll { padding: 1rem; font-size: 0.85rem;}
        .about-content-scroll p { font-size: 0.85rem; }
        .about-content-scroll h3 { font-size: 1rem; }
        .about-content-scroll h4 { font-size: 0.9rem; }
        .about-content-scroll li { font-size: 0.85rem; margin-bottom: 5px; }
-       
        .contact-info-item { font-size: 0.85rem; }
-       
        .contact-image-container { height: auto; aspect-ratio: 1 / 1; }
-       
-       .close-modal, .close-about, .close-lightbox { 
-           top: 5px; right: 5px; background: rgba(255,255,255,0.9); 
-           color: #000; width: 32px; height: 32px; font-size: 1.5rem;
-       }
+       .close-modal, .close-about, .close-lightbox { top: 5px; right: 5px; background: rgba(255,255,255,0.9); color: #000; width: 32px; height: 32px; font-size: 1.5rem; }
        .lightbox-btn { padding: 10px; width: 40px; height: 40px; font-size: 18px; }
+       .footer-subscribe { flex-direction: column; align-items: center; }
+       .footer-subscribe button { width: 100%; }
     }
   </style>
-   
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Sanjeev Kumar",
-    "jobTitle": "IT Engineer",
-    "description": "IT Engineer specializing in Windows Server Administration, Networking, Fortinet Firewall, AWS, Azure, and Cybersecurity.",
-    "url": "https://isanjiiv.github.io/",
-    "image": "https://isanjiiv.github.io/assets/images/Sanjeev.jpg",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Noida",
-      "addressCountry": "IN"
-    },
-    "knowsAbout": ["Windows Server", "Networking", "Fortinet", "AWS", "Azure", "Cybersecurity", "Active Directory"],
-    "sameAs": [
-      "https://www.linkedin.com/in/isanjiiv/",
-      "https://github.com/isanjiiv/",
-      "https://www.instagram.com/isanjiiv/",
-      "https://www.youtube.com/@isanjiiv/"
-    ]
-  }
-  </script>
 </head>
 
 <body>
@@ -905,16 +924,8 @@
           <div class="skill-circle-card glass-card" style="--skill-color: #a855f7; --skill-bg: rgba(168, 85, 247, 0.15); --skill-glow: rgba(168, 85, 247, 0.3);">
             <div class="circle-container">
               <svg class="circular-chart" viewBox="0 0 36 36">
-                <path class="circle-bg"
-                  d="M18 2.0845
-                    a 15.9155 15.9155 0 0 1 0 31.831
-                    a 15.9155 15.9155 0 0 1 0 -31.831"
-                />
-                <path class="circle" data-percent="90"
-                  d="M18 2.0845
-                    a 15.9155 15.9155 0 0 1 0 31.831
-                    a 15.9155 15.9155 0 0 1 0 -31.831"
-                />
+                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="circle" data-percent="90" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
               </svg>
               <div class="percentage">90%</div>
             </div>
@@ -978,6 +989,7 @@
 
         </div>
       </section>
+
       <section id="projects" class="container" style="padding-top: var(--section-spacing);">
         <div class="section-header">
           <h2>Projects</h2>
@@ -1090,87 +1102,71 @@
             <p style="font-size:0.8rem; color:var(--text-muted);">Network Security</p>
             <span class="cert-link">View Certificate</span>
           </a>
-          
         </div>
       </section>
 
-<section id="experience" class="container" style="padding-top: var(--section-spacing);">
-  <div class="section-header">
-    <h2>Experience</h2>
-  </div>
+      <section id="experience" class="container" style="padding-top: var(--section-spacing);">
+        <div class="section-header">
+          <h2>Experience</h2>
+        </div>
 
-  <div class="glass-card">
-    <div class="timeline">
-      <div class="timeline-item">
-        
-        <h3 style="margin-bottom:2px;">IT Engineer</h3>
-        <p style="font-weight:700; color:var(--primary); font-size:0.9rem;">
-          Grain Milling Solutions Pvt Ltd | MR Engineers
-        </p>
-        <p style="font-size:0.85rem; margin-bottom:8px; color:var(--text-muted);">
-          Apr 2024 – Present · Noida
-        </p>
-
-        <p style="font-size:0.95rem; margin-bottom:15px;">
-          In my current role, I manage hands-on office IT operations and provide remote and call-based IT support for factory locations and external clients. I ensure reliable systems, secure connectivity, and uninterrupted business and production operations, acting as a key technical point of contact for internal teams and plant-level users.
-        </p>
-
-        <h4 style="margin-bottom:10px; color:var(--primary); font-size:1rem;">
-          Key Responsibilities & Expertise
-        </h4>
-
-        <ul style="font-size:0.92rem; line-height:1.7; padding-left:18px; margin-bottom:15px;">
-
-          <li>
-            <strong>Office IT Operations (Primary):</strong>
-            Hands-on support for desktops/laptops, network troubleshooting, peripheral devices, software installations, and day-to-day IT issue resolution.
-          </li>
-
-          <li>
-            <strong>Remote Factory & Client Support:</strong>
-            End-to-end remote IT support for manufacturing facilities and clients, resolving real-time issues related to production systems, workstations, printers, and network connectivity.
-          </li>
-
-          <li>
-            <strong>Windows Server Administration:</strong>
-            Management of Active Directory, Group Policy, user access, file servers, and update management across office and factory environments.
-          </li>
-
-          <li>
-            <strong>Networking & Infrastructure:</strong>
-            Administration and troubleshooting of VLANs, DHCP, DNS, and IP management to maintain stable connectivity.
-          </li>
-
-          <li>
-            <strong>Cloud Infrastructure (AWS & Azure):</strong>
-            Monitoring and management of cloud workloads, virtual machines, storage, and access controls in hybrid environments.
-          </li>
-
-          <li>
-            <strong>Firewall & Security (Fortinet 60F):</strong>
-            Configuration and management of FortiGate 60F including SD-WAN, firewall policies, NAT, VPNs, and traffic monitoring.
-          </li>
-
-          <li>
-            <strong>Cybersecurity & Compliance:</strong>
-            Implementation of security best practices such as patching, endpoint protection, access control, and secure remote access.
-          </li>
-
-          <li>
-            <strong>User & Vendor Coordination:</strong>
-            Collaboration with office staff, factory teams, vendors, and ISPs to resolve issues efficiently, including providing technical guidance over calls.
-          </li>
-
-        </ul>
-
-        <p style="font-size:0.95rem;">
-          I focus on fast incident resolution, stable infrastructure, and secure remote operations, enabling teams to work efficiently while minimizing IT downtime and operational risk.
-        </p>
-
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="glass-card">
+          <div class="timeline">
+            <div class="timeline-item">
+              <h3 style="margin-bottom:2px;">IT Engineer</h3>
+              <p style="font-weight:700; color:var(--primary); font-size:0.9rem;">
+                Grain Milling Solutions Pvt Ltd | MR Engineers
+              </p>
+              <p style="font-size:0.85rem; margin-bottom:8px; color:var(--text-muted);">
+                Apr 2024 – Present · Noida
+              </p>
+              <p style="font-size:0.95rem; margin-bottom:15px;">
+                In my current role, I manage hands-on office IT operations and provide remote and call-based IT support for factory locations and external clients. I ensure reliable systems, secure connectivity, and uninterrupted business and production operations, acting as a key technical point of contact for internal teams and plant-level users.
+              </p>
+              <h4 style="margin-bottom:10px; color:var(--primary); font-size:1rem;">
+                Key Responsibilities & Expertise
+              </h4>
+              <ul style="font-size:0.92rem; line-height:1.7; padding-left:18px; margin-bottom:15px;">
+                <li>
+                  <strong>Office IT Operations (Primary):</strong>
+                  Hands-on support for desktops/laptops, network troubleshooting, peripheral devices, software installations, and day-to-day IT issue resolution.
+                </li>
+                <li>
+                  <strong>Remote Factory & Client Support:</strong>
+                  End-to-end remote IT support for manufacturing facilities and clients, resolving real-time issues related to production systems, workstations, printers, and network connectivity.
+                </li>
+                <li>
+                  <strong>Windows Server Administration:</strong>
+                  Management of Active Directory, Group Policy, user access, file servers, and update management across office and factory environments.
+                </li>
+                <li>
+                  <strong>Networking & Infrastructure:</strong>
+                  Administration and troubleshooting of VLANs, DHCP, DNS, and IP management to maintain stable connectivity.
+                </li>
+                <li>
+                  <strong>Cloud Infrastructure (AWS & Azure):</strong>
+                  Monitoring and management of cloud workloads, virtual machines, storage, and access controls in hybrid environments.
+                </li>
+                <li>
+                  <strong>Firewall & Security (Fortinet 60F):</strong>
+                  Configuration and management of FortiGate 60F including SD-WAN, firewall policies, NAT, VPNs, and traffic monitoring.
+                </li>
+                <li>
+                  <strong>Cybersecurity & Compliance:</strong>
+                  Implementation of security best practices such as patching, endpoint protection, access control, and secure remote access.
+                </li>
+                <li>
+                  <strong>User & Vendor Coordination:</strong>
+                  Collaboration with office staff, factory teams, vendors, and ISPs to resolve issues efficiently, including providing technical guidance over calls.
+                </li>
+              </ul>
+              <p style="font-size:0.95rem;">
+                I focus on fast incident resolution, stable infrastructure, and secure remote operations, enabling teams to work efficiently while minimizing IT downtime and operational risk.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section id="contact" class="container" style="padding: var(--section-spacing) 0;">
         <div class="section-header"> 
@@ -1178,13 +1174,11 @@
         </div>
         
         <div class="contact-layout">
-            
           <div class="contact-image-container">
             <img src="https://isanjiiv.github.io/assets/images/sanjeev%20kumar.png" alt="Contact Sanjeev" class="contact-image">
           </div>
 
           <div class="glass-card contact-wrapper">
-              
             <div class="contact-text-side">
               <h3>Let's talk tech.</h3>
               <p style="font-size:0.95rem; margin-bottom: 1.5rem; color: var(--text-muted);">
@@ -1222,11 +1216,10 @@
                 Send Message <i class="fa-solid fa-paper-plane" style="margin-left:8px;"></i>
               </button>
             </form>
-            
           </div>
         </div>
       </section>
-      </div>
+    </div>
 
     <div id="project-1" class="page-view container">
       <button onclick="showHomeView()" class="btn-primary" style="margin-bottom:2rem; font-size:0.85rem;"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</button>
@@ -1350,17 +1343,15 @@
                <img src="https://lh3.googleusercontent.com/d/1EXgMCqiT6eZ768wz43MsLkeazpz9giUI" alt="SD-WAN ZONE" referrerpolicy="no-referrer">
                <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
              </div>
-         <div class="gallery-item" onclick="openLightbox(this)">
+             <div class="gallery-item" onclick="openLightbox(this)">
                <img src="https://lh3.googleusercontent.com/d/14K94Z7uQAGTlfT8vEZPAOkTeh1codxvP" alt="Policies" referrerpolicy="no-referrer">
                <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
              </div>
-         
           </div>
         </div>
       </div>
     </div>
     
-
     <div id="project-3" class="page-view container">
       <button onclick="showHomeView()" class="btn-primary" style="margin-bottom:2rem; font-size:0.85rem;"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</button>
       <div class="glass-card">
@@ -1390,7 +1381,6 @@
             <p>Here are some other applications I created using Lovable AI. Click on View App to preview the project inside this page.</p>
             
             <div class="lovable-grid">
-
                 <div class="glass-card lovable-app-card">
                   <h3 class="lovable-card-title">BuildResume</h3>
                   <p class="lovable-card-text">
@@ -1423,7 +1413,6 @@
                     View App
                   </button>
                 </div>
-            
             </div>
             
             <div id="previewBox" class="app-preview-box">
@@ -1437,20 +1426,49 @@
                     <button class="btn-danger-outline" onclick="closeApp()">Close</button>
                   </div>
                 </div>
-            
                 <iframe id="appFrame" src="" class="app-iframe"></iframe>
             </div>
-            </div>
-
+        </div>
       </div>
     </div>
-
   </main>
 
-  <footer>
-    <div class="container" style="text-align:center; padding:2rem 0; color:var(--text-muted); border-top:1px solid var(--card-border); font-size: 0.9rem;">
-      <p>© <span id="year"></span> <span style="color:var(--primary); font-weight:700;">Sanjeev Kumar</span>. All rights reserved.</p>
-      <p style="margin-top: 0.5rem;">Design By <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600;">Sanjeev Kumar</a></p>
+  <footer class="stacked-footer">
+    <div class="stacked-footer-content">
+      
+      <div class="footer-logo">
+        <img src="https://isanjiiv.github.io/assets/images/favicon.png" alt="Sanjeev Kumar Logo" />
+      </div>
+
+      <nav class="footer-nav">
+        <a href="#about" onclick="event.preventDefault(); showHomeViewAndScroll('about')">About</a>
+        <a href="#skills" onclick="event.preventDefault(); showHomeViewAndScroll('skills')">Skills</a>
+        <a href="#projects" onclick="event.preventDefault(); showHomeViewAndScroll('projects')">Projects</a>
+        <a href="#certs" onclick="event.preventDefault(); showHomeViewAndScroll('certs')">Certifications</a>
+        <a href="#experience" onclick="event.preventDefault(); showHomeViewAndScroll('experience')">Experience</a>
+        <a href="#contact" onclick="event.preventDefault(); showHomeViewAndScroll('contact')">Contact</a>
+      </nav>
+
+      <div class="footer-socials">
+        <a href="mailto:sanjeev753304@gmail.com" class="btn-icon" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-icon" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+
+      <form class="footer-subscribe" id="newsletterForm">
+        <label for="footer-email" class="sr-only">Email</label>
+        <input type="email" id="footer-email" class="form-control" placeholder="Enter your email" required>
+        <button type="submit" class="btn-primary">Subscribe</button>
+      </form>
+
+      <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+          
+     <p style="margin-top: 0.5rem;">© 2026 <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600;">Sanjeev Kumar</a>. All rights reserved.</p>
+     
+      </div>
+
     </div>
   </footer>
 
@@ -1462,184 +1480,82 @@
   </div>
 
   <div id="aboutModal" class="modal">
-
     <div class="modal-content about-content-scroll">
-
       <span class="close-about">×</span>
-
-      
-
       <div style="color: var(--text-main);">
-
         <h2 style="color: var(--primary); margin-bottom: 1rem;">Professional Profile</h2>
-
-        
-
         <p>Hello, I’m <strong>Sanjeev Kumar</strong>, an IT Engineer with strong hands-on experience in IT infrastructure support, Windows Server administration, networking, firewall security, and cloud fundamentals. I specialize in building stable, secure, and well-managed IT environments that help teams work faster, safer, and with fewer disruptions.</p>
-
         <br>
-
         <p>Over the years, I have worked on a wide range of IT responsibilities—from managing day-to-day technical support and troubleshooting to implementing enterprise-level solutions in Windows Server domains.</p>
-
-
-
         <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid var(--card-border);">
-
-
-
         <h3 style="margin-bottom: 0.8rem;">What I Do (Core Expertise)</h3>
-
-
-
         <div style="margin-bottom: 1.2rem;">
-
             <h4 style="color: var(--primary); font-size:1.05rem;">Windows Server Administration (AD, GPO, WSUS)</h4>
-
             <ul style="padding-left: 18px; margin-top: 0.4rem;">
-
                 <li>Active Directory (AD) user and computer management</li>
-
                 <li>Group Policy (GPO) configuration and policy deployment</li>
-
                 <li>WSUS setup and update management</li>
-
                 <li>Domain joining, permissions, access control, and troubleshooting</li>
-
                 <li>Managing Windows-based enterprise environments and system stability</li>
-
             </ul>
-
         </div>
-
-
-
         <div style="margin-bottom: 1.2rem;">
-
             <h4 style="color: var(--primary); font-size:1.05rem;">Networking & Troubleshooting</h4>
-
             <ul style="padding-left: 18px; margin-top: 0.4rem;">
-
                 <li>LAN/WAN troubleshooting and network diagnostics</li>
-
                 <li>DHCP, DNS, and IP addressing concepts</li>
-
                 <li>VLAN understanding and internal network connectivity support</li>
-
                 <li>Resolving real-time issues such as internet downtime, slow network performance, and system communication failures</li>
-
             </ul>
-
         </div>
-
-
-
         <div style="margin-bottom: 1.2rem;">
-
             <h4 style="color: var(--primary); font-size:1.05rem;">Firewall & Security (Fortinet FortiGate 60F)</h4>
-
             <ul style="padding-left: 18px; margin-top: 0.4rem;">
-
                 <li>Firewall policy creation and management</li>
-
                 <li>Basic routing and network security controls</li>
-
                 <li>VPN configuration (as per requirement)</li>
-
                 <li>Traffic monitoring and troubleshooting</li>
-
             </ul>
-
         </div>
-
-
-
         <div style="margin-bottom: 1.2rem;">
-
             <h4 style="color: var(--primary); font-size:1.05rem;">Cloud Knowledge (AWS & Microsoft Azure)</h4>
-
             <ul style="padding-left: 18px; margin-top: 0.4rem;">
-
                 <li>Basic cloud VM/server handling and monitoring</li>
-
                 <li>Understanding cloud networking and access</li>
-
                 <li>Assisting with deployment support and troubleshooting</li>
-
             </ul>
-
         </div>
-
-
-
         <div style="margin-bottom: 1.2rem;">
-
             <h4 style="color: var(--primary); font-size:1.05rem;">AI + No-Code App Development</h4>
-
             <p>I leverage AI tools (Lovable, Emergent, Cursor) to:</p>
-
             <ul style="padding-left: 18px; margin-top: 0.4rem;">
-
                 <li>Build web-based no-code applications</li>
-
                 <li>Automate workflows and repetitive tasks</li>
-
                 <li>Improve internal processes for teams and businesses</li>
-
             </ul>
-
         </div>
-
-
-
         <div style="margin-bottom: 1.2rem;">
-
             <h4 style="color: var(--primary); font-size:1.05rem;">Website & Web Solution Development</h4>
-
             <ul style="padding-left: 18px; margin-top: 0.4rem;">
-
                 <li>Portfolio, Business, and E-commerce websites</li>
-
                 <li>Landing pages and basic web solutions</li>
-
             </ul>
-
         </div>
-
-
-
         <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid var(--card-border);">
-
-
-
         <h3 style="margin-bottom: 0.8rem;">My Work Approach</h3>
-
         <p>I believe in a professional work style based on clear troubleshooting, fast issue resolution, secure setups, and continuous learning. I enjoy taking ownership of systems to contribute to long-term business improvements.</p>
-
-
-
         <br>
-
         <h3 style="margin-bottom: 0.8rem;">What I’m Looking For</h3>
-
         <p>I am open to opportunities as an IT Engineer, System Administrator, Network Support Engineer, or Cloud Support. I am especially interested in roles that allow me to combine <strong>IT infrastructure + automation + modern AI tools</strong>.</p>
-
-        
-
         <div style="margin-top: 2rem; text-align: center;">
-
             <a href="#contact" class="btn-primary" onclick="document.getElementById('aboutModal').classList.remove('show')">Contact Me</a>
-
         </div>
-
       </div>
-
     </div>
-
   </div>
 
   <div id="lightbox" class="lightbox">
     <span class="close-lightbox" onclick="closeLightbox(event)">×</span>
-    
     <button class="lightbox-btn prev" onclick="changeImage(-1)">❮</button> <img id="lightbox-img" class="lightbox-content" src="" alt="Full View">
     <button class="lightbox-btn next" onclick="changeImage(1)">❯</button> </div>
 
@@ -1647,20 +1563,15 @@
     // ============================================
     // 1. GLOBAL NAVIGATION FUNCTIONS
     // ============================================
-
-    // HELPER: Switches the visual div logic only
     function switchPageVisuals(viewId) {
-        // 1. Get Elements safely
         const homeView = document.getElementById('home-view');
         
-        // 2. Hide/Show Home
         if (viewId === 'home-view') {
             homeView.classList.add('active');
         } else {
             homeView.classList.remove('active');
         }
 
-        // 3. Hide/Show Projects
         document.querySelectorAll('.page-view').forEach(view => {
             if (view.id !== 'home-view') {
                 if (view.id === viewId) {
@@ -1671,39 +1582,26 @@
             }
         });
 
-        // 4. Scroll to top
         window.scrollTo(0, 0);
     }
 
-    // FUNCTION: Called when you click a project card
     window.showProjectView = function(projectId) {
-        // Add entry to browser history
         history.pushState({ page: projectId }, null, "#" + projectId);
-        // Switch view
         switchPageVisuals(projectId);
     };
 
-    // FUNCTION: Called when you click "Back to Portfolio" button
     window.showHomeView = function() {
-        // 1. Force the visual switch immediately (So it always works)
         switchPageVisuals('home-view');
-        
-        // 2. Update the URL to remove the #project-id
-        // We use pushState so if they click the Browser Back button, they go back to the project.
         history.pushState(null, null, " "); 
     };
 
-    // FUNCTION: Navbar Scroll Links
     window.showHomeViewAndScroll = function(sectionId) {
         const homeView = document.getElementById('home-view');
-        
-        // If we are deep in a project, go back to home visually first
         if (!homeView.classList.contains('active')) {
             switchPageVisuals('home-view');
             history.pushState(null, null, " ");
         }
 
-        // Standard Scroll with slight delay to allow rendering
         setTimeout(() => {
             const section = document.getElementById(sectionId);
             if (section) section.scrollIntoView({ behavior: 'smooth' });
@@ -1740,35 +1638,26 @@
     // ============================================
     document.addEventListener('DOMContentLoaded', () => {
         
-        // --- A. BROWSER BACK BUTTON LISTENER ---
         window.addEventListener('popstate', function(event) {
-            // If the history has a page ID, show that project
             if (event.state && event.state.page) {
                 switchPageVisuals(event.state.page);
             } else {
-                // Otherwise show home
                 switchPageVisuals('home-view');
             }
         });
 
-        // --- B. HANDLE PAGE REFRESH (Keep user on project or section) ---
         const hash = window.location.hash.substring(1);
         const targetElement = document.getElementById(hash);
         
         if (hash && targetElement) {
-            // Check if it's a dedicated page view (like a project)
             if (targetElement.classList.contains('page-view')) {
                 switchPageVisuals(hash);
-                // Update history so back button works immediately
                 history.replaceState({ page: hash }, null, "#" + hash);
             } else {
-                // It's just a regular section anchor (like #about) inside the home page
                 switchPageVisuals('home-view');
-                // Allow the browser to naturally scroll to the anchor element
             }
         }
 
-        // --- C. THEME TOGGLE ---
         const themeToggle = document.getElementById('themeToggle');
         const html = document.documentElement;
         
@@ -1796,7 +1685,6 @@
             }
         }
 
-        // --- D. MOBILE MENU ---
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
         if (hamburger && mobileMenu) {
@@ -1814,7 +1702,6 @@
             });
         }
 
-        // --- E. SCROLL ANIMATION ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1826,12 +1713,9 @@
                         entry.target.style.transition = '';
                     }, 600);
                     
-                    // --- NEW ANIMATION LOGIC FOR SVG CIRCLES ---
                     const progressCircles = entry.target.querySelectorAll('.circle');
                     progressCircles.forEach(circle => {
                         const val = circle.getAttribute('data-percent');
-                        // stroke-dasharray format is "dashLength, gapLength". 
-                        // Because our circle circumference is exactly 100, the % value maps perfectly to dashLength.
                         circle.style.strokeDasharray = `${val}, 100`;
                     });
                     
@@ -1847,8 +1731,6 @@
             observer.observe(el);
         });
 
-        // --- F. TYPING EFFECT ---
-        // BUG FIX: Removed extra space from " AI Prompting"
         const texts = ["IT Engineer", "Networking", "Windows Server", "AI Prompting", "WordPress", "Cloud Server", "Firewall"];
         let count = 0;
         let index = 0;
@@ -1916,6 +1798,17 @@
                 aboutModal.classList.remove('show');
             }
         });
+
+        // --- I. NEWSLETTER FORM (Footer) ---
+        const newsletterForm = document.getElementById('newsletterForm');
+        if (newsletterForm) {
+          newsletterForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById('footer-email');
+            alert(`Thank you for subscribing with: ${emailInput.value}`);
+            emailInput.value = '';
+          });
+        }
     });
 
     // ============================================
