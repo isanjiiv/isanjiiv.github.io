@@ -544,11 +544,16 @@
         gap: 1.25rem; 
         justify-content: center;
     }
-    .cert-card { 
+   .cert-card { 
         flex: 1 1 220px;
-        max-width: 300px; /* Optional constraint */
-        padding: 1.5rem; text-align: center; display: flex; flex-direction: column; 
-        align-items: center; height: 100%; cursor: pointer; 
+        max-width: 300px;
+        min-height: 240px; /* <-- This forces all cards to be the same height */
+        padding: 1.5rem; 
+        text-align: center; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        cursor: pointer; 
         transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
         position: relative;
     }
@@ -939,7 +944,7 @@
        .skill-title { font-size: 0.85rem; }
        
        .cert-grid { gap: 0.8rem; }
-       .cert-card { flex: 1 1 calc(50% - 0.8rem); padding: 1rem 0.5rem; } 
+       .cert-card { flex: 1 1 calc(50% - 0.8rem); padding: 1rem 0.5rem; min-height: 190px; } 
        .cert-card h3 { font-size: 0.85rem; }
        .cert-card p { font-size: 0.75rem !important; }
        .cert-link { font-size: 0.75rem; }
@@ -1379,9 +1384,9 @@
 
         </div>
       </section>
-      </section>
+     
 
-      <section id="contact" class="container" style="padding: var(--section-spacing) 0;">
+      <section id="contact" class="container" style="padding: var(--section-spacing) 0; max-width: 1150px; margin: 0 auto;">
         <div class="section-header"> 
           <h2>Get In Touch</h2>
         </div>
