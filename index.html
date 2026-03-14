@@ -86,7 +86,7 @@
       --pattern-dot: rgba(15, 23, 42, 0.07);
        
       --radius-md: 12px; 
-      --container: 1000px;
+      --container: 1200px; /* Original container width */
       --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
        
       /* Default Desktop Spacing */
@@ -296,10 +296,8 @@
     }
 
     /* ======================================================== */
-    /* GRID GROW ANIMATIONS & NEW CIRCULAR SKILLS GRID          */
+    /* NEW CIRCULAR SKILLS GRID          */
     /* ======================================================== */
-
-    /* --- NEW CIRCULAR SKILLS GRID --- */
     .skills-circle-grid { 
         display: grid; 
         grid-template-columns: repeat(3, 1fr); 
@@ -319,7 +317,6 @@
         width: 100%;
     }
     
-    /* Using custom CSS variables per-card for unique colored glow/border */
     .skill-circle-card:hover {
         transform: scale(1.05) !important;
         border-color: var(--skill-color, var(--primary));
@@ -341,14 +338,12 @@
         max-height: 250px;
     }
 
-    /* Apply custom backgrounds per skill */
     .circle-bg {
         fill: none;
         stroke: var(--skill-bg, rgba(0, 173, 181, 0.15));
         stroke-width: 2.5;
     }
 
-    /* Apply custom stroke color per skill */
     .circle {
         fill: none;
         stroke-width: 2.5;
@@ -376,27 +371,113 @@
         text-align: center;
     }
 
-    /* Projects Grid */
+    /* ======================================================== */
+    /* BIG IMAGE PROJECT GRID LAYOUT - UNIFIED CARD             */
+    /* ======================================================== */
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem; 
+    }
+
+    /* The whole card becomes one unified block */
     .project-card { 
-        display: grid; 
-        grid-template-columns: 1fr 180px; 
-        gap: 1.5rem; 
-        margin-bottom: 1.5rem; 
+        display: flex; 
+        flex-direction: column;
         cursor: pointer; 
+        background: var(--card-bg); /* Adds glass/card background */
+        border: 1px solid var(--card-border); 
+        border-radius: var(--radius-md); 
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        overflow: hidden; /* Keeps image inside corners */
+        box-shadow: var(--glass-shadow);
         transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         position: relative;
+        text-decoration: none; /* Reset link decoration */
     }
+    
+    /* The whole card reacts on hover */
     .project-card:hover { 
-        transform: scale(1.03) !important; 
-        border-color: var(--primary); 
-        box-shadow: 0 10px 25px var(--primary-glow); 
+        transform: translateY(-8px); 
+        border-color: var(--primary);
+        box-shadow: 0 15px 35px var(--primary-glow);
         z-index: 2;
     }
     
-    .project-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
-    .project-card p { font-size: 0.95rem; color: var(--text-muted); }
-    .tech-tag { font-size: 0.7rem; padding: 3px 10px; background: var(--bg-secondary); border-radius: 20px; color: var(--text-muted); font-weight: 600; display: inline-block; margin: 4px 4px 4px 0; }
-    .click-hint { font-size: 0.85rem; color: var(--primary); font-weight: 600; margin-top: 10px; display: inline-flex; align-items: center; gap: 5px; }
+    .project-img-wrapper {
+        width: 100%;
+        height: 280px; /* Adjust this to make images taller/shorter */
+        border-bottom: 1px solid var(--card-border);
+        overflow: hidden;
+    }
+
+    .project-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+    }
+    
+    .project-card:hover .project-img-wrapper img {
+        transform: scale(1.05); /* Image zoom effect */
+    }
+
+    .project-content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        padding: 1.75rem; /* Padding for text area inside card */
+    }
+    
+    .tech-tag-container { 
+        margin-bottom: 1rem; 
+        display: flex; 
+        flex-wrap: wrap; 
+        gap: 8px; 
+    }
+    
+    .tech-tag { 
+        font-size: 0.75rem; 
+        padding: 4px 12px; 
+        background: transparent; 
+        border-radius: 20px; 
+        color: var(--text-muted); 
+        font-weight: 600; 
+        border: 1px solid var(--card-border); 
+    }
+
+    .project-card h3 { 
+        font-size: 1.4rem; 
+        margin-bottom: 0.8rem; 
+        font-weight: 700; 
+        color: var(--text-main); 
+        text-transform: uppercase; 
+        letter-spacing: 0.5px;
+        line-height: 1.3;
+    }
+    
+    .project-card p { 
+        font-size: 0.95rem; 
+        color: var(--text-muted); 
+        line-height: 1.6; 
+        margin-bottom: 1.5rem; 
+    }
+    
+    .click-hint { 
+        font-size: 0.9rem; 
+        color: var(--primary); 
+        font-weight: 600; 
+        margin-top: auto; 
+        display: inline-flex; 
+        align-items: center; 
+        gap: 6px; 
+        transition: gap 0.3s ease;
+    }
+    
+    .project-card:hover .click-hint {
+        gap: 10px; /* Small arrow movement on hover */
+    }
 
     /* Certifications Grid */
     .cert-grid { 
@@ -429,10 +510,10 @@
         background: var(--bg); border: 2px solid var(--primary); border-radius: 50%;
     }
 
-    /* --- NEW CONTACT LAYOUT STYLES --- */
+    /* --- CONTACT LAYOUT STYLES --- */
     .contact-layout {
         display: grid;
-        grid-template-columns: 0.8fr 1.2fr; /* Ratio for image vs form card */
+        grid-template-columns: 0.8fr 1.2fr; 
         gap: 2rem;
         align-items: stretch;
     }
@@ -665,7 +746,7 @@
     @keyframes scaleUp { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
     /* ======================================================== */
-    /* NEW STACKED CIRCULAR FOOTER STYLES                       */
+    /* STACKED CIRCULAR FOOTER STYLES                       */
     /* ======================================================== */
     .stacked-footer {
       background-color: var(--bg-secondary);
@@ -679,14 +760,12 @@
       max-width: 800px;
       margin: 0 auto;
     }
-    /* UPDATED: Removed background color and padding */
     .footer-logo {
       margin-bottom: 2rem;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    /* UPDATED: Targeted the img instead of svg */
     .footer-logo img {
       width: 50px;
       height: auto;
@@ -747,7 +826,8 @@
       .nav-menu { display: none; }
       .hamburger { display: block; }
       
-      .project-card { grid-template-columns: 1fr 150px; gap: 1.5rem; align-items: center; }
+      .projects-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .project-img-wrapper { height: 240px; }
       
       .contact-layout { grid-template-columns: 1fr; gap: 1.5rem; }
       .contact-image-container { order: -1; aspect-ratio: 4 / 3; height: auto; }
@@ -779,9 +859,12 @@
        .cert-card h3 { font-size: 0.85rem; }
        .cert-card p { font-size: 0.75rem !important; }
        .cert-link { font-size: 0.75rem; }
-       .project-card { grid-template-columns: 1fr 90px; gap: 0.8rem; align-items: center; padding: 1rem; }
-       .project-card h3 { font-size: 1rem; margin-bottom: 0.3rem;}
-       .project-card p { font-size: 0.8rem; line-height: 1.4; margin-bottom: 0.5rem; }
+       
+       /* Mobile specific adjustments for projects layout */
+       .project-img-wrapper { height: 200px; }
+       .project-content { padding: 1.25rem; }
+       .project-card h3 { font-size: 1.25rem; }
+
        .tech-tag { padding: 3px 6px; font-size: 0.6rem; margin: 2px 2px 2px 0; }
        .click-hint { font-size: 0.75rem; margin-top: 5px; }
        .lovable-app-card h3 { font-size: 1.1rem; }
@@ -901,9 +984,9 @@
             Skilled in leveraging <strong>AI technologies</strong> to build no-code applications, automate workflows, and enhance business processes.
           </p>
           <div style="margin-top: 1.25rem;">
-            <span class="tech-tag">Noida, India</span>
-            <span class="tech-tag">Hindi • English • Maithili</span>
-            <span class="tech-tag" style="background:var(--primary); color:#fff;">Available for Full-time</span>
+            <span class="tech-tag" style="background:var(--bg-secondary); color:var(--text-muted); padding:4px 12px; border:none; border-radius: 20px;">Noida, India</span>
+            <span class="tech-tag" style="background:var(--bg-secondary); color:var(--text-muted); padding:4px 12px; border:none; border-radius: 20px;">Hindi • English • Maithili</span>
+            <span class="tech-tag" style="background:var(--primary); color:#fff; padding:4px 12px; border:none; border-radius: 20px;">Available for Full-time</span>
           </div>
 
           <div style="margin-top: 1.5rem; text-align: center;">
@@ -990,79 +1073,78 @@
         </div>
       </section>
 
-      <section id="projects" class="container" style="padding-top: var(--section-spacing);">
+      <section id="projects" class="container" style="max-width: 1200px; padding-top: var(--section-spacing);">
         <div class="section-header">
           <h2>Projects</h2>
         </div>
 
-        <a href="#project-1" class="glass-card project-card" onclick="event.preventDefault(); showProjectView('project-1')">
-          <div>
-            <h3>Enterprise AD & GPO Setup</h3>
-            <p>Planned and implemented a Windows Server 2016 Active Directory environment. Set up OU design, user access policies, GPO configurations, and WSUS for 120+ endpoints. Configured Acronis Backup for disaster recovery.</p>
-            <div style="margin-top:8px;">
-              <span class="tech-tag">Windows Server 2016</span>
-              <span class="tech-tag">Active Directory</span>
-              <span class="tech-tag">GPO</span>
-              <span class="tech-tag">Backup</span>
-            </div>
-            <span class="click-hint">View Case Study <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
+        <div class="projects-grid">
           
-          <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px; overflow:hidden;">
-            <img src="https://brytesoft.com/media/catalog/product/cache/207e23213cf636ccdef205098cf3c8a3/m/i/microsoft-windows-server-2016-essentials-cover-brytesoft.png" alt="Windows Server 2016 AD and GPO Setup" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-        </a>
+          <a href="#project-1" class="project-card" onclick="event.preventDefault(); showProjectView('project-1')">
+            <div class="project-img-wrapper">
+              <img src="https://brytesoft.com/media/catalog/product/cache/207e23213cf636ccdef205098cf3c8a3/m/i/microsoft-windows-server-2016-essentials-cover-brytesoft.png" alt="Windows Server 2016 AD and GPO Setup">
+            </div>
+            <div class="project-content">
+              <div class="tech-tag-container">
+                <span class="tech-tag">Windows Server</span>
+                <span class="tech-tag">Active Directory</span>
+                <span class="tech-tag">GPO</span>
+              </div>
+              <h3>Enterprise AD & GPO Setup</h3>
+              <p>Planned and implemented a Windows Server 2016 Active Directory environment. Set up OU design, user access policies, GPO configurations, and WSUS for 120+ endpoints. Configured Acronis Backup for disaster recovery.</p>
+              <span class="click-hint">View Case Study <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </a>
 
-        <a href="#project-2" class="glass-card project-card" onclick="event.preventDefault(); showProjectView('project-2')">
-          <div>
-            <h3>Fortinet 60F SD-WAN Deployment</h3>
-            <p>Designed SD-WAN on FortiGate 60F to enhance network performance. Integrated two ISP connections (Jio & Spectra) with load balancing and automated failover. Applied firewall rules, IPS/AV profiles, and VLANs.</p>
-            <div style="margin-top:8px;">
-              <span class="tech-tag">FortiGate</span>
-              <span class="tech-tag">SD-WAN</span>
-              <span class="tech-tag">VLAN</span>
-              <span class="tech-tag">Security</span>
+          <a href="#project-2" class="project-card" onclick="event.preventDefault(); showProjectView('project-2')">
+            <div class="project-img-wrapper">
+              <img src="https://com-datentechnik.de/wp-content/uploads/2024/07/Fortinet.png" alt="Fortinet 60F SD-WAN Architecture">
             </div>
-            <span class="click-hint">View Case Study <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-          <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px; overflow:hidden;">
-            <img src="https://com-datentechnik.de/wp-content/uploads/2024/07/Fortinet.png" alt="Fortinet 60F SD-WAN Architecture" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="project-content">
+              <div class="tech-tag-container">
+                <span class="tech-tag">FortiGate</span>
+                <span class="tech-tag">SD-WAN</span>
+                <span class="tech-tag">Security</span>
+              </div>
+              <h3>Fortinet 60F SD-WAN Deployment</h3>
+              <p>Designed SD-WAN on FortiGate 60F to enhance network performance. Integrated two ISP connections (Jio & Spectra) with load balancing and automated failover. Applied firewall rules, IPS/AV profiles, and VLANs.</p>
+              <span class="click-hint">View Case Study <i class="fa-solid fa-arrow-right"></i></span>
             </div>
-        </a>
+          </a>
 
-        <a href="#project-3" class="glass-card project-card" onclick="event.preventDefault(); showProjectView('project-3')">
-          <div>
-            <h3>AI Cost Sheet Builder & Lovable Apps</h3>
-            <p>Built a no-code web application at Graiin Milling Solutions using Lovable AI to automate cost sheet generation. Also developed Resume Builders and Notes apps.</p>
-            <div style="margin-top:8px;">
-              <span class="tech-tag">Lovable AI</span>
-              <span class="tech-tag">No-Code</span>
-              <span class="tech-tag">Automation</span>
+          <a href="#project-3" class="project-card" onclick="event.preventDefault(); showProjectView('project-3')">
+            <div class="project-img-wrapper">
+              <img src="https://lovable.dev/img/logo/lovable-icon-bg-light.png" alt="Lovable AI App Interface">
             </div>
-            <span class="click-hint">View Case Study <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-            <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px; overflow:hidden;">
-            <img src="https://lovable.dev/img/logo/lovable-icon-bg-light.png" alt="Lovable AI App Interface" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="project-content">
+              <div class="tech-tag-container">
+                <span class="tech-tag">Lovable AI</span>
+                <span class="tech-tag">No-Code</span>
+                <span class="tech-tag">Automation</span>
+              </div>
+              <h3>AI Cost Sheet Builder & Apps</h3>
+              <p>Built a no-code web application at Graiin Milling Solutions using Lovable AI to automate cost sheet generation. Also developed Resume Builders and Notes apps.</p>
+              <span class="click-hint">View Case Study <i class="fa-solid fa-arrow-right"></i></span>
             </div>
-        </a>
+          </a>
 
-        <a href="#project-4" class="glass-card project-card" onclick="event.preventDefault(); showProjectView('project-4')">
-          <div>
-            <h3>GMS Delhi Website Redesign & Management</h3>
-            <p>Took complete ownership of managing, designing, and updating the company website (www.gmsdelhi.com). Transitioned the platform from a third-party vendor to a fully in-house operation, optimizing updates, design, and content.</p>
-            <div style="margin-top:8px;">
-              <span class="tech-tag">Web Design</span>
-              <span class="tech-tag">Content Management</span>
-              <span class="tech-tag">UI/UX</span>
-              <span class="tech-tag">HTML/CSS</span>
+          <a href="#project-4" class="project-card" onclick="event.preventDefault(); showProjectView('project-4')">
+            <div class="project-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&q=80" alt="Website Redesign and Management">
             </div>
-            <span class="click-hint">View Case Study <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-          <div style="display:flex; align-items:center; justify-content:center; background:var(--bg-secondary); border-radius:12px; overflow:hidden;">
-            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&q=80" alt="Website Redesign and Management" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-        </a>
+            <div class="project-content">
+              <div class="tech-tag-container">
+                <span class="tech-tag">Web Design</span>
+                <span class="tech-tag">UI/UX</span>
+                <span class="tech-tag">Content Management</span>
+              </div>
+              <h3>GMS Delhi Website Redesign</h3>
+              <p>Took complete ownership of managing, designing, and updating the company website (www.gmsdelhi.com). Transitioned the platform from a third-party vendor to a fully in-house operation.</p>
+              <span class="click-hint">View Case Study <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </a>
 
+        </div>
       </section>
 
       <section id="certs" class="container" style="padding-top: var(--section-spacing);">
@@ -1246,10 +1328,10 @@
         <div class="project-header">
           <h1 class="project-title">Windows Server Domain Setup + GPO Automation + Backup & Recovery</h1>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
-              <span class="tech-tag">Windows Server 2016</span>
-              <span class="tech-tag">Active Directory (AD DS)</span>
-              <span class="tech-tag">GPO</span>
-              <span class="tech-tag">Acronis Cyber Protect</span>
+              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">Windows Server 2016</span>
+              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">Active Directory (AD DS)</span>
+              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">GPO</span>
+              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">Acronis Cyber Protect</span>
           </div>
         </div>
 
@@ -1330,9 +1412,9 @@
         <div class="project-header">
           <h1 class="project-title">Fortinet 60F SD-WAN Deployment</h1>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
-              <span class="tech-tag">FortiGate 60F</span>
-              <span class="tech-tag">SD-WAN</span>
-              <span class="tech-tag">VLAN</span>
+              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">FortiGate 60F</span>
+              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">SD-WAN</span>
+              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">VLAN</span>
           </div>
         </div>
         <div class="detail-block">
@@ -1376,9 +1458,9 @@
         <div class="project-header">
           <h1 class="project-title">AI Cost Sheet Builder & Other Apps</h1>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
-              <span class="tech-tag">Lovable AI</span>
-              <span class="tech-tag">Automation</span>
-              <span class="tech-tag">Web Apps</span>
+              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">Lovable AI</span>
+              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">Automation</span>
+              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">Web Apps</span>
           </div>
         </div>
         
@@ -1457,10 +1539,10 @@
         <div class="project-header">
           <h1 class="project-title">Website Redesign & In-House Management</h1>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
-              <span class="tech-tag">Web Design</span>
-              <span class="tech-tag">Content Strategy</span>
-              <span class="tech-tag">In-House Management</span>
-              <span class="tech-tag">HTML/CSS</span>
+              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">Web Design</span>
+              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">Content Strategy</span>
+              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">In-House Management</span>
+              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">HTML/CSS</span>
           </div>
         </div>
 
@@ -1766,7 +1848,7 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.glass-card').forEach(el => {
+        document.querySelectorAll('.glass-card, .project-card').forEach(el => {
             el.style.opacity = 0;
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'all 0.6s ease-out';
