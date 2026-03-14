@@ -115,7 +115,7 @@
     
     html { 
         scroll-behavior: smooth; 
-        scroll-padding-top: 70px; 
+        scroll-padding-top: 100px; /* Increased to account for floating header */
     }
 
     body {
@@ -246,24 +246,69 @@
 
     /* --- 4. LAYOUT --- */
 
-    /* Header */
+    /* Header (Updated to Floating Pill Style) */
     header {
-      position: fixed; top: 0; width: 100%; z-index: 1000;
-      background: var(--nav-bg); backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--card-border);
-      height: 60px; 
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 95%;
+      max-width: 1200px;
+      z-index: 1000;
+      background: var(--nav-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 60px;
+      height: 65px; 
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
     }
+    [data-theme="dark"] header {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
     .nav-inner {
       display: flex; justify-content: space-between; align-items: center; height: 100%;
+      padding: 0 10px; 
     }
-    .brand { font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 8px; cursor: pointer; }
-    .brand span:first-child { color: var(--primary); }
     
-    .nav-menu { display: flex; gap: 1.5rem; }
+    /* Brand Logo Updates */
+    .brand { font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 10px; cursor: pointer; text-decoration: none;}
+    .logo-circle {
+      display: flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px;
+      background: #e2e8f0; color: #0f172a;
+      border-radius: 50%; font-family: serif; font-weight: 900; font-size: 1.3rem; font-style: italic;
+    }
+    [data-theme="dark"] .logo-circle { background: #334155; color: #f1f5f9; }
+    
+    .nav-menu { display: flex; gap: 1.5rem; align-items: center; }
     .nav-menu a { font-weight: 500; font-size: 0.95rem; color: var(--text-muted); cursor: pointer; }
     .nav-menu a:hover { color: var(--text-main); }
     
-    .nav-actions { display: flex; gap: 8px; align-items: center; }
+    /* Contact Button in Nav */
+    .nav-contact-btn {
+      background-color: #2d2d2d !important;
+      color: #ffffff !important;
+      padding: 10px 24px !important;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      margin-left: 10px;
+    }
+    .nav-contact-btn:hover {
+      background-color: #000000 !important;
+      transform: translateY(-2px);
+    }
+    [data-theme="dark"] .nav-contact-btn {
+      background-color: #ffffff !important;
+      color: #000000 !important;
+    }
+    [data-theme="dark"] .nav-contact-btn:hover {
+      background-color: #e2e8f0 !important;
+    }
+
+    .nav-actions { display: flex; gap: 8px; align-items: center; padding-right: 5px; }
 
     /* --- HERO SECTION --- */
     .hero {
@@ -272,7 +317,7 @@
       flex-wrap: wrap; 
       align-items: center; 
       gap: 2rem; 
-      padding-top: 120px; 
+      padding-top: 140px; /* Increased to account for floating header */
       padding-bottom: 60px;
     }
     .hero-content {
@@ -591,8 +636,16 @@
 
     /* Mobile Menu */
     .hamburger { display: none; background: none; border: none; font-size: 1.2rem; color: var(--text-main); cursor: pointer; }
-    .mobile-menu { position: fixed; top: 61px; left: 0; width: 100%; background: var(--bg); padding: 0.5rem 1rem; transform: translateY(-150%); transition: 0.3s; z-index: 999; border-bottom: 1px solid var(--card-border); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-    .mobile-menu.open { transform: translateY(0); }
+    
+    /* Updated Mobile Menu for Floating Header */
+    .mobile-menu {
+      position: fixed; top: 100px; left: 5%; width: 90%;
+      background: var(--bg); border-radius: 20px; padding: 1rem;
+      transform: translateY(-150%); transition: 0.3s; z-index: 999;
+      border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      opacity: 0; pointer-events: none;
+    }
+    .mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
     .mobile-menu a { display: block; padding: 12px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid var(--bg-secondary); }
     .mobile-menu a:last-child { border-bottom: none; }
 
@@ -847,7 +900,7 @@
     
     @media (max-width: 900px) {
       :root { --section-spacing: 3rem; }
-      .hero { text-align: center; padding-top: 100px; padding-bottom: 30px; gap: 1.5rem; }
+      .hero { text-align: center; padding-top: 120px; padding-bottom: 30px; gap: 1.5rem; }
       .hero-content { flex: 1 1 100%; }
       .hero-img-container { flex: 1 1 100%; order: -1; margin-bottom: 0.5rem; }
       .avatar { width: 240px; height: 240px; }
@@ -923,8 +976,9 @@
   <header>
     <div class="container nav-inner">
       <a href="#" onclick="event.preventDefault(); showHomeView()" class="brand">
-        <span class="dot">●</span> Sanjeev Kumar
-      </a>
+  <img src="https://isanjiiv.github.io/assets/images/favicon.png" alt="Sanjeev Kumar Logo" style="width: 38px; height: 38px; object-fit: contain;">
+  <span class="brand-text">Sanjeev Kumar</span>
+</a>
 
       <nav class="nav-menu">
         <a href="#about" onclick="event.preventDefault(); showHomeViewAndScroll('about')">About</a>
@@ -932,7 +986,7 @@
         <a href="#projects" onclick="event.preventDefault(); showHomeViewAndScroll('projects')">Projects</a>
         <a href="#certs" onclick="event.preventDefault(); showHomeViewAndScroll('certs')">Certifications</a>
         <a href="#experience" onclick="event.preventDefault(); showHomeViewAndScroll('experience')">Experience</a>
-        <a href="#contact" onclick="event.preventDefault(); showHomeViewAndScroll('contact')">Contact</a>
+        <a href="#contact" class="nav-contact-btn" onclick="event.preventDefault(); showHomeViewAndScroll('contact')">Contact</a>
       </nav>
 
       <div class="nav-actions">
@@ -1620,7 +1674,7 @@
 
       <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem;">
           
-     <p style="margin-top: 0.5rem;">© 2026 <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600;">Sanjeev Kumar</a>. All rights reserved.</p>
+      <p style="margin-top: 0.5rem;">© 2026. Design By <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600;">Sanjeev Kumar</a>. All rights reserved.</p>
      
       </div>
 
