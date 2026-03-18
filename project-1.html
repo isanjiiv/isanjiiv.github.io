@@ -4,22 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Windows Server Domain Setup - Sanjeev Kumar</title>
-  
   <script>
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
   </script>
-
   <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <style>
-    /* Paste your ENTIRE <style> block from index.html here */
-    /* For brevity in this message, include everything from :root to your media queries */
-  </style>
+  
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -28,7 +23,6 @@
       <a href="index.html" class="brand" aria-label="Sanjeev Kumar Homepage">
         <img src="https://isanjiiv.github.io/assets/images/favicon.png" alt="Sanjeev Kumar Personal Logo" style="width: 38px; height: 38px; object-fit: contain;">
       </a>
-
       <nav class="nav-menu" aria-label="Main Navigation">
         <a href="index.html#about">About</a>
         <a href="index.html#skills">Skills</a>
@@ -37,7 +31,6 @@
         <a href="index.html#experience">Experience</a>
         <a href="index.html#contact" class="nav-contact-btn">Contact</a>
       </nav>
-
       <div class="nav-actions">
         <button class="btn-icon" id="themeToggle" aria-label="Toggle Light and Dark Theme">
           <i class="fa-solid fa-moon"></i>
@@ -115,14 +108,42 @@
                <img src="https://lh3.googleusercontent.com/d/1ZnGdTn_fKq4QBGefs-shCwvMkk_AyaUn" alt="Windows Server Dashboard Overview" referrerpolicy="no-referrer">
                <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
              </div>
+             <div class="gallery-item" onclick="openLightbox(this)">
+               <img src="https://lh3.googleusercontent.com/d/1inyWgMWxzt5bllljVpYW7ON-ZdinqfQx" alt="Active Directory AD DS Structure Configuration" referrerpolicy="no-referrer">
+               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
              </div>
+             <div class="gallery-item" onclick="openLightbox(this)">
+               <img src="https://lh3.googleusercontent.com/d/1aFtsM3ZlIp3sHi2XiGM7P-r0dD9WU84K" alt="Windows Group Policy Object GPO Rules" referrerpolicy="no-referrer">
+               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+             </div>
+             <div class="gallery-item" onclick="openLightbox(this)">
+               <img src="https://lh3.googleusercontent.com/d/12-8dF8_BAoeELIvCiNeY4yyVB6QRQrSP" alt="Acronis Cyber Protect Backup Interface" referrerpolicy="no-referrer">
+               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+             </div>
+             <div class="gallery-item" onclick="openLightbox(this)">
+               <img src="https://lh3.googleusercontent.com/d/1B8KH3Z7KDHwuOfmhkbYkclC6pkelnnx-" alt="Windows Server Folder Sharing and Permissions" referrerpolicy="no-referrer">
+               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+             </div>
+             <div class="gallery-item" onclick="openLightbox(this)">
+               <img src="https://lh3.googleusercontent.com/d/13xGHGpYbyf4CWA4MjzRgMowhMzv5xa6y" alt="Enterprise Printer Management on Windows Server" referrerpolicy="no-referrer">
+               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+             </div>
+          </div>
         </div>
       </div>
     </div>
   </main>
 
   <footer class="stacked-footer">
-     </footer>
+    <div class="stacked-footer-content">
+      <div class="footer-logo">
+        <img src="https://isanjiiv.github.io/assets/images/favicon.png" alt="Sanjeev Kumar Logo Footer" />
+      </div>
+      <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+        <p style="margin-top: 0.5rem;">© <span id="year">2026</span>. Design By <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600;">Sanjeev Kumar</a>. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
   <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog">
     <span class="close-lightbox" aria-label="Close Image Viewer" onclick="closeLightbox(event)">×</span>
@@ -131,6 +152,6 @@
     <button class="lightbox-btn next" aria-label="Next Image" onclick="changeImage(1)">❯</button> 
   </div>
 
- <script src="script.js"></script>
+  <script src="script.js"></script>>
 </body>
 </html>
