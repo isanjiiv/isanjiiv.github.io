@@ -78,17 +78,43 @@
     </div>
   </main>
 
-  <footer class="stacked-footer">
+<footer class="stacked-footer">
     <div class="stacked-footer-content">
       <div class="footer-logo">
         <img src="https://isanjiiv.github.io/assets/images/favicon.png" alt="Sanjeev Kumar Logo Footer" />
       </div>
+      
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#skills">Skills</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#certs">Certifications</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+
+      <div class="footer-socials">
+        <a href="mailto:sanjeev753304@gmail.com" class="btn-icon" aria-label="Email Sanjeev" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="LinkedIn Profile" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="GitHub Profile" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="Instagram Profile" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="YouTube Channel" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://x.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="X (Twitter) Profile" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+
       <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem;">
         <p style="margin-top: 0.5rem;">© <span id="year">2026</span>. Design By <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600;">Sanjeev Kumar</a>. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog">
+    <span class="close-lightbox" aria-label="Close Image Viewer" onclick="closeLightbox(event)">×</span>
+    <button class="lightbox-btn prev" aria-label="Previous Image" onclick="changeImage(-1)">❮</button> 
+    <img id="lightbox-img" class="lightbox-content" src="" alt="Full View Mode Image">
+    <button class="lightbox-btn next" aria-label="Next Image" onclick="changeImage(1)">❯</button> 
+  </div>
+
+  <script src="../script.js"></script>
 </body>
 </html>
