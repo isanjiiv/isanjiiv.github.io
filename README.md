@@ -1,8 +1,8 @@
 <p align="center">
   <img src="https://isanjiiv.github.io/assets/images/SanjeevReadme.png" alt="Sanjeev Readme Banner" width="700">
 </p>
-
-# [Sanjeev Kumar | IT Engineer] (https://isanjiiv.github.io/) 
+#Sanjeev Kumar | IT Enginee
+# [Site] (https://isanjiiv.github.io/) 
 
 # 💫 About Me:
 IT Engineer & System Administrator based in Noida with expertise in **Windows Server, Networking, Firewall Security, and Cloud (AWS & Azure)**.  
