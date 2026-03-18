@@ -5,7 +5,7 @@
 # [Live Site ](https://isanjiiv.github.io/)
 
 # 💫 About Me:
-IT Engineer & System Administrator based in Noida with expertise in **Windows Server, Networking, Firewall Security, and Cloud (AWS & Azure)**.  
+IT Engineer & System Administrator based in Noida with expertise in **Windows Server, Networking, Firewall Security, Cloud (AWS & Azure), WordPress, Web Designing, AI Agents, AI Prompting, and AI Custom App Development**.  
 Focused on building secure, reliable, and scalable IT systems.
 
 
