@@ -33,12 +33,4 @@ Focused on building secure, reliable, and scalable IT systems.
 
 ---
 
-## 📬 Contact  
-- 🌐 https://www.wayoftech.net/  
-- 💼 https://www.linkedin.com/in/isanjiiv/  
-- 📸 https://www.instagram.com/isanjiiv/  
-- ▶️ https://www.youtube.com/@isanjiiv  
-
----
-
-⭐ *Open to IT Engineer / System Admin / Cloud roles*
+⭐ *Open to IT Engineer / System Admin / Cloud roles / Ai /Web designing*
