@@ -1,7 +1,7 @@
 <p align="center">
   <img src="https://isanjiiv.github.io/assets/images/SanjeevReadme.png" alt="Sanjeev Readme Banner" width="700">
 </p>
-#Sanjeev Kumar | IT Enginee
+
 # [Site] (https://isanjiiv.github.io/) 
 
 # 💫 About Me:
