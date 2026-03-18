@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Redesign & In-House Management - Sanjeev Kumar</title>
+  <script>
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="Sanjeev Kumar Homepage">
+        <img src="https://isanjiiv.github.io/assets/images/favicon.png" alt="Sanjeev Kumar Personal Logo" style="width: 38px; height: 38px; object-fit: contain;">
+      </a>
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="index.html#about">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#certs">Certifications</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#contact" class="nav-contact-btn">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn-icon" id="themeToggle" aria-label="Toggle Light and Dark Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Open Mobile Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="index.html#about">About</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#certs">Certifications</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+
+  <main style="padding-top: 120px; padding-bottom: 60px;">
+    <div class="container">
+      <a href="index.html#projects" class="btn-primary" style="margin-bottom:2rem; font-size:0.85rem; text-decoration: none; display: inline-flex;"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+      
+      <div class="glass-card">
+        <div class="project-header">
+          <h1 class="project-title">Website Redesign & In-House Management</h1>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">Web Design</span>
+              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">Content Strategy</span>
+              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">In-House Management</span>
+              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">HTML/CSS</span>
+          </div>
+        </div>
+
+        <div class="detail-block">
+          <h3>What I achieved in this project:</h3>
+          <p>Previously, our company website <a href="http://www.gmsdelhi.com" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:bold;">www.gmsdelhi.com</a> was managed by a third-party web development company. However, the entire responsibility of managing, designing, and updating the website has now been taken over by me. I independently redesigned and organized the website, created and updated all page layouts, and developed the complete content structure to ensure the information is clear, professional, and user-friendly. Every page, section, and content element has been handled by me personally, from planning the structure to implementing the final design.</p>
+          <br>
+          <p>By bringing the website management in-house, the company has gained several advantages. Updates and modifications can now be implemented much faster without depending on an external vendor, which saves both time and operational costs. The company no longer needs to pay recurring charges for small website changes, maintenance, or content updates. I can quickly add new pages, update information, improve design elements, and ensure that the website always reflects the latest company services and announcements.</p>
+          <br>
+          <p>This change has also improved efficiency and flexibility in managing the company’s digital presence. With direct control over the website, we can respond quickly to business requirements, improve user experience, and maintain better consistency in branding and messaging. Overall, handling the website internally has increased productivity, reduced expenses, and allowed the company to maintain a more dynamic and up-to-date online presence.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="stacked-footer">
+    <div class="stacked-footer-content">
+      <div class="footer-logo">
+        <img src="https://isanjiiv.github.io/assets/images/favicon.png" alt="Sanjeev Kumar Logo Footer" />
+      </div>
+      <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+        <p style="margin-top: 0.5rem;">© <span id="year">2026</span>. Design By <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600;">Sanjeev Kumar</a>. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
