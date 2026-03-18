@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://isanjiiv.github.io/assets/images/SanjeevReadme.png" alt="Sanjeev Readme Banner" width="700">
+  <img src="https://isanjiiv.github.io/assets/images/readme-banner.png" alt="Sanjeev Readme Banner" width="700">
 </p>
 
 # [Live Site ](https://isanjiiv.github.io/)
