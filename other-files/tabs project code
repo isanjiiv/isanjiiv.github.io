@@ -358,63 +358,13 @@
       100% { transform: translateY(0px); }
     }
 
-    /* --- PROJECTS (STICKY STACKING EFFECT) --- */
-    .projects-layout { 
-      display: flex; 
-      flex-direction: column; /* Stack in a single column */
-      gap: 7rem; /* Large gap so you have to scroll to pull the next card up */
-      padding-bottom: 2rem;
-    }
-    
-    .project-card { 
-      width: 100%; 
-      display: flex; 
-      flex-direction: column; 
-      cursor: pointer; 
-      text-decoration: none; 
-      
-      /* The Magic Sticky Logic */
-      position: sticky;
-      background: var(--bg); /* Solid background is required to hide cards underneath */
-      border: 1px solid var(--card-border); 
-      border-radius: var(--radius-md); 
-      padding: 1.75rem;
-      /* Shadow at the top edge creates depth when they stack */
-      box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.05); 
-      transition: border-color 0.3s ease;
-    }
-    
-    [data-theme="dark"] .project-card {
-       background: var(--bg-secondary);
-       box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.4);
-    }
-    
-    /* Staggered positions for the deck effect (each card sits slightly lower) */
-    .project-card:nth-child(1) { top: 110px; z-index: 10; }
-    .project-card:nth-child(2) { top: 135px; z-index: 11; }
-    .project-card:nth-child(3) { top: 160px; z-index: 12; }
-    .project-card:nth-child(4) { top: 185px; z-index: 13; }
-    .project-card:nth-child(5) { top: 210px; z-index: 14; }
-
-    /* Adjust image inside the new solid card */
-    .project-img-wrapper { 
-      width: 100%; 
-      height: 380px; 
-      border-radius: 12px; 
-      overflow: hidden; 
-      margin-bottom: 1.5rem; 
-    }
-    .project-img-wrapper img { 
-      width: 100%; 
-      height: 100%; 
-      object-fit: cover; 
-      transition: transform 0.6s ease; 
-    }
-    
-    /* Hover effects */
-    .project-card:hover { border-color: var(--primary); }
+    /* PROJECTS */
+    .projects-layout { display: flex; flex-wrap: wrap; gap: 3.5rem 2.5rem; }
+    .project-card { flex: 1 1 100%; min-width: 300px; display: flex; flex-direction: column; cursor: pointer; text-decoration: none; background: transparent; border: none; box-shadow: none; }
+    .project-img-wrapper { width: 100%; height: 520px; border-radius: 16px; overflow: hidden; margin-bottom: 1.5rem; transition: transform 0.4s ease, box-shadow 0.4s ease; }
+    .project-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .project-card:hover .project-img-wrapper { transform: translateY(-8px); box-shadow: 0 15px 35px var(--glass-shadow); }
     .project-card:hover .project-img-wrapper img { transform: scale(1.05); }
-
     .project-content { display: flex; flex-direction: column; padding: 0; }
     .tech-tag-container { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 0.8rem; }
     .tech-tag { font-size: 0.85rem; padding: 4px 14px; border: 1px solid var(--primary); border-radius: 50px; color: var(--primary); font-weight: 500; background: transparent; white-space: nowrap; }
@@ -579,8 +529,9 @@
       .avatar { width: 240px; height: 240px; }
       .nav-menu { display: none; }
       .hamburger { display: block; }
-      .projects-layout { gap: 4rem; }
-      .project-img-wrapper { height: 260px; }
+      .projects-layout { gap: 3rem; }
+      .project-card { flex: 1 1 100%; }
+      .project-img-wrapper { height: 240px; }
       .contact-layout { gap: 1.5rem; }
       .contact-image-container { flex: 1 1 100%; order: -1; aspect-ratio: 4 / 3; height: auto; }
       .contact-wrapper { flex: 1 1 100%; padding: 1.5rem; text-align: center; }
@@ -612,14 +563,6 @@
        .cert-card h3 { font-size: 0.85rem; }
        .cert-card p { font-size: 0.75rem !important; }
        .cert-link { font-size: 0.75rem; }
-       ..projects-layout { gap: 3rem; }
-       .project-card { padding: 1.25rem; }
-       /* Tighter stack spacing for mobile screens */
-       .project-card:nth-child(1) { top: 90px; }
-       .project-card:nth-child(2) { top: 105px; }
-       .project-card:nth-child(3) { top: 120px; }
-       .project-card:nth-child(4) { top: 135px; }
-
        .project-img-wrapper { height: 200px; }
        .project-content { padding: 0; }
        .project-card h3 { font-size: 1.4rem; }
@@ -725,7 +668,7 @@
         </div>
 
         <div class="hero-img-container">
-          <img src="https://isanjiiv.github.io/assets/images/sanjeev.jpg" alt="Sanjeev Kumar - IT Engineer and Network Administrator Profile Picture" class="avatar">
+          <img src="https://isanjiiv.github.io/assets/images/sanjeev.jpg" alt="Sanjeev Kumar - IT Engineer Profile Picture" class="avatar">
         </div>
       </section>
 
