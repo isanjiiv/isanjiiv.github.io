@@ -56,8 +56,7 @@
         "jobTitle": "IT Engineer",
         "description": "IT Engineer specializing in Windows Server Administration, Networking, Cloud (AWS & Azure), Fortinet Firewall, and Cybersecurity.",
         "url": "https://isanjiiv.github.io/",
-        "image": "https://isanjiiv.github.io/assets/images/sanjeev-kumar-
-```it-engineer-noida.jpg",
+        "image": "https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-engineer-noida.jpg",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Noida",
@@ -82,6 +81,14 @@
           "Microsoft Azure",
           "Prompt Engineering",
           "Lovable AI",
+          "wordpress"
+          "Web designing"
+          "Website building"
+          "HTML"
+          "CSS"
+          "Javascript"
+          "cloud Engineering"
+          "Domain Hosting"
           "IT Infrastructure Management"
         ],
         "worksFor": {
@@ -291,21 +298,70 @@
     .typing-text { color: var(--primary); }
     .avatar { width: 320px; height: 320px; object-fit: cover; border-radius: 50%; border: 4px solid var(--bg); box-shadow: 0 0 25px var(--primary-glow); animation: float 4s ease-in-out infinite; }
 
-    /* SKILLS GRID */
-    .skills-circle-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; }
-    .skill-circle-card { flex: 1 1 calc(33.333% - 1.5rem); min-width: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; border-radius: var(--radius-md); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; position: relative; }
-    .skill-circle-card:hover { transform: scale(1.05) !important; border-color: var(--skill-color, var(--primary)); box-shadow: 0 10px 25px var(--skill-glow, var(--primary-glow)); z-index: 2; }
-    .circle-container { position: relative; width: 90px; height: 90px; margin-bottom: 1rem; }
-    .circular-chart { display: block; margin: 0 auto; max-width: 100%; max-height: 250px; }
-    .circle-bg { fill: none; stroke: var(--skill-bg, rgba(0, 173, 181, 0.15)); stroke-width: 2.5; }
-    .circle { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke: var(--skill-color, var(--primary)); stroke-dasharray: 0, 100; transition: stroke-dasharray 1.5s cubic-bezier(0.25, 0.8, 0.25, 1); }
-    .percentage { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--text-main); }
-    .skill-title { font-size: 0.95rem; font-weight: 600; color: var(--text-main); text-align: center; }
+    /* --- ANIMATED FLOATING SKILLS ICONS --- */
+    .skills-flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 3.5rem;
+      padding: 2rem 0;
+    }
+    .skill-icon-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .skill-icon-wrapper:hover {
+      transform: translateY(-12px) scale(1.15);
+    }
+    .skill-animated-icon {
+      width: 75px;
+      height: 75px;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.1));
+      /* Continuous floating animation */
+      animation: float-icon 4s ease-in-out infinite;
+    }
+    
+    /* Staggering the animation so they don't all float at the exact same time */
+    .skill-icon-wrapper:nth-child(even) .skill-animated-icon {
+      animation-delay: 1s;
+    }
+    .skill-icon-wrapper:nth-child(3n) .skill-animated-icon {
+      animation-delay: 2s;
+    }
+    .skill-icon-wrapper:nth-child(5n) .skill-animated-icon {
+      animation-delay: 0.5s;
+    }
+
+    .skill-icon-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-main);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.7;
+      transition: opacity 0.3s, color 0.3s;
+    }
+    .skill-icon-wrapper:hover .skill-icon-title {
+      opacity: 1;
+      color: var(--primary);
+    }
+
+    @keyframes float-icon {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
 
     /* PROJECTS */
     .projects-layout { display: flex; flex-wrap: wrap; gap: 3.5rem 2.5rem; }
-    .project-card { flex: 1 1 calc(50% - 2.5rem); min-width: 300px; display: flex; flex-direction: column; cursor: pointer; text-decoration: none; background: transparent; border: none; box-shadow: none; }
-    .project-img-wrapper { width: 100%; height: 320px; border-radius: 16px; overflow: hidden; margin-bottom: 1.5rem; transition: transform 0.4s ease, box-shadow 0.4s ease; }
+    .project-card { flex: 1 1 100%; min-width: 300px; display: flex; flex-direction: column; cursor: pointer; text-decoration: none; background: transparent; border: none; box-shadow: none; }
+    .project-img-wrapper { width: 100%; height: 520px; border-radius: 16px; overflow: hidden; margin-bottom: 1.5rem; transition: transform 0.4s ease, box-shadow 0.4s ease; }
     .project-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
     .project-card:hover .project-img-wrapper { transform: translateY(-8px); box-shadow: 0 15px 35px var(--glass-shadow); }
     .project-card:hover .project-img-wrapper img { transform: scale(1.05); }
@@ -496,11 +552,12 @@
        .avatar { width: 200px; height: 200px; } 
        .hero-content > div:last-child { flex-direction: column; align-items: center; gap: 1rem !important; }
        .btn-primary { width: 100%; max-width: 250px; font-size: 0.9rem;} 
-       .skills-circle-grid { gap: 1rem; }
-       .skill-circle-card { flex: 1 1 calc(50% - 1rem); padding: 1rem 0.5rem; }
-       .circle-container { width: 75px; height: 75px; }
-       .percentage { font-size: 1.1rem; }
-       .skill-title { font-size: 0.85rem; }
+       
+       /* Mobile specific adjustment for new skills */
+       .skills-flex-container { gap: 2rem; }
+       .skill-animated-icon { width: 55px; height: 55px; }
+       .skill-icon-title { font-size: 0.75rem; }
+
        .cert-grid { gap: 0.8rem; }
        .cert-card { flex: 1 1 calc(50% - 0.8rem); padding: 1rem 0.5rem; min-height: 190px; } 
        .cert-card h3 { font-size: 0.85rem; }
@@ -645,53 +702,68 @@
       </section>
 
       <section id="skills" class="container" style="padding-top: var(--section-spacing);">
-        <div class="section-header">
+        <div class="section-header" style="text-align: left;">
           <h2>Skills</h2>
         </div>
         
-        <div class="skills-circle-grid">
-          <div class="skill-circle-card glass-card" style="--skill-color: #a855f7; --skill-bg: rgba(168, 85, 247, 0.15); --skill-glow: rgba(168, 85, 247, 0.3);">
-            <div class="circle-container">
-              <svg class="circular-chart" viewBox="0 0 36 36"><path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" /><path class="circle" data-percent="90" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" /></svg>
-              <div class="percentage">90%</div>
-            </div>
-            <h3 class="skill-title">AI & Prompting</h3>
+        <!-- ANIMATED FLOATING SKILLS -->
+        <div class="skills-flex-container">
+          
+          <div class="skill-icon-wrapper">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="Windows Server" class="skill-animated-icon">
+            <span class="skill-icon-title">Win Server</span>
           </div>
-          <div class="skill-circle-card glass-card" style="--skill-color: #0ea5e9; --skill-bg: rgba(14, 165, 233, 0.15); --skill-glow: rgba(14, 165, 233, 0.3);">
-            <div class="circle-container">
-              <svg class="circular-chart" viewBox="0 0 36 36"><path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" /><path class="circle" data-percent="90" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" /></svg>
-              <div class="percentage">90%</div>
-            </div>
-            <h3 class="skill-title">Windows Server</h3>
+
+          <div class="skill-icon-wrapper">
+            <img src="https://img.icons8.com/color/96/active-directory.png" alt="Active Directory" class="skill-animated-icon">
+            <span class="skill-icon-title">Active Dir</span>
           </div>
-          <div class="skill-circle-card glass-card" style="--skill-color: #22c55e; --skill-bg: rgba(34, 197, 94, 0.15); --skill-glow: rgba(34, 197, 94, 0.3);">
-            <div class="circle-container">
-              <svg class="circular-chart" viewBox="0 0 36 36"><path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" /><path class="circle" data-percent="88" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" /></svg>
-              <div class="percentage">88%</div>
-            </div>
-            <h3 class="skill-title">Networking</h3>
+          
+          <div class="skill-icon-wrapper">
+            <img src="https://cdn-icons-png.flaticon.com/512/2850/2850151.png" alt="Networking" class="skill-animated-icon">
+            <span class="skill-icon-title">Networking</span>
           </div>
-          <div class="skill-circle-card glass-card" style="--skill-color: #f59e0b; --skill-bg: rgba(245, 158, 11, 0.15); --skill-glow: rgba(245, 158, 11, 0.3);">
-            <div class="circle-container">
-              <svg class="circular-chart" viewBox="0 0 36 36"><path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" /><path class="circle" data-percent="60" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" /></svg>
-              <div class="percentage">60%</div>
-            </div>
-            <h3 class="skill-title">Cloud (AWS/Azure)</h3>
+
+          <div class="skill-icon-wrapper">
+            <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/fortinet.svg" alt="Fortinet Security" class="skill-animated-icon">
+            <span class="skill-icon-title">Fortinet</span>
           </div>
-          <div class="skill-circle-card glass-card" style="--skill-color: #ef4444; --skill-bg: rgba(239, 68, 68, 0.15); --skill-glow: rgba(239, 68, 68, 0.3);">
-            <div class="circle-container">
-              <svg class="circular-chart" viewBox="0 0 36 36"><path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" /><path class="circle" data-percent="85" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" /></svg>
-              <div class="percentage">85%</div>
-            </div>
-            <h3 class="skill-title">Security (Fortinet)</h3>
+
+          <div class="skill-icon-wrapper">
+            <img src="https://cdn-icons-png.flaticon.com/512/2092/2092663.png" alt="Cybersecurity" class="skill-animated-icon">
+            <span class="skill-icon-title">Security</span>
           </div>
-          <div class="skill-circle-card glass-card" style="--skill-color: #3b82f6; --skill-bg: rgba(59, 130, 246, 0.15); --skill-glow: rgba(59, 130, 246, 0.3);">
-            <div class="circle-container">
-              <svg class="circular-chart" viewBox="0 0 36 36"><path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" /><path class="circle" data-percent="70" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" /></svg>
-              <div class="percentage">70%</div>
-            </div>
-            <h3 class="skill-title">WordPress</h3>
+          
+          <div class="skill-icon-wrapper">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS Cloud" class="skill-animated-icon">
+            <span class="skill-icon-title">AWS</span>
           </div>
+
+          <div class="skill-icon-wrapper">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Microsoft Azure" class="skill-animated-icon">
+            <span class="skill-icon-title">Azure</span>
+          </div>
+          
+          <div class="skill-icon-wrapper">
+            <img src="https://cdn-icons-png.flaticon.com/512/2083/2083213.png" alt="AI & Prompting" class="skill-animated-icon">
+            <span class="skill-icon-title">AI Prompting</span>
+          </div>
+          
+          <div class="skill-icon-wrapper">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" alt="WordPress" class="skill-animated-icon">
+            <span class="skill-icon-title">WordPress</span>
+          </div>
+
+          <div class="skill-icon-wrapper">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="skill-animated-icon">
+            <span class="skill-icon-title">HTML</span>
+          </div>
+
+          <div class="skill-icon-wrapper">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="skill-animated-icon">
+            <span class="skill-icon-title">CSS</span>
+          </div>
+
         </div>
       </section>
 
@@ -967,6 +1039,49 @@
       
       <!-- Styles for the new Modern Gallery layout -->
       <style>
+      /* --- BACK TO TOP BUTTON --- */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 45px;
+      height: 45px;
+      background-color: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px var(--primary-glow);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .back-to-top:hover {
+      background-color: #008289;
+      transform: translateY(-5px);
+    }
+
+    /* Small adjustment for mobile devices */
+    @media (max-width: 600px) {
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+    }
       /* --- TECH ORBIT PRELOADER --- */
     #preloader {
       position: fixed;
@@ -1195,7 +1310,7 @@
           <h3>Project Gallery</h3>
           
           <div class="modern-gallery-grid gallery-grid">
-             
+              
              <div class="modern-gallery-item" onclick="openLightbox(this)">
                <div class="modern-gallery-img-wrapper">
                  <img src="https://lh3.googleusercontent.com/d/1ZnGdTn_fKq4QBGefs-shCwvMkk_AyaUn" alt="Windows Server Dashboard Overview" referrerpolicy="no-referrer">
@@ -1698,7 +1813,26 @@
     }
 
     // 3. INITIALIZATION
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {// --- BACK TO TOP LOGIC ---
+        const backToTopBtn = document.getElementById('backToTop');
+        if (backToTopBtn) {
+            // Show or hide the button based on scroll position
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+
+            // Scroll to top when clicked
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
         window.addEventListener('popstate', function(event) {
             if (event.state && event.state.page) { switchPageVisuals(event.state.page); } 
             else { switchPageVisuals('home-view'); }
@@ -1758,6 +1892,7 @@
                     entry.target.style.opacity = 1;
                     entry.target.style.transform = 'translateY(0)';
                     setTimeout(() => { entry.target.style.transform = ''; entry.target.style.transition = ''; }, 600);
+                    // Remaining logic for progress circles keeps from breaking if they exist elsewhere later
                     const progressCircles = entry.target.querySelectorAll('.circle');
                     progressCircles.forEach(circle => {
                         const val = circle.getAttribute('data-percent');
@@ -1768,7 +1903,8 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.glass-card, .project-card, .lovable-app-card').forEach(el => {
+        // UPDATED: Now observing .skill-icon-wrapper instead of .skill-card
+        document.querySelectorAll('.glass-card, .project-card, .lovable-app-card, .skill-icon-wrapper').forEach(el => {
             el.style.opacity = 0; el.style.transform = 'translateY(20px)'; el.style.transition = 'all 0.6s ease-out';
             observer.observe(el);
         });
@@ -1923,17 +2059,23 @@
 
         // Hover events for custom cursor expansion
         document.addEventListener('mouseover', (e) => {
-            if (e.target.closest('a, button, .project-card, .gallery-item, input, textarea, .btn-icon, .close-modal, .close-lightbox, .modern-gallery-item')) {
+            if (e.target.closest('a, button, .project-card, .gallery-item, input, textarea, .btn-icon, .close-modal, .close-lightbox, .modern-gallery-item, .skill-icon-wrapper')) {
                 blendCursor.classList.add('hovering');
             }
         });
 
         document.addEventListener('mouseout', (e) => {
-            if (e.target.closest('a, button, .project-card, .gallery-item, input, textarea, .btn-icon, .close-modal, .close-lightbox, .modern-gallery-item')) {
+            if (e.target.closest('a, button, .project-card, .gallery-item, input, textarea, .btn-icon, .close-modal, .close-lightbox, .modern-gallery-item, .skill-icon-wrapper')) {
                 blendCursor.classList.remove('hovering');
             }
         });
     }
+    
+    
   </script>
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 </body>
 </html>
