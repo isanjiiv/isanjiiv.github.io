@@ -1323,14 +1323,103 @@
         </div>
 
         <div class="detail-block">
-          <h3>What I achieved in this project:</h3>
-          <p>Previously, our company website <a href="http://www.gmsdelhi.com" target="_blank" style="color:var(--primary); font-weight:bold;">www.gmsdelhi.com</a> was managed by a third-party web development company. However, the entire responsibility of managing, designing, and updating the website has now been taken over by me. I independently redesigned and organized the website, created and updated all page layouts, and developed the complete content structure to ensure the information is clear, professional, and user-friendly. Every page, section, and content element has been handled by me personally, from planning the structure to implementing the final design.</p>
-          <p>By bringing the website management in-house, the company has gained several advantages. Updates and modifications can now be implemented much faster without depending on an external vendor, which saves both time and operational costs. The company no longer needs to pay recurring charges for small website changes, maintenance, or content updates. I can quickly add new pages, update information, improve design elements, and ensure that the website always reflects the latest company services and announcements.</p>
-          <p>This change has also improved efficiency and flexibility in managing the company’s digital presence. With direct control over the website, we can respond quickly to business requirements, improve user experience, and maintain better consistency in branding and messaging. Overall, handling the website internally has increased productivity, reduced expenses, and allowed the company to maintain a more dynamic and up-to-date online presence.</p>
+          <h3>Overview</h3>
+          <p>Successfully transitioned the company’s primary website (<a href="http://www.gmsdelhi.com" target="_blank" style="color:var(--primary); font-weight:bold;">www.gmsdelhi.com</a>) from a third-party web development agency to a fully in-house managed platform. This initiative involved a complete structural redesign, content overhaul, and ongoing technical management to ensure the digital presence aligned perfectly with the company's brand identity.</p>
+          <p>By taking absolute ownership of the website, I eliminated external dependencies, which drastically reduced operational costs and allowed the company to execute digital updates instantly rather than waiting for vendor turnarounds.</p>
         </div>
+
+        <div class="detail-block">
+          <h3>Key Responsibilities & Implementation</h3>
+          
+          <h4>1) Complete Website Redesign</h4>
+          <p>Independently redesigned the visual architecture of the website to provide a more modern, clean, and professional user experience.</p>
+          <ul>
+              <li>Revamped page layouts to improve mobile responsiveness and readability.</li>
+              <li>Upgraded brand visuals, typography, and color schemes to match corporate standards.</li>
+              <li>Optimized navigation menus to help visitors find services and products faster.</li>
+          </ul>
+
+          <h4>2) Content Strategy & Restructuring</h4>
+          <p>Developed and deployed a comprehensive content strategy to ensure clear communication of company services.</p>
+          <ul>
+              <li>Rewrote and organized copy across all core pages (Home, About Us, Services, Contact).</li>
+              <li>Structured product and service hierarchies for better user flow.</li>
+              <li>Ensured all technical information regarding company offerings was highly accurate and easily accessible.</li>
+          </ul>
+
+          <h4>3) In-House Technical Management</h4>
+          <p>Replaced the external vendor workflow with a streamlined internal process.</p>
+          <ul>
+              <li>Took full control of backend hosting settings, domain management, and CMS configuration.</li>
+              <li>Implemented regular security checks, plugin updates, and site backups.</li>
+              <li>Saved the company significant capital by eliminating monthly third-party maintenance retainers.</li>
+          </ul>
+
+          <h4>4) Agile Updates & SEO Maintenance</h4>
+          <p>Established a workflow for rapid response to business needs.</p>
+          <ul>
+              <li>Published new service announcements, banners, and updates instantly.</li>
+              <li>Applied basic on-page SEO principles to ensure page titles, images, and descriptions met web standards.</li>
+          </ul>
+        </div>
+
+        <div class="detail-block">
+          <h3>Key Outcomes</h3>
+          <ul>
+              <li><strong>Zero External Dependency:</strong> Achieved 100% internal control over web assets.</li>
+              <li><strong>Cost Efficiency:</strong> Eliminated ongoing third-party vendor charges for maintenance and minor updates.</li>
+              <li><strong>Rapid Deployment:</strong> Reduced the turnaround time for website changes from days to mere minutes.</li>
+              <li><strong>Improved UX:</strong> Delivered a faster, cleaner, and more structured interface for business clients.</li>
+          </ul>
+        </div>
+
+        <div class="detail-block">
+          <h3>Live Website Preview</h3>
+          <p>Click the button below to load and explore the redesigned Grain Milling Solutions website directly inside this portfolio.</p>
+          
+          <button class="btn-primary" onclick="loadP4Website('http://www.gmsdelhi.com', 'GMS Delhi Website')">Load Live Website <i class="fa-solid fa-eye" style="margin-left:5px;"></i></button>
+
+          <!-- Unique Preview Box for Project 4 -->
+          <div id="previewBox-p4" class="app-preview-box" style="margin-top: 30px;">
+            <div class="app-preview-header">
+              <strong id="previewTitle-p4" class="app-preview-title">Website Preview</strong>
+              <div class="app-preview-actions">
+                <a id="openFullBtn-p4" href="http://www.gmsdelhi.com" target="_blank" rel="noopener noreferrer" class="btn-secondary-outline">Open Full <i class="fa-solid fa-external-link-alt"></i></a>
+                <button class="btn-danger-outline" aria-label="Close Preview" onclick="closeP4Website()">Close</button>
+              </div>
+            </div>
+            <iframe id="appFrame-p4" src="" class="app-iframe" title="GMS Delhi Live Preview"></iframe>
+          </div>
+        </div>
+        
+        <!-- Local script to handle only Project 4's preview box safely -->
+        <script>
+          function loadP4Website(url, title) {
+              const previewBox = document.getElementById("previewBox-p4");
+              const frame = document.getElementById("appFrame-p4");
+              const previewTitle = document.getElementById("previewTitle-p4");
+              const fullBtn = document.getElementById("openFullBtn-p4");
+
+              previewTitle.innerText = title + " - Live Preview";
+              previewBox.style.display = "block";
+              frame.src = url;
+              fullBtn.href = url;
+              
+              setTimeout(() => {
+                  previewBox.scrollIntoView({ behavior: "smooth", block: "start" });
+              }, 100);
+          }
+
+          function closeP4Website() {
+              const previewBox = document.getElementById("previewBox-p4");
+              const frame = document.getElementById("appFrame-p4");
+              frame.src = "";
+              previewBox.style.display = "none";
+          }
+        </script>
+
       </div>
     </div>
-
   </main>
 
   <footer class="stacked-footer">
