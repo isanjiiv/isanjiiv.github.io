@@ -533,6 +533,11 @@
 
 <body>
 
+<!-- Tech Orbit Preloader -->
+  <div id="preloader">
+    <div class="tech-loader"></div>
+    <div class="loader-text">Loading...</div>
+  </div>
   <header>
     <div class="container nav-inner">
       <a href="#" onclick="event.preventDefault(); showHomeView()" class="brand" aria-label="Sanjeev Kumar Homepage">
@@ -962,6 +967,75 @@
       
       <!-- Styles for the new Modern Gallery layout -->
       <style>
+      /* --- TECH ORBIT PRELOADER --- */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: var(--bg);
+      z-index: 9999999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    #preloader.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .tech-loader {
+      position: relative;
+      width: 64px;
+      height: 64px;
+    }
+    .tech-loader::before, .tech-loader::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+    }
+    /* Outer glowing ring */
+    .tech-loader::before {
+      inset: 0;
+      border: 3px solid transparent;
+      border-top-color: var(--primary);
+      border-bottom-color: var(--primary);
+      animation: spin-orbit 1.5s linear infinite;
+      box-shadow: 0 0 15px var(--primary-glow);
+    }
+    /* Inner fast ring */
+    .tech-loader::after {
+      inset: 12px;
+      border: 3px solid transparent;
+      border-left-color: var(--text-main);
+      border-right-color: var(--text-main);
+      animation: spin-orbit-reverse 0.75s linear infinite;
+    }
+    .loader-text {
+      margin-top: 20px;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--primary);
+      animation: pulse-text 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes spin-orbit { 
+      0% { transform: rotate(0deg); } 
+      100% { transform: rotate(360deg); } 
+    }
+    @keyframes spin-orbit-reverse { 
+      0% { transform: rotate(360deg); } 
+      100% { transform: rotate(-360deg); } 
+    }
+    @keyframes pulse-text { 
+      0%, 100% { opacity: 0.4; } 
+      50% { opacity: 1; } 
+    }
         .modern-gallery-grid {
           display: grid !important; /* Added !important to override default gallery-grid flex layout */
           grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -1394,6 +1468,21 @@
         
         <!-- Local script to handle only Project 4's preview box safely -->
         <script>
+            // 6. PRELOADER LOGIC
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            // Adds a tiny delay so the animation feels smooth even on fast internet
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+            }, 300);
+            
+            // Removes it from the DOM completely after it fades out
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 900);
+        }
+    });
           function loadP4Website(url, title) {
               const previewBox = document.getElementById("previewBox-p4");
               const frame = document.getElementById("appFrame-p4");
