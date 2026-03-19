@@ -22,35 +22,128 @@
     /* --- UPDATED STYLES FOR STANDALONE HEADER IMAGE BLOCK --- */
     .card-banner-wrapper {
       width: 100%;
-      height: 350px; /* Big height for banner effect */
-      
-      /* Updated: Full rounded corners matching portfolio style */
-      border-radius: var(--radius-md); 
-      overflow: hidden; /* Hide anything outside bounds */
-      
-      /* Updated: Standard positive margin below for physical separation from card */
-      margin-bottom: var(--section-spacing); 
-
-      /* Added: Visual styles matching a separate glass block for integration */
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      box-shadow: var(--glass-shadow);
+      height: 350px; 
+      border-radius: var(--radius-md, 12px); 
+      overflow: hidden; 
+      margin-bottom: var(--section-spacing, 2rem); 
+      background: var(--card-bg, #fff);
+      border: 1px solid var(--card-border, #eee);
+      box-shadow: var(--glass-shadow, 0 4px 6px rgba(0,0,0,0.1));
       backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     }
 
     .card-banner-wrapper img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Fill the area without stretching */
-      object-position: center; /* Center the image within its frame */
+      object-fit: cover; 
+      object-position: center; 
       display: block;
     }
+
+    /* --- MODERN PROJECT GALLERY STYLES --- */
+    .modern-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .modern-gallery-item {
+      position: relative;
+      border-radius: var(--radius-md, 12px);
+      overflow: hidden;
+      background: var(--card-bg, #ffffff);
+      border: 1px solid var(--card-border, #e5e7eb);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modern-gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .modern-gallery-img-wrapper {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .modern-gallery-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .modern-gallery-item:hover .modern-gallery-img-wrapper img {
+      transform: scale(1.08);
+    }
+
+    .modern-gallery-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modern-gallery-item:hover .modern-gallery-overlay {
+      opacity: 1;
+    }
+
+    .modern-gallery-overlay i {
+      color: white;
+      font-size: 2rem;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+    }
+
+    .modern-gallery-details {
+      padding: 1.25rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .modern-gallery-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-main, #1f2937);
+      margin: 0;
+    }
+
+    .modern-gallery-desc {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-muted, #6b7280);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Gallery Dark Mode Support */
+    [data-theme="dark"] .modern-gallery-item {
+      background: #1e293b; /* Example dark bg */
+      border-color: #334155;
+    }
+    [data-theme="dark"] .modern-gallery-title { color: #f8fafc; }
+    [data-theme="dark"] .modern-gallery-desc { color: #cbd5e1; }
 
     /* Adjust for mobile screens */
     @media (max-width: 600px) {
       .card-banner-wrapper {
-        height: 180px; /* Shorter height on mobile */
-        margin-bottom: 2rem; /* Reduce spacing on mobile */
+        height: 180px; 
+        margin-bottom: 2rem; 
+      }
+      .modern-gallery-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -181,33 +274,77 @@
 
         <div class="detail-block">
           <h3>Project Gallery</h3>
-          <div class="gallery-grid">
-             <div class="gallery-item" onclick="openLightbox(this)">
-               <img src="https://lh3.googleusercontent.com/d/1ZnGdTn_fKq4QBGefs-shCwvMkk_AyaUn" alt="Windows Server Dashboard Overview" referrerpolicy="no-referrer">
-               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+          
+          <div class="modern-gallery-grid">
+             
+             <div class="modern-gallery-item" onclick="openLightbox(this)">
+               <div class="modern-gallery-img-wrapper">
+                 <img src="https://lh3.googleusercontent.com/d/1ZnGdTn_fKq4QBGefs-shCwvMkk_AyaUn" alt="Windows Server Dashboard Overview" referrerpolicy="no-referrer">
+                 <div class="modern-gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+               </div>
+               <div class="modern-gallery-details">
+                 <h4 class="modern-gallery-title">Server Dashboard</h4>
+                 <p class="modern-gallery-desc">Centralized overview of Windows Server roles, local server configuration, and overall system health.</p>
+               </div>
              </div>
-             <div class="gallery-item" onclick="openLightbox(this)">
-               <img src="https://lh3.googleusercontent.com/d/1inyWgMWxzt5bllljVpYW7ON-ZdinqfQx" alt="Active Directory AD DS Structure Configuration" referrerpolicy="no-referrer">
-               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+
+             <div class="modern-gallery-item" onclick="openLightbox(this)">
+               <div class="modern-gallery-img-wrapper">
+                 <img src="https://lh3.googleusercontent.com/d/1inyWgMWxzt5bllljVpYW7ON-ZdinqfQx" alt="Active Directory AD DS Structure Configuration" referrerpolicy="no-referrer">
+                 <div class="modern-gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+               </div>
+               <div class="modern-gallery-details">
+                 <h4 class="modern-gallery-title">Active Directory Setup</h4>
+                 <p class="modern-gallery-desc">Organized OU hierarchy tailored for departmental segmentation and role-based access management.</p>
+               </div>
              </div>
-             <div class="gallery-item" onclick="openLightbox(this)">
-               <img src="https://lh3.googleusercontent.com/d/1aFtsM3ZlIp3sHi2XiGM7P-r0dD9WU84K" alt="Windows Group Policy Object GPO Rules" referrerpolicy="no-referrer">
-               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+
+             <div class="modern-gallery-item" onclick="openLightbox(this)">
+               <div class="modern-gallery-img-wrapper">
+                 <img src="https://lh3.googleusercontent.com/d/1aFtsM3ZlIp3sHi2XiGM7P-r0dD9WU84K" alt="Windows Group Policy Object GPO Rules" referrerpolicy="no-referrer">
+                 <div class="modern-gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+               </div>
+               <div class="modern-gallery-details">
+                 <h4 class="modern-gallery-title">Group Policy (GPO)</h4>
+                 <p class="modern-gallery-desc">Automated rules enforcing organizational security policies, mapped drives, and USB restrictions.</p>
+               </div>
              </div>
-             <div class="gallery-item" onclick="openLightbox(this)">
-               <img src="https://lh3.googleusercontent.com/d/12-8dF8_BAoeELIvCiNeY4yyVB6QRQrSP" alt="Acronis Cyber Protect Backup Interface" referrerpolicy="no-referrer">
-               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+
+             <div class="modern-gallery-item" onclick="openLightbox(this)">
+               <div class="modern-gallery-img-wrapper">
+                 <img src="https://lh3.googleusercontent.com/d/12-8dF8_BAoeELIvCiNeY4yyVB6QRQrSP" alt="Acronis Cyber Protect Backup Interface" referrerpolicy="no-referrer">
+                 <div class="modern-gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+               </div>
+               <div class="modern-gallery-details">
+                 <h4 class="modern-gallery-title">Acronis Cyber Protect</h4>
+                 <p class="modern-gallery-desc">Comprehensive backup plans and disaster recovery configuration ensuring complete data protection.</p>
+               </div>
              </div>
-             <div class="gallery-item" onclick="openLightbox(this)">
-               <img src="https://lh3.googleusercontent.com/d/1B8KH3Z7KDHwuOfmhkbYkclC6pkelnnx-" alt="Windows Server Folder Sharing and Permissions" referrerpolicy="no-referrer">
-               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+
+             <div class="modern-gallery-item" onclick="openLightbox(this)">
+               <div class="modern-gallery-img-wrapper">
+                 <img src="https://lh3.googleusercontent.com/d/1B8KH3Z7KDHwuOfmhkbYkclC6pkelnnx-" alt="Windows Server Folder Sharing and Permissions" referrerpolicy="no-referrer">
+                 <div class="modern-gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+               </div>
+               <div class="modern-gallery-details">
+                 <h4 class="modern-gallery-title">Secure File Sharing</h4>
+                 <p class="modern-gallery-desc">Centralized network storage with strict NTFS permissions applied via Active Directory groups.</p>
+               </div>
              </div>
-             <div class="gallery-item" onclick="openLightbox(this)">
-               <img src="https://lh3.googleusercontent.com/d/13xGHGpYbyf4CWA4MjzRgMowhMzv5xa6y" alt="Enterprise Printer Management on Windows Server" referrerpolicy="no-referrer">
-               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+
+             <div class="modern-gallery-item" onclick="openLightbox(this)">
+               <div class="modern-gallery-img-wrapper">
+                 <img src="https://lh3.googleusercontent.com/d/13xGHGpYbyf4CWA4MjzRgMowhMzv5xa6y" alt="Enterprise Printer Management on Windows Server" referrerpolicy="no-referrer">
+                 <div class="modern-gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+               </div>
+               <div class="modern-gallery-details">
+                 <h4 class="modern-gallery-title">Print Management</h4>
+                 <p class="modern-gallery-desc">Enterprise print servers set up and mapped automatically to designated departmental users.</p>
+               </div>
              </div>
+
           </div>
-        </div>
+          </div>
 
       </div>
       </div>
