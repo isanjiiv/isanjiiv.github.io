@@ -22,7 +22,8 @@
   <meta name="yandex-verification" content="44906cddcaee9a6e" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
-  <title>Sanjeev Kumar | IT Engineer & Network Administrator</title>
+  <!-- SEO Updates Confirmed -->
+  <title>Sanjeev Kumar | IT Engineer</title>
   <meta name="description" content="Portfolio of Sanjeev Kumar, an IT Engineer based in Noida specializing in Windows Server Administration, Networking, Fortinet Firewall, AWS, Azure, AI Automation, and Cybersecurity." />
   <meta name="keywords" content="Sanjeev Kumar, IT Engineer Noida, Windows Server Administration, Network Engineer, Fortinet 60F Expert, AWS, Azure, Cybersecurity, AI Automation, Active Directory, isanjiiv" />
   <meta name="author" content="Sanjeev Kumar" />
@@ -31,10 +32,10 @@
   <link rel="canonical" href="https://isanjiiv.github.io/" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
-  <meta property="og:title" content="Sanjeev Kumar | IT Engineer & System Administrator" />
+  <meta property="og:title" content="Sanjeev Kumar | IT Engineer" />
   <meta property="og:description" content="Expert in Windows Server • Networking • Cloud (AWS/Azure) • Fortinet Security • AI Automation" />
   <meta property="og:type" content="profile" />
-  <meta property="og:image" content="https://isanjiiv.github.io/assets/images/sanjeev%20kumar.png"/>
+ <meta property="og:image" content="https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-engineer-noida.jpg"/>
   <meta property="og:url" content="https://isanjiiv.github.io/" />
   <meta property="profile:first_name" content="Sanjeev" />
   <meta property="profile:last_name" content="Kumar" />
@@ -42,7 +43,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Sanjeev Kumar | IT Engineer">
   <meta name="twitter:description" content="Windows Server • Networking • Cloud • Cybersecurity • AI Automation">
-  <meta name="twitter:image" content="https://isanjiiv.github.io/assets/images/sanjeev%20kumar.png">
+  <meta name="twitter:image" content="https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-engineer-noida.jpg">
 
   <script type="application/ld+json">
   {
@@ -55,7 +56,8 @@
         "jobTitle": "IT Engineer",
         "description": "IT Engineer specializing in Windows Server Administration, Networking, Cloud (AWS & Azure), Fortinet Firewall, and Cybersecurity.",
         "url": "https://isanjiiv.github.io/",
-        "image": "https://isanjiiv.github.io/assets/images/sanjeev%20kumar.png",
+        "image": "https://isanjiiv.github.io/assets/images/sanjeev-kumar-
+```it-engineer-noida.jpg",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Noida",
@@ -373,6 +375,22 @@
     .detail-block ul { padding-left: 20px; color: var(--text-muted); margin-bottom: 1rem; }
     .detail-block li { margin-bottom: 0.5rem; }
 
+    /* PROJECT IMAGE BANNER */
+    .project-banner-wrapper {
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 2rem;
+      border: 1px solid var(--card-border);
+    }
+    .project-banner-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 16 / 7;
+    }
+
     .gallery-grid { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
     .gallery-item { flex: 1 1 200px; height: 140px; background: var(--bg-secondary); border-radius: 8px; border: 1px solid var(--card-border); overflow: hidden; cursor: pointer; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
     .gallery-item:hover { transform: scale(1.05) !important; border-color: var(--primary); box-shadow: 0 8px 20px var(--glass-shadow); z-index: 2; }
@@ -399,6 +417,34 @@
     .app-preview-title { font-weight: 700; color: var(--text-main); }
     .app-preview-actions { display: flex; gap: 10px; align-items: center; }
     .app-iframe { width: 100%; border: none; height: 650px; background: #ffffff; }
+
+    /* --- COLOR BLEND MOUSE CURSOR CSS --- */
+    #blend-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease;
+      display: none; /* Hidden by default for mobile */
+    }
+    #blend-cursor.hovering {
+      width: 70px;
+      height: 70px;
+      background-color: #ffffff;
+    }
+    /* Only show custom cursor on devices with a mouse */
+    @media (pointer: fine) {
+      #blend-cursor {
+        display: block;
+      }
+    }
 
     @media (max-width: 768px){ .app-iframe{ height: 65vh; } }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -862,7 +908,7 @@
         
         <div class="contact-layout">
           <div class="contact-image-container">
-            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-engineer.png" alt="Sanjeev Kumar - IT Engineer, Network Administrator, and Cloud Expert based in Noida" title="Sanjeev Kumar" class="contact-image" loading="lazy">
+            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-engineer-noida.jpg" alt="Sanjeev Kumar - IT Engineer, Network Administrator, and Cloud Expert based in Noida" title="Sanjeev Kumar" class="contact-image" loading="lazy">
           </div>
 
           <div class="glass-card contact-wrapper">
@@ -913,88 +959,246 @@
     </div>
 
     <div id="project-1" class="page-view container">
-      <button onclick="showHomeView()" class="btn-primary" style="margin-bottom:2rem; font-size:0.85rem;" aria-label="Back to Main Portfolio"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</button>
       
+      <!-- Styles for the new Modern Gallery layout -->
+      <style>
+        .modern-gallery-grid {
+          display: grid !important; /* Added !important to override default gallery-grid flex layout */
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+          gap: 1.5rem;
+          margin-top: 1.5rem;
+        }
+        .modern-gallery-item {
+          background: var(--bg-secondary);
+          border: 1px solid var(--card-border);
+          border-radius: var(--radius-md);
+          overflow: hidden;
+          cursor: pointer;
+          transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+          display: flex;
+          flex-direction: column;
+        }
+        .modern-gallery-item:hover {
+          transform: translateY(-5px);
+          border-color: var(--primary);
+          box-shadow: 0 8px 20px var(--glass-shadow);
+        }
+        .modern-gallery-img-wrapper {
+          position: relative;
+          height: 180px;
+          overflow: hidden;
+        }
+        .modern-gallery-img-wrapper img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.4s ease;
+        }
+        .modern-gallery-item:hover .modern-gallery-img-wrapper img {
+          transform: scale(1.05);
+        }
+        .modern-gallery-overlay {
+          position: absolute;
+          inset: 0;
+          background: rgba(0,0,0,0.3);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: opacity 0.2s;
+        }
+        .modern-gallery-item:hover .modern-gallery-overlay {
+          opacity: 1;
+        }
+        .modern-gallery-overlay i {
+          color: #fff;
+          font-size: 1.5rem;
+        }
+        .modern-gallery-details {
+          padding: 1.2rem;
+          flex-grow: 1;
+        }
+        .modern-gallery-title {
+          font-size: 1.1rem;
+          margin-top: 0;
+          margin-bottom: 0.5rem;
+          color: var(--text-main);
+        }
+        .modern-gallery-desc {
+          font-size: 0.85rem;
+          color: var(--text-muted);
+          margin-bottom: 0;
+          line-height: 1.5;
+        }
+      </style>
+      
+      <div class="project-banner-wrapper">
+        <img src="https://isanjiiv.github.io/assets/images/windows-Server-2022.png" alt="Windows Server 2022 and Active Directory Project Header Banner" class="project-banner-img" loading="lazy">
+      </div>
+
       <div class="glass-card">
+        
         <div class="project-header">
           <h1 class="project-title">Windows Server Domain Setup + GPO Automation + Backup & Recovery</h1>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
-              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">Windows Server 2016</span>
+              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">Windows Server 2022</span>
               <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">Active Directory (AD DS)</span>
-              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">GPO</span>
+              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">DNS</span>
+              <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">Group Policy (GPO)</span>
               <span class="tech-tag" style="background:var(--bg-secondary); border:none; color:var(--text-muted);">Acronis Cyber Protect</span>
           </div>
         </div>
 
         <div class="detail-block">
           <h3>Overview</h3>
-          <p>Designed and implemented a complete Windows Server 2016 domain infrastructure for an enterprise environment to centralize user management, enforce security policies, automate IT operations, and ensure reliable data protection. This project included Active Directory Domain Services (AD DS), DNS integration, structured OU design, Group Policy management, shared folder access control, printer deployment, and a fully scheduled Acronis Cyber Protect Cloud backup strategy for disaster recovery readiness.</p>
+          <p>Designed and implemented a modern enterprise-grade IT infrastructure using Windows Server 2022 to centralize identity management, strengthen network security, and automate administrative operations. The solution leveraged Active Directory Domain Services (AD DS) integrated with DNS for seamless authentication and name resolution across the organization.</p>
+          <p>A structured Organizational Unit (OU) hierarchy was created to organize departments efficiently and enable precise policy application. Group Policy Objects (GPOs) were implemented to standardize configurations, enforce security policies, and reduce manual IT effort.</p>
+          <p>Additionally, a reliable backup and disaster recovery strategy was implemented using Acronis Cyber Protect Cloud, ensuring data protection, quick recovery, and business continuity.</p>
         </div>
 
         <div class="detail-block">
           <h3>Key Responsibilities & Implementation</h3>
+          
           <h4>1) Active Directory Domain Services (AD DS) Deployment</h4>
-          <p>Configured and managed a Windows Server 2016 domain environment to support centralized authentication and access control across the organization.</p>
+          <p>Configured Windows Server 2022 as a Domain Controller to provide centralized authentication and access control across the enterprise network.</p>
           <ul>
-              <li>Installed and configured AD DS and DNS roles</li>
-              <li>Created a domain structure for enterprise-level user and device management</li>
-              <li>Managed domain objects through Active Directory Users and Computers (ADUC)</li>
+              <li>Installed and configured AD DS and DNS roles.</li>
+              <li>Promoted server to Domain Controller with proper domain/forest setup.</li>
+              <li>Configured DNS zones for internal network resolution.</li>
+              <li>Managed users, computers, and groups via Active Directory Users and Computers (ADUC).</li>
+              <li>Ensured secure domain authentication and connectivity.</li>
           </ul>
+
           <h4>2) Department-Wise OU Structure & User Management</h4>
-          <p>Built a department-based Organizational Unit (OU) hierarchy to simplify administration and enable targeted policy application.</p>
+          <p>Designed a structured Organizational Unit (OU) hierarchy based on departmental segmentation to simplify administration and enable targeted policy enforcement.</p>
           <ul>
-              <li>Created OUs for multiple teams: Accounts, Costing, CRM, Design, HR, IT, Purchase, Reception, and Management.</li>
-              <li>Added and managed user accounts, security groups, and role-based access.</li>
+              <li>Created OUs for departments: Accounts, Costing, CRM, Design, HR, IT, Purchase, Reception, and Management.</li>
+              <li>Implemented role-based access using security groups.</li>
+              <li>Managed user lifecycle (creation, modification, permissions).</li>
+              <li>Delegated administrative control for efficient management.</li>
           </ul>
+
           <h4>3) Group Policy (GPO) Implementation</h4>
-          <p>Implemented multiple Group Policy Objects (GPOs) to automate workstation configuration and improve security.</p>
+          <p>Implemented multiple Group Policy Objects to automate system configuration, enforce security, and standardize user environments.</p>
           <ul>
-              <li><strong>USB Access Deny Policy:</strong> Restricted USB storage usage.</li>
-              <li><strong>Drive Mapping Policy:</strong> Automatically mapped shared drives for teams like Design/IT.</li>
-              <li><strong>Printer Deployment Policy:</strong> Automated printer deployment without manual installation.</li>
+              <li><strong>USB Restriction Policy</strong> to prevent unauthorized data transfer.</li>
+              <li><strong>Drive Mapping Policy</strong> to automatically connect shared network drives.</li>
+              <li><strong>Printer Deployment Policy</strong> for automatic printer setup.</li>
+              <li>Security policies including password enforcement, login restrictions, and system hardening.</li>
           </ul>
-          <h4>4) Backup & Disaster Recovery using Acronis</h4>
-          <p>Implemented a secure backup strategy using Acronis Cyber Protect Cloud to protect critical user data and business folders.</p>
+
+          <h4>4) Shared Folder & Access Control</h4>
+          <p>Configured centralized file storage with secure access control to enable safe and efficient data sharing across departments.</p>
           <ul>
-              <li>Configured backup plans for important systems and shared folders.</li>
-              <li>Set up scheduled daily incremental backups.</li>
+              <li>Created shared folders on the server.</li>
+              <li>Applied NTFS and share-level permissions.</li>
+              <li>Integrated access control using Active Directory security groups.</li>
+              <li>Ensured controlled and secure collaboration environment.</li>
+          </ul>
+
+          <h4>5) Backup & Disaster Recovery using Acronis</h4>
+          <p>Implemented a comprehensive backup and disaster recovery solution using Acronis Cyber Protect Cloud.</p>
+          <ul>
+              <li>Configured backup plans for servers and critical data.</li>
+              <li>Scheduled daily incremental backups for efficiency.</li>
+              <li>Enabled cloud backup for redundancy and protection.</li>
+              <li>Tested recovery processes to ensure reliability and readiness.</li>
+          </ul>
+        </div>
+
+        <div class="detail-block">
+          <h3>Key Outcomes</h3>
+          <ul>
+              <li>Centralized user and device management across the organization.</li>
+              <li>Improved security through policy-based controls.</li>
+              <li>Reduced manual IT workload via automation.</li>
+              <li>Enhanced system reliability and operational efficiency.</li>
+              <li>Ensured business continuity with a robust backup and recovery strategy.</li>
           </ul>
         </div>
 
         <div class="detail-block">
           <h3>Project Gallery</h3>
-          <div class="gallery-grid">
-             <div class="gallery-item" onclick="openLightbox(this)">
-               <img src="https://lh3.googleusercontent.com/d/1ZnGdTn_fKq4QBGefs-shCwvMkk_AyaUn" alt="Windows Server Dashboard Overview" referrerpolicy="no-referrer">
-               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+          
+          <div class="modern-gallery-grid gallery-grid">
+             
+             <div class="modern-gallery-item" onclick="openLightbox(this)">
+               <div class="modern-gallery-img-wrapper">
+                 <img src="https://lh3.googleusercontent.com/d/1ZnGdTn_fKq4QBGefs-shCwvMkk_AyaUn" alt="Windows Server Dashboard Overview" referrerpolicy="no-referrer">
+                 <div class="modern-gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+               </div>
+               <div class="modern-gallery-details">
+                 <h4 class="modern-gallery-title">Server Dashboard</h4>
+                 <p class="modern-gallery-desc">Centralized overview of Windows Server roles, local server configuration, and overall system health.</p>
+               </div>
              </div>
-             <div class="gallery-item" onclick="openLightbox(this)">
-               <img src="https://lh3.googleusercontent.com/d/1inyWgMWxzt5bllljVpYW7ON-ZdinqfQx" alt="Active Directory AD DS Structure Configuration" referrerpolicy="no-referrer">
-               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+
+             <div class="modern-gallery-item" onclick="openLightbox(this)">
+               <div class="modern-gallery-img-wrapper">
+                 <img src="https://lh3.googleusercontent.com/d/1inyWgMWxzt5bllljVpYW7ON-ZdinqfQx" alt="Active Directory AD DS Structure Configuration" referrerpolicy="no-referrer">
+                 <div class="modern-gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+               </div>
+               <div class="modern-gallery-details">
+                 <h4 class="modern-gallery-title">Active Directory Setup</h4>
+                 <p class="modern-gallery-desc">Organized OU hierarchy tailored for departmental segmentation and role-based access management.</p>
+               </div>
              </div>
-             <div class="gallery-item" onclick="openLightbox(this)">
-               <img src="https://lh3.googleusercontent.com/d/1aFtsM3ZlIp3sHi2XiGM7P-r0dD9WU84K" alt="Windows Group Policy Object GPO Rules" referrerpolicy="no-referrer">
-               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+
+             <div class="modern-gallery-item" onclick="openLightbox(this)">
+               <div class="modern-gallery-img-wrapper">
+                 <img src="https://lh3.googleusercontent.com/d/1aFtsM3ZlIp3sHi2XiGM7P-r0dD9WU84K" alt="Windows Group Policy Object GPO Rules" referrerpolicy="no-referrer">
+                 <div class="modern-gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+               </div>
+               <div class="modern-gallery-details">
+                 <h4 class="modern-gallery-title">Group Policy (GPO)</h4>
+                 <p class="modern-gallery-desc">Automated rules enforcing organizational security policies, mapped drives, and USB restrictions.</p>
+               </div>
              </div>
-             <div class="gallery-item" onclick="openLightbox(this)">
-               <img src="https://lh3.googleusercontent.com/d/12-8dF8_BAoeELIvCiNeY4yyVB6QRQrSP" alt="Acronis Cyber Protect Backup Interface" referrerpolicy="no-referrer">
-               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+
+             <div class="modern-gallery-item" onclick="openLightbox(this)">
+               <div class="modern-gallery-img-wrapper">
+                 <img src="https://lh3.googleusercontent.com/d/12-8dF8_BAoeELIvCiNeY4yyVB6QRQrSP" alt="Acronis Cyber Protect Backup Interface" referrerpolicy="no-referrer">
+                 <div class="modern-gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+               </div>
+               <div class="modern-gallery-details">
+                 <h4 class="modern-gallery-title">Acronis Cyber Protect</h4>
+                 <p class="modern-gallery-desc">Comprehensive backup plans and disaster recovery configuration ensuring complete data protection.</p>
+               </div>
              </div>
-             <div class="gallery-item" onclick="openLightbox(this)">
-               <img src="https://lh3.googleusercontent.com/d/1B8KH3Z7KDHwuOfmhkbYkclC6pkelnnx-" alt="Windows Server Folder Sharing and Permissions" referrerpolicy="no-referrer">
-               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+
+             <div class="modern-gallery-item" onclick="openLightbox(this)">
+               <div class="modern-gallery-img-wrapper">
+                 <img src="https://lh3.googleusercontent.com/d/1B8KH3Z7KDHwuOfmhkbYkclC6pkelnnx-" alt="Windows Server Folder Sharing and Permissions" referrerpolicy="no-referrer">
+                 <div class="modern-gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+               </div>
+               <div class="modern-gallery-details">
+                 <h4 class="modern-gallery-title">Secure File Sharing</h4>
+                 <p class="modern-gallery-desc">Centralized network storage with strict NTFS permissions applied via Active Directory groups.</p>
+               </div>
              </div>
-             <div class="gallery-item" onclick="openLightbox(this)">
-               <img src="https://lh3.googleusercontent.com/d/13xGHGpYbyf4CWA4MjzRgMowhMzv5xa6y" alt="Enterprise Printer Management on Windows Server" referrerpolicy="no-referrer">
-               <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+
+             <div class="modern-gallery-item" onclick="openLightbox(this)">
+               <div class="modern-gallery-img-wrapper">
+                 <img src="https://lh3.googleusercontent.com/d/13xGHGpYbyf4CWA4MjzRgMowhMzv5xa6y" alt="Enterprise Printer Management on Windows Server" referrerpolicy="no-referrer">
+                 <div class="modern-gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+               </div>
+               <div class="modern-gallery-details">
+                 <h4 class="modern-gallery-title">Print Management</h4>
+                 <p class="modern-gallery-desc">Enterprise print servers set up and mapped automatically to designated departmental users.</p>
+               </div>
              </div>
+
           </div>
         </div>
+
       </div>
     </div>
-
+    
     <div id="project-2" class="page-view container">
-      <button onclick="showHomeView()" class="btn-primary" style="margin-bottom:2rem; font-size:0.85rem;" aria-label="Back to Main Portfolio"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</button>
+      <div class="project-banner-wrapper">
+        <img src="https://isanjiiv.github.io/assets/images/sd-wan.png" alt="Fortinet Security Appliance and SD-WAN Network Banner" class="project-banner-img" loading="lazy">
+      </div>
+      
       <div class="glass-card">
         <div class="project-header">
           <h1 class="project-title">Fortinet 60F SD-WAN Deployment</h1>
@@ -1040,7 +1244,10 @@
     </div>
     
     <div id="project-3" class="page-view container">
-      <button onclick="showHomeView()" class="btn-primary" style="margin-bottom:2rem; font-size:0.85rem;" aria-label="Back to Main Portfolio"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</button>
+      <div class="project-banner-wrapper">
+        <img src="https://isanjiiv.github.io/assets/images/lovable-ai.png" alt="AI Agent and Lovable AI App Interface Banner for Notes and Resume Builders" class="project-banner-img" loading="lazy">
+      </div>
+      
       <div class="glass-card">
         <div class="project-header">
           <h1 class="project-title">AI Cost Sheet Builder & Other Apps</h1>
@@ -1100,7 +1307,9 @@
     </div>
 
     <div id="project-4" class="page-view container">
-      <button onclick="showHomeView()" class="btn-primary" style="margin-bottom:2rem; font-size:0.85rem;" aria-label="Back to Main Portfolio"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</button>
+      <div class="project-banner-wrapper">
+        <img src="https://isanjiiv.github.io/assets/images/wordpress-banner.png" alt="Website Design and WordPress Content Management Banner" class="project-banner-img" loading="lazy">
+      </div>
       
       <div class="glass-card">
         <div class="project-header">
@@ -1506,6 +1715,47 @@
             if (e.key === "Escape") { lb.classList.remove('show'); lb.setAttribute('aria-hidden', 'true'); }
         }
     });
+
+    // 5. COLOR BLEND MOUSE CURSOR
+    const blendCursor = document.createElement('div');
+    blendCursor.id = 'blend-cursor';
+    document.body.appendChild(blendCursor);
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let cursorX = mouseX;
+    let cursorY = mouseY;
+
+    function animateCursor() {
+        cursorX += (mouseX - cursorX) * 0.15; // Smooth trailing speed
+        cursorY += (mouseY - cursorY) * 0.15;
+        blendCursor.style.left = cursorX + 'px';
+        blendCursor.style.top = cursorY + 'px';
+        requestAnimationFrame(animateCursor);
+    }
+    
+    // Start animation only if device supports hover (not mobile)
+    if (window.matchMedia("(pointer: fine)").matches) {
+        animateCursor();
+        
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Hover events for custom cursor expansion
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.closest('a, button, .project-card, .gallery-item, input, textarea, .btn-icon, .close-modal, .close-lightbox, .modern-gallery-item')) {
+                blendCursor.classList.add('hovering');
+            }
+        });
+
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.closest('a, button, .project-card, .gallery-item, input, textarea, .btn-icon, .close-modal, .close-lightbox, .modern-gallery-item')) {
+                blendCursor.classList.remove('hovering');
+            }
+        });
+    }
   </script>
 </body>
 </html>
