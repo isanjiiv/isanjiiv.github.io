@@ -352,10 +352,11 @@
     .cert-link { margin-top: auto; font-size: 0.9rem; color: var(--primary); font-weight: 600; pointer-events: none; display: flex; align-items: center; gap: 6px; }
     
     /* TIMELINE */
-    .timeline { border-left: 2px solid var(--card-border); padding-left: 1.5rem; margin-left: 0.5rem; }
-    .timeline-item { position: relative; margin-bottom: 2rem; }
-    .timeline-item h3 { font-size: 1.1rem; }
-    .timeline-item::before { content: ''; position: absolute; left: -1.95rem; top: 5px; width: 12px; height: 12px; background: var(--bg); border: 2px solid var(--primary); border-radius: 50%; }
+    .timeline { border-left: 2px solid var(--card-border); padding-left: 2rem; margin-left: 0.5rem; }
+    .timeline-item { position: relative; margin-bottom: 2rem; border: 1px solid var(--card-border); border-radius: var(--radius-md); padding: 1.5rem; background: var(--card-bg); box-shadow: var(--glass-shadow); transition: var(--transition); }
+    .timeline-item:hover { border-color: var(--primary); box-shadow: 0 10px 25px var(--primary-glow); transform: translateY(-3px); }
+    .timeline-item h3 { font-size: 1.1rem; margin-top: 0; }
+    .timeline-item::before { content: ''; position: absolute; left: -2.48rem; top: 1.6rem; width: 14px; height: 14px; background: var(--bg); border: 2px solid var(--primary); border-radius: 50%; }
 
     /* CONTACT */
     .contact-layout { display: flex; flex-wrap: wrap; gap: 2rem; align-items: stretch; }
