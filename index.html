@@ -387,7 +387,7 @@
       width: 100%; 
       display: flex; 
       flex-direction: row; 
-      align-items: center; 
+      align-items: 
       gap: 2.5rem; 
       cursor: pointer; 
       text-decoration: none; 
@@ -734,7 +734,7 @@
       padding: 1rem 2rem;
       font-size: 1rem;
       font-family: var(--font-heading);
-      color: var(--text-muted);
+      color: var(--text-muted); /* Blends with page theme when inactive */
       cursor: pointer;
       border-radius: 20px 20px 0 0;
       position: relative;
@@ -746,10 +746,10 @@
       color: var(--primary);
     }
 
-    /* Active Tab & Smooth Curve Effect */
+    /* Active Tab & Smooth Curve Effect - FORCED DARK */
     .tab-btn.active {
-      background: var(--bg-secondary); 
-      color: var(--text-main);
+      background: #171717; /* Always dark */
+      color: #ffffff; /* Always light text */
     }
 
     .tab-btn.active::before,
@@ -765,22 +765,22 @@
 
     .tab-btn.active::before {
       left: -20px;
-      box-shadow: 10px 10px 0 0 var(--bg-secondary);
+      box-shadow: 10px 10px 0 0 #171717;
     }
 
     .tab-btn.active::after {
       right: -20px;
-      box-shadow: -10px 10px 0 0 var(--bg-secondary);
+      box-shadow: -10px 10px 0 0 #171717;
     }
 
-    /* Content Area */
+    /* Content Area - FORCED DARK */
     .project-tab-content-container {
-      background: var(--bg-secondary);
+      background: #171717; /* Always dark */
       border-radius: 30px;
       padding: 4rem;
       position: relative;
       z-index: 1;
-      box-shadow: var(--glass-shadow);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
       overflow: hidden;
       min-height: 450px;
     }
@@ -801,14 +801,15 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Text Colors - FORCED LIGHT ON DARK BG */
     .pane-text {
       flex: 1;
-      color: var(--text-muted);
+      color: #e5e5e5;
     }
 
     .pane-text h3 {
       font-size: 2.2rem;
-      color: var(--text-main);
+      color: #ffffff;
       margin-bottom: 1.5rem;
       font-weight: 600;
     }
@@ -817,13 +818,14 @@
       font-size: 1.05rem;
       line-height: 1.6;
       margin-bottom: 2rem;
-      color: var(--text-muted);
+      color: #a3a3a3;
     }
 
+    /* Button - High Contrast */
     .pane-btn {
       display: inline-flex;
-      background: var(--primary);
-      color: #ffffff;
+      background: #ffffff;
+      color: #000000;
       padding: 0.8rem 2rem;
       border-radius: 50px;
       font-weight: 600;
@@ -836,8 +838,7 @@
 
     .pane-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 5px 15px var(--primary-glow);
-      background: #008289;
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
     }
 
     .pane-image {
@@ -851,7 +852,7 @@
       width: 100%;
       max-width: 450px;
       border-radius: 12px;
-      box-shadow: var(--glass-shadow);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
       transition: transform 0.4s ease;
     }
     
@@ -883,9 +884,9 @@
         background: var(--bg);
       }
       .tab-btn.active {
-        background: var(--primary);
+        background: #171717; /* Keep active pill dark */
         color: #fff;
-        border-color: var(--primary);
+        border-color: #171717;
       }
       .tab-btn.active::before,
       .tab-btn.active::after {
@@ -904,6 +905,19 @@
         min-height: auto;
       }
     }
+    
+    @media (max-width: 600px) {
+      .pane-text h3 {
+        font-size: 1.6rem;
+      }
+      .pane-text p {
+        font-size: 0.95rem;
+      }
+      .project-tab-content-container {
+        min-height: auto;
+      }
+    }
+  </style>
   </style>
 </head>
 
