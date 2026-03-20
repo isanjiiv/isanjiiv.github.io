@@ -22,7 +22,6 @@
   <meta name="yandex-verification" content="44906cddcaee9a6e" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
-  <!-- SEO Updates Confirmed -->
   <title>Sanjeev Kumar | IT Engineer</title>
   <meta name="description" content="Portfolio of Sanjeev Kumar, an IT Engineer based in Noida specializing in Windows Server Administration, Networking, Fortinet Firewall, AWS, Azure, AI Automation, and Cybersecurity." />
   <meta name="keywords" content="Sanjeev Kumar, IT Engineer Noida, Windows Server Administration, Network Engineer, Fortinet 60F Expert, AWS, Azure, Cybersecurity, AI Automation, Active Directory, isanjiiv" />
@@ -45,79 +44,6 @@
   <meta name="twitter:description" content="Windows Server • Networking • Cloud • Cybersecurity • AI Automation">
   <meta name="twitter:image" content="https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-engineer-noida.jpg">
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "@id": "https://isanjiiv.github.io/#person",
-        "name": "Sanjeev Kumar",
-        "jobTitle": "IT Engineer",
-        "description": "IT Engineer specializing in Windows Server Administration, Networking, Cloud (AWS & Azure), Fortinet Firewall, and Cybersecurity.",
-        "url": "https://isanjiiv.github.io/",
-        "image": "https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-engineer-noida.jpg",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Noida",
-          "addressCountry": "IN"
-        },
-        "email": "mailto:sanjeev753304@gmail.com",
-        "sameAs": [
-          "https://www.linkedin.com/in/isanjiiv/",
-          "https://github.com/isanjiiv",
-          "https://www.instagram.com/isanjiiv/",
-          "https://www.youtube.com/@isanjiiv/",
-          "https://x.com/isanjiiv"
-        ],
-         "knowsAbout": [
-          "Windows Server Administration",
-          "Active Directory",
-          "Group Policy (GPO)",
-          "Network Engineering",
-          "Fortinet FortiGate 60F",
-          "Cybersecurity",
-          "AWS",
-          "Microsoft Azure",
-          "Prompt Engineering",
-          "Lovable AI",
-          "wordpress",
-          "Web designing",
-          "Website building",
-          "HTML",
-          "CSS",
-          "Javascript",
-          "cloud Engineering",
-          "Domain Hosting",
-          "IT Infrastructure Management"
-        ],
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Grain Milling Solutions Pvt Ltd"
-        }
-      },
-      {
-        "@type": "ProfilePage",
-        "@id": "https://isanjiiv.github.io/#webpage",
-        "url": "https://isanjiiv.github.io/",
-        "name": "Sanjeev Kumar | IT Engineer Portfolio",
-        "isPartOf": {
-          "@id": "https://isanjiiv.github.io/#website"
-        },
-        "about": {
-          "@id": "https://isanjiiv.github.io/#person"
-        }
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://isanjiiv.github.io/#website",
-        "url": "https://isanjiiv.github.io/",
-        "name": "Sanjeev Kumar Portfolio"
-      }
-    ]
-  }
-  </script>
-
   <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
   <link rel="shortcut icon" href="/assets/images/favicon.ico">
   <link rel="apple-touch-icon" href="https://isanjiiv.github.io/assets/images/favicon.ico">
@@ -128,17 +54,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    /* --- TYPING EFFECT CURSOR --- */
-    .typing-container { position: relative; }
-    .typing-container::after {
-      content: "|";
-      position: absolute;
-      right: -8px;
-      animation: blink 0.8s step-end infinite;
-      color: var(--primary);
-    }
-    @keyframes blink { from, to { opacity: 1; } 50% { opacity: 0; } }
-
     /* --- 1. VARIABLES & THEME --- */
     :root {
       --font-heading: 'Outfit', sans-serif;
@@ -242,7 +157,7 @@
     .btn-secondary-outline {
         padding: 0.4rem 1rem; border: 1px solid var(--text-main); color: var(--text-main);
         background: transparent; border-radius: 8px; cursor: pointer; font-size: 0.85rem;
-        transition: var(--transition); text-decoration: none; display: inline-block;
+        transition: var(--transition); text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
     }
     .btn-secondary-outline:hover { background: var(--text-main); color: var(--bg); }
 
@@ -262,7 +177,7 @@
     /* --- 4. LAYOUT --- */
     header {
       position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-      width: 85%; max-width: 850px; z-index: 1000; background: var(--nav-bg);
+      width: 85%; max-width: 950px; z-index: 1000; background: var(--nav-bg);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--card-border); border-radius: 60px; height: 65px; 
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); transition: all 0.3s ease;
@@ -277,7 +192,7 @@
     }
     [data-theme="dark"] .logo-circle { background: #334155; color: #f1f5f9; }
     
-    .nav-menu { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-menu { display: flex; gap: 1.2rem; align-items: center; }
     .nav-menu a { font-weight: 500; font-size: 0.95rem; color: var(--text-muted); cursor: pointer; }
     .nav-menu a:hover { color: var(--text-main); }
     
@@ -291,129 +206,108 @@
     .nav-actions { display: flex; gap: 8px; align-items: center; padding-right: 5px; }
 
     /* HERO */
-    .hero { min-height: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; padding-top: 140px; padding-bottom: 60px; }
+    .hero { min-height: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; padding-top: 140px; padding-bottom: 40px; }
     .hero-content { flex: 1.2; min-width: 300px; }
     .hero-img-container { flex: 0.8; min-width: 250px; position: relative; display: flex; justify-content: center; }
-    .hero h1 { font-size: 3rem; font-weight: 700; line-height: 1.1; margin-bottom: 0.8rem; }
-    .typing-text { color: var(--primary); }
+    .hero h1 { font-size: 2.8rem; font-weight: 700; line-height: 1.15; margin-bottom: 1rem; color: var(--text-main); }
     .avatar { width: 320px; height: 320px; object-fit: cover; border-radius: 50%; border: 4px solid var(--bg); box-shadow: 0 0 25px var(--primary-glow); animation: float 4s ease-in-out infinite; }
 
+    /* QUICK TRUST RIBBON */
+    .trust-ribbon {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: center;
+        align-items: center;
+        padding: 1.5rem 1rem;
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--card-border);
+        border-bottom: 1px solid var(--card-border);
+        margin-bottom: 3rem;
+    }
+    .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text-main);
+    }
+    .trust-item i { color: var(--primary); font-size: 1.2rem; }
+
+    /* SERVICES GRID */
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(260px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    .service-card {
+        padding: 2rem;
+        border-radius: var(--radius-md);
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        box-shadow: var(--glass-shadow);
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+    }
+    .service-card:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 25px var(--primary-glow);}
+    .service-card i { font-size: 2.2rem; color: var(--primary); margin-bottom: 1.2rem; }
+    .service-card h3 { font-size: 1.2rem; margin-bottom: 0.8rem; color: var(--text-main); }
+    .service-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0;}
+
+    /* WHY CHOOSE ME LIST */
+    .why-me-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    .why-me-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.95rem;
+        color: var(--text-main);
+    }
+    .why-me-list li i {
+        color: var(--primary);
+        margin-top: 4px;
+    }
+
     /* --- SKILLS LAYOUT & ANIMATED ICONS --- */
-    .skills-layout {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 4rem;
-      padding-top: 1rem;
-    }
-    .skills-image-container {
-      flex: 0.8;
-      min-width: 280px;
-      display: flex;
-      justify-content: center;
-      position: relative;
-    }
-    .skills-image-container img {
-      width: 100%;
-      max-width: 350px;
-      border-radius: var(--radius-md);
-      box-shadow: 0 15px 35px var(--glass-shadow);
-      border: 1px solid var(--card-border);
-      transition: transform 0.4s ease;
-    }
-    .skills-image-container img:hover {
-      transform: translateY(-5px);
-    }
-    .skills-flex-container {
-      flex: 1.2;
-      min-width: 300px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 3rem 2rem;
-    }
+    .skills-layout { display: flex; flex-wrap: wrap; align-items: center; gap: 4rem; padding-top: 1rem; }
+    .skills-image-container { flex: 0.8; min-width: 280px; display: flex; justify-content: center; position: relative; }
+    .skills-image-container img { width: 100%; max-width: 350px; border-radius: var(--radius-md); box-shadow: 0 15px 35px var(--glass-shadow); border: 1px solid var(--card-border); transition: transform 0.4s ease; }
+    .skills-image-container img:hover { transform: translateY(-5px); }
+    .skills-flex-container { flex: 1.2; min-width: 300px; display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: center; gap: 3rem 2rem; }
     
-    .skill-icon-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.8rem;
-      cursor: pointer;
-      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    .skill-icon-wrapper:hover {
-      transform: translateY(-12px) scale(1.15);
-    }
-    .skill-animated-icon {
-      width: 65px;
-      height: 65px;
-      object-fit: contain;
-      filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.1));
-      /* Continuous floating animation */
-      animation: float-icon 4s ease-in-out infinite;
-    }
+    .skill-icon-wrapper { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; cursor: pointer; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .skill-icon-wrapper:hover { transform: translateY(-12px) scale(1.15); }
+    .skill-animated-icon { width: 65px; height: 65px; object-fit: contain; filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.1)); animation: float-icon 4s ease-in-out infinite; }
     
-    /* Staggering the animation so they don't all float at the exact same time */
     .skill-icon-wrapper:nth-child(even) .skill-animated-icon { animation-delay: 1s; }
     .skill-icon-wrapper:nth-child(3n) .skill-animated-icon { animation-delay: 2s; }
     .skill-icon-wrapper:nth-child(5n) .skill-animated-icon { animation-delay: 0.5s; }
 
-    .skill-icon-title {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--text-main);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      opacity: 0.7;
-      transition: opacity 0.3s, color 0.3s;
-    }
-    .skill-icon-wrapper:hover .skill-icon-title {
-      opacity: 1;
-      color: var(--primary);
-    }
+    .skill-icon-title { font-size: 0.85rem; font-weight: 700; color: var(--text-main); text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; transition: opacity 0.3s, color 0.3s; }
+    .skill-icon-wrapper:hover .skill-icon-title { opacity: 1; color: var(--primary); }
 
-    @keyframes float-icon {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
-    }
+    @keyframes float-icon { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
 
     /* --- PROJECTS (STICKY + SIDE-BY-SIDE + SHADOW NUMBERS) --- */
-    .projects-layout { 
-      display: flex; 
-      flex-direction: column; 
-      gap: 7rem; 
-      padding-bottom: 2rem;
-      counter-reset: projectNum; 
-    }
+    .projects-layout { display: flex; flex-direction: column; gap: 7rem; padding-bottom: 2rem; counter-reset: projectNum; }
     
     .project-card { 
-      width: 100%; 
-      display: flex; 
-      flex-direction: row; 
-      align-items: center; 
-      gap: 2.5rem; 
-      cursor: pointer; 
-      text-decoration: none; 
-      
-      /* The Magic Sticky Logic */
-      position: sticky;
-      background: var(--bg); 
-      border: 1px solid var(--card-border); 
-      border-radius: var(--radius-md); 
-      padding: 1.75rem;
-      box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.05); 
-      transition: border-color 0.3s ease;
-      
-      counter-increment: projectNum; 
-      overflow: hidden; 
+      width: 100%; display: flex; flex-direction: row; align-items: center; gap: 2.5rem; cursor: pointer; text-decoration: none; 
+      position: sticky; background: var(--bg); border: 1px solid var(--card-border); border-radius: var(--radius-md); padding: 1.75rem;
+      box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.05); transition: border-color 0.3s ease; counter-increment: projectNum; overflow: hidden; 
     }
     
-    [data-theme="dark"] .project-card {
-       background: var(--bg-secondary);
-       box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.4);
-    }
+    [data-theme="dark"] .project-card { background: var(--bg-secondary); box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.4); }
     
     .project-card:nth-child(1) { top: 110px; z-index: 10; }
     .project-card:nth-child(2) { top: 135px; z-index: 11; }
@@ -421,27 +315,8 @@
     .project-card:nth-child(4) { top: 185px; z-index: 13; }
     .project-card:nth-child(5) { top: 210px; z-index: 14; }
 
-    /* Shadow Number Pseudo Element */
-    .project-card::before {
-      content: "0" counter(projectNum);
-      position: absolute;
-      top: -10px;
-      right: 20px;
-      font-size: 10rem;
-      font-weight: 800;
-      color: var(--primary);
-      opacity: 0.05;
-      z-index: 0;
-      pointer-events: none;
-      font-family: var(--font-heading);
-      line-height: 1;
-      transition: all 0.4s ease;
-    }
-
-    .project-card:hover::before {
-      opacity: 0.12;
-      transform: translateY(-10px) scale(1.05);
-    }
+    .project-card::before { content: "0" counter(projectNum); position: absolute; top: -10px; right: 20px; font-size: 10rem; font-weight: 800; color: var(--primary); opacity: 0.05; z-index: 0; pointer-events: none; font-family: var(--font-heading); line-height: 1; transition: all 0.4s ease; }
+    .project-card:hover::before { opacity: 0.12; transform: translateY(-10px) scale(1.05); }
     
     [data-theme="dark"] .project-card::before { opacity: 0.03; }
     [data-theme="dark"] .project-card:hover::before { opacity: 0.08; }
@@ -462,78 +337,19 @@
     .btn-know-more { display: inline-flex; align-items: center; gap: 8px; margin-top: 1.2rem; padding: 0.5rem 1.2rem; background: transparent; color: var(--text-main); font-weight: 600; font-size: 0.9rem; border-radius: 8px; border: 1.5px solid var(--card-border); transition: var(--transition); width: fit-content; }
     .project-card:hover .btn-know-more { background: var(--primary); color: #fff; border-color: var(--primary); }
 
-
-    /* --- NEW 3-COLUMN CERTIFICATIONS GRID --- */
-    .cert-grid { 
-        display: grid; 
-        grid-template-columns: repeat(3, 1fr); 
-        gap: 1.5rem; 
-        margin-top: 1.5rem;
-    }
-    
-    .cert-card { 
-        padding: 2rem; 
-        text-align: left; 
-        display: flex; 
-        flex-direction: column; 
-        align-items: flex-start; 
-        cursor: pointer; 
-        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
-        position: relative; 
-        height: 100%;
-    }
-    
-    .cert-card:hover { 
-        transform: translateY(-8px); 
-        border-color: var(--primary); 
-        box-shadow: 0 15px 35px var(--primary-glow); 
-        z-index: 2; 
-    }
-    
-    .cert-header {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        margin-bottom: 1.2rem;
-        width: 100%;
-    }
-
-    .cert-img { 
-        height: 50px; 
-        width: 50px;
-        object-fit: contain; 
-        flex-shrink: 0;
-    }
-
+    /* --- 3-COLUMN CERTIFICATIONS GRID --- */
+    .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
+    .cert-card { padding: 2rem; text-align: left; display: flex; flex-direction: column; align-items: flex-start; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; position: relative; height: 100%; }
+    .cert-card:hover { transform: translateY(-8px); border-color: var(--primary); box-shadow: 0 15px 35px var(--primary-glow); z-index: 2; }
+    .cert-header { display: flex; align-items: center; gap: 15px; margin-bottom: 1.2rem; width: 100%; }
+    .cert-img { height: 50px; width: 50px; object-fit: contain; flex-shrink: 0; }
     .cert-title-group { display: flex; flex-direction: column; }
     .cert-title-group h3 { font-size: 1.15rem; margin-bottom: 0.2rem; color: var(--text-main); line-height: 1.2;}
     .cert-provider { font-size: 0.85rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;}
-
-    .cert-details {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
-        flex-grow: 1;
-    }
-
-    .cert-details ul {
-        padding-left: 1.2rem;
-        margin-top: 0.8rem;
-    }
-
+    .cert-details { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6; flex-grow: 1; }
+    .cert-details ul { padding-left: 1.2rem; margin-top: 0.8rem; }
     .cert-details li { margin-bottom: 0.4rem; }
-
-    .cert-link { 
-        margin-top: auto; 
-        font-size: 0.9rem; 
-        color: var(--primary); 
-        font-weight: 600; 
-        pointer-events: none;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
+    .cert-link { margin-top: auto; font-size: 0.9rem; color: var(--primary); font-weight: 600; pointer-events: none; display: flex; align-items: center; gap: 6px; }
     
     /* TIMELINE */
     .timeline { border-left: 2px solid var(--card-border); padding-left: 1.5rem; margin-left: 0.5rem; }
@@ -653,10 +469,14 @@
       .hero { text-align: center; padding-top: 120px; padding-bottom: 30px; gap: 1.5rem; }
       .hero-content { flex: 1 1 100%; }
       .hero-img-container { flex: 1 1 100%; order: -1; margin-bottom: 0.5rem; }
+      .hero h1 { font-size: 2.2rem; }
       .avatar { width: 240px; height: 240px; }
       .nav-menu { display: none; }
       .hamburger { display: block; }
       
+      .trust-ribbon { flex-direction: column; align-items: flex-start; padding: 1.5rem 2rem; }
+      .services-grid { grid-template-columns: 1fr; }
+
       .skills-layout { flex-direction: column; gap: 2rem; }
       .skills-image-container, .skills-flex-container { flex: 1 1 100%; width: 100%; }
       .skills-flex-container { justify-content: center; }
@@ -687,7 +507,7 @@
        .hero p { font-size: 0.9rem !important; }
        .avatar { width: 200px; height: 200px; } 
        .hero-content > div:last-child { flex-direction: column; align-items: center; gap: 1rem !important; }
-       .btn-primary { width: 100%; max-width: 250px; font-size: 0.9rem;} 
+       .btn-primary, .btn-secondary-outline { width: 100%; max-width: 250px; font-size: 0.9rem; } 
        
        .skills-flex-container { gap: 2rem; }
        .skill-animated-icon { width: 55px; height: 55px; }
@@ -745,9 +565,10 @@
 
       <nav class="nav-menu" aria-label="Main Navigation">
         <a href="#about" onclick="event.preventDefault(); showHomeViewAndScroll('about')">About</a>
+        <a href="#services" onclick="event.preventDefault(); showHomeViewAndScroll('services')">Services</a>
         <a href="#skills" onclick="event.preventDefault(); showHomeViewAndScroll('skills')">Skills</a>
         <a href="#projects" onclick="event.preventDefault(); showHomeViewAndScroll('projects')">Projects</a>
-        <a href="#certs" onclick="event.preventDefault(); showHomeViewAndScroll('certs')">Certifications</a>
+        <a href="#certs" onclick="event.preventDefault(); showHomeViewAndScroll('certs')">Certs</a>
         <a href="#experience" onclick="event.preventDefault(); showHomeViewAndScroll('experience')">Experience</a>
         <a href="#contact" class="nav-contact-btn" onclick="event.preventDefault(); showHomeViewAndScroll('contact')">Contact</a>
       </nav>
@@ -771,6 +592,7 @@
 
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <a href="#about" onclick="event.preventDefault(); showHomeViewAndScroll('about')">About</a>
+    <a href="#services" onclick="event.preventDefault(); showHomeViewAndScroll('services')">Services</a>
     <a href="#skills" onclick="event.preventDefault(); showHomeViewAndScroll('skills')">Skills</a>
     <a href="#projects" onclick="event.preventDefault(); showHomeViewAndScroll('projects')">Projects</a>
     <a href="#certs" onclick="event.preventDefault(); showHomeViewAndScroll('certs')">Certifications</a>
@@ -782,29 +604,27 @@
     
     <div id="home-view" class="page-view active">
 
+      <!-- UPDATED HERO SECTION -->
       <section id="home" class="hero container">
         <div class="hero-content">
           <div style="display:inline-block; padding:4px 12px; background:rgba(0, 173, 181, 0.1); color:var(--primary); border-radius:50px; font-weight:600; font-size: 0.8rem; margin-bottom:0.8rem; border:1px solid rgba(0, 173, 181, 0.2);">
             <i class="fa-solid fa-circle" style="font-size:6px; vertical-align:middle;"></i> Open to Opportunities
           </div>
-          <h1>Hi, I'm Sanjeev.<br>
-            I am a <span class="typing-container"><span class="typing-text"></span></span>
-          </h1>
-          <p style="max-width: 600px; margin-bottom: 1.5rem; font-size: 0.95rem;">
-            Specializing in <strong>Windows Server Administration</strong>, <strong>Networking</strong>, 
-            <strong>Cloud (AWS & Azure)</strong>, <strong>Firewall (Fortinet)</strong>, and <strong>Cybersecurity</strong>. 
-            I build reliable systems and help teams ship fast and safe.
+          
+          <h1>Transforming IT Challenges into Reliable, Scalable Solutions</h1>
+          
+          <p style="max-width: 600px; margin-bottom: 1.8rem; font-size: 1.05rem;">
+            Hi, I’m <strong>Sanjeev Kumar</strong>, an IT Engineer specializing in Desktop Support, Network Troubleshooting, Windows Server Management, and Cloud Infrastructure. I help businesses and individuals maintain secure, efficient, and high-performing IT environments.
           </p>
             
-          <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center;">
-            <a href="#contact" class="btn-primary" aria-label="Contact Sanjeev Kumar">Get in Touch</a>
-            <div style="display: flex; gap: 8px;">
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="#projects" class="btn-primary" onclick="event.preventDefault(); showHomeViewAndScroll('projects')">View My Work</a>
+            <a href="#contact" class="btn-secondary-outline" onclick="event.preventDefault(); showHomeViewAndScroll('contact')" style="border-radius: 50px; font-weight: 600; padding: 0.6rem 1.4rem;">Hire Me</a>
+            
+            <div style="display: flex; gap: 8px; margin-left: 10px;">
               <a href="mailto:sanjeev753304@gmail.com" class="btn-icon" aria-label="Email Sanjeev" title="Email"><i class="fa-solid fa-envelope"></i></a>
               <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="LinkedIn Profile" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
               <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="GitHub Profile" title="GitHub"><i class="fa-brands fa-github"></i></a>
-              <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="Instagram Profile" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-              <a href="https://www.youtube.com/@isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="YouTube Channel" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-              <a href="https://x.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="X (Twitter) Profile" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
             </div>
           </div>
         </div>
@@ -814,34 +634,105 @@
         </div>
       </section>
 
-      <section id="about" class="container" style="padding-top: var(--section-spacing);">
-        <div class="glass-card">
-          <div class="section-header">
-            <h2>About Me</h2>
-          </div>
-          <p style="font-size: 0.95rem;">
-            I am an <strong>IT Engineer</strong> with proven expertise in
-            <strong>Windows Server administration (AD, GPO, WSUS)</strong>,
-            <strong>network troubleshooting</strong>,
-            <strong>cloud server management (AWS and Azure)</strong>, and
-            <strong>firewall configuration (Fortinet 60F)</strong>.
-          </p>
-          <p style="font-size: 0.95rem; margin-top: 10px;">
-            Skilled in leveraging <strong>AI technologies</strong> to build no-code applications, automate workflows, and enhance business processes.
-          </p>
-          <div style="margin-top: 1.25rem;">
-            <span class="tech-tag" style="background:var(--bg-secondary); color:var(--text-muted); padding:4px 12px; border:none; border-radius: 20px;">Noida, India</span>
-            <span class="tech-tag" style="background:var(--bg-secondary); color:var(--text-muted); padding:4px 12px; border:none; border-radius: 20px;">Hindi • English • Maithili</span>
-            <span class="tech-tag" style="background:var(--primary); color:#fff; padding:4px 12px; border:none; border-radius: 20px;">Available for Full-time</span>
-          </div>
+      <!-- NEW QUICK TRUST RIBBON -->
+     <div class="trust-ribbon">
+  <div class="trust-item"><i class="fa-solid fa-briefcase"></i> 3+ Years of Practical IT Experience</div>
+  <div class="trust-item"><i class="fa-solid fa-desktop"></i> 200+ Systems Supported</div>
+  <div class="trust-item"><i class="fa-solid fa-certificate"></i> Certified in Azure, Networking & Cybersecurity</div>
+  <div class="trust-item"><i class="fa-solid fa-server"></i> Expertise in Windows Server, Firewall & Cloud</div>
 
-          <div style="margin-top: 1.5rem; text-align: center;">
-              <button id="openAboutBtn" class="btn-primary" aria-label="Know more about Sanjeev Kumar">
-                  Know More <i class="fa-solid fa-arrow-right"></i>
-              </button>
+  <div class="trust-item"><i class="fa-solid fa-robot"></i> AI App Development</div>
+  <div class="trust-item"><i class="fa-brands fa-wordpress"></i> WordPress Development</div>
+  <div class="trust-item"><i class="fa-solid fa-code"></i> Web Designing</div>
+  <div class="trust-item"><i class="fa-solid fa-globe"></i> Web Hosting & Deployment</div>
+</div>
+
+      <!-- UPDATED ABOUT SECTION WITH "WHY CHOOSE ME" -->
+      <section id="about" class="container" style="padding-top: 1rem;">
+        <div class="glass-card" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+          <div style="flex: 1 1 300px;">
+              <div class="section-header">
+                <h2>About Me</h2>
+              </div>
+              <p style="font-size: 0.95rem;">
+                I am an <strong>IT Engineer</strong> with proven expertise in
+                <strong>Windows Server administration (AD, GPO, WSUS)</strong>,
+                <strong>network troubleshooting</strong>,
+                <strong>cloud server management (AWS and Azure)</strong>, and
+                <strong>firewall configuration (Fortinet 60F)</strong>.
+              </p>
+              <p style="font-size: 0.95rem; margin-top: 10px;">
+                Skilled in leveraging <strong>AI technologies</strong> to build no-code applications, automate workflows, and enhance business processes.
+              </p>
+              <div style="margin-top: 1.25rem;">
+                <span class="tech-tag" style="background:var(--bg-secondary); color:var(--text-muted); padding:4px 12px; border:none; border-radius: 20px;">Noida, India</span>
+                <span class="tech-tag" style="background:var(--bg-secondary); color:var(--text-muted); padding:4px 12px; border:none; border-radius: 20px;">Hindi • English • Maithili</span>
+              </div>
+              <div style="margin-top: 1.5rem;">
+                  <button id="openAboutBtn" class="btn-primary" aria-label="Know more about Sanjeev Kumar">
+                      Full Profile <i class="fa-solid fa-arrow-right"></i>
+                  </button>
+              </div>
+          </div>
+          
+          <div style="flex: 1 1 300px; background: var(--bg-secondary); padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--card-border);">
+              <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-main);">Why Choose Me</h3>
+              <ul class="why-me-list">
+                  <li><i class="fa-solid fa-circle-check"></i> Fast issue resolution with minimal downtime</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Real-world experience in office and industrial environments</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Strong troubleshooting mindset</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Reliable and professional communication</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Focus on long-term IT stability</li>
+              </ul>
           </div>
         </div>
       </section>
+
+      <!-- NEW SERVICES SECTION -->
+      <section id="services" class="container" style="padding-top: var(--section-spacing);">
+  <div class="section-header">
+    <h2>Services Overview</h2>
+    <p style="color:var(--text-muted); margin-top: 0.5rem;">Delivering comprehensive IT solutions for modern businesses.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <i class="fa-solid fa-desktop"></i>
+      <h3>Desktop & IT Support</h3>
+      <p>Reliable support for desktops, laptops, printers, and user systems to ensure smooth daily operations.</p>
+    </div>
+
+    <div class="service-card">
+      <i class="fa-solid fa-network-wired"></i>
+      <h3>Network Troubleshooting</h3>
+      <p>Fast identification and resolution of connectivity issues, ensuring stable and secure networks.</p>
+    </div>
+
+    <div class="service-card">
+      <i class="fa-solid fa-server"></i>
+      <h3>Server & Infrastructure Management</h3>
+      <p>Efficient setup and maintenance of Windows Server, Active Directory, and enterprise systems.</p>
+    </div>
+
+    <div class="service-card">
+      <i class="fa-solid fa-cloud-arrow-up"></i>
+      <h3>Cloud & Backup Solutions</h3>
+      <p>Support for AWS, Azure, and backup systems like Acronis to ensure data safety and scalability.</p>
+    </div>
+
+    <div class="service-card">
+      <i class="fa-brands fa-wordpress"></i>
+      <h3>WordPress & Web Designing</h3>
+      <p>Professional website design using WordPress and modern UI/UX practices for fast, responsive, and SEO-friendly sites.</p>
+    </div>
+
+    <div class="service-card">
+      <i class="fa-solid fa-robot"></i>
+      <h3>AI App Development</h3>
+      <p>Building intelligent applications using AI tools to automate workflows, enhance user experience, and improve productivity.</p>
+    </div>
+  </div>
+</section>
 
       <section id="skills" class="container" style="padding-top: var(--section-spacing);">
         <div class="section-header">
@@ -969,7 +860,6 @@
         </div>
       </section>
 
-      <!-- UPDATED CERTIFICATIONS SECTION -->
       <section id="certs" class="container" style="padding-top: var(--section-spacing);">
         <div class="section-header">
           <h2>Certifications</h2>
@@ -978,8 +868,7 @@
         
         <div class="cert-grid">
           
-          <!-- Cert 1 -->
-           <a href="https://drive.google.com/file/d/1csso58-0QdXwAIEwJCk6NHMwRglq0fn2/view" class="glass-card cert-card">
+          <a href="https://drive.google.com/file/d/1csso58-0QdXwAIEwJCk6NHMwRglq0fn2/view" class="glass-card cert-card">
             <div class="cert-header">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Cisco Logo" class="cert-img">
                 <div class="cert-title-group">
@@ -998,7 +887,6 @@
             <span class="cert-link">View Certificate <i class="fa-solid fa-arrow-right"></i></span>
           </a>
 
-          <!-- Cert 2 -->
           <a href="https://drive.google.com/file/d/1ExcnlsVy3ZHLtRs_RoF2hNQ05G4Cj154/view?usp=drive_link" class="glass-card cert-card">
             <div class="cert-header">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Cisco Logo" class="cert-img">
@@ -1018,7 +906,6 @@
             <span class="cert-link">View Certificate <i class="fa-solid fa-arrow-right"></i></span>
           </a>
 
-          <!-- Cert 3 -->
           <a href="https://drive.google.com/file/d/14aOsqQTKcxbeSA23yXPuLvjPUKDfNpvb/view?usp=drive_link" class="glass-card cert-card">
             <div class="cert-header">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" alt="Microsoft Azure Logo" class="cert-img">
@@ -1038,7 +925,6 @@
             <span class="cert-link">View Certificate <i class="fa-solid fa-arrow-right"></i></span>
           </a>
 
-          <!-- Cert 4 -->
           <a href="https://drive.google.com/file/d/15hSFkJXr92o4VhM5YgF13pZFv2aSakaD/view?usp=drive_link" class="glass-card cert-card">
             <div class="cert-header">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud Logo" class="cert-img">
@@ -1058,7 +944,6 @@
             <span class="cert-link">View Certificate <i class="fa-solid fa-arrow-right"></i></span>
           </a>
 
-          <!-- Cert 5 -->
           <a href="https://drive.google.com/file/d/1kUh_5kU6V_FEYsFhnyf1yHfr12Cmzkdd/view?usp=drive_link" class="glass-card cert-card">
             <div class="cert-header">
                 <img src="https://cdn-icons-png.flaticon.com/512/5723/5723238.png" alt="Networking Logo" class="cert-img">
@@ -1078,7 +963,6 @@
             <span class="cert-link">View Certificate <i class="fa-solid fa-arrow-right"></i></span>
           </a>
 
-          <!-- Cert 6 -->
           <a href="https://drive.google.com/file/d/1Hcgl0Drn_niSwc64zhvL0LY2tFEnL6hx/view?usp=drive_link" class="glass-card cert-card">
             <div class="cert-header">
                 <img src="https://cdn3d.iconscout.com/3d/premium/thumb/cyber-securityprotect-shield-3d-icon-png-download-7277200.png" alt="Cyber Security Logo" class="cert-img">
@@ -1098,7 +982,6 @@
             <span class="cert-link">View Certificate <i class="fa-solid fa-arrow-right"></i></span>
           </a>
 
-          <!-- Cert 7 -->
           <a href="https://drive.google.com/file/d/1OhjH3b2gffiHm4KIUrTo_2pP_5BNnKJG/view?usp=drive_link" class="glass-card cert-card">
             <div class="cert-header">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" class="cert-img">
@@ -1118,7 +1001,6 @@
             <span class="cert-link">View Certificate <i class="fa-solid fa-arrow-right"></i></span>
           </a>
 
-          <!-- Cert 8 -->
           <a href="https://drive.google.com/file/d/17KrwhkqjLYgkR_UPLiW4GigtmFC7_GSn/view?usp=drive_link" class="glass-card cert-card">
             <div class="cert-header">
                 <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/fortinet.svg" alt="Fortinet Logo" class="cert-img">
@@ -1248,6 +1130,10 @@
                   <i class="fa-solid fa-envelope" style="color:var(--primary); font-size: 1.2rem; width: 24px; text-align: center;"></i> 
                   <span>Sanjeev753304@gmail.com</span>
                 </div>
+                <div class="contact-info-item">
+  <i class="fa-solid fa-phone" style="color:var(--primary); font-size: 1.2rem; width: 24px; text-align: center;"></i> 
+  <span>+91 8766234962</span>
+</div>
               </div>
               
               <div style="display: flex; gap: 15px; margin-bottom: 1rem;">
@@ -1279,8 +1165,7 @@
       </section>
     </div>
 
-    <!-- Rest of Project detail pages... (Hidden from here for brevity, they remain unchanged from the previous code block as you only requested the cert grid modification, but I am outputting the whole file for ease) -->
-    
+    <!-- PROJECT 1 -->
     <div id="project-1" class="page-view container">
       
       <style>
@@ -1461,6 +1346,7 @@
       </div>
     </div>
     
+    <!-- PROJECT 2 -->
     <div id="project-2" class="page-view container">
       <div class="project-banner-wrapper">
         <img src="https://isanjiiv.github.io/assets/images/sd-wan.png" alt="Fortinet Security Appliance and SD-WAN Network Banner" class="project-banner-img" loading="lazy">
@@ -1510,6 +1396,7 @@
       </div>
     </div>
     
+    <!-- PROJECT 3 -->
     <div id="project-3" class="page-view container">
       <div class="project-banner-wrapper">
         <img src="https://isanjiiv.github.io/assets/images/lovable-ai.png" alt="AI Agent and Lovable AI App Interface Banner for Notes and Resume Builders" class="project-banner-img" loading="lazy">
@@ -1573,6 +1460,7 @@
       </div>
     </div>
 
+    <!-- PROJECT 4 -->
     <div id="project-4" class="page-view container">
       <div class="project-banner-wrapper">
         <img src="https://isanjiiv.github.io/assets/images/wordpress-banner.png" alt="Website Design and WordPress Content Management Banner" class="project-banner-img" loading="lazy">
@@ -1705,6 +1593,7 @@
 
       <nav class="footer-nav" aria-label="Footer Navigation">
         <a href="#about" onclick="event.preventDefault(); showHomeViewAndScroll('about')">About</a>
+        <a href="#services" onclick="event.preventDefault(); showHomeViewAndScroll('services')">Services</a>
         <a href="#skills" onclick="event.preventDefault(); showHomeViewAndScroll('skills')">Skills</a>
         <a href="#projects" onclick="event.preventDefault(); showHomeViewAndScroll('projects')">Projects</a>
         <a href="#certs" onclick="event.preventDefault(); showHomeViewAndScroll('certs')">Certifications</a>
@@ -1954,25 +1843,10 @@
         }, { threshold: 0.1 });
 
         // Observe the new elements
-        document.querySelectorAll('.glass-card, .project-card, .lovable-app-card, .skill-icon-wrapper, .skills-image-container').forEach(el => {
+        document.querySelectorAll('.glass-card, .project-card, .lovable-app-card, .skill-icon-wrapper, .skills-image-container, .service-card, .trust-item').forEach(el => {
             el.style.opacity = 0; el.style.transform = 'translateY(20px)'; el.style.transition = 'all 0.6s ease-out';
             observer.observe(el);
         });
-
-        const texts = ["IT Engineer", "Networking", "Windows Server", "AI Prompting", "WordPress", "Cloud Server", "Firewall"];
-        let count = 0; let index = 0; let currentText = ""; let letter = "";
-        (function type() {
-            if (count === texts.length) { count = 0; }
-            currentText = texts[count];
-            letter = currentText.slice(0, ++index);
-            const target = document.querySelector('.typing-text');
-            if (target) {
-                target.textContent = letter;
-                if (letter.length === currentText.length) {
-                    count++; index = 0; setTimeout(type, 2000);
-                } else { setTimeout(type, 100); }
-            }
-        })();
 
         const yearSpan = document.getElementById("year");
         if(yearSpan) yearSpan.textContent = new Date().getFullYear();
@@ -2124,13 +1998,13 @@
 
         // Hover events for custom cursor expansion
         document.addEventListener('mouseover', (e) => {
-            if (e.target.closest('a, button, .project-card, .gallery-item, input, textarea, .btn-icon, .close-modal, .close-lightbox, .modern-gallery-item, .skill-icon-wrapper')) {
+            if (e.target.closest('a, button, .project-card, .gallery-item, input, textarea, .btn-icon, .close-modal, .close-lightbox, .modern-gallery-item, .skill-icon-wrapper, .service-card, .cert-card')) {
                 blendCursor.classList.add('hovering');
             }
         });
 
         document.addEventListener('mouseout', (e) => {
-            if (e.target.closest('a, button, .project-card, .gallery-item, input, textarea, .btn-icon, .close-modal, .close-lightbox, .modern-gallery-item, .skill-icon-wrapper')) {
+            if (e.target.closest('a, button, .project-card, .gallery-item, input, textarea, .btn-icon, .close-modal, .close-lightbox, .modern-gallery-item, .skill-icon-wrapper, .service-card, .cert-card')) {
                 blendCursor.classList.remove('hovering');
             }
         });
