@@ -118,7 +118,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
@@ -365,7 +365,7 @@
     .hero-subtitle-wrapper .line { width: 45px; height: 2px; background-color: var(--primary); }
     .hero-subtitle { font-size: 2rem; font-weight: 400; margin: 0; }
     
-    .typing-text { color: var(--primary); font-weight: 600;}
+    .typing-text { color: var(--primary); font-weight: 700;}
 
     .hero-desc {
       font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 550px; font-weight: 300;
@@ -849,7 +849,11 @@
     @media (max-width: 600px) {
        :root { --section-spacing: 3rem; } 
        .section-header h2 { font-size: 2rem; } 
-       .hero-title { font-size: 2.8rem; } 
+       .hero-title { 
+    font-size: clamp(1.8rem, 7vw, 2.8rem); /* Smoothly scales font size based on screen width */
+    white-space: normal; /* Allows text to wrap to the next line if needed */
+    line-height: 1.2; 
+}
        .about-title { font-size: 1.8rem; }
        .btn-primary { width: 70%; }
        .hero-actions .btn-icon { width: 45px; height: 45px;}
