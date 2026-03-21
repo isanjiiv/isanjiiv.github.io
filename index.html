@@ -29,7 +29,7 @@
   <meta property="og:title" content="Sanjeev Kumar | IT Engineer" />
   <meta property="og:description" content="Expert in Windows Server • Networking • Cloud (AWS/Azure) • Fortinet Security • AI Automation" />
   <meta property="og:type" content="profile" />
- <meta property="og:image" content="https://isanjiiv.github.io/assets/images/sanjeev.jpg"/>
+  <meta property="og:image" content="https://isanjiiv.github.io/assets/images/sanjeev.jpg"/>
   <meta property="og:url" content="https://isanjiiv.github.io/" />
   <meta property="profile:first_name" content="Sanjeev" />
   <meta property="profile:last_name" content="Kumar" />
@@ -122,7 +122,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-   /* --- TYPING EFFECT CURSOR --- */
+    /* --- TYPING EFFECT CURSOR --- */
     .typing-container { 
       position: relative; 
       white-space: nowrap; 
@@ -136,7 +136,7 @@
     }
     @keyframes blink { from, to { opacity: 1; } 50% { opacity: 0; } }
 
-   /* --- 1. VARIABLES & THEME --- */
+    /* --- 1. VARIABLES & THEME --- */
     :root {
       --font-heading: 'Outfit', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
@@ -331,7 +331,7 @@
       overflow: hidden;
     }
 
-   .hero-content { 
+    .hero-content { 
       flex: 1; 
       width: 100%;
       max-width: var(--container);
@@ -392,14 +392,6 @@
     .hero-image-area::before {
       display: none;
     }
-@media (max-width: 600px) {
-   /* ... your existing mobile styles ... */
-
-   .btn-submit {
-       display: flex !important;
-       margin: 1rem auto 0 auto !important;
-   }
-}
 
     /* --- ABOUT SECTION --- */
     .about-layout { 
@@ -454,24 +446,7 @@
       margin: 0 auto;
       padding-top: var(--section-spacing);
     }
-    @media (max-width: 900px) {
-    /* ... your existing mobile styles ... */
-
-    /* Centers the headings and paragraph */
-    .contact-wrapper > div:first-child {
-        text-align: center;
-    }
     
-    /* Centers the Location and Email items */
-    .contact-info-item {
-        justify-content: center;
-    }
-    
-    /* Centers the row of social media buttons */
-    .contact-wrapper > div:first-child > div:last-child {
-        justify-content: center;
-    }
-}
     .tabbed-projects-header {
       text-align: center;
       margin-bottom: 2rem;
@@ -682,12 +657,12 @@
     }
     .form-control:focus { outline: none; border-color: var(--primary); background: var(--bg); }
     .btn-submit { 
-    width: fit-content; 
-    padding: 10px 24px; /* 10px top/bottom, 24px left/right */
-    font-size: 0.9rem; /* Slightly smaller text */
-    justify-content: center; 
-    margin-top: 0.5rem;
-}
+        width: fit-content; 
+        padding: 10px 24px; 
+        font-size: 0.9rem; 
+        justify-content: center; 
+        margin-top: 0.5rem;
+    }
 
     /* MOBILE MENU & MODALS */
     .hamburger { display: none; background: none; border: none; font-size: 1.4rem; color: var(--text-main); cursor: pointer; }
@@ -779,7 +754,6 @@
     .footer-nav a:hover { color: var(--text-main); }
     .footer-socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2.5rem; }
     
-
     /* RESPONSIVE */
     @media (max-width: 900px) {
       :root { --section-spacing: 4rem; }
@@ -842,22 +816,26 @@
       .tab-btn.active { background: #171717; color: #fff; border-color: #171717; }
       .tab-btn.active::before, .tab-btn.active::after { display: none; }
       .pane-text { align-items: center; text-align: center; }
+
+      /* Merged from stray blocks */
+      .contact-wrapper > div:first-child { text-align: center; }
+      .contact-info-item { justify-content: center; }
+      .contact-wrapper > div:first-child > div:last-child { justify-content: center; }
     }
 
     @media (max-width: 600px) {
        :root { --section-spacing: 3rem; } 
        .section-header h2 { font-size: 2rem; } 
        .hero-title { 
-    font-size: clamp(1.8rem, 7vw, 2.8rem); /* Smoothly scales font size based on screen width */
-    white-space: normal; /* Allows text to wrap to the next line if needed */
-    line-height: 1.2; 
-}
+           font-size: clamp(1.8rem, 7vw, 2.8rem);
+           white-space: normal;
+           line-height: 1.2; 
+       }
        .about-title { font-size: 1.8rem; }
        .btn-primary { width: 70%; }
        .hero-actions .btn-icon { width: 45px; height: 45px;}
        
        .timeline::before { left: -2.3rem; }
-       /* Mobile specific scaling for forced dark projects */
        .pane-text h3 { font-size: 1.6rem; }
        .pane-text p { font-size: 0.95rem; }
        .project-tab-content-container { min-height: auto; }
@@ -869,15 +847,14 @@
        .cert-card h3 { font-size: 0.85rem; line-height: 1.3; margin-bottom: 0.3rem;}
        .cert-card p { font-size: 0.75rem; line-height: 1.3; }
        .cert-link { font-size: 0.75rem; padding-top: 0.5rem; }
+
+       /* Merged from stray blocks */
+       .btn-submit { display: flex !important; margin: 1rem auto 0 auto !important; }
     }
-
-
-
   </style>
 </head>
 
 <body>
-
 
   <header id="main-header">
     <div class="container nav-inner">
@@ -951,11 +928,11 @@
             <a href="#contact" class="btn-primary" aria-label="Contact Sanjeev Kumar">Get in Touch</a>
             <div style="display: flex; gap: 10px;">
               <a href="mailto:sanjeev753304@gmail.com" class="btn-icon" aria-label="Email Sanjeev" title="Email"><i class="fa-solid fa-envelope"></i></a>
-        <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="LinkedIn Profile" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="GitHub Profile" title="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="Instagram Profile" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.youtube.com/@isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="YouTube Channel" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://x.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="X (Twitter) Profile" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="LinkedIn Profile" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="GitHub Profile" title="GitHub"><i class="fa-brands fa-github"></i></a>
+              <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="Instagram Profile" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://www.youtube.com/@isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="YouTube Channel" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+              <a href="https://x.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="X (Twitter) Profile" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
             </div>
           </div>
         </div>
@@ -1022,8 +999,6 @@
               <span class="skill-icon-title">Win Server</span>
             </div>
 
-            
-
             <div class="skill-icon-wrapper">
               <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/fortinet.svg" alt="Fortinet Security" class="skill-animated-icon">
               <span class="skill-icon-title">Fortinet</span>
@@ -1043,32 +1018,36 @@
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Microsoft Azure" class="skill-animated-icon">
               <span class="skill-icon-title">Azure</span>
             </div>
+            
             <div class="skill-icon-wrapper">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Cisco_logo_blue_2016.svg/640px-Cisco_logo_blue_2016.svg.png" alt="CISCO" class="skill-animated-icon">
-  <span class="skill-icon-title">CISCO</span>
-</div>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Cisco_logo_blue_2016.svg/640px-Cisco_logo_blue_2016.svg.png" alt="CISCO" class="skill-animated-icon">
+              <span class="skill-icon-title">CISCO</span>
+            </div>
 
             <div class="skill-icon-wrapper">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" alt="WordPress" class="skill-animated-icon">
               <span class="skill-icon-title">WordPress</span>
             </div>
             
-<div class="skill-icon-wrapper">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="skill-animated-icon">
-  <span class="skill-icon-title">GitHub</span>
-</div>
-<div class="skill-icon-wrapper">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Google_Admin_icon.svg/640px-Google_Admin_icon.svg.png" alt="Google Admin" class="skill-animated-icon">
-  <span class="skill-icon-title">Google Admin</span>
-</div>
-<div class="skill-icon-wrapper">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Acronis.svg/640px-Acronis.svg.png" alt="Acronis" class="skill-animated-icon">
-  <span class="skill-icon-title">Acronis</span>
-</div>
-<div class="skill-icon-wrapper">
-  <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/lovable-ai-icon.png" alt="Lovable AI" class="skill-animated-icon">
-  <span class="skill-icon-title">Lovable AI</span>
-</div>
+            <div class="skill-icon-wrapper">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="skill-animated-icon">
+              <span class="skill-icon-title">GitHub</span>
+            </div>
+            
+            <div class="skill-icon-wrapper">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Google_Admin_icon.svg/640px-Google_Admin_icon.svg.png" alt="Google Admin" class="skill-animated-icon">
+              <span class="skill-icon-title">Google Admin</span>
+            </div>
+            
+            <div class="skill-icon-wrapper">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Acronis.svg/640px-Acronis.svg.png" alt="Acronis" class="skill-animated-icon">
+              <span class="skill-icon-title">Acronis</span>
+            </div>
+            
+            <div class="skill-icon-wrapper">
+              <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/lovable-ai-icon.png" alt="Lovable AI" class="skill-animated-icon">
+              <span class="skill-icon-title">Lovable AI</span>
+            </div>
           </div>
         </div>
       </section>
@@ -1203,7 +1182,7 @@
       </section>
 
       <!-- EXPERIENCE SECTION -->
-     <section id="experience" class="container" style="padding-top: var(--section-spacing);">
+      <section id="experience" class="container" style="padding-top: var(--section-spacing);">
         <div class="section-header">
           <span class="section-kicker">MY JOURNEY</span>
           <h2>Experience</h2>
