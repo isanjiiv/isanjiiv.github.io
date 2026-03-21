@@ -324,10 +324,11 @@
     /* HERO SECTION */
     .hero-wrapper {
       position: relative;
-      min-height: 100vh;
+      min-height: 600px; /* Safely fits your absolute image without forcing full screen */
       display: flex;
       align-items: center;
-      padding-top: 80px; 
+      padding-top: 160px; /* Clears the fixed header */
+      padding-bottom: 80px; /* Exact controlled bottom gap */
       overflow: hidden;
     }
 
@@ -372,10 +373,12 @@
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
 
     /* Background Image - Perfect Circle */
+    /* Background Image - Perfect Circle */
     .hero-image-area {
       position: absolute; 
       top: 50%; 
-      right: 5%; 
+      /* 👇 Replace 'right: 5%;' with this line below 👇 */
+      right: max(5%, calc(50vw - 550px)); 
       transform: translateY(-50%);
       width: 350px; 
       height: 350px; 
@@ -757,7 +760,17 @@
     /* RESPONSIVE */
     @media (max-width: 900px) {
       :root { --section-spacing: 4rem; }
-      .hero-wrapper { flex-direction: column; padding-top: 120px; text-align: center; }
+      .hero-wrapper { 
+        flex-direction: column; 
+        padding-top: 130px; /* Exact top gap for mobile */
+        padding-bottom: 40px; /* Exact bottom gap before next section */
+        text-align: center; 
+        min-height: auto; /* Strips the 600px desktop height */
+      }
+      .hero-content { 
+        max-width: 100%; 
+        padding-bottom: 1.5rem; /* Reduces the gap between text and image */
+      }
       .hero-content { max-width: 100%; padding-bottom: 3rem;}
       .hero-title { font-size: 3.5rem; }
       .hero-subtitle { font-size: 1.6rem; }
