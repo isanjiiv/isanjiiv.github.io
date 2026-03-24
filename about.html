@@ -117,8 +117,36 @@
     /* ABOUT PAGE SPECIFIC */
     main { padding-top: 120px; padding-bottom: 60px; min-height: 80vh;}
     
-    .project-banner-wrapper { width: 100%; border-radius: var(--radius-md); overflow: hidden; margin-bottom: 3rem; border: none; transition: transform 0.3s;}
+    .project-banner-wrapper { width: 100%; border-radius: var(--radius-md); margin-bottom: 3rem; border: none; transition: transform 0.3s;}
     .project-banner-img { width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 16 / 6; filter: brightness(0.6); object-position: center 30%;}
+
+    /* --- SHINE ANIMATION EFFECT --- */
+    .shine-effect {
+      position: relative;
+      overflow: hidden; 
+      border-radius: var(--radius-md);
+    }
+    .shine-effect::before {
+      position: absolute;
+      top: 0;
+      left: -75%;
+      z-index: 2;
+      display: block;
+      content: '';
+      width: 50%;
+      height: 100%;
+      background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+      -webkit-transform: skewX(-25deg);
+      transform: skewX(-25deg);
+      pointer-events: none; 
+    }
+    .shine-effect:hover::before {
+      -webkit-animation: shine 0.75s;
+      animation: shine 0.75s;
+    }
+    @-webkit-keyframes shine { 100% { left: 125%; } }
+    @keyframes shine { 100% { left: 125%; } }
 
     /* ZIG-ZAG LAYOUT SYSTEM */
     .split-row {
@@ -126,6 +154,7 @@
       align-items: center;
       gap: 5rem;
       margin-bottom: 6rem;
+      perspective: 1000px; 
     }
     .split-row.reverse {
       flex-direction: row-reverse;
@@ -159,16 +188,85 @@
     .split-image {
       flex: 0.8;
       position: relative;
+      border-radius: var(--radius-md); 
     }
+    
+    /* --- SCROLL ANIMATIONS: CONTAINERS --- */
+    .split-row, .glass-card, .section-header {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .split-row.visible, .glass-card.visible, .section-header.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* --- SCROLL ANIMATIONS: TEXT SLIDE UP STAGGER --- */
+    .section-header .section-kicker,
+    .section-header h2,
+    .section-header .header-line,
+    .split-content h3, 
+    .split-content p, 
+    .split-content li,
+    .contact-wrapper h3, 
+    .contact-wrapper p, 
+    .contact-info-item, 
+    .contact-wrapper form {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .section-header.visible .section-kicker,
+    .section-header.visible h2,
+    .section-header.visible .header-line,
+    .split-row.visible .split-content h3, 
+    .split-row.visible .split-content p, 
+    .split-row.visible .split-content li,
+    .glass-card.visible .contact-wrapper h3, 
+    .glass-card.visible .contact-wrapper p, 
+    .glass-card.visible .contact-info-item, 
+    .glass-card.visible .contact-wrapper form {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Text Animation Delays */
+    .section-header.visible .section-kicker { transition-delay: 0.1s; }
+    .section-header.visible h2 { transition-delay: 0.2s; }
+    .section-header.visible .header-line { transition-delay: 0.3s; }
+
+    .split-row.visible .split-content h3 { transition-delay: 0.2s; }
+    .split-row.visible .split-content p:nth-of-type(1) { transition-delay: 0.3s; }
+    .split-row.visible .split-content p:nth-of-type(2) { transition-delay: 0.4s; }
+    .split-row.visible .split-content p:nth-of-type(3) { transition-delay: 0.5s; }
+    .split-row.visible .split-content ul { transition-delay: 0.3s; }
+    .split-row.visible .split-content li:nth-child(1) { transition-delay: 0.4s; }
+    .split-row.visible .split-content li:nth-child(2) { transition-delay: 0.5s; }
+    .split-row.visible .split-content li:nth-child(3) { transition-delay: 0.6s; }
+
+    .glass-card.visible .contact-wrapper h3 { transition-delay: 0.2s; }
+    .glass-card.visible .contact-wrapper p { transition-delay: 0.3s; }
+    .glass-card.visible .contact-info-item:nth-child(1) { transition-delay: 0.4s; }
+    .glass-card.visible .contact-info-item:nth-child(2) { transition-delay: 0.5s; }
+    .glass-card.visible .contact-wrapper form { transition-delay: 0.4s; }
+
+    /* --- SCROLL ANIMATIONS: IMAGE RELOAD --- */
     .split-image img {
       width: 100%;
       border-radius: var(--radius-md);
       box-shadow: 0 20px 40px rgba(0,0,0,0.5);
       border: none;
-      transition: transform 0.4s ease;
+      opacity: 0;
+      transform: scale(0.8) rotateX(-15deg);
+      filter: blur(10px) grayscale(50%);
+      transition: all 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
-    .split-image img:hover {
-      transform: translateY(-5px) scale(1.02);
+    .split-row.visible .split-image img {
+      opacity: 1;
+      transform: scale(1) rotateX(0deg);
+      filter: blur(0px) grayscale(0%);
     }
 
     /* CONTACT */
@@ -194,7 +292,6 @@
     #blend-cursor { position: fixed; top: 0; left: 0; width: 35px; height: 35px; border-radius: 50%; background-color: var(--primary); pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); mix-blend-mode: difference; transition: width 0.3s, height 0.3s, background-color 0.3s; display: none; }
     #blend-cursor.hovering { width: 70px; height: 70px; background-color: #ffffff; }
     @media (pointer: fine) { #blend-cursor { display: block; } }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
@@ -254,7 +351,7 @@
   </div>
 
   <main class="container">
-      <div class="project-banner-wrapper">
+      <div class="project-banner-wrapper shine-effect">
         <img src="https://plus.unsplash.com/premium_photo-1661775756810-82dbd209fc95?q=80&w=1954&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sanjeev Kumar About Header Banner" class="project-banner-img" loading="lazy">
       </div>
 
@@ -272,8 +369,8 @@
             <p>Hello, I’m <strong>Sanjeev Kumar</strong>, an IT Engineer with strong hands-on experience in IT infrastructure support, Windows Server administration, networking, firewall security, and cloud fundamentals. Based in Noida, I specialize in building stable, secure, and well-managed IT environments.</p>
             <p>Over the years, I have worked on a wide range of IT responsibilities—from managing day-to-day technical support to implementing enterprise-level solutions in Windows Server domains. I believe in continuous learning and applying new technologies to solve complex business problems.</p>
           </div>
-          <div class="split-image">
-            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-it.jpg" alt="Sanjeev Kumar Professional Headshot" loading="lazy">
+          <div class="split-image shine-effect">
+            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-noida.png" alt="Sanjeev Kumar Professional Headshot" loading="lazy">
           </div>
         </div>
 
@@ -287,8 +384,8 @@
                 <li><strong>Firewall & Security:</strong> Configuring Fortinet FortiGate 60F policies, basic routing, and VPN setups to keep networks secure from threats.</li>
             </ul>
           </div>
-          <div class="split-image">
-            <img src="https://isanjiiv.github.io/assets/images/sanjeev.jpg" alt="Sanjeev Kumar working in IT" loading="lazy">
+          <div class="split-image shine-effect">
+            <img src="https://isanjiiv.github.io/assets/images/sanjeev-it-engineer.png" alt="Sanjeev Kumar working in IT" loading="lazy">
           </div>
         </div>
 
@@ -302,7 +399,7 @@
                 <li><strong>AI Agents & Automation:</strong> Skilled in utilizing AI tools (like Lovable, Cursor, and Emergent) to build smart no-code web applications and automate repetitive workflows.</li>
             </ul>
           </div>
-          <div class="split-image">
+          <div class="split-image shine-effect">
             <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-It-engineer.png" alt="Sanjeev Kumar Skills and Tech Stack" loading="lazy">
           </div>
         </div>
@@ -431,20 +528,19 @@
         hamburger.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
     });
 
-    // Fade In Animation
+    // Fade In & Text Slide Up Animation Trigger
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = 1;
-                entry.target.style.transform = 'translateY(0)';
-                setTimeout(() => { entry.target.style.transform = ''; entry.target.style.transition = ''; }, 600);
-                observer.unobserve(entry.target);
+                entry.target.classList.add('visible'); 
+            } else {
+                entry.target.classList.remove('visible'); 
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.15 });
 
-    document.querySelectorAll('.split-row, .glass-card').forEach(el => {
-        el.style.opacity = 0; el.style.transform = 'translateY(20px)'; el.style.transition = 'all 0.6s ease-out';
+    // Attach observer to layout blocks
+    document.querySelectorAll('.split-row, .glass-card, .section-header').forEach(el => {
         observer.observe(el);
     });
 
