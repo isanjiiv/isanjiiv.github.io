@@ -1,19 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-  <!-- Homepage -->
   <url>
     <loc>https://isanjiiv.github.io/</loc>
     <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+
+    <image:image>
+      <image:loc>https://isanjiiv.github.io/assets/images/favicon.png</image:loc>
+      <image:title>Sanjeev Kumar Favicon</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://isanjiiv.github.io/assets/images/favicon.ico</image:loc>
+      <image:title>Sanjeev Kumar Icon</image:title>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev.jpg</image:loc>
+      <image:title>Sanjeev Kumar</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-it.jpg</image:loc>
+      <image:title>Sanjeev Kumar IT Engineer</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-it-engineer.png</image:loc>
+      <image:title>Sanjeev Kumar Profile</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-It-engineer.png</image:loc>
+      <image:title>Sanjeev Kumar IT Professional</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-engineer-noida.jpg</image:loc>
+      <image:title>Sanjeev Kumar IT Engineer Noida</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-noida.png</image:loc>
+      <image:title>Sanjeev Kumar Noida</image:title>
+    </image:image>
   </url>
 
-  <!-- Favicon files -->
   <url>
-    <loc>https://isanjiiv.github.io/assets/images/favicon.png</loc>
-  </url>
-
-  <url>
-    <loc>https://isanjiiv.github.io/assets/images/favicon.ico</loc>
+    <loc>https://isanjiiv.github.io/about.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
   </url>
 
 </urlset>
