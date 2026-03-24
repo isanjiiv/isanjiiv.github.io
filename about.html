@@ -13,8 +13,46 @@
   </script>
 
   <title>About Sanjeev Kumar | IT Engineer</title>
-  <meta name="description" content="Detailed professional profile and biography of Sanjeev Kumar." />
+  <meta name="title" content="About Sanjeev Kumar | IT Engineer">
+  <meta name="description" content="Professional profile of Sanjeev Kumar, an IT Engineer based in Noida specializing in IT infrastructure, Windows Server administration, and web development." />
   <meta name="theme-color" content="#0b0f12" />
+  
+  <link rel="canonical" href="https://isanjiiv.github.io/about.html" />
+
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://isanjiiv.github.io/about.html" />
+  <meta property="og:title" content="About Sanjeev Kumar | IT Engineer" />
+  <meta property="og:description" content="Professional profile of Sanjeev Kumar, an IT Engineer based in Noida specializing in IT infrastructure, Windows Server administration, and web development." />
+  <meta property="og:image" content="https://isanjiiv.github.io/assets/images/sanjeev-kumar-noida.png" />
+
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://isanjiiv.github.io/about.html" />
+  <meta property="twitter:title" content="About Sanjeev Kumar | IT Engineer" />
+  <meta property="twitter:description" content="Professional profile of Sanjeev Kumar, an IT Engineer based in Noida specializing in IT infrastructure, Windows Server administration, and web development." />
+  <meta property="twitter:image" content="https://isanjiiv.github.io/assets/images/sanjeev-kumar-noida.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sanjeev Kumar",
+    "jobTitle": "IT Engineer",
+    "url": "https://isanjiiv.github.io/",
+    "image": "https://isanjiiv.github.io/assets/images/sanjeev-kumar-noida.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Noida",
+      "addressCountry": "IN"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/isanjiiv/",
+      "https://github.com/isanjiiv",
+      "https://x.com/isanjiiv",
+      "https://www.instagram.com/isanjiiv/",
+      "https://www.youtube.com/@isanjiiv/"
+    ]
+  }
+  </script>
     
   <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -93,7 +131,8 @@
     
     .section-header { text-align: center; margin-bottom: 4rem; display: flex; flex-direction: column; align-items: center; justify-content: center; }
     .section-kicker { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 0.8rem; font-weight: 500; font-family: var(--font-body); }
-    .section-header h2 { font-size: 2.8rem; font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; line-height: 1.2; }
+    /* Added h1 here for SEO parity with previous h2 */
+    .section-header h1, .section-header h2 { font-size: 2.8rem; font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; line-height: 1.2; }
     .header-line { width: 2px; height: 40px; background-color: var(--primary); }
 
     /* --- 4. LAYOUT --- */
@@ -101,7 +140,7 @@
     header.scrolled { background: var(--nav-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
     .nav-inner { display: flex; justify-content: space-between; align-items: center; height: 100%; }
     .brand { font-size: 1.4rem; font-weight: 700; display: flex; align-items: center; gap: 10px; cursor: pointer; text-decoration: none;}
-    .nav-menu { display: flex; gap: 2rem; align-items: center; }
+    .nav-menu { display: flex; gap: 1.8rem; align-items: center; }
     .nav-menu a { font-family: var(--font-heading); font-weight: 400; font-size: 0.95rem; color: var(--text-muted); cursor: pointer; }
     .nav-menu a:hover, .nav-menu a.active { color: var(--text-main); }
     .nav-contact-btn { background-color: transparent !important; color: var(--text-main) !important; padding: 8px 0 !important; border-bottom: 2px solid var(--primary); border-radius: 0; transition: all 0.3s ease; }
@@ -204,6 +243,7 @@
 
     /* --- SCROLL ANIMATIONS: TEXT SLIDE UP STAGGER --- */
     .section-header .section-kicker,
+    .section-header h1,
     .section-header h2,
     .section-header .header-line,
     .split-content h3, 
@@ -219,6 +259,7 @@
     }
 
     .section-header.visible .section-kicker,
+    .section-header.visible h1,
     .section-header.visible h2,
     .section-header.visible .header-line,
     .split-row.visible .split-content h3, 
@@ -234,7 +275,7 @@
 
     /* Text Animation Delays */
     .section-header.visible .section-kicker { transition-delay: 0.1s; }
-    .section-header.visible h2 { transition-delay: 0.2s; }
+    .section-header.visible h1, .section-header.visible h2 { transition-delay: 0.2s; }
     .section-header.visible .header-line { transition-delay: 0.3s; }
 
     .split-row.visible .split-content h3 { transition-delay: 0.2s; }
@@ -324,7 +365,8 @@
       </a>
 
       <nav class="nav-menu" aria-label="Main Navigation">
-        <a href="about.html" class="active" style="color: var(--text-main);">About</a>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active" style="color: var(--text-main);" aria-current="page">About</a>
         <a href="index.html#skills">Skills</a>
         <a href="index.html#projects">Projects</a>
         <a href="index.html#certs">Certifications</a>
@@ -334,7 +376,7 @@
 
       <div class="nav-actions">
         <button id="theme-toggle" class="btn-icon" aria-label="Toggle Theme" title="Toggle Theme"><i class="fa-solid fa-sun"></i></button>
-        <a href="https://www.wayoftech.net/" target="_blank" rel="noopener noreferrer" class="btn-icon" title="WAY OF TECH"><img src="https://www.wayoftech.net/favicon.ico" alt="Way of Tech Blog" style="width:16px;"></a>
+        <a href="https://www.wayoftech.net/" target="_blank" rel="noopener noreferrer" class="btn-icon" title="WAY OF TECH" aria-label="Visit Way of Tech Blog"><img src="https://www.wayoftech.net/favicon.ico" alt="Way of Tech Blog" style="width:16px;"></a>
         <a href="https://isanjiiv.github.io/assets/docs/Resume.pdf" class="btn-icon" download aria-label="Download Sanjeev Kumar Resume" title="Download Resume"><i class="fa-solid fa-download"></i></a>
         <button class="hamburger" id="hamburger" aria-label="Open Mobile Menu"><i class="fa-solid fa-bars"></i></button>
       </div>
@@ -342,6 +384,7 @@
   </header>
 
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="index.html#skills">Skills</a>
     <a href="index.html#projects">Projects</a>
@@ -352,12 +395,12 @@
 
   <main class="container">
       <div class="project-banner-wrapper shine-effect">
-        <img src="https://plus.unsplash.com/premium_photo-1661775756810-82dbd209fc95?q=80&w=1954&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sanjeev Kumar About Header Banner" class="project-banner-img" loading="lazy">
+        <img src="https://plus.unsplash.com/premium_photo-1661775756810-82dbd209fc95?q=80&w=1954&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Abstract technology and network background banner" class="project-banner-img" loading="lazy">
       </div>
 
       <div class="section-header" style="margin-top: 2rem;">
         <span class="section-kicker">GET TO KNOW ME</span>
-        <h2>About Me</h2>
+        <h1>About Me</h1>
         <div class="header-line"></div>
       </div>
 
@@ -365,18 +408,18 @@
         
         <div class="split-row">
           <div class="split-content">
-            <h3>My Professional Journey</h3>
+            <h2>My Professional Journey</h2>
             <p>Hello, I’m <strong>Sanjeev Kumar</strong>, an IT Engineer with strong hands-on experience in IT infrastructure support, Windows Server administration, networking, firewall security, and cloud fundamentals. Based in Noida, I specialize in building stable, secure, and well-managed IT environments.</p>
             <p>Over the years, I have worked on a wide range of IT responsibilities—from managing day-to-day technical support to implementing enterprise-level solutions in Windows Server domains. I believe in continuous learning and applying new technologies to solve complex business problems.</p>
           </div>
           <div class="split-image shine-effect">
-            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-noida.png" alt="Sanjeev Kumar Professional Headshot" loading="lazy">
+            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-noida.png" alt="Portrait of Sanjeev Kumar, IT Engineer in Noida" loading="lazy">
           </div>
         </div>
 
         <div class="split-row reverse">
           <div class="split-content">
-            <h3>IT Infrastructure & Networking</h3>
+            <h2>IT Infrastructure & Networking</h2>
             <p>I have dedicated my career to mastering the tools that keep modern businesses secure and operational. My core technical skills include:</p>
             <ul>
                 <li><strong>Windows Server Knowledge:</strong> Extensive experience managing Active Directory (AD), deploying Group Policies (GPO), WSUS, and user access control.</li>
@@ -385,13 +428,13 @@
             </ul>
           </div>
           <div class="split-image shine-effect">
-            <img src="https://isanjiiv.github.io/assets/images/sanjeev-it-engineer.png" alt="Sanjeev Kumar working in IT" loading="lazy">
+            <img src="https://isanjiiv.github.io/assets/images/sanjeev-it-engineer.png" alt="Illustration representing IT networking, infrastructure, and server management" loading="lazy">
           </div>
         </div>
 
         <div class="split-row" style="margin-bottom: 0;">
           <div class="split-content">
-            <h3>Web Development & AI Automation</h3>
+            <h2>Web Development & AI Automation</h2>
             <p>Beyond traditional IT support, I leverage modern web tools and Artificial Intelligence to build digital solutions that drive business growth:</p>
             <ul>
                 <li><strong>Website Creation:</strong> Highly capable of designing and building custom websites, professional portfolios, and fully functional e-commerce sites.</li>
@@ -400,7 +443,7 @@
             </ul>
           </div>
           <div class="split-image shine-effect">
-            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-It-engineer.png" alt="Sanjeev Kumar Skills and Tech Stack" loading="lazy">
+            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-It-engineer.png" alt="Concept art representing Web Development and Artificial Intelligence Automation" loading="lazy">
           </div>
         </div>
 
@@ -423,11 +466,11 @@
               
               <div style="margin-bottom: 2rem;">
                 <div class="contact-info-item">
-                  <i class="fa-solid fa-location-dot"></i> 
+                  <i class="fa-solid fa-location-dot" aria-hidden="true"></i> 
                   <span>Noida, India</span>
                 </div>
                 <div class="contact-info-item">
-                  <i class="fa-solid fa-envelope"></i> 
+                  <i class="fa-solid fa-envelope" aria-hidden="true"></i> 
                   <span>Sanjeev753304@gmail.com</span>
                 </div>
               </div>
@@ -449,7 +492,7 @@
               <input type="hidden" name="_replyto" value="Sanjeev753304@gmail.com">
               
               <button type="submit" class="btn-primary btn-submit" aria-label="Send Message" style="margin-top: 10px;">
-                Send Message <i class="fa-solid fa-paper-plane" style="margin-left:8px;"></i>
+                Send Message <i class="fa-solid fa-paper-plane" style="margin-left:8px;" aria-hidden="true"></i>
               </button>
             </form>
           </div>
@@ -466,6 +509,7 @@
       </div>
 
       <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="index.html#skills">Skills</a>
         <a href="index.html#projects">Projects</a>
@@ -475,12 +519,12 @@
       </nav>
 
       <div class="footer-socials">
-        <a href="mailto:sanjeev753304@gmail.com" class="btn-icon" aria-label="Email Sanjeev" title="Email"><i class="fa-solid fa-envelope"></i></a>
-        <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="LinkedIn Profile" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="GitHub Profile" title="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="Instagram Profile" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.youtube.com/@isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="YouTube Channel" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://x.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="X (Twitter) Profile" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="mailto:sanjeev753304@gmail.com" class="btn-icon" aria-label="Email Sanjeev" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="LinkedIn Profile" title="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+        <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="GitHub Profile" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+        <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="Instagram Profile" title="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.youtube.com/@isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="YouTube Channel" title="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+        <a href="https://x.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="X (Twitter) Profile" title="X (Twitter)"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
       </div>
 
       <div style="text-align: center; color: var(--text-muted); font-size: 0.95rem;">
@@ -489,7 +533,7 @@
     </div>
   </footer>
 
-  <button id="backToTop" class="back-to-top" aria-label="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
+  <button id="backToTop" class="back-to-top" aria-label="Back to Top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
 
   <script>
     // Theme logic
