@@ -43,6 +43,7 @@
 {
   "@context": "https://schema.org",
   "@graph": [
+
     {
       "@type": "Person",
       "@id": "https://isanjiiv.github.io/#person",
@@ -52,16 +53,20 @@
       "image": "https://isanjiiv.github.io/assets/images/sanjeev.jpg",
       "jobTitle": "IT Engineer",
       "description": "IT Engineer specializing in Windows Server Administration, Networking, AWS, Azure, Fortinet Firewall, and Cybersecurity.",
+      
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Noida",
         "addressCountry": "IN"
       },
+
       "email": "mailto:sanjeev753304@gmail.com",
+
       "worksFor": {
         "@type": "Organization",
         "name": "Grain Milling Solutions Pvt Ltd"
       },
+
       "sameAs": [
         "https://www.linkedin.com/in/isanjiiv/",
         "https://github.com/isanjiiv",
@@ -69,6 +74,7 @@
         "https://www.youtube.com/@isanjiiv/",
         "https://x.com/isanjiiv"
       ],
+
       "knowsAbout": [
         "Windows Server",
         "Active Directory",
@@ -88,24 +94,29 @@
         "Web Development"
       ]
     },
+
     {
       "@type": "ProfilePage",
       "@id": "https://isanjiiv.github.io/#webpage",
       "url": "https://isanjiiv.github.io/",
       "name": "Sanjeev Kumar | IT Engineer Portfolio",
+      
       "isPartOf": {
         "@id": "https://isanjiiv.github.io/#website"
       },
+
       "mainEntity": {
         "@id": "https://isanjiiv.github.io/#person"
       }
     },
+
     {
       "@type": "WebSite",
       "@id": "https://isanjiiv.github.io/#website",
       "url": "https://isanjiiv.github.io/",
       "name": "Sanjeev Kumar Portfolio"
     }
+
   ]
 }
 </script>
@@ -173,6 +184,7 @@
       --pattern-dot: rgba(0, 0, 0, 0.06);
     }
 
+    /* specific light mode adjustments */
     [data-theme="light"] .app-iframe { filter: none; }
     [data-theme="light"] .dots-pattern { background-image: radial-gradient(rgba(0,0,0,0.15) 2px, transparent 2px); }
 
@@ -221,10 +233,10 @@
     .btn-icon {
       display: inline-flex; align-items: center; justify-content: center;
       width: 40px; height: 40px; border-radius: 50%; background: var(--bg-secondary);
-      border: none; color: var(--text-main);
+      border: 1px solid var(--card-border); color: var(--text-main);
       backdrop-filter: blur(8px); transition: var(--transition); cursor: pointer; font-size: 0.9rem;
     }
-    .btn-icon:hover { background: var(--primary); color: #000; }
+    .btn-icon:hover { background: var(--primary); color: #000; border-color: var(--primary); }
 
     .btn-primary {
       display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
@@ -290,12 +302,12 @@
     header {
       position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; 
       background: transparent; height: 80px; transition: all 0.3s ease;
-      border-bottom: none;
+      border-bottom: 1px solid transparent;
     }
     header.scrolled {
       background: var(--nav-bg);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      border-bottom: 1px solid var(--card-border);
     }
 
     .nav-inner { display: flex; justify-content: space-between; align-items: center; height: 100%; }
@@ -308,7 +320,7 @@
 
     .nav-menu { display: flex; gap: 2rem; align-items: center; }
     .nav-menu a { font-family: var(--font-heading); font-weight: 400; font-size: 0.95rem; color: var(--text-muted); cursor: pointer; }
-    .nav-menu a:hover, .nav-menu a.active { color: var(--text-main); }
+    .nav-menu a:hover { color: var(--text-main); }
     
     .nav-contact-btn {
       background-color: transparent !important; color: var(--text-main) !important; padding: 8px 0 !important;
@@ -318,37 +330,63 @@
     
     .nav-actions { display: flex; gap: 12px; align-items: center; }
 
-    /* MOBILE MENU */
-    .hamburger { display: none; background: none; border: none; font-size: 1.4rem; color: var(--text-main); cursor: pointer; }
-    .mobile-menu { position: fixed; top: 80px; left: 0; width: 100%; background: var(--nav-bg); backdrop-filter: blur(10px); padding: 1rem; transform: translateY(-150%); transition: 0.3s; z-index: 999; border-bottom: none; opacity: 0; pointer-events: none; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.2);}
-    .mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
-    .mobile-menu a { display: block; padding: 15px; font-weight: 500; font-size: 1.1rem; color: var(--text-muted); border-bottom: 1px solid rgba(255,255,255,0.05); font-family: var(--font-heading);}
-
     /* HERO SECTION */
     .hero-wrapper {
       position: relative;
-      min-height: 600px;
+      min-height: 600px; /* Safely fits your absolute image without forcing full screen */
       display: flex;
       align-items: center;
-      padding-top: 160px;
-      padding-bottom: 80px;
+      padding-top: 160px; /* Clears the fixed header */
+      padding-bottom: 80px; /* Exact controlled bottom gap */
       overflow: hidden;
     }
-    .hero-content { flex: 1; width: 100%; max-width: var(--container); z-index: 2; }
-    .hero-content > * { max-width: 700px; }
-    .hero-badge { display:inline-block; padding:6px 16px; background:rgba(0, 200, 117, 0.1); color:var(--primary); border-radius:4px; font-family: var(--font-heading); font-weight:500; font-size: 0.85rem; margin-bottom:1.5rem; border:1px solid rgba(0, 200, 117, 0.2); }
-    .hero-title { font-size: 4rem; font-weight: 700; line-height: 1.1; margin-bottom: 1rem; letter-spacing: -1px; white-space: nowrap; max-width: none !important; }
+
+    .hero-content { 
+      flex: 1; 
+      width: 100%;
+      max-width: var(--container);
+      z-index: 2; 
+    }
+
+    .hero-content > * {
+      max-width: 700px;
+    }
+
+    .hero-badge {
+      display:inline-block; padding:6px 16px; background:rgba(0, 200, 117, 0.1); 
+      color:var(--primary); border-radius:4px; font-family: var(--font-heading); font-weight:500; font-size: 0.85rem; 
+      margin-bottom:1.5rem; border:1px solid rgba(0, 200, 117, 0.2);
+    }
+
+    .hero-title { 
+      font-size: 4rem; 
+      font-weight: 700; 
+      line-height: 1.1; 
+      margin-bottom: 1rem; 
+      letter-spacing: -1px; 
+      white-space: nowrap;
+      max-width: none !important;
+    }
     .hero-title .dot { color: var(--primary); }
+    
     .hero-subtitle-wrapper { display: flex; align-items: center; gap: 15px; margin-bottom: 1rem; }
     .hero-subtitle-wrapper .line { width: 45px; height: 2px; background-color: var(--primary); }
     .hero-subtitle { font-size: 2rem; font-weight: 400; margin: 0; }
+    
     .typing-text { color: var(--primary); font-weight: 700;}
-    .hero-desc { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 550px; font-weight: 300; }
+
+    .hero-desc {
+      font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 550px; font-weight: 300;
+    }
+
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
 
+    /* Background Image - Perfect Circle */
+    /* Background Image - Perfect Circle */
     .hero-image-area {
       position: absolute; 
       top: 50%; 
+      /* 👇 Replace 'right: 5%;' with this line below 👇 */
       right: max(5%, calc(50vw - 550px)); 
       transform: translateY(-50%);
       width: 350px; 
@@ -362,40 +400,29 @@
       box-shadow: 0 0 40px var(--primary-glow);
       transition: filter 0.3s ease, box-shadow 0.3s ease;
     }
-
-    /* --- SHINE ANIMATION EFFECT --- */
-    .shine-effect { position: relative; overflow: hidden; }
-    .shine-effect::after {
-      position: absolute; top: 0; left: -100%; z-index: 100; display: block; content: ''; width: 50%; height: 100%;
-      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%); transform: skewX(-25deg); pointer-events: none; 
+    
+    .hero-image-area::before {
+      display: none;
     }
-    .shine-effect:hover::after { animation: shine 0.75s forwards; }
-    @keyframes shine { 100% { left: 200%; } }
-
-    /* --- SCROLL ANIMATIONS: CONTAINERS --- */
-    .animate-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; perspective: 1000px; }
-    .animate-section.visible { opacity: 1; transform: translateY(0); }
-
-    /* --- SCROLL ANIMATIONS: TEXT SLIDE UP STAGGER --- */
-    .stagger-text > * { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); }
-    .animate-section.visible .stagger-text > *, .animate-section.visible.stagger-text > * { opacity: 1; transform: translateY(0); }
-    .animate-section.visible .stagger-text > *:nth-child(1), .animate-section.visible.stagger-text > *:nth-child(1) { transition-delay: 0.1s; }
-    .animate-section.visible .stagger-text > *:nth-child(2), .animate-section.visible.stagger-text > *:nth-child(2) { transition-delay: 0.2s; }
-    .animate-section.visible .stagger-text > *:nth-child(3), .animate-section.visible.stagger-text > *:nth-child(3) { transition-delay: 0.3s; }
-    .animate-section.visible .stagger-text > *:nth-child(4), .animate-section.visible.stagger-text > *:nth-child(4) { transition-delay: 0.4s; }
-    .animate-section.visible .stagger-text > *:nth-child(5), .animate-section.visible.stagger-text > *:nth-child(5) { transition-delay: 0.5s; }
-    .animate-section.visible .stagger-text > *:nth-child(6), .animate-section.visible.stagger-text > *:nth-child(6) { transition-delay: 0.6s; }
-
-    /* --- SCROLL ANIMATIONS: IMAGE RELOAD --- */
-    .reload-img { opacity: 0; transform: scale(0.8) rotateX(-15deg); filter: blur(10px) grayscale(50%); transition: all 1.2s cubic-bezier(0.25, 0.8, 0.25, 1); }
-    .animate-section.visible .reload-img, .animate-section.visible.reload-img { opacity: 1; transform: scale(1) rotateX(0deg); filter: blur(0px) grayscale(0%); }
 
     /* --- ABOUT SECTION --- */
-    .about-layout { display: flex; gap: 5rem; align-items: center; max-width: 1050px; margin: 0 auto; }
-    .about-image-col { flex: 0.8; position: relative; display: flex; justify-content: center; }
-    .about-img-wrapper { position: relative; display: inline-block; width: 100%; max-width: 400px; }
-    .about-img-wrapper img { width: 100%; display: block; position: relative; z-index: 1; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-    .dots-pattern { position: absolute; top: -30px; left: -30px; width: 180px; height: 180px; background-image: radial-gradient(rgba(255,255,255,0.15) 2px, transparent 2px); background-size: 20px 20px; z-index: 0; transition: background-image 0.3s ease; }
+    .about-layout { 
+      display: flex; gap: 5rem; align-items: center; max-width: 1050px; margin: 0 auto;
+    }
+    .about-image-col { 
+      flex: 0.8; position: relative; display: flex; justify-content: center;
+    }
+    .about-img-wrapper { 
+      position: relative; display: inline-block; width: 100%; max-width: 400px;
+    }
+    .about-img-wrapper img { 
+      width: 100%; display: block; position: relative; z-index: 2; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+    .dots-pattern { 
+      position: absolute; top: -30px; left: -30px; width: 180px; height: 180px; 
+      background-image: radial-gradient(rgba(255,255,255,0.15) 2px, transparent 2px); 
+      background-size: 20px 20px; z-index: 1; transition: background-image 0.3s ease;
+    }
     
     .about-text-col { flex: 1.2; }
     .about-subtitle { color: var(--primary); font-size: 1rem; font-weight: 500; margin-bottom: 0.5rem; font-family: var(--font-body); }
@@ -404,7 +431,11 @@
     .about-text-col strong { color: var(--text-main); font-weight: 500; }
     
     .about-tags { margin-top: 2rem; display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 2.5rem; }
-    .tech-tag { font-size: 0.85rem; padding: 6px 16px; background: var(--bg-secondary); border: 1px solid var(--card-border); border-radius: 4px; color: var(--text-muted); font-weight: 500; white-space: nowrap; display: inline-block; transition: all 0.3s; }
+    .tech-tag { 
+      font-size: 0.85rem; padding: 6px 16px; background: var(--bg-secondary); 
+      border: 1px solid var(--card-border); border-radius: 4px; color: var(--text-muted); 
+      font-weight: 500; white-space: nowrap; display: inline-block; transition: all 0.3s;
+    }
     .highlight-tag { border-color: var(--primary); color: var(--primary); background: rgba(0, 200, 117, 0.05); }
 
     /* --- SKILLS LAYOUT --- */
@@ -412,7 +443,9 @@
     .skills-image-container { flex: 0.8; min-width: 280px; display: flex; justify-content: center; position: relative; }
     .skills-image-container img { width: 100%; max-width: 350px; border-radius: var(--radius-md); transition: transform 0.4s ease; }
     .skills-image-container img:hover { transform: translateY(-5px); }
+    
     .skills-flex-container { flex: 1.2; min-width: 300px; display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: center; gap: 3rem 2rem; }
+    
     .skill-icon-wrapper { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; cursor: pointer; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
     .skill-icon-wrapper:hover { transform: translateY(-12px) scale(1.15); }
     .skill-animated-icon { width: 60px; height: 60px; object-fit: contain; filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.2)); }
@@ -420,36 +453,183 @@
     .skill-icon-wrapper:hover .skill-icon-title { color: var(--primary); }
 
     /* --- NEW TABBED PROJECTS SECTION --- */
-    .tabbed-projects-section { max-width: 1200px; margin: 0 auto; padding-top: var(--section-spacing); }
-    .tabbed-projects-header { text-align: center; margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-    .tabbed-projects-header h2 { font-size: 2.8rem; font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; line-height: 1.2; }
-    .project-tabs { display: flex; justify-content: center; gap: 0.5rem; position: relative; z-index: 2; margin-bottom: 0; }
-    .tab-btn { background: transparent; border: none; padding: 1rem 2rem; font-size: 1rem; font-family: var(--font-heading); color: var(--text-muted); cursor: pointer; border-radius: 20px 20px 0 0; position: relative; transition: color 0.3s, background 0.3s; font-weight: 500; }
-    .tab-btn:hover { color: var(--primary); }
-    .tab-btn.active { background: #171717; color: #ffffff; }
-    .tab-btn.active::before, .tab-btn.active::after { content: ''; position: absolute; bottom: 0; width: 20px; height: 20px; border-radius: 50%; pointer-events: none; }
-    .tab-btn.active::before { left: -20px; box-shadow: 10px 10px 0 0 #171717; }
-    .tab-btn.active::after { right: -20px; box-shadow: -10px 10px 0 0 #171717; }
-    .project-tab-content-container { background: #171717; border-radius: 30px; padding: 4rem; position: relative; z-index: 1; box-shadow: 0 20px 40px rgba(0,0,0,0.15); overflow: hidden; min-height: 450px; }
-    .project-tab-pane { display: none; gap: 3rem; align-items: center; animation: fadeInPane 0.4s ease forwards; }
-    .project-tab-pane.active { display: flex; }
-    @keyframes fadeInPane { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+    .tabbed-projects-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: var(--section-spacing);
+    }
     
-    .project-tab-pane.active .reload-img { animation: tabImageReload 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards; }
-    @keyframes tabImageReload { 0% { opacity: 0; transform: scale(0.8) rotateX(-15deg); filter: blur(10px) grayscale(50%); } 100% { opacity: 1; transform: scale(1) rotateX(0deg); filter: blur(0px) grayscale(0%); } }
+    .tabbed-projects-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .tabbed-projects-header h2 {
+      font-size: 2.8rem; 
+      font-weight: 700; 
+      color: var(--text-main); 
+      margin-bottom: 1.5rem; 
+      line-height: 1.2;
+    }
 
-    .pane-text { flex: 1; color: #e5e5e5; display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
-    .pane-text h3 { font-size: 2.2rem; color: #ffffff; margin-bottom: 1.5rem; font-weight: 600; }
-    .pane-text p { font-size: 1.05rem; line-height: 1.6; margin-bottom: 2rem; color: #a3a3a3; }
-    .pane-btn { display: inline-flex; align-items: center; gap: 8px; background: #ffffff; color: #000000; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600; font-size: 1rem; text-decoration: none; transition: all 0.2s ease; cursor: pointer; border: none; font-family: var(--font-heading); }
-    .pane-btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2); }
-    .pane-image { flex: 1; display: flex; justify-content: center; position: relative; }
-    .pane-image img { width: 100%; max-width: 450px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); transition: transform 0.4s ease; }
-    .pane-image img:hover { transform: scale(1.03); }
+    .project-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 0; 
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-family: var(--font-heading);
+      color: var(--text-muted);
+      cursor: pointer;
+      border-radius: 20px 20px 0 0;
+      position: relative;
+      transition: color 0.3s, background 0.3s;
+      font-weight: 500;
+    }
+
+    .tab-btn:hover {
+      color: var(--primary);
+    }
+
+    /* Active Tab & Smooth Curve Effect - FORCED DARK */
+    .tab-btn.active {
+      background: #171717; 
+      color: #ffffff; 
+    }
+
+    .tab-btn.active::before,
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .tab-btn.active::before {
+      left: -20px;
+      box-shadow: 10px 10px 0 0 #171717;
+    }
+
+    .tab-btn.active::after {
+      right: -20px;
+      box-shadow: -10px 10px 0 0 #171717;
+    }
+
+    /* Content Area - FORCED DARK */
+    .project-tab-content-container {
+      background: #171717; 
+      border-radius: 30px;
+      padding: 4rem;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      overflow: hidden;
+      min-height: 450px;
+    }
+
+    .project-tab-pane {
+      display: none;
+      gap: 3rem;
+      align-items: center;
+      animation: fadeInPane 0.4s ease forwards;
+    }
+
+    .project-tab-pane.active {
+      display: flex;
+    }
+
+    @keyframes fadeInPane {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Text Colors - FORCED LIGHT ON DARK BG */
+    .pane-text {
+      flex: 1;
+      color: #e5e5e5;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .pane-text h3 {
+      font-size: 2.2rem;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .pane-text p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      color: #a3a3a3;
+    }
+
+    /* Button - High Contrast */
+    .pane-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      color: #000000;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      font-family: var(--font-heading);
+    }
+
+    .pane-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .pane-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .pane-image img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      transition: transform 0.4s ease;
+    }
+    
+    .pane-image img:hover {
+      transform: scale(1.03);
+    }
 
     /* CERTS */
     .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; }
-    .cert-card { padding: 2rem 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; cursor: pointer; transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease; background: var(--bg-secondary); border: 1px solid var(--card-border); border-radius: var(--radius-md); }
+    .cert-card { 
+        padding: 2rem 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; 
+        cursor: pointer; transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease; 
+        background: var(--bg-secondary); border: 1px solid var(--card-border); border-radius: var(--radius-md);
+    }
     .cert-card:hover { transform: translateY(-5px); border-color: var(--primary); }
     .cert-img { height: 50px; margin-bottom: 1.2rem; object-fit: contain; transition: transform 0.3s, filter 0.3s;}
     .cert-card:hover .cert-img { transform: scale(1.05); }
@@ -460,28 +640,59 @@
     .timeline { border-left: 2px solid var(--card-border); padding-left: 2rem; margin-left: 0.5rem; transition: border-color 0.3s; }
     .timeline-item { position: relative; margin-bottom: 3rem; }
     .timeline-item h3 { font-size: 1.3rem; color: var(--text-main);}
-    .timeline-item::before { content: ''; position: absolute; left: -2.4rem; top: 5px; width: 14px; height: 14px; background: var(--bg); border: 2px solid var(--primary); border-radius: 50%; transition: background 0.3s; }
-    .company-tag { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; background: var(--bg-secondary); padding: 6px 12px; border-radius: 4px; border: 1px solid var(--card-border); transition: all 0.3s; }
+    .timeline-item::before { 
+        content: ''; position: absolute; left: -2.4rem; top: 5px; width: 14px; height: 14px; 
+        background: var(--bg); border: 2px solid var(--primary); border-radius: 50%; transition: background 0.3s;
+    }
+    .company-tag {
+        display: inline-flex; align-items: center; gap: 10px; text-decoration: none; 
+        background: var(--bg-secondary); padding: 6px 12px; border-radius: 4px; border: 1px solid var(--card-border); transition: all 0.3s;
+    }
     .company-tag img { height: 16px; }
 
     /* CONTACT */
     .contact-layout { display: flex; flex-wrap: wrap; gap: 3rem; align-items: center; }
-    .contact-image-container { flex: 0.8; min-width: 300px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--card-border); display: flex; position: relative; transition: border-color 0.3s; }
+    .contact-image-container { 
+        flex: 0.8; min-width: 300px; border-radius: var(--radius-md); overflow: hidden; 
+        border: 1px solid var(--card-border); display: flex; position: relative; transition: border-color 0.3s;
+    }
     .contact-image-container img { width: 100%; height: 100%; object-fit: cover; }
     .contact-wrapper { flex: 1.2; min-width: 300px; display: flex; flex-direction: column; gap: 2rem; }
+    
     .contact-info-item { display: flex; gap: 15px; align-items: center; font-size: 1.05rem; color: var(--text-muted); margin-bottom: 10px;}
     .contact-info-item i { color: var(--primary); font-size: 1.2rem; width: 24px; text-align: center;}
-    .form-control { width: 100%; padding: 14px; border-radius: 4px; border: 1px solid var(--card-border); background: var(--bg-secondary); color: var(--text-main); margin-bottom: 1rem; font-family: inherit; font-size: 0.95rem; transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease; }
-    .form-control:focus { outline: none; background: var(--bg); border-color: var(--primary); }
-    .btn-submit { width: fit-content; padding: 10px 24px; font-size: 0.9rem; justify-content: center; margin-top: 0.5rem; }
+    
+    .form-control { 
+        width: 100%; padding: 14px; border-radius: 4px; border: 1px solid var(--card-border); 
+        background: var(--bg-secondary); color: var(--text-main); margin-bottom: 1rem; 
+        font-family: inherit; font-size: 0.95rem; transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+    }
+    .form-control:focus { outline: none; border-color: var(--primary); background: var(--bg); }
+    .btn-submit { 
+        width: fit-content; 
+        padding: 10px 24px; 
+        font-size: 0.9rem; 
+        justify-content: center; 
+        margin-top: 0.5rem;
+    }
 
-    /* MODALS */
+    /* MOBILE MENU & MODALS */
+    .hamburger { display: none; background: none; border: none; font-size: 1.4rem; color: var(--text-main); cursor: pointer; }
+    .mobile-menu { position: fixed; top: 80px; left: 0; width: 100%; background: var(--nav-bg); backdrop-filter: blur(10px); padding: 1rem; transform: translateY(-150%); transition: 0.3s; z-index: 999; border-bottom: 1px solid var(--card-border); opacity: 0; pointer-events: none; text-align: center;}
+    .mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    .mobile-menu a { display: block; padding: 15px; font-weight: 500; font-size: 1.1rem; color: var(--text-muted); border-bottom: 1px solid var(--card-border); font-family: var(--font-heading);}
+    .mobile-menu a:last-child { border-bottom: none; }
+
     .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); backdrop-filter: blur(5px); align-items: center; justify-content: center; padding: 1rem; }
     .modal.show { display: flex; opacity: 1; }
     .modal-content { background: var(--bg-secondary); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--card-border); width: 100%; max-width: 900px; height: 85vh; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.5); display: flex; flex-direction: column; transition: background 0.3s; }
     .modal-content iframe { flex-grow: 1; width: 100%; border-radius: 8px; border: none;}
-    .close-modal, .close-lightbox { position: absolute; top: 15px; right: 20px; color: var(--text-muted); font-size: 2rem; cursor: pointer; z-index: 10; line-height: 1; transition: color 0.3s;}
-    .close-modal:hover, .close-lightbox:hover { color: var(--primary); }
+    .about-content-scroll { overflow-y: auto; height: 80vh; max-width: 800px; display: block; }
+    .about-content-scroll::-webkit-scrollbar { width: 4px; }
+    .about-content-scroll::-webkit-scrollbar-track { background: transparent; }
+    .about-content-scroll::-webkit-scrollbar-thumb { background: var(--card-border); border-radius: 4px; }
+    .close-modal, .close-about, .close-lightbox { position: absolute; top: 15px; right: 20px; color: var(--text-muted); font-size: 2rem; cursor: pointer; z-index: 10; line-height: 1; transition: color 0.3s;}
+    .close-modal:hover, .close-about:hover, .close-lightbox:hover { color: var(--primary); }
 
     /* PAGE VIEWS & GALLERY */
     .page-view { display: none; padding-top: 120px; padding-bottom: 60px; animation: fadeIn 0.4s ease-out; }
@@ -491,10 +702,11 @@
     .detail-block { margin-bottom: 2.5rem; }
     .detail-block h3 { font-size: 1.5rem; color: var(--text-main); margin-bottom: 1rem; border-left: 3px solid var(--primary); padding-left: 12px; }
     .detail-block h4 { font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-main); }
-    .detail-block p, .detail-block ul { color: var(--text-muted); margin-bottom: 1rem; font-size: 1.05rem;}
-    .detail-block ul { padding-left: 20px; }
+    .detail-block p { color: var(--text-muted); margin-bottom: 1rem; font-size: 1.05rem;}
+    .detail-block ul { padding-left: 20px; color: var(--text-muted); margin-bottom: 1rem; font-size: 1.05rem;}
     .detail-block li { margin-bottom: 0.5rem; }
 
+    /* PROJECT IMAGE BANNER */
     .project-banner-wrapper { width: 100%; border-radius: var(--radius-md); overflow: hidden; margin-bottom: 3rem; border: 1px solid var(--card-border); transition: border-color 0.3s;}
     .project-banner-img { width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 16 / 6; filter: brightness(0.8);}
 
@@ -511,13 +723,14 @@
     .modern-gallery-title { font-size: 1.1rem; margin-top: 0; margin-bottom: 0.5rem; color: var(--text-main); }
     .modern-gallery-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0; line-height: 1.5; }
 
-    /* Lightbox */
+    /* Lightbox stays dark always for best image viewing UX */
     .lightbox { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(11,15,18,0.95); align-items: center; justify-content: center; }
     .lightbox.show { display: flex; animation: fadeIn 0.3s; }
     .lightbox-content { max-width: 90%; max-height: 90vh; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);}
     .lightbox-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(19,25,31,0.6); color: white; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; font-size: 20px; border-radius: 50%; transition: 0.3s; z-index: 3001; user-select: none; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; }
     .lightbox-btn:hover { background: var(--primary); color: #000; border-color: var(--primary);}
-    .prev { left: 20px; } .next { right: 20px; }
+    .prev { left: 20px; }
+    .next { right: 20px; }
 
     /* LOVABLE AI APPS */
     .lovable-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-bottom: 25px; }
@@ -532,9 +745,9 @@
     .app-iframe { width: 100%; border: none; height: 650px; background: #ffffff; filter: invert(0.9) hue-rotate(180deg); transition: filter 0.3s ease; }
 
     /* BACK TO TOP */
-    .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 45px; height: 45px; background-color: var(--bg-secondary); color: var(--text-main); border: none; border-radius: 4px; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s ease; z-index: 1000; }
+    .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 45px; height: 45px; background-color: var(--bg-secondary); color: var(--text-main); border: 1px solid var(--card-border); border-radius: 4px; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s ease; z-index: 1000; }
     .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
-    .back-to-top:hover { background-color: var(--primary); color: #000; }
+    .back-to-top:hover { background-color: var(--primary); color: #000; border-color: var(--primary);}
 
     /* CUSTOM CURSOR */
     #blend-cursor { position: fixed; top: 0; left: 0; width: 35px; height: 35px; border-radius: 50%; background-color: var(--primary); pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); mix-blend-mode: difference; transition: width 0.3s, height 0.3s, background-color 0.3s; display: none; }
@@ -556,25 +769,68 @@
     /* RESPONSIVE */
     @media (max-width: 900px) {
       :root { --section-spacing: 4rem; }
-      .hero-wrapper { flex-direction: column; padding-top: 130px; padding-bottom: 40px; text-align: center; min-height: auto; }
+      .hero-wrapper { 
+        flex-direction: column; 
+        padding-top: 130px; /* Exact top gap for mobile */
+        padding-bottom: 40px; /* Exact bottom gap before next section */
+        text-align: center; 
+        min-height: auto; /* Strips the 600px desktop height */
+      }
+      .hero-content { 
+        max-width: 100%; 
+        padding-bottom: 1.5rem; /* Reduces the gap between text and image */
+      }
       .hero-content { max-width: 100%; padding-bottom: 3rem;}
       .hero-title { font-size: 3.5rem; }
       .hero-subtitle { font-size: 1.6rem; }
       .hero-subtitle-wrapper { justify-content: center; }
       .hero-desc { margin-inline: auto; }
       .hero-actions { justify-content: center; }
-      .hero-image-area { position: relative; width: 100%; max-width: 280px; aspect-ratio: 1; height: auto; margin: 0 auto 2rem auto; right: auto; top: auto; transform: none; border-radius: 50%; box-shadow: 0 0 30px var(--primary-glow); filter: none; order: -1; }
+      
+      .hero-image-area { 
+        position: relative; 
+        width: 100%; 
+        max-width: 280px; 
+        aspect-ratio: 1; 
+        height: auto; 
+        margin: 0 auto 2rem auto; 
+        right: auto; 
+        top: auto; 
+        transform: none; 
+        border-radius: 50%;
+        box-shadow: 0 0 30px var(--primary-glow);
+        filter: none;
+        order: -1; 
+      }
+      
       .about-layout { flex-direction: column; gap: 4rem; text-align: center; }
       .about-image-col { width: 100%; }
       .about-tags { justify-content: center; }
       .dots-pattern { left: 50%; transform: translateX(-50%); top: -20px; }
+
       .nav-menu { display: none; }
       .hamburger { display: block; }
       .skills-layout { flex-direction: column; gap: 2rem; }
+
+      /* Responsive Mobile Contact Section */
       .contact-layout { flex-direction: column; gap: 2rem; }
-      .contact-image-container { width: 100%; min-width: 100%; height: auto; aspect-ratio: auto; }
-      .contact-image-container img { height: auto; max-height: 500px; object-fit: cover; }
-      .contact-wrapper { width: 100%; min-width: 100%; }
+      .contact-image-container { 
+          width: 100%;
+          min-width: 100%; 
+          height: auto;
+          aspect-ratio: auto;
+      }
+      .contact-image-container img {
+          height: auto; 
+          max-height: 500px;
+          object-fit: cover;
+      }
+      .contact-wrapper { 
+          width: 100%;
+          min-width: 100%;
+      }
+
+      /* UPDATED RESPONSIVE PROJECTS TABS (PILL SHAPE & WRAPPING) */
       .project-tab-pane.active { flex-direction: column; text-align: center; }
       .project-tab-content-container { padding: 2.5rem 1.5rem; border-radius: 20px; }
       .project-tabs { flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 1rem; }
@@ -582,6 +838,8 @@
       .tab-btn.active { background: #171717; color: #fff; border-color: #171717; }
       .tab-btn.active::before, .tab-btn.active::after { display: none; }
       .pane-text { align-items: center; text-align: center; }
+
+      /* Merged from stray blocks */
       .contact-wrapper > div:first-child { text-align: center; }
       .contact-info-item { justify-content: center; }
       .contact-wrapper > div:first-child > div:last-child { justify-content: center; }
@@ -590,20 +848,29 @@
     @media (max-width: 600px) {
        :root { --section-spacing: 3rem; } 
        .section-header h2 { font-size: 2rem; } 
-       .hero-title { font-size: clamp(1.8rem, 7vw, 2.8rem); white-space: normal; line-height: 1.2; }
+       .hero-title { 
+           font-size: clamp(1.8rem, 7vw, 2.8rem);
+           white-space: normal;
+           line-height: 1.2; 
+       }
        .about-title { font-size: 1.8rem; }
        .btn-primary { width: 70%; }
        .hero-actions .btn-icon { width: 45px; height: 45px;}
+       
        .timeline::before { left: -2.3rem; }
        .pane-text h3 { font-size: 1.6rem; }
        .pane-text p { font-size: 0.95rem; }
        .project-tab-content-container { min-height: auto; }
+
+       /* Mobile 2-Column Certifications Grid */
        .cert-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
        .cert-card { padding: 1.2rem 0.5rem; min-height: 180px; } 
        .cert-img { height: 35px; margin-bottom: 0.8rem; }
        .cert-card h3 { font-size: 0.85rem; line-height: 1.3; margin-bottom: 0.3rem;}
        .cert-card p { font-size: 0.75rem; line-height: 1.3; }
        .cert-link { font-size: 0.75rem; padding-top: 0.5rem; }
+
+       /* Merged from stray blocks */
        .btn-submit { display: flex !important; margin: 1rem auto 0 auto !important; }
     }
   </style>
@@ -613,12 +880,10 @@
 
   <header id="main-header">
     <div class="container nav-inner">
-     <a href="#" onclick="event.preventDefault(); showHomeViewAndScroll('home')" class="brand" aria-label="Sanjeev Kumar Homepage">
-        <img src="https://isanjiiv.github.io/assets/images/favicon.png" alt="Sanjiiv Logo" style="height: 36px; width: 37px; margin-right: 8px; vertical-align: middle;">
-     </a>
+     <a href="#" onclick="event.preventDefault(); showHomeView()" class="brand" aria-label="Sanjeev Kumar Homepage">
+  <img src="https://isanjiiv.github.io/assets/images/favicon.png" alt="Sanjiiv Logo" style="height: 36px; width: 37px; margin-right: 8px; vertical-align: middle;"></a>
 
       <nav class="nav-menu" aria-label="Main Navigation">
-        <a href="#" onclick="event.preventDefault(); showHomeViewAndScroll('home')">Home</a>
         <a href="about.html">About</a>
         <a href="#skills" onclick="event.preventDefault(); showHomeViewAndScroll('skills')">Skills</a>
         <a href="#projects" onclick="event.preventDefault(); showHomeViewAndScroll('projects')">Projects</a>
@@ -628,6 +893,7 @@
       </nav>
 
       <div class="nav-actions">
+        <!-- THEME TOGGLE BUTTON -->
         <button id="theme-toggle" class="btn-icon" aria-label="Toggle Theme" title="Toggle Theme">
           <i class="fa-solid fa-sun"></i>
         </button>
@@ -646,8 +912,7 @@
   </header>
 
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <a href="#" onclick="event.preventDefault(); showHomeViewAndScroll('home')">Home</a>
-    <a href="about.html">About</a>
+   <a href="about.html">About</a>
     <a href="#skills" onclick="event.preventDefault(); showHomeViewAndScroll('skills')">Skills</a>
     <a href="#projects" onclick="event.preventDefault(); showHomeViewAndScroll('projects')">Projects</a>
     <a href="#certs" onclick="event.preventDefault(); showHomeViewAndScroll('certs')">Certifications</a>
@@ -659,8 +924,9 @@
     
     <div id="home-view" class="page-view active" style="padding-top:0;">
 
-      <section id="home" class="hero-wrapper animate-section">
-        <div class="hero-content container stagger-text">
+      <!-- HERO SECTION -->
+      <section id="home" class="hero-wrapper">
+        <div class="hero-content container">
           <div class="hero-badge">
             <i class="fa-solid fa-circle" style="font-size:6px; vertical-align:middle; margin-right: 4px;"></i> Open to Opportunities
           </div>
@@ -693,12 +959,13 @@
           </div>
         </div>
 
-        <div class="hero-image-area shine-effect reload-img" style="border-radius: 50%;"></div>
+        <div class="hero-image-area"></div>
       </section>
 
-      <section id="about" class="container about-section animate-section">
+      <!-- ABOUT SECTION -->
+      <section id="about" class="container about-section" style="padding-top: var(--section-spacing);">
         
-        <div class="section-header stagger-text">
+        <div class="section-header">
           <span class="section-kicker">BIOGRAPHY</span>
           <h2>Who am I?</h2>
           <div class="header-line"></div>
@@ -708,13 +975,11 @@
           <div class="about-image-col">
             <div class="about-img-wrapper">
                <div class="dots-pattern"></div>
-               <div class="shine-effect" style="border-radius: 4px; display: inline-block; position: relative; z-index: 2;">
-                 <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-engineer-noida.jpg" alt="Sanjeev Kumar Profile" class="reload-img" style="position: relative; z-index: 1;">
-               </div>
+               <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-engineer-noida.jpg" alt="Sanjeev Kumar Profile">
             </div>
           </div>
           
-          <div class="about-text-col stagger-text">
+          <div class="about-text-col">
             <h4 class="about-subtitle">About Me</h4>
             <h3 class="about-title">Sanjeev Kumar's Details</h3>
             
@@ -728,28 +993,29 @@
               <span class="tech-tag highlight-tag">Available for Full-time</span>
             </div>
 
-            <div style="margin-top: 2rem;">
-              <a href="about.html" class="btn-primary">
-                  Read Full Details <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>
-              </a>
-            </div>
+          <div style="margin-top: 2rem;">
+  <a href="about.html" class="btn-primary">
+      Read Full Details <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>
+  </a>
+</div>
           </div>
         </div>
       </section>
 
-      <section id="skills" class="container animate-section" style="padding-top: var(--section-spacing);">
-        <div class="section-header stagger-text">
+      <!-- SKILLS SECTION -->
+      <section id="skills" class="container" style="padding-top: var(--section-spacing);">
+        <div class="section-header">
           <span class="section-kicker">MY EXPERTISE</span>
           <h2>Skills & Tools</h2>
           <div class="header-line"></div>
         </div>
         
         <div class="skills-layout">
-          <div class="skills-image-container shine-effect" style="border-radius: var(--radius-md);">
-            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-It-engineer.png" alt="Sanjeev Kumar - IT Skills Overview" class="reload-img">
+          <div class="skills-image-container">
+            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-It-engineer.png" alt="Sanjeev Kumar - IT Skills Overview">
           </div>
 
-          <div class="skills-flex-container stagger-text">
+          <div class="skills-flex-container">
             <div class="skill-icon-wrapper">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="Windows Server" class="skill-animated-icon">
               <span class="skill-icon-title">Win Server</span>
@@ -812,8 +1078,9 @@
         </div>
       </section>
 
-      <section id="projects" class="tabbed-projects-section container animate-section">
-        <div class="tabbed-projects-header section-header stagger-text">
+      <!-- PROJECTS SECTION (UPDATED TABS) -->
+      <section id="projects" class="tabbed-projects-section container">
+        <div class="tabbed-projects-header section-header">
           <span class="section-kicker">MY PORTFOLIO</span>
           <h2>Featured Projects</h2>
           <div class="header-line"></div>
@@ -828,55 +1095,60 @@
 
         <div class="project-tab-content-container">
           
+          <!-- Tab 1: Windows Server -->
           <div id="tab-1" class="project-tab-pane active">
-            <div class="pane-text stagger-text">
+            <div class="pane-text">
               <h3>Enterprise AD & GPO</h3>
               <p>Planned and implemented a Windows Server 2016 Active Directory environment. Set up OU design, user access policies, GPO configurations, and WSUS for 120+ endpoints. Configured Acronis Backup for disaster recovery.</p>
               <button class="pane-btn" onclick="event.preventDefault(); showProjectView('project-1')">Learn more <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></button>
             </div>
-            <div class="pane-image shine-effect" style="border-radius: 12px;">
-              <img src="https://isanjiiv.github.io/assets/images/windows-Server-2022.png" alt="Windows Server Active Directory" class="reload-img">
+            <div class="pane-image">
+              <img src="https://isanjiiv.github.io/assets/images/windows-Server-2022.png" alt="Windows Server Active Directory">
             </div>
           </div>
 
+          <!-- Tab 2: SD-WAN -->
           <div id="tab-2" class="project-tab-pane">
-            <div class="pane-text stagger-text">
+            <div class="pane-text">
               <h3>Fortinet 60F SD-WAN</h3>
               <p>Designed SD-WAN on FortiGate 60F to enhance network performance. Integrated two ISP connections (Jio & Spectra) with load balancing and automated failover. Applied firewall rules, IPS/AV profiles, and VLANs.</p>
               <button class="pane-btn" onclick="event.preventDefault(); showProjectView('project-2')">Learn more <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></button>
             </div>
-            <div class="pane-image shine-effect" style="border-radius: 12px;">
-              <img src="https://isanjiiv.github.io/assets/images/sd-wan.png" alt="Fortinet SD-WAN Architecture" class="reload-img">
+            <div class="pane-image">
+              <img src="https://isanjiiv.github.io/assets/images/sd-wan.png" alt="Fortinet SD-WAN Architecture">
             </div>
           </div>
 
+          <!-- Tab 3: Lovable AI Apps -->
           <div id="tab-3" class="project-tab-pane">
-            <div class="pane-text stagger-text">
+            <div class="pane-text">
               <h3>AI Cost Sheet Builder</h3>
               <p>Built a no-code web application at Grain Milling Solutions using Lovable AI to automate cost sheet generation. Includes logic for tax calculations, Excel/PDF exports, alongside Resume Builders and Notes apps.</p>
               <button class="pane-btn" onclick="event.preventDefault(); showProjectView('project-3')">Learn more <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></button>
             </div>
-            <div class="pane-image shine-effect" style="border-radius: 12px;">
-              <img src="https://isanjiiv.github.io/assets/images/lovable-ai.png" alt="Lovable AI Cost Sheet App" class="reload-img">
+            <div class="pane-image">
+              <img src="https://isanjiiv.github.io/assets/images/lovable-ai.png" alt="Lovable AI Cost Sheet App">
             </div>
           </div>
 
+          <!-- Tab 4: Web Redesign -->
           <div id="tab-4" class="project-tab-pane">
-            <div class="pane-text stagger-text">
+            <div class="pane-text">
               <h3>GMS Website Redesign</h3>
               <p>Took complete ownership of managing, designing, and updating the company website (www.gmsdelhi.com). Transitioned the platform from a third-party vendor to a fully in-house operation.</p>
               <button class="pane-btn" onclick="event.preventDefault(); showProjectView('project-4')">Learn more <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></button>
             </div>
-            <div class="pane-image shine-effect" style="border-radius: 12px;">
-              <img src="https://isanjiiv.github.io/assets/images/wordpress-banner.png" alt="WordPress Website Redesign" class="reload-img">
+            <div class="pane-image">
+              <img src="https://isanjiiv.github.io/assets/images/wordpress-banner.png" alt="WordPress Website Redesign">
             </div>
           </div>
 
         </div>
       </section>
 
-      <section id="certs" class="container animate-section" style="padding-top: var(--section-spacing);">
-        <div class="section-header stagger-text">
+      <!-- CERTIFICATIONS SECTION -->
+      <section id="certs" class="container" style="padding-top: var(--section-spacing);">
+        <div class="section-header">
           <span class="section-kicker">QUALIFICATIONS</span>
           <h2>Certifications</h2>
           <div class="header-line"></div>
@@ -884,49 +1156,49 @@
         </div>
         
         <div class="cert-grid">
-           <a href="https://drive.google.com/file/d/1csso58-0QdXwAIEwJCk6NHMwRglq0fn2/view" class="cert-card animate-section">
+           <a href="https://drive.google.com/file/d/1csso58-0QdXwAIEwJCk6NHMwRglq0fn2/view" class="cert-card">
             <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Sanjeev Kumar Networking Basics Certificate Cisco" class="cert-img">
             <h3>Networking Basics</h3>
             <p style="font-size:0.9rem; color:var(--text-muted);">IPv4/IPv6 Addressing, Subnetting</p>
             <span class="cert-link">View Certificate</span>
           </a>
-          <a href="https://drive.google.com/file/d/1ExcnlsVy3ZHLtRs_RoF2hNQ05G4Cj154/view?usp=drive_link" class="cert-card animate-section">
+          <a href="https://drive.google.com/file/d/1ExcnlsVy3ZHLtRs_RoF2hNQ05G4Cj154/view?usp=drive_link" class="cert-card">
             <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Sanjeev Kumar Cisco CCNA Network Fundamentals Certificate" class="cert-img">
             <h3>Cisco CCNA</h3>
             <p style="font-size:0.9rem; color:var(--text-muted);">Network Fundamentals</p>
             <span class="cert-link">View Certificate</span>
           </a>
-          <a href="https://drive.google.com/file/d/14aOsqQTKcxbeSA23yXPuLvjPUKDfNpvb/view?usp=drive_link" class="cert-card animate-section">
+          <a href="https://drive.google.com/file/d/14aOsqQTKcxbeSA23yXPuLvjPUKDfNpvb/view?usp=drive_link" class="cert-card">
             <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" alt="Sanjeev Kumar Microsoft Azure Fundamentals Certificate" class="cert-img">
             <h3>Microsoft Azure</h3>
             <p style="font-size:0.9rem; color:var(--text-muted);">Fundamentals</p>
             <span class="cert-link">View Certificate</span>
           </a>
-          <a href="https://drive.google.com/file/d/15hSFkJXr92o4VhM5YgF13pZFv2aSakaD/view?usp=drive_link" class="cert-card animate-section">
+          <a href="https://drive.google.com/file/d/15hSFkJXr92o4VhM5YgF13pZFv2aSakaD/view?usp=drive_link" class="cert-card">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Sanjeev Kumar Google Cloud Trust & Security Certificate" class="cert-img">
             <h3>Google Cloud</h3>
             <p style="font-size:0.9rem; color:var(--text-muted);">Trust & Security</p>
             <span class="cert-link">View Certificate</span>
           </a>
-          <a href="https://drive.google.com/file/d/1kUh_5kU6V_FEYsFhnyf1yHfr12Cmzkdd/view?usp=drive_link" class="cert-card animate-section">
+          <a href="https://drive.google.com/file/d/1kUh_5kU6V_FEYsFhnyf1yHfr12Cmzkdd/view?usp=drive_link" class="cert-card">
             <img src="https://cdn-icons-png.flaticon.com/512/5723/5723238.png" alt="Sanjeev Kumar Computer Networking Basics Certificate" class="cert-img">
             <h3>Computer Networking</h3>
             <p style="font-size:0.9rem; color:var(--text-muted);">Basics of Networking</p>
             <span class="cert-link">View Certificate</span>
           </a>
-          <a href="https://drive.google.com/file/d/1Hcgl0Drn_niSwc64zhvL0LY2tFEnL6hx/view?usp=drive_link" class="cert-card animate-section">
+          <a href="https://drive.google.com/file/d/1Hcgl0Drn_niSwc64zhvL0LY2tFEnL6hx/view?usp=drive_link" class="cert-card">
             <img src="https://cdn3d.iconscout.com/3d/premium/thumb/cyber-securityprotect-shield-3d-icon-png-download-7277200.png" alt="Sanjeev Kumar Advance Cyber Security Threats & Governance Certificate" class="cert-img">
             <h3>Advance Cyber Security</h3>
             <p style="font-size:0.9rem; color:var(--text-muted);">Threats & Governance</p>
             <span class="cert-link">View Certificate</span>
           </a>
-          <a href="https://drive.google.com/file/d/1OhjH3b2gffiHm4KIUrTo_2pP_5BNnKJG/view?usp=drive_link" class="cert-card animate-section">
+          <a href="https://drive.google.com/file/d/1OhjH3b2gffiHm4KIUrTo_2pP_5BNnKJG/view?usp=drive_link" class="cert-card">
             <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Sanjeev Kumar MCSA Windows Server Admin Certificate" class="cert-img">
             <h3>MCSA</h3>
             <p style="font-size:0.9rem; color:var(--text-muted);">Windows Server Admin</p>
             <span class="cert-link">View Certificate</span>
           </a>
-          <a href="https://drive.google.com/file/d/17KrwhkqjLYgkR_UPLiW4GigtmFC7_GSn/view?usp=drive_link" class="cert-card animate-section">
+          <a href="https://drive.google.com/file/d/17KrwhkqjLYgkR_UPLiW4GigtmFC7_GSn/view?usp=drive_link" class="cert-card">
             <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/fortinet.svg" alt="Sanjeev Kumar Fortinet Networking Fundamentals Certificate" class="cert-img">
             <h3>Fortinet Networking Fundamentals</h3>
             <p style="font-size:0.9rem; color:var(--text-muted);">Network Security</p>
@@ -935,8 +1207,9 @@
         </div>
       </section>
 
-      <section id="experience" class="container animate-section" style="padding-top: var(--section-spacing);">
-        <div class="section-header stagger-text">
+      <!-- EXPERIENCE SECTION -->
+      <section id="experience" class="container" style="padding-top: var(--section-spacing);">
+        <div class="section-header">
           <span class="section-kicker">MY JOURNEY</span>
           <h2>Experience</h2>
           <div class="header-line"></div>
@@ -946,7 +1219,7 @@
           
           <div class="timeline">
             
-            <div class="timeline-item animate-section stagger-text">
+            <div class="timeline-item">
               <h3 style="margin-bottom:8px;">IT Engineer</h3>
               <div style="display: flex; align-items: center; margin-bottom: 12px;">
                 <a href="http://www.gmsdelhi.com" target="_blank" rel="noopener noreferrer" class="company-tag">
@@ -976,7 +1249,7 @@
               </ul>
             </div>
 
-            <div class="timeline-item animate-section stagger-text">
+            <div class="timeline-item">
               <h3 style="margin-bottom:8px;">Desktop Support Engineer</h3>
               <div style="display: flex; align-items: center; margin-bottom: 12px;">
                 <a href="http://www.gmsdelhi.com" target="_blank" rel="noopener noreferrer" class="company-tag">
@@ -997,7 +1270,7 @@
             </div>
           </div> 
           
-          <div class="animate-section stagger-text" style="margin-top: 2rem; padding: 2rem; background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--card-border); transition: background 0.3s, border-color 0.3s;">
+          <div style="margin-top: 2rem; padding: 2rem; background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--card-border); transition: background 0.3s, border-color 0.3s;">
             <h4 style="margin-bottom:20px; color:var(--primary); font-size:1.2rem; margin-top: 0; font-family: var(--font-heading);">Career Growth Summary</h4>
             <div style="display: flex; flex-direction: column; gap: 15px;">
               <div style="display: flex; gap: 20px;">
@@ -1014,20 +1287,21 @@
         </div>
       </section>
       
-      <section id="contact" class="container animate-section" style="padding: var(--section-spacing) 0; max-width: 1150px; margin: 0 auto;">
-        <div class="section-header stagger-text"> 
+      <!-- CONTACT SECTION -->
+      <section id="contact" class="container" style="padding: var(--section-spacing) 0; max-width: 1150px; margin: 0 auto;">
+        <div class="section-header"> 
           <span class="section-kicker">GET IN TOUCH</span>
           <h2>Let's Connect</h2>
           <div class="header-line"></div>
         </div>
         
         <div class="contact-layout">
-          <div class="contact-image-container shine-effect" style="border-radius: var(--radius-md);">
-            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-engineer-noida.jpg" alt="Sanjeev Kumar - IT Engineer, Network Administrator, and Cloud Expert based in Noida" class="reload-img" title="Sanjeev Kumar" loading="lazy">
+          <div class="contact-image-container">
+            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-engineer-noida.jpg" alt="Sanjeev Kumar - IT Engineer, Network Administrator, and Cloud Expert based in Noida" title="Sanjeev Kumar" loading="lazy">
           </div>
 
           <div class="contact-wrapper">
-            <div class="stagger-text">
+            <div>
               <h3 style="font-size: 2.2rem; margin-bottom: 1rem;">Let's talk tech.</h3>
               <p style="font-size:1.05rem; margin-bottom: 2rem; color: var(--text-muted);">
                 Whether you have a job opportunity, a project, or just want to say hi, my inbox is open.
@@ -1053,7 +1327,7 @@
               </div>
             </div>
 
-            <form action="https://formspree.io/f/xzzabloy" method="POST" class="stagger-text" style="width:100%;">
+            <form action="https://formspree.io/f/xzzabloy" method="POST" style="width:100%;">
               <label for="contact-name" class="sr-only">Your Name</label>
               <input type="text" id="contact-name" name="name" class="form-control" required placeholder="Your Name">
               <label for="contact-email" class="sr-only">Your Email</label>
@@ -1073,13 +1347,14 @@
       </section>
     </div>
 
+    <!-- PROJECT DETAILS VIEWS -->
     <div id="project-1" class="page-view container">
-      <div class="project-banner-wrapper animate-section shine-effect" style="border-radius: var(--radius-md);">
-        <img src="https://isanjiiv.github.io/assets/images/windows-Server-2022.png" alt="Windows Server 2022 and Active Directory Project Header Banner" class="project-banner-img reload-img" loading="lazy">
+      <div class="project-banner-wrapper">
+        <img src="https://isanjiiv.github.io/assets/images/windows-Server-2022.png" alt="Windows Server 2022 and Active Directory Project Header Banner" class="project-banner-img" loading="lazy">
       </div>
 
-      <div class="glass-card animate-section" style="border:none; box-shadow:none; padding:0; background:transparent;">
-        <div class="project-header stagger-text">
+      <div class="glass-card" style="border:none; box-shadow:none; padding:0; background:transparent;">
+        <div class="project-header">
           <h1 class="project-title">Windows Server Domain Setup + GPO Automation + Backup & Recovery</h1>
           <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top: 15px;">
               <span class="tech-tag">Windows Server 2022</span>
@@ -1090,14 +1365,14 @@
           </div>
         </div>
 
-        <div class="detail-block stagger-text">
+        <div class="detail-block">
           <h3>Overview</h3>
           <p>Designed and implemented a modern enterprise-grade IT infrastructure using Windows Server 2022 to centralize identity management, strengthen network security, and automate administrative operations. The solution leveraged Active Directory Domain Services (AD DS) integrated with DNS for seamless authentication and name resolution across the organization.</p>
           <p>A structured Organizational Unit (OU) hierarchy was created to organize departments efficiently and enable precise policy application. Group Policy Objects (GPOs) were implemented to standardize configurations, enforce security policies, and reduce manual IT effort.</p>
           <p>Additionally, a reliable backup and disaster recovery strategy was implemented using Acronis Cyber Protect Cloud, ensuring data protection, quick recovery, and business continuity.</p>
         </div>
 
-        <div class="detail-block stagger-text">
+        <div class="detail-block">
           <h3>Key Responsibilities & Implementation</h3>
           
           <h4>1) Active Directory Domain Services (AD DS) Deployment</h4>
@@ -1147,7 +1422,7 @@
           </ul>
         </div>
 
-        <div class="detail-block stagger-text">
+        <div class="detail-block">
           <h3>Key Outcomes</h3>
           <ul>
               <li>Centralized user and device management across the organization.</li>
@@ -1158,12 +1433,12 @@
           </ul>
         </div>
 
-        <div class="detail-block animate-section">
+        <div class="detail-block">
           <h3>Project Gallery</h3>
           <div class="modern-gallery-grid">
-             <div class="modern-gallery-item shine-effect" onclick="openLightbox(this)" style="border-radius: 8px;">
+             <div class="modern-gallery-item" onclick="openLightbox(this)">
                <div class="modern-gallery-img-wrapper">
-                 <img src="https://lh3.googleusercontent.com/d/1ZnGdTn_fKq4QBGefs-shCwvMkk_AyaUn" alt="Windows Server Dashboard Overview" class="reload-img" referrerpolicy="no-referrer">
+                 <img src="https://lh3.googleusercontent.com/d/1ZnGdTn_fKq4QBGefs-shCwvMkk_AyaUn" alt="Windows Server Dashboard Overview" referrerpolicy="no-referrer">
                  <div class="modern-gallery-overlay"><i class="fa-solid fa-expand"></i></div>
                </div>
                <div class="modern-gallery-details">
@@ -1171,9 +1446,9 @@
                  <p class="modern-gallery-desc">Centralized overview of Windows Server roles, local server configuration, and overall system health.</p>
                </div>
              </div>
-             <div class="modern-gallery-item shine-effect" onclick="openLightbox(this)" style="border-radius: 8px;">
+             <div class="modern-gallery-item" onclick="openLightbox(this)">
                <div class="modern-gallery-img-wrapper">
-                 <img src="https://lh3.googleusercontent.com/d/1inyWgMWxzt5bllljVpYW7ON-ZdinqfQx" alt="Active Directory AD DS Structure Configuration" class="reload-img" referrerpolicy="no-referrer">
+                 <img src="https://lh3.googleusercontent.com/d/1inyWgMWxzt5bllljVpYW7ON-ZdinqfQx" alt="Active Directory AD DS Structure Configuration" referrerpolicy="no-referrer">
                  <div class="modern-gallery-overlay"><i class="fa-solid fa-expand"></i></div>
                </div>
                <div class="modern-gallery-details">
@@ -1181,9 +1456,9 @@
                  <p class="modern-gallery-desc">Organized OU hierarchy tailored for departmental segmentation and role-based access management.</p>
                </div>
              </div>
-             <div class="modern-gallery-item shine-effect" onclick="openLightbox(this)" style="border-radius: 8px;">
+             <div class="modern-gallery-item" onclick="openLightbox(this)">
                <div class="modern-gallery-img-wrapper">
-                 <img src="https://lh3.googleusercontent.com/d/1aFtsM3ZlIp3sHi2XiGM7P-r0dD9WU84K" alt="Windows Group Policy Object GPO Rules" class="reload-img" referrerpolicy="no-referrer">
+                 <img src="https://lh3.googleusercontent.com/d/1aFtsM3ZlIp3sHi2XiGM7P-r0dD9WU84K" alt="Windows Group Policy Object GPO Rules" referrerpolicy="no-referrer">
                  <div class="modern-gallery-overlay"><i class="fa-solid fa-expand"></i></div>
                </div>
                <div class="modern-gallery-details">
@@ -1191,9 +1466,9 @@
                  <p class="modern-gallery-desc">Automated rules enforcing organizational security policies, mapped drives, and USB restrictions.</p>
                </div>
              </div>
-             <div class="modern-gallery-item shine-effect" onclick="openLightbox(this)" style="border-radius: 8px;">
+             <div class="modern-gallery-item" onclick="openLightbox(this)">
                <div class="modern-gallery-img-wrapper">
-                 <img src="https://lh3.googleusercontent.com/d/12-8dF8_BAoeELIvCiNeY4yyVB6QRQrSP" alt="Acronis Cyber Protect Backup Interface" class="reload-img" referrerpolicy="no-referrer">
+                 <img src="https://lh3.googleusercontent.com/d/12-8dF8_BAoeELIvCiNeY4yyVB6QRQrSP" alt="Acronis Cyber Protect Backup Interface" referrerpolicy="no-referrer">
                  <div class="modern-gallery-overlay"><i class="fa-solid fa-expand"></i></div>
                </div>
                <div class="modern-gallery-details">
@@ -1201,9 +1476,9 @@
                  <p class="modern-gallery-desc">Comprehensive backup plans and disaster recovery configuration ensuring complete data protection.</p>
                </div>
              </div>
-             <div class="modern-gallery-item shine-effect" onclick="openLightbox(this)" style="border-radius: 8px;">
+             <div class="modern-gallery-item" onclick="openLightbox(this)">
                <div class="modern-gallery-img-wrapper">
-                 <img src="https://lh3.googleusercontent.com/d/1B8KH3Z7KDHwuOfmhkbYkclC6pkelnnx-" alt="Windows Server Folder Sharing and Permissions" class="reload-img" referrerpolicy="no-referrer">
+                 <img src="https://lh3.googleusercontent.com/d/1B8KH3Z7KDHwuOfmhkbYkclC6pkelnnx-" alt="Windows Server Folder Sharing and Permissions" referrerpolicy="no-referrer">
                  <div class="modern-gallery-overlay"><i class="fa-solid fa-expand"></i></div>
                </div>
                <div class="modern-gallery-details">
@@ -1211,9 +1486,9 @@
                  <p class="modern-gallery-desc">Centralized network storage with strict NTFS permissions applied via Active Directory groups.</p>
                </div>
              </div>
-             <div class="modern-gallery-item shine-effect" onclick="openLightbox(this)" style="border-radius: 8px;">
+             <div class="modern-gallery-item" onclick="openLightbox(this)">
                <div class="modern-gallery-img-wrapper">
-                 <img src="https://lh3.googleusercontent.com/d/13xGHGpYbyf4CWA4MjzRgMowhMzv5xa6y" alt="Enterprise Printer Management on Windows Server" class="reload-img" referrerpolicy="no-referrer">
+                 <img src="https://lh3.googleusercontent.com/d/13xGHGpYbyf4CWA4MjzRgMowhMzv5xa6y" alt="Enterprise Printer Management on Windows Server" referrerpolicy="no-referrer">
                  <div class="modern-gallery-overlay"><i class="fa-solid fa-expand"></i></div>
                </div>
                <div class="modern-gallery-details">
@@ -1228,12 +1503,12 @@
     </div>
     
     <div id="project-2" class="page-view container">
-      <div class="project-banner-wrapper animate-section shine-effect" style="border-radius: var(--radius-md);">
-        <img src="https://isanjiiv.github.io/assets/images/sd-wan.png" alt="Fortinet Security Appliance and SD-WAN Network Banner" class="project-banner-img reload-img" loading="lazy">
+      <div class="project-banner-wrapper">
+        <img src="https://isanjiiv.github.io/assets/images/sd-wan.png" alt="Fortinet Security Appliance and SD-WAN Network Banner" class="project-banner-img" loading="lazy">
       </div>
       
-      <div class="glass-card animate-section" style="border:none; box-shadow:none; padding:0; background:transparent;">
-        <div class="project-header stagger-text">
+      <div class="glass-card" style="border:none; box-shadow:none; padding:0; background:transparent;">
+        <div class="project-header">
           <h1 class="project-title">Fortinet 60F SD-WAN Deployment</h1>
           <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top: 15px;">
               <span class="tech-tag">FortiGate 60F</span>
@@ -1241,34 +1516,34 @@
               <span class="tech-tag">VLAN</span>
           </div>
         </div>
-        <div class="detail-block stagger-text">
+        <div class="detail-block">
           <h3>Overview</h3>
           <p>Configured and deployed a FortiGate 60F firewall to secure the company network and improve internet reliability. The key focus was implementing SD-WAN to manage two ISP connections (Jio & Spectra) for redundancy and load balancing.</p>
         </div>
-        <div class="detail-block stagger-text">
+        <div class="detail-block">
           <h3>Key Implementation Details</h3>
           <h4>1) SD-WAN Configuration</h4>
           <p>Integrated multiple ISP links (Jio Fiber and Spectra) into a single logical interface using SD-WAN. Configured rules to route business-critical traffic through the most stable line and enabled automatic failover.</p>
           <h4>2) Security Policies</h4>
           <p>Applied strict firewall policies to control traffic flow between internal VLANs and the WAN. Enabled Web Filtering and Application Control to block non-business websites and risky applications.</p>
         </div>
-      <div class="detail-block animate-section">
+      <div class="detail-block">
           <h3>Project Gallery</h3>
           <div class="gallery-grid">
-             <div class="gallery-item shine-effect" onclick="openLightbox(this)" style="border-radius: 8px;">
-               <img src="https://lh3.googleusercontent.com/d/1QVqEnZJppA65rfYMtaPojxjoLq7vNTyx" alt="Fortinet Fortigate 60F Firewall Dashboard" class="reload-img" referrerpolicy="no-referrer">
+             <div class="gallery-item" onclick="openLightbox(this)">
+               <img src="https://lh3.googleusercontent.com/d/1QVqEnZJppA65rfYMtaPojxjoLq7vNTyx" alt="Fortinet Fortigate 60F Firewall Dashboard" referrerpolicy="no-referrer">
                <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
              </div>
-             <div class="gallery-item shine-effect" onclick="openLightbox(this)" style="border-radius: 8px;">
-               <img src="https://lh3.googleusercontent.com/d/1_NyX_QxOsGUGIWpUHpRbb-I2vUx9qxOE" alt="Fortigate Network Interface Configuration" class="reload-img" referrerpolicy="no-referrer">
+             <div class="gallery-item" onclick="openLightbox(this)">
+               <img src="https://lh3.googleusercontent.com/d/1_NyX_QxOsGUGIWpUHpRbb-I2vUx9qxOE" alt="Fortigate Network Interface Configuration" referrerpolicy="no-referrer">
                <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
              </div>
-             <div class="gallery-item shine-effect" onclick="openLightbox(this)" style="border-radius: 8px;">
-               <img src="https://lh3.googleusercontent.com/d/1EXgMCqiT6eZ768wz43MsLkeazpz9giUI" alt="Fortigate SD-WAN Zone Configuration Setup" class="reload-img" referrerpolicy="no-referrer">
+             <div class="gallery-item" onclick="openLightbox(this)">
+               <img src="https://lh3.googleusercontent.com/d/1EXgMCqiT6eZ768wz43MsLkeazpz9giUI" alt="Fortigate SD-WAN Zone Configuration Setup" referrerpolicy="no-referrer">
                <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
              </div>
-             <div class="gallery-item shine-effect" onclick="openLightbox(this)" style="border-radius: 8px;">
-               <img src="https://lh3.googleusercontent.com/d/14K94Z7uQAGTlfT8vEZPAOkTeh1codxvP" alt="Fortinet Security Policies Rule Set" class="reload-img" referrerpolicy="no-referrer">
+             <div class="gallery-item" onclick="openLightbox(this)">
+               <img src="https://lh3.googleusercontent.com/d/14K94Z7uQAGTlfT8vEZPAOkTeh1codxvP" alt="Fortinet Security Policies Rule Set" referrerpolicy="no-referrer">
                <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
              </div>
           </div>
@@ -1277,12 +1552,12 @@
     </div>
     
     <div id="project-3" class="page-view container">
-      <div class="project-banner-wrapper animate-section shine-effect" style="border-radius: var(--radius-md);">
-        <img src="https://isanjiiv.github.io/assets/images/lovable-ai.png" alt="AI Agent and Lovable AI App Interface Banner for Notes and Resume Builders" class="project-banner-img reload-img" loading="lazy">
+      <div class="project-banner-wrapper">
+        <img src="https://isanjiiv.github.io/assets/images/lovable-ai.png" alt="AI Agent and Lovable AI App Interface Banner for Notes and Resume Builders" class="project-banner-img" loading="lazy">
       </div>
       
-      <div class="glass-card animate-section" style="border:none; box-shadow:none; padding:0; background:transparent;">
-        <div class="project-header stagger-text">
+      <div class="glass-card" style="border:none; box-shadow:none; padding:0; background:transparent;">
+        <div class="project-header">
           <h1 class="project-title">AI Cost Sheet Builder & Other Apps</h1>
           <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top: 15px;">
               <span class="tech-tag">Lovable AI</span>
@@ -1291,7 +1566,7 @@
           </div>
         </div>
         
-        <div class="detail-block stagger-text">
+        <div class="detail-block">
           <h3>AI Cost Sheet Builder</h3>
           <p>Built a no-code web application at Grain Milling Solutions using Lovable AI to automate cost sheet generation. Integrated secure login, automated calculations, and PDF/Excel export.</p>
           <p><a href="https://item-bill-builder.lovable.app" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:700;">Visit Live App <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
@@ -1303,22 +1578,22 @@
           </ul>
         </div>
 
-        <div class="detail-block animate-section">
+        <div class="detail-block">
             <h3>More Lovable AI Apps</h3>
             <p>Here are some other applications I created using Lovable AI. Click on View App to preview the project inside this page.</p>
             
             <div class="lovable-grid">
-                <div class="lovable-app-card animate-section stagger-text">
+                <div class="lovable-app-card">
                   <h3 class="lovable-card-title">BuildResume</h3>
                   <p class="lovable-card-text">An AI resume builder that helps users create modern and professional resumes. Simple, fast, and easy to use for job-ready output.</p>
                   <button class="btn-primary" onclick="loadApp('https://buildresume.lovable.app/', 'BuildResume')">View App</button>
                 </div>
-                <div class="lovable-app-card animate-section stagger-text">
+                <div class="lovable-app-card">
                   <h3 class="lovable-card-title">HappyNote</h3>
                   <p class="lovable-card-text">A clean notes app for writing and organizing daily tasks quickly. Helps users stay productive with a smooth interface.</p>
                   <button class="btn-primary" onclick="loadApp('https://happynote.lovable.app/', 'HappyNote')">View App</button>
                 </div>
-                <div class="lovable-app-card animate-section stagger-text">
+                <div class="lovable-app-card">
                   <h3 class="lovable-card-title">My Moments</h3>
                   <p class="lovable-card-text">A personal moments app where users can store important memories securely. Includes authentication for privacy and controlled access.</p>
                   <button class="btn-primary" onclick="loadApp('https://mymoments.lovable.app/auth', 'My Moments')">View App</button>
@@ -1340,12 +1615,12 @@
     </div>
 
     <div id="project-4" class="page-view container">
-      <div class="project-banner-wrapper animate-section shine-effect" style="border-radius: var(--radius-md);">
-        <img src="https://isanjiiv.github.io/assets/images/wordpress-banner.png" alt="Website Design and WordPress Content Management Banner" class="project-banner-img reload-img" loading="lazy">
+      <div class="project-banner-wrapper">
+        <img src="https://isanjiiv.github.io/assets/images/wordpress-banner.png" alt="Website Design and WordPress Content Management Banner" class="project-banner-img" loading="lazy">
       </div>
       
-      <div class="glass-card animate-section" style="border:none; box-shadow:none; padding:0; background:transparent;">
-        <div class="project-header stagger-text">
+      <div class="glass-card" style="border:none; box-shadow:none; padding:0; background:transparent;">
+        <div class="project-header">
           <h1 class="project-title">Website Redesign & In-House Management</h1>
           <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top: 15px;">
               <span class="tech-tag">Web Design</span>
@@ -1355,13 +1630,13 @@
           </div>
         </div>
 
-        <div class="detail-block stagger-text">
+        <div class="detail-block">
           <h3>Overview</h3>
           <p>Successfully transitioned the company’s primary website (<a href="http://www.gmsdelhi.com" target="_blank" style="color:var(--primary); font-weight:bold;">www.gmsdelhi.com</a>) from a third-party web development agency to a fully in-house managed platform. This initiative involved a complete structural redesign, content overhaul, and ongoing technical management to ensure the digital presence aligned perfectly with the company's brand identity.</p>
           <p>By taking absolute ownership of the website, I eliminated external dependencies, which drastically reduced operational costs and allowed the company to execute digital updates instantly rather than waiting for vendor turnarounds.</p>
         </div>
 
-        <div class="detail-block stagger-text">
+        <div class="detail-block">
           <h3>Key Responsibilities & Implementation</h3>
           
           <h4>1) Complete Website Redesign</h4>
@@ -1396,7 +1671,7 @@
           </ul>
         </div>
 
-        <div class="detail-block stagger-text">
+        <div class="detail-block">
           <h3>Key Outcomes</h3>
           <ul>
               <li><strong>Zero External Dependency:</strong> Achieved 100% internal control over web assets.</li>
@@ -1406,7 +1681,7 @@
           </ul>
         </div>
 
-        <div class="detail-block animate-section">
+        <div class="detail-block">
           <h3>Live Website Preview</h3>
           <p>Click the button below to load and explore the redesigned Grain Milling Solutions website directly inside this portfolio.</p>
           
@@ -1455,6 +1730,7 @@
 
   <footer class="stacked-footer">
     <div class="stacked-footer-content">
+      
       <div class="footer-logo" style="margin-bottom: 1.5rem;">
         <a href="#" onclick="event.preventDefault(); showHomeView(); window.scrollTo({ top: 0, behavior: 'smooth' });" aria-label="Sanjeev Kumar Homepage">
           <img src="https://isanjiiv.github.io/assets/images/favicon.png" alt="Sanjiiv Logo" style="height: 46px; width: 46px; display: inline-block; transition: transform 0.3s ease;">
@@ -1462,7 +1738,6 @@
       </div>
 
       <nav class="footer-nav" aria-label="Footer Navigation">
-        <a href="#" onclick="event.preventDefault(); showHomeViewAndScroll('home')">Home</a>
         <a href="about.html">About</a>
         <a href="#skills" onclick="event.preventDefault(); showHomeViewAndScroll('skills')">Skills</a>
         <a href="#projects" onclick="event.preventDefault(); showHomeViewAndScroll('projects')">Projects</a>
@@ -1480,9 +1755,12 @@
         <a href="https://x.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="X (Twitter) Profile" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
       </div>
 
+    
+
       <div style="text-align: center; color: var(--text-muted); font-size: 0.95rem;">
         <p style="margin-top: 0.5rem;">© <span id="year">2026</span>. Design By <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600;">Sanjeev Kumar</a>. All rights reserved.</p>
       </div>
+
     </div>
   </footer>
 
@@ -1493,6 +1771,8 @@
     </div>
   </div>
 
+  
+
   <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog">
     <span class="close-lightbox" aria-label="Close Image Viewer" onclick="closeLightbox(event)">×</span>
     <button class="lightbox-btn prev" aria-label="Previous Image" onclick="changeImage(-1)">❮</button> 
@@ -1500,46 +1780,52 @@
     <button class="lightbox-btn next" aria-label="Next Image" onclick="changeImage(1)">❯</button> 
   </div>
 
-  <button id="backToTop" class="back-to-top" aria-label="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
+  <button id="backToTop" class="back-to-top" aria-label="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
   <script>
-    // Theme logic
+    // THEME TOGGLE FUNCTIONALITY
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = themeToggle.querySelector('i');
     const htmlElement = document.documentElement;
+
+    // Load saved theme or default to dark
     const savedTheme = localStorage.getItem('theme') || 'dark';
     htmlElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
 
+    // Toggle click event
     themeToggle.addEventListener('click', () => {
         const currentTheme = htmlElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
         htmlElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
+        localStorage.setItem('theme', newTheme); // Save preference
         updateThemeIcon(newTheme);
     });
 
+    // Update icon to reflect the opposite of the current theme (i.e. click Sun for light mode, Moon for dark mode)
     function updateThemeIcon(theme) {
-        themeIcon.className = theme === 'light' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+        if (theme === 'light') {
+            themeIcon.className = 'fa-solid fa-moon';
+        } else {
+            themeIcon.className = 'fa-solid fa-sun';
+        }
     }
 
-    // Header scroll
+
+    // HEADER SCROLL EFFECT
     window.addEventListener('scroll', () => {
         const header = document.getElementById('main-header');
-        if (window.scrollY > 50) header.classList.add('scrolled');
-        else header.classList.remove('scrolled');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
     });
 
-    // Mobile Menu
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    hamburger.addEventListener('click', () => {
-        mobileMenu.classList.toggle('open');
-        const isOpen = mobileMenu.classList.contains('open');
-        hamburger.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
-    });
-
-    // Navigation
+    // 1. GLOBAL NAVIGATION FUNCTIONS
     function switchPageVisuals(viewId) {
         const homeView = document.getElementById('home-view');
         if (viewId === 'home-view') { homeView.classList.add('active'); } 
@@ -1575,7 +1861,8 @@
             if (section) section.scrollIntoView({ behavior: 'smooth' });
         }, 50);
     };
-
+    
+    // 2. APP PREVIEW LOGIC
     window.loadApp = function(url, title) {
         const previewBox = document.getElementById("previewBox");
         const frame = document.getElementById("appFrame");
@@ -1596,6 +1883,7 @@
         previewBox.style.display = "none";
     }
 
+    // 3. INITIALIZATION
     document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('popstate', function(event) {
             if (event.state && event.state.page) { switchPageVisuals(event.state.page); } 
@@ -1614,6 +1902,12 @@
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
         if (hamburger && mobileMenu) {
+            hamburger.addEventListener('click', () => {
+                mobileMenu.classList.toggle('open');
+                const isOpen = mobileMenu.classList.contains('open');
+                hamburger.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+                mobileMenu.setAttribute('aria-hidden', !isOpen);
+            });
             document.querySelectorAll('.mobile-menu a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.remove('open');
@@ -1623,18 +1917,20 @@
             });
         }
 
-        // Fade In, Text Slide-Up & Image Reload Observer
+        // Fade In Animation Observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible'); 
-                } else {
-                    entry.target.classList.remove('visible'); 
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    setTimeout(() => { entry.target.style.transform = ''; entry.target.style.transition = ''; }, 600);
+                    observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.animate-section').forEach(el => {
+        document.querySelectorAll('.glass-card, .cert-card, .timeline-item, .lovable-app-card, .skill-icon-wrapper, .skills-image-container, .about-layout').forEach(el => {
+            el.style.opacity = 0; el.style.transform = 'translateY(20px)'; el.style.transition = 'all 0.6s ease-out';
             observer.observe(el);
         });
 
@@ -1657,11 +1953,14 @@
         const yearSpan = document.getElementById("year");
         if(yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-        // Modal Logic
+        // Modals
         const certModal = document.getElementById('certModal');
         const certFrame = document.getElementById('certFrame');
         const closeModal = document.querySelector('.close-modal');
         const certLinks = document.querySelectorAll('.cert-card');
+        const aboutModal = document.getElementById('aboutModal');
+        const openAboutBtn = document.getElementById('openAboutBtn');
+        const closeAbout = document.querySelector('.close-about');
 
         if(certModal) {
             certLinks.forEach(link => {
@@ -1683,25 +1982,40 @@
             }
         }
 
+        if(aboutModal) {
+            if(openAboutBtn) openAboutBtn.addEventListener('click', () => { aboutModal.classList.add('show'); aboutModal.setAttribute('aria-hidden', 'false'); });
+            if(closeAbout) closeAbout.addEventListener('click', () => { aboutModal.classList.remove('show'); aboutModal.setAttribute('aria-hidden', 'true'); });
+        }
+
         window.addEventListener('click', (e) => {
             if (certModal && e.target === certModal) {
                 certModal.classList.remove('show'); certModal.setAttribute('aria-hidden', 'true');
                 if(certFrame) certFrame.src = '';
             }
+            if (aboutModal && e.target === aboutModal) {
+                aboutModal.classList.remove('show'); aboutModal.setAttribute('aria-hidden', 'true');
+            }
         });
 
-        // Back to Top
+        
+        
+        // --- BACK TO TOP LOGIC ---
         const backToTopBtn = document.getElementById('backToTop');
         if (backToTopBtn) {
             window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) backToTopBtn.classList.add('show');
-                else backToTopBtn.classList.remove('show');
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
             });
-            backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
         }
     });
 
-    // Lightbox Logic
+    // 4. LIGHTBOX LOGIC
     let currentImageIndex = 0;
     let currentGalleryImages = [];
 
@@ -1750,7 +2064,7 @@
         }
     });
 
-    // Color Blend Cursor
+    // 5. COLOR BLEND MOUSE CURSOR
     const blendCursor = document.createElement('div');
     blendCursor.id = 'blend-cursor';
     document.body.appendChild(blendCursor);
@@ -1789,7 +2103,7 @@
         });
     }
 
-    // Tab Switching Logic
+    // TAB SWITCHING LOGIC FOR PROJECTS SECTION
     window.switchTab = function(event, tabId) {
       document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.classList.remove('active');
