@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YEH8LE17NF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YEH8LE17NF');
+  </script>
+
+  <title>About Sanjeev Kumar | IT Engineer</title>
+  <meta name="description" content="Detailed professional profile and biography of Sanjeev Kumar." />
+  <meta name="theme-color" content="#0b0f12" />
+    
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* --- 1. VARIABLES & THEME --- */
+    :root {
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --bg: #0b0f12; 
+      --bg-secondary: #13191f; 
+      --text-main: #ffffff;
+      --text-muted: #a0a0a0;
+      --primary: #00c875; 
+      --primary-glow: rgba(0, 200, 117, 0.25);
+      --card-bg: rgba(19, 25, 31, 0.6); 
+      --card-border: rgba(255, 255, 255, 0.05);
+      --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      --nav-bg: rgba(11, 15, 18, 0.95);
+      --pattern-dot: rgba(255, 255, 255, 0.02);
+      --radius-md: 12px; 
+      --container: 1200px; 
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --section-spacing: 5rem;
+    }
+
+    [data-theme="light"] {
+      --bg: #f9fafb; 
+      --bg-secondary: #ffffff; 
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --primary-glow: rgba(0, 200, 117, 0.15);
+      --card-bg: rgba(255, 255, 255, 0.8); 
+      --card-border: rgba(0, 0, 0, 0.08);
+      --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      --nav-bg: rgba(249, 250, 251, 0.95);
+      --pattern-dot: rgba(0, 0, 0, 0.06);
+    }
+
+    /* --- 2. GLOBAL RESET --- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; transition: background-color 0.3s ease, color 0.3s ease; }
+    body {
+      font-family: var(--font-body); background-color: var(--bg); color: var(--text-main); line-height: 1.6; font-size: 16px; overflow-x: hidden;
+      background-image: radial-gradient(var(--pattern-dot) 1px, transparent 1px); background-size: 30px 30px; background-position: center center; background-attachment: fixed; transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    a { text-decoration: none; color: inherit; transition: var(--transition); cursor: pointer; }
+    img { max-width: 100%; display: block; }
+    h1, h2, h3, h4, .brand { font-family: var(--font-heading); }
+    .container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: 1.5rem; position: relative; z-index: 2; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+
+    /* --- 3. COMPONENTS --- */
+    .btn-icon {
+      display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--bg-secondary); border: none; color: var(--text-main); backdrop-filter: blur(8px); transition: var(--transition); cursor: pointer; font-size: 0.9rem;
+    }
+    .btn-icon:hover { background: var(--primary); color: #000; }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.8rem 1.8rem; background-color: var(--primary); color: #000; font-family: var(--font-heading); font-weight: 600; font-size: 0.95rem; border-radius: 4px; border: none; cursor: pointer; transition: var(--transition); 
+    }
+    .btn-primary:hover { background-color: #00a862; transform: translateY(-2px); box-shadow: 0 6px 15px var(--primary-glow); }
+    
+    .glass-card {
+      background: var(--card-bg); 
+      border: 1px solid var(--card-border); 
+      backdrop-filter: blur(12px); 
+      -webkit-backdrop-filter: blur(12px); 
+      border-radius: var(--radius-md); 
+      padding: 3rem 2rem; 
+      box-shadow: var(--glass-shadow); 
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+    
+    .section-header { text-align: center; margin-bottom: 4rem; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .section-kicker { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 0.8rem; font-weight: 500; font-family: var(--font-body); }
+    .section-header h2 { font-size: 2.8rem; font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; line-height: 1.2; }
+    .header-line { width: 2px; height: 40px; background-color: var(--primary); }
+
+    /* --- 4. LAYOUT --- */
+    header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: transparent; height: 80px; transition: all 0.3s ease; border-bottom: none; }
+    header.scrolled { background: var(--nav-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; height: 100%; }
+    .brand { font-size: 1.4rem; font-weight: 700; display: flex; align-items: center; gap: 10px; cursor: pointer; text-decoration: none;}
+    .nav-menu { display: flex; gap: 2rem; align-items: center; }
+    .nav-menu a { font-family: var(--font-heading); font-weight: 400; font-size: 0.95rem; color: var(--text-muted); cursor: pointer; }
+    .nav-menu a:hover, .nav-menu a.active { color: var(--text-main); }
+    .nav-contact-btn { background-color: transparent !important; color: var(--text-main) !important; padding: 8px 0 !important; border-bottom: 2px solid var(--primary); border-radius: 0; transition: all 0.3s ease; }
+    .nav-contact-btn:hover { color: var(--primary) !important; transform: translateY(-2px); }
+    .nav-actions { display: flex; gap: 12px; align-items: center; }
+
+    /* MOBILE MENU */
+    .hamburger { display: none; background: none; border: none; font-size: 1.4rem; color: var(--text-main); cursor: pointer; }
+    .mobile-menu { position: fixed; top: 80px; left: 0; width: 100%; background: var(--nav-bg); backdrop-filter: blur(10px); padding: 1rem; transform: translateY(-150%); transition: 0.3s; z-index: 999; border-bottom: none; opacity: 0; pointer-events: none; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.2);}
+    .mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    .mobile-menu a { display: block; padding: 15px; font-weight: 500; font-size: 1.1rem; color: var(--text-muted); border-bottom: 1px solid rgba(255,255,255,0.05); font-family: var(--font-heading);}
+
+    /* ABOUT PAGE SPECIFIC */
+    main { padding-top: 120px; padding-bottom: 60px; min-height: 80vh;}
+    
+    .project-banner-wrapper { width: 100%; border-radius: var(--radius-md); overflow: hidden; margin-bottom: 3rem; border: none; transition: transform 0.3s;}
+    .project-banner-img { width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 16 / 6; filter: brightness(0.6); object-position: center 30%;}
+
+    /* ZIG-ZAG LAYOUT SYSTEM */
+    .split-row {
+      display: flex;
+      align-items: center;
+      gap: 5rem;
+      margin-bottom: 6rem;
+    }
+    .split-row.reverse {
+      flex-direction: row-reverse;
+    }
+    .split-content {
+      flex: 1.2;
+    }
+    .split-content h3 { 
+      font-size: 2.2rem; 
+      color: var(--text-main); 
+      margin-bottom: 1.5rem; 
+      line-height: 1.2; 
+    }
+    .split-content p { 
+      font-size: 1.05rem; 
+      color: var(--text-muted); 
+      margin-bottom: 1.2rem; 
+      line-height: 1.7; 
+      font-weight: 300; 
+    }
+    .split-content ul {
+      padding-left: 20px;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+    }
+    .split-content li { margin-bottom: 0.8rem; }
+    .split-content strong { color: var(--text-main); font-weight: 500; }
+    
+    .split-image {
+      flex: 0.8;
+      position: relative;
+    }
+    .split-image img {
+      width: 100%;
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      border: none;
+      transition: transform 0.4s ease;
+    }
+    .split-image img:hover {
+      transform: translateY(-5px) scale(1.02);
+    }
+
+    /* CONTACT */
+    .contact-layout { display: flex; flex-wrap: wrap; gap: 3rem; align-items: center; }
+    .contact-wrapper { flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 2rem; }
+    .contact-info-item { display: flex; gap: 15px; align-items: center; font-size: 1.05rem; color: var(--text-muted); margin-bottom: 10px;}
+    .contact-info-item i { color: var(--primary); font-size: 1.2rem; width: 24px; text-align: center;}
+    .form-control { width: 100%; padding: 14px; border-radius: 4px; border: 1px solid var(--card-border); background: var(--bg-secondary); color: var(--text-main); margin-bottom: 1rem; font-family: inherit; font-size: 0.95rem; transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;}
+    .form-control:focus { outline: none; background: var(--bg); border-color: var(--primary); }
+
+    /* FOOTER */
+    .stacked-footer { background-color: var(--bg-secondary); padding: 4rem 1rem 2rem; border-top: none; margin-top: var(--section-spacing); }
+    .stacked-footer-content { display: flex; flex-direction: column; align-items: center; max-width: 800px; margin: 0 auto; text-align: center;}
+    .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-bottom: 2rem; }
+    .footer-nav a { color: var(--text-muted); font-weight: 400; font-family: var(--font-heading); transition: var(--transition); }
+    .footer-nav a:hover { color: var(--text-main); }
+    .footer-socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2.5rem; }
+
+    /* CUSTOM CURSOR & EXTRAS */
+    .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 45px; height: 45px; background-color: var(--bg-secondary); color: var(--text-main); border: none; border-radius: 4px; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s ease; z-index: 1000; }
+    .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+    .back-to-top:hover { background-color: var(--primary); color: #000; }
+    #blend-cursor { position: fixed; top: 0; left: 0; width: 35px; height: 35px; border-radius: 50%; background-color: var(--primary); pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); mix-blend-mode: difference; transition: width 0.3s, height 0.3s, background-color 0.3s; display: none; }
+    #blend-cursor.hovering { width: 70px; height: 70px; background-color: #ffffff; }
+    @media (pointer: fine) { #blend-cursor { display: block; } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .nav-menu { display: none; }
+      .hamburger { display: block; }
+      .contact-layout { flex-direction: column; gap: 2rem; }
+      
+      /* Mobile Zig-Zag Fix */
+      .split-row, .split-row.reverse { 
+        flex-direction: column; 
+        gap: 3rem; 
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+      .split-content ul {
+        text-align: left; 
+        display: inline-block;
+      }
+      .split-image { width: 100%; max-width: 500px; margin: 0 auto; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="main-header">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="Sanjeev Kumar Homepage">
+        <img src="https://isanjiiv.github.io/assets/images/favicon.png" alt="Sanjiiv Logo" style="height: 36px; width: 37px; margin-right: 8px; vertical-align: middle;">
+      </a>
+
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="about.html" class="active" style="color: var(--text-main);">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#certs">Certifications</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#contact" class="nav-contact-btn">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="btn-icon" aria-label="Toggle Theme" title="Toggle Theme"><i class="fa-solid fa-sun"></i></button>
+        <a href="https://www.wayoftech.net/" target="_blank" rel="noopener noreferrer" class="btn-icon" title="WAY OF TECH"><img src="https://www.wayoftech.net/favicon.ico" alt="Way of Tech Blog" style="width:16px;"></a>
+        <a href="https://isanjiiv.github.io/assets/docs/Resume.pdf" class="btn-icon" download aria-label="Download Sanjeev Kumar Resume" title="Download Resume"><i class="fa-solid fa-download"></i></a>
+        <button class="hamburger" id="hamburger" aria-label="Open Mobile Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="about.html">About</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#certs">Certifications</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+
+  <main class="container">
+      <div class="project-banner-wrapper">
+        <img src="https://plus.unsplash.com/premium_photo-1661775756810-82dbd209fc95?q=80&w=1954&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sanjeev Kumar About Header Banner" class="project-banner-img" loading="lazy">
+      </div>
+
+      <div class="section-header" style="margin-top: 2rem;">
+        <span class="section-kicker">GET TO KNOW ME</span>
+        <h2>About Me</h2>
+        <div class="header-line"></div>
+      </div>
+
+      <div class="glass-card" style="border:none; box-shadow:none; padding:0; background:transparent;">
+        
+        <div class="split-row">
+          <div class="split-content">
+            <h3>My Professional Journey</h3>
+            <p>Hello, I’m <strong>Sanjeev Kumar</strong>, an IT Engineer with strong hands-on experience in IT infrastructure support, Windows Server administration, networking, firewall security, and cloud fundamentals. Based in Noida, I specialize in building stable, secure, and well-managed IT environments.</p>
+            <p>Over the years, I have worked on a wide range of IT responsibilities—from managing day-to-day technical support to implementing enterprise-level solutions in Windows Server domains. I believe in continuous learning and applying new technologies to solve complex business problems.</p>
+          </div>
+          <div class="split-image">
+            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-it.jpg" alt="Sanjeev Kumar Professional Headshot" loading="lazy">
+          </div>
+        </div>
+
+        <div class="split-row reverse">
+          <div class="split-content">
+            <h3>IT Infrastructure & Networking</h3>
+            <p>I have dedicated my career to mastering the tools that keep modern businesses secure and operational. My core technical skills include:</p>
+            <ul>
+                <li><strong>Windows Server Knowledge:</strong> Extensive experience managing Active Directory (AD), deploying Group Policies (GPO), WSUS, and user access control.</li>
+                <li><strong>Networking Skills:</strong> Strong grasp of LAN/WAN, IP addressing, DNS, DHCP, VLANs, and resolving real-time connectivity issues.</li>
+                <li><strong>Firewall & Security:</strong> Configuring Fortinet FortiGate 60F policies, basic routing, and VPN setups to keep networks secure from threats.</li>
+            </ul>
+          </div>
+          <div class="split-image">
+            <img src="https://isanjiiv.github.io/assets/images/sanjeev.jpg" alt="Sanjeev Kumar working in IT" loading="lazy">
+          </div>
+        </div>
+
+        <div class="split-row" style="margin-bottom: 0;">
+          <div class="split-content">
+            <h3>Web Development & AI Automation</h3>
+            <p>Beyond traditional IT support, I leverage modern web tools and Artificial Intelligence to build digital solutions that drive business growth:</p>
+            <ul>
+                <li><strong>Website Creation:</strong> Highly capable of designing and building custom websites, professional portfolios, and fully functional e-commerce sites.</li>
+                <li><strong>WordPress Expertise:</strong> Deep knowledge of managing, designing, securing, and updating WordPress platforms from top to bottom.</li>
+                <li><strong>AI Agents & Automation:</strong> Skilled in utilizing AI tools (like Lovable, Cursor, and Emergent) to build smart no-code web applications and automate repetitive workflows.</li>
+            </ul>
+          </div>
+          <div class="split-image">
+            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-It-engineer.png" alt="Sanjeev Kumar Skills and Tech Stack" loading="lazy">
+          </div>
+        </div>
+
+      </div>
+
+      <div id="about-contact" style="margin-top: 6rem; padding-top: 3rem;">
+        <div class="section-header" style="margin-bottom: 3rem;"> 
+          <span class="section-kicker">GET IN TOUCH</span>
+          <h2>Let's Connect</h2>
+          <div class="header-line"></div>
+        </div>
+        
+        <div class="glass-card contact-layout">
+          <div class="contact-wrapper" style="flex: 1;">
+            <div>
+              <h3 style="font-size: 2rem; margin-bottom: 1rem; font-family: var(--font-heading); color: var(--text-main);">Have an opportunity?</h3>
+              <p style="font-size:1.05rem; margin-bottom: 2rem; color: var(--text-muted);">
+                Send me a direct message here and I'll get back to you shortly.
+              </p>
+              
+              <div style="margin-bottom: 2rem;">
+                <div class="contact-info-item">
+                  <i class="fa-solid fa-location-dot"></i> 
+                  <span>Noida, India</span>
+                </div>
+                <div class="contact-info-item">
+                  <i class="fa-solid fa-envelope"></i> 
+                  <span>Sanjeev753304@gmail.com</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-wrapper" style="flex: 1.5;">
+            <form action="https://formspree.io/f/xzzabloy" method="POST" style="width:100%;">
+              <label for="about-contact-name" class="sr-only">Your Name</label>
+              <input type="text" id="about-contact-name" name="name" class="form-control" required placeholder="Your Name">
+              
+              <label for="about-contact-email" class="sr-only">Your Email</label>
+              <input type="email" id="about-contact-email" name="email" class="form-control" required placeholder="Your Email">
+              
+              <label for="about-contact-message" class="sr-only">Message</label>
+              <textarea id="about-contact-message" name="message" rows="5" class="form-control" required placeholder="How can I help you?"></textarea>
+              
+              <input type="hidden" name="_subject" value="New message from detailed About Page">
+              <input type="hidden" name="_replyto" value="Sanjeev753304@gmail.com">
+              
+              <button type="submit" class="btn-primary btn-submit" aria-label="Send Message" style="margin-top: 10px;">
+                Send Message <i class="fa-solid fa-paper-plane" style="margin-left:8px;"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+  </main>
+
+  <footer class="stacked-footer">
+    <div class="stacked-footer-content">
+      <div class="footer-logo" style="margin-bottom: 1.5rem;">
+        <a href="index.html" aria-label="Sanjeev Kumar Homepage">
+          <img src="https://isanjiiv.github.io/assets/images/favicon.png" alt="Sanjiiv Logo" style="height: 46px; width: 46px; display: inline-block; transition: transform 0.3s ease;">
+        </a>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="about.html">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#certs">Certifications</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <div class="footer-socials">
+        <a href="mailto:sanjeev753304@gmail.com" class="btn-icon" aria-label="Email Sanjeev" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="LinkedIn Profile" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="GitHub Profile" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="Instagram Profile" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="YouTube Channel" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://x.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="X (Twitter) Profile" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+
+      <div style="text-align: center; color: var(--text-muted); font-size: 0.95rem;">
+        <p style="margin-top: 0.5rem;">© <span id="year">2026</span>. Design By <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600;">Sanjeev Kumar</a>. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script>
+    // Theme logic
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+    const htmlElement = document.documentElement;
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    htmlElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+    });
+
+    function updateThemeIcon(theme) {
+        themeIcon.className = theme === 'light' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+    }
+
+    // Header scroll
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('main-header');
+        if (window.scrollY > 50) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+    });
+
+    // Mobile Menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+        const isOpen = mobileMenu.classList.contains('open');
+        hamburger.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+    });
+
+    // Fade In Animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = 'translateY(0)';
+                setTimeout(() => { entry.target.style.transform = ''; entry.target.style.transition = ''; }, 600);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.split-row, .glass-card').forEach(el => {
+        el.style.opacity = 0; el.style.transform = 'translateY(20px)'; el.style.transition = 'all 0.6s ease-out';
+        observer.observe(el);
+    });
+
+    // Back to Top
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) backToTopBtn.classList.add('show');
+        else backToTopBtn.classList.remove('show');
+    });
+    backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
