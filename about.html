@@ -131,14 +131,40 @@
     
     .section-header { text-align: center; margin-bottom: 4rem; display: flex; flex-direction: column; align-items: center; justify-content: center; }
     .section-kicker { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 0.8rem; font-weight: 500; font-family: var(--font-body); }
-    /* Added h1 here for SEO parity with previous h2 */
     .section-header h1, .section-header h2 { font-size: 2.8rem; font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; line-height: 1.2; }
     .header-line { width: 2px; height: 40px; background-color: var(--primary); }
 
-    /* --- 4. LAYOUT --- */
-    header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: transparent; height: 80px; transition: all 0.3s ease; border-bottom: none; }
-    header.scrolled { background: var(--nav-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
-    .nav-inner { display: flex; justify-content: space-between; align-items: center; height: 100%; }
+    /* --- 4. LAYOUT (PILL HEADER) --- */
+    header { 
+      position: fixed; 
+      top: 15px; 
+      left: 50%; 
+      transform: translateX(-50%); 
+      width: calc(100% - 2rem); 
+      max-width: 1200px; 
+      z-index: 1000; 
+      background: rgba(11, 15, 18, 0.6); 
+      backdrop-filter: blur(12px); 
+      -webkit-backdrop-filter: blur(12px);
+      height: 70px; 
+      border-radius: 50px; 
+      border: 1px solid var(--card-border);
+      transition: all 0.3s ease; 
+    }
+    header.scrolled { 
+      background: var(--nav-bg); 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+      top: 10px; 
+    }
+    [data-theme="light"] header {
+      background: rgba(255, 255, 255, 0.6);
+    }
+    [data-theme="light"] header.scrolled {
+      background: var(--nav-bg);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+    }
+
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; height: 100%; padding-inline: 1.5rem; }
     .brand { font-size: 1.4rem; font-weight: 700; display: flex; align-items: center; gap: 10px; cursor: pointer; text-decoration: none;}
     .nav-menu { display: flex; gap: 1.8rem; align-items: center; }
     .nav-menu a { font-family: var(--font-heading); font-weight: 400; font-size: 0.95rem; color: var(--text-muted); cursor: pointer; }
@@ -149,12 +175,31 @@
 
     /* MOBILE MENU */
     .hamburger { display: none; background: none; border: none; font-size: 1.4rem; color: var(--text-main); cursor: pointer; }
-    .mobile-menu { position: fixed; top: 80px; left: 0; width: 100%; background: var(--nav-bg); backdrop-filter: blur(10px); padding: 1rem; transform: translateY(-150%); transition: 0.3s; z-index: 999; border-bottom: none; opacity: 0; pointer-events: none; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.2);}
-    .mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    .mobile-menu { 
+      position: fixed; 
+      top: 95px; 
+      left: 50%; 
+      width: calc(100% - 2rem); 
+      max-width: 1200px; 
+      background: var(--nav-bg); 
+      backdrop-filter: blur(10px); 
+      padding: 1rem; 
+      transform: translate(-50%, -150%); 
+      transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+      z-index: 999; 
+      border-radius: 24px; 
+      border: 1px solid var(--card-border); 
+      opacity: 0; 
+      pointer-events: none; 
+      text-align: center; 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .mobile-menu.open { transform: translate(-50%, 0); opacity: 1; pointer-events: auto; }
     .mobile-menu a { display: block; padding: 15px; font-weight: 500; font-size: 1.1rem; color: var(--text-muted); border-bottom: 1px solid rgba(255,255,255,0.05); font-family: var(--font-heading);}
+    .mobile-menu a:last-child { border-bottom: none; }
 
     /* ABOUT PAGE SPECIFIC */
-    main { padding-top: 120px; padding-bottom: 60px; min-height: 80vh;}
+    main { padding-top: 140px; padding-bottom: 60px; min-height: 80vh;}
     
     .project-banner-wrapper { width: 100%; border-radius: var(--radius-md); margin-bottom: 3rem; border: none; transition: transform 0.3s;}
     .project-banner-img { width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 16 / 6; filter: brightness(0.6); object-position: center 30%;}
@@ -597,6 +642,45 @@
     backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // COLOR BLEND MOUSE CURSOR
+    const blendCursor = document.createElement('div');
+    blendCursor.id = 'blend-cursor';
+    document.body.appendChild(blendCursor);
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let cursorX = mouseX;
+    let cursorY = mouseY;
+
+    function animateCursor() {
+        cursorX += (mouseX - cursorX) * 0.15;
+        cursorY += (mouseY - cursorY) * 0.15;
+        blendCursor.style.left = cursorX + 'px';
+        blendCursor.style.top = cursorY + 'px';
+        requestAnimationFrame(animateCursor);
+    }
+    
+    if (window.matchMedia("(pointer: fine)").matches) {
+        animateCursor();
+        
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.closest('a, button, .cert-card, .gallery-item, input, textarea, .btn-icon, .close-modal, .close-lightbox, .modern-gallery-item, .skill-icon-wrapper')) {
+                blendCursor.classList.add('hovering');
+            }
+        });
+
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.closest('a, button, .cert-card, .gallery-item, input, textarea, .btn-icon, .close-modal, .close-lightbox, .modern-gallery-item, .skill-icon-wrapper')) {
+                blendCursor.classList.remove('hovering');
+            }
+        });
+    }
   </script>
 </body>
 </html>
