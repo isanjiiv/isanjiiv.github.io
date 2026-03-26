@@ -431,7 +431,7 @@
       position: relative; display: inline-block; width: 100%; max-width: 400px;
     }
     .about-img-wrapper img { 
-      width: 100%; display: block; position: relative; z-index: 2; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      width: 100%; display: block; position: relative; z-index: 2; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);
     }
     .dots-pattern { 
       position: absolute; top: -30px; left: -30px; width: 180px; height: 180px; 
@@ -989,6 +989,47 @@
         opacity: 1;
         filter: blur(0px) grayscale(0%);
     }
+/* =========================================
+
+       FIX: PERFECT ROUNDED CORNERS & SHADOWS
+
+       ========================================= */
+
+    
+
+    /* 1. Apply rounding and shadow to the containers so they mask properly */
+
+    .about-img-wrapper, 
+
+    .split-image,
+
+    .contact-image-container,
+
+    .pane-image {
+
+        border-radius: 15px !important;
+
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15) !important; /* Soft shadow looks great in both light & dark mode */
+
+    }
+
+
+
+    /* 2. Remove the inner shadow from the images so it doesn't create a dark square */
+
+    .about-img-wrapper img, 
+
+    .split-image img,
+
+    .contact-image-container img,
+
+    .pane-image img {
+
+        border-radius: 15px !important;
+
+        box-shadow: none !important;
+
+    }
   </style>
 </head>
 
@@ -1237,7 +1278,7 @@
               <button class="pane-btn" onclick="event.preventDefault(); showProjectView('project-3')">Learn more <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></button>
             </div>
             <div class="pane-image">
-              <img src="https://isanjiiv.github.io/assets/images/lovable-ai.png" alt="Lovable AI Cost Sheet App">
+              <img src="https://isanjiiv.github.io/assets/images/lovable.png" alt="Lovable AI Cost Sheet App">
             </div>
           </div>
 
