@@ -333,11 +333,11 @@
     /* HERO SECTION */
     .hero-wrapper {
       position: relative;
-      min-height: 600px; /* Safely fits your absolute image without forcing full screen */
+      min-height: 600px;
       display: flex;
       align-items: center;
-      padding-top: 160px; /* Clears the fixed header */
-      padding-bottom: 80px; /* Exact controlled bottom gap */
+      padding-top: 160px;
+      padding-bottom: 80px;
       overflow: hidden;
     }
 
@@ -382,11 +382,9 @@
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
 
     /* Background Image - Perfect Circle */
-    /* Background Image - Perfect Circle */
     .hero-image-area {
       position: absolute; 
       top: 50%; 
-      /* 👇 Replace 'right: 5%;' with this line below 👇 */
       right: max(5%, calc(50vw - 550px)); 
       transform: translateY(-50%);
       width: 350px; 
@@ -398,7 +396,6 @@
       border-radius: 50%;
       border: 3px solid var(--primary);
       box-shadow: 0 0 40px var(--primary-glow);
-      transition: filter 0.3s ease, box-shadow 0.3s ease;
     }
     
     .hero-image-area::before {
@@ -545,16 +542,10 @@
       display: none;
       gap: 3rem;
       align-items: center;
-      animation: fadeInPane 0.4s ease forwards;
     }
 
     .project-tab-pane.active {
       display: flex;
-    }
-
-    @keyframes fadeInPane {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     /* Text Colors - FORCED LIGHT ON DARK BG */
@@ -695,7 +686,7 @@
     .close-modal:hover, .close-about:hover, .close-lightbox:hover { color: var(--primary); }
 
     /* PAGE VIEWS & GALLERY */
-    .page-view { display: none; padding-top: 120px; padding-bottom: 60px; animation: fadeIn 0.4s ease-out; }
+    .page-view { display: none; padding-top: 120px; padding-bottom: 60px; }
     .page-view.active { display: block; }
     .project-header { margin-bottom: 2.5rem; border-bottom: 1px solid var(--card-border); padding-bottom: 1.5rem; transition: border-color 0.3s; }
     .project-title { font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; font-weight: 700; }
@@ -724,8 +715,8 @@
     .modern-gallery-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0; line-height: 1.5; }
 
     /* Lightbox stays dark always for best image viewing UX */
-    .lightbox { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(11,15,18,0.95); align-items: center; justify-content: center; }
-    .lightbox.show { display: flex; animation: fadeIn 0.3s; }
+    .lightbox { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(11,15,18,0.95); align-items: center; justify-content: center; transition: opacity 0.3s;}
+    .lightbox.show { display: flex; }
     .lightbox-content { max-width: 90%; max-height: 90vh; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);}
     .lightbox-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(19,25,31,0.6); color: white; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; font-size: 20px; border-radius: 50%; transition: 0.3s; z-index: 3001; user-select: none; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; }
     .lightbox-btn:hover { background: var(--primary); color: #000; border-color: var(--primary);}
@@ -738,7 +729,7 @@
     .lovable-app-card:hover { transform: translateY(-5px); border-color: var(--primary); }
     .lovable-app-card h3 { margin: 0 0 10px; font-size: 1.3rem; color: var(--text-main); }
     .lovable-app-card p { margin: 0 0 15px; color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; flex-grow: 1; }
-    .app-preview-box { margin-top: 30px; border: 1px solid var(--card-border); border-radius: 8px; overflow: hidden; background: var(--bg); display: none; animation: fadeIn 0.4s ease; transition: background 0.3s, border-color 0.3s;}
+    .app-preview-box { margin-top: 30px; border: 1px solid var(--card-border); border-radius: 8px; overflow: hidden; background: var(--bg); display: none; transition: background 0.3s, border-color 0.3s;}
     .app-preview-header { padding: 15px; background: var(--bg-secondary); display: flex; justify-content: space-between; align-items: center; gap: 10px; border-bottom: 1px solid var(--card-border); flex-wrap: wrap; transition: background 0.3s, border-color 0.3s;}
     .app-preview-title { font-weight: 600; color: var(--text-main); font-family: var(--font-heading); }
     .app-preview-actions { display: flex; gap: 10px; align-items: center; }
@@ -755,7 +746,6 @@
     @media (pointer: fine) { #blend-cursor { display: block; } }
 
     @media (max-width: 768px){ .app-iframe{ height: 65vh; } }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
     /* FOOTER */
     .stacked-footer { background-color: var(--bg-secondary); padding: 4rem 1rem 2rem; border-top: 1px solid var(--card-border); margin-top: var(--section-spacing); transition: background 0.3s, border-color 0.3s;}
@@ -796,10 +786,8 @@
         margin: 0 auto 2rem auto; 
         right: auto; 
         top: auto; 
-        transform: none; 
         border-radius: 50%;
         box-shadow: 0 0 30px var(--primary-glow);
-        filter: none;
         order: -1; 
       }
       
@@ -873,6 +861,98 @@
        /* Merged from stray blocks */
        .btn-submit { display: flex !important; margin: 1rem auto 0 auto !important; }
     }
+
+
+    /* --- NEW ANIMATIONS (FROM ABOUT.HTML) --- */
+
+    /* 1. Shine Effect applied to Image Wrappers */
+    .about-img-wrapper, .skills-image-container, .pane-image, .contact-image-container, .project-banner-wrapper, .modern-gallery-img-wrapper, .gallery-item {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    /* Z-Index increased to 10 so it always overrides the image z-index */
+    .about-img-wrapper::before, .skills-image-container::before, .pane-image::before, .contact-image-container::before, .project-banner-wrapper::before, .modern-gallery-img-wrapper::before, .gallery-item::before {
+        position: absolute; top: 0; left: -75%; z-index: 10; display: block; content: '';
+        width: 50%; height: 100%;
+        background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+        transform: skewX(-25deg); pointer-events: none;
+    }
+    .about-img-wrapper:hover::before, .skills-image-container:hover::before, .pane-image:hover::before, .contact-image-container:hover::before, .project-banner-wrapper:hover::before, .modern-gallery-img-wrapper:hover::before, .gallery-item:hover::before {
+        animation: shine 0.75s;
+    }
+    @keyframes shine { 100% { left: 125%; } }
+
+    /* 2. Scroll Animations: Containers */
+    .section-header, .hero-content, .about-layout, .skills-layout, .project-tab-content-container, .cert-card, .timeline-item, .contact-layout, .glass-card, .lovable-app-card, .project-banner-wrapper, .detail-block {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .section-header.visible, .hero-content.visible, .about-layout.visible, .skills-layout.visible, .project-tab-content-container.visible, .cert-card.visible, .timeline-item.visible, .contact-layout.visible, .glass-card.visible, .lovable-app-card.visible, .project-banner-wrapper.visible, .detail-block.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+/* 3. Scroll Animations: Text Slide Up Stagger */
+    .section-header > *,
+    .hero-content > *,
+    .about-text-col > *,
+    .skills-flex-container > .skill-icon-wrapper,
+    .pane-text > *,
+    .contact-wrapper > div > *,
+    .contact-wrapper form > *,
+    .cert-card > *,
+    .timeline-item > *,
+    .lovable-app-card > *,
+    .detail-block > * {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .visible > *,
+    .visible > div > *,
+    .visible form > *,
+    .visible .skill-icon-wrapper,
+    .visible .pane-text > *,
+    .visible .contact-wrapper > div > * {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Staggering Delays */
+    .visible > *:nth-child(1), .visible > div > *:nth-child(1), .visible form > *:nth-child(1), .visible .contact-wrapper > div > *:nth-child(1) { transition-delay: 0.1s; }
+    .visible > *:nth-child(2), .visible > div > *:nth-child(2), .visible form > *:nth-child(2), .visible .contact-wrapper > div > *:nth-child(2) { transition-delay: 0.2s; }
+    .visible > *:nth-child(3), .visible > div > *:nth-child(3), .visible form > *:nth-child(3), .visible .contact-wrapper > div > *:nth-child(3) { transition-delay: 0.3s; }
+    .visible > *:nth-child(4), .visible > div > *:nth-child(4), .visible form > *:nth-child(4), .visible .contact-wrapper > div > *:nth-child(4) { transition-delay: 0.4s; }
+    .visible > *:nth-child(5), .visible > div > *:nth-child(5), .visible form > *:nth-child(5), .visible .contact-wrapper > div > *:nth-child(5) { transition-delay: 0.5s; }
+    .visible > *:nth-child(6), .visible > div > *:nth-child(6), .visible form > *:nth-child(6), .visible .contact-wrapper > div > *:nth-child(6) { transition-delay: 0.6s; }
+    .visible > *:nth-child(7), .visible > div > *:nth-child(7), .visible form > *:nth-child(7), .visible .contact-wrapper > div > *:nth-child(7) { transition-delay: 0.7s; }
+
+    /* 4. Scroll Animations: Image Reload */
+    .about-img-wrapper img, .skills-image-container img, .pane-image img, .contact-image-container img, .project-banner-img {
+        opacity: 0;
+        transform: scale(0.8) rotateX(-15deg);
+        filter: blur(10px) grayscale(50%);
+        transition: all 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .visible .about-img-wrapper img, .visible .skills-image-container img, .visible .pane-image img, .visible .contact-image-container img, .visible.project-banner-wrapper .project-banner-img, .project-banner-wrapper.visible .project-banner-img {
+        opacity: 1;
+        transform: scale(1) rotateX(0deg);
+        filter: blur(0px) grayscale(0%);
+    }
+
+    /* Special rule for Hero Image to preserve its absolute layout/transforms */
+    .hero-image-area {
+        opacity: 0;
+        filter: blur(10px) grayscale(50%);
+        transition: all 1.2s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.3s;
+    }
+    .hero-image-area.visible {
+        opacity: 1;
+        filter: blur(0px) grayscale(0%);
+    }
   </style>
 </head>
 
@@ -894,7 +974,6 @@
       </nav>
 
       <div class="nav-actions">
-        <!-- THEME TOGGLE BUTTON -->
         <button id="theme-toggle" class="btn-icon" aria-label="Toggle Theme" title="Toggle Theme">
           <i class="fa-solid fa-sun"></i>
         </button>
@@ -926,7 +1005,6 @@
     
     <div id="home-view" class="page-view active" style="padding-top:0;">
 
-      <!-- HERO SECTION -->
       <section id="home" class="hero-wrapper">
         <div class="hero-content container">
           <div class="hero-badge">
@@ -964,7 +1042,6 @@
         <div class="hero-image-area"></div>
       </section>
 
-      <!-- ABOUT SECTION -->
       <section id="about" class="container about-section" style="padding-top: var(--section-spacing);">
         
         <div class="section-header">
@@ -1004,7 +1081,6 @@
         </div>
       </section>
 
-      <!-- SKILLS SECTION -->
       <section id="skills" class="container" style="padding-top: var(--section-spacing);">
         <div class="section-header">
           <span class="section-kicker">MY EXPERTISE</span>
@@ -1080,7 +1156,6 @@
         </div>
       </section>
 
-      <!-- PROJECTS SECTION (UPDATED TABS) -->
       <section id="projects" class="tabbed-projects-section container">
         <div class="tabbed-projects-header section-header">
           <span class="section-kicker">MY PORTFOLIO</span>
@@ -1097,7 +1172,6 @@
 
         <div class="project-tab-content-container">
           
-          <!-- Tab 1: Windows Server -->
           <div id="tab-1" class="project-tab-pane active">
             <div class="pane-text">
               <h3>Enterprise AD & GPO</h3>
@@ -1109,7 +1183,6 @@
             </div>
           </div>
 
-          <!-- Tab 2: SD-WAN -->
           <div id="tab-2" class="project-tab-pane">
             <div class="pane-text">
               <h3>Fortinet 60F SD-WAN</h3>
@@ -1121,7 +1194,6 @@
             </div>
           </div>
 
-          <!-- Tab 3: Lovable AI Apps -->
           <div id="tab-3" class="project-tab-pane">
             <div class="pane-text">
               <h3>AI Cost Sheet Builder</h3>
@@ -1133,7 +1205,6 @@
             </div>
           </div>
 
-          <!-- Tab 4: Web Redesign -->
           <div id="tab-4" class="project-tab-pane">
             <div class="pane-text">
               <h3>GMS Website Redesign</h3>
@@ -1148,7 +1219,6 @@
         </div>
       </section>
 
-      <!-- CERTIFICATIONS SECTION -->
       <section id="certs" class="container" style="padding-top: var(--section-spacing);">
         <div class="section-header">
           <span class="section-kicker">QUALIFICATIONS</span>
@@ -1209,7 +1279,6 @@
         </div>
       </section>
 
-      <!-- EXPERIENCE SECTION -->
       <section id="experience" class="container" style="padding-top: var(--section-spacing);">
         <div class="section-header">
           <span class="section-kicker">MY JOURNEY</span>
@@ -1289,7 +1358,6 @@
         </div>
       </section>
       
-      <!-- CONTACT SECTION -->
       <section id="contact" class="container" style="padding: var(--section-spacing) 0; max-width: 1150px; margin: 0 auto;">
         <div class="section-header"> 
           <span class="section-kicker">GET IN TOUCH</span>
@@ -1349,7 +1417,6 @@
       </section>
     </div>
 
-    <!-- PROJECT DETAILS VIEWS -->
     <div id="project-1" class="page-view container">
       <div class="project-banner-wrapper">
         <img src="https://isanjiiv.github.io/assets/images/windows-Server-2022.png" alt="Windows Server 2022 and Active Directory Project Header Banner" class="project-banner-img" loading="lazy">
@@ -1808,7 +1875,7 @@
         updateThemeIcon(newTheme);
     });
 
-    // Update icon to reflect the opposite of the current theme (i.e. click Sun for light mode, Moon for dark mode)
+    // Update icon to reflect the opposite of the current theme
     function updateThemeIcon(theme) {
         if (theme === 'light') {
             themeIcon.className = 'fa-solid fa-moon';
@@ -1816,7 +1883,6 @@
             themeIcon.className = 'fa-solid fa-sun';
         }
     }
-
 
     // HEADER SCROLL EFFECT
     window.addEventListener('scroll', () => {
@@ -1920,20 +1986,19 @@
             });
         }
 
-        // Fade In Animation Observer
+        // --- NEW OBSERVER LOGIC IMPORTED FROM ABOUT.HTML ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                    setTimeout(() => { entry.target.style.transform = ''; entry.target.style.transition = ''; }, 600);
-                    observer.unobserve(entry.target);
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.15 });
 
-        document.querySelectorAll('.glass-card, .cert-card, .timeline-item, .lovable-app-card, .skill-icon-wrapper, .skills-image-container, .about-layout').forEach(el => {
-            el.style.opacity = 0; el.style.transform = 'translateY(20px)'; el.style.transition = 'all 0.6s ease-out';
+        // Attach observer to layout blocks for the staggered slide-up and reload effects
+        document.querySelectorAll('.section-header, .hero-content, .hero-image-area, .about-layout, .skills-layout, .project-tab-content-container, .cert-card, .timeline-item, .contact-layout, .glass-card, .lovable-app-card, .project-banner-wrapper, .detail-block').forEach(el => {
             observer.observe(el);
         });
 
