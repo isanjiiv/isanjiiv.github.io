@@ -68,24 +68,6 @@
           "https://www.instagram.com/isanjiiv/",
           "https://www.youtube.com/@isanjiiv/",
           "https://x.com/isanjiiv"
-        ],
-        "knowsAbout": [
-          "Windows Server",
-          "Active Directory",
-          "Group Policy (GPO)",
-          "Networking",
-          "Fortinet Firewall",
-          "Cybersecurity",
-          "AWS",
-          "Microsoft Azure",
-          "Cloud Computing",
-          "IT Infrastructure",
-          "RDP",
-          "Acronis Backup",
-          "Hyper-V",
-          "AI Automation",
-          "WordPress",
-          "Web Development"
         ]
       },
       {
@@ -597,6 +579,39 @@
     .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
+    /* --- BACK TO TOP BUTTON FIX --- */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 45px;
+      height: 45px;
+      background-color: var(--text-main);
+      color: #ffffff;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: none;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: var(--transition);
+      z-index: 9999;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .back-to-top:hover {
+      background-color: #333;
+      transform: translateY(-5px);
+    }
+
     /* CUSTOM CURSOR - Solid Black Dot */
     #blend-cursor { 
       position: fixed; 
@@ -639,6 +654,10 @@
       .project-tab-pane { flex-direction: column; text-align: center; gap: 2rem;}
       .experience-grid { grid-template-columns: 1fr; gap: 2rem; }
       .experience-sticky { position: relative; top: 0; margin-bottom: 1rem; text-align: center;}
+
+      /* BUTTON GROUP CENTERING FIX */
+      .btn-group { justify-content: center; }
+      .btn-group > div { margin-left: 0 !important; }
     }
     
     @media (max-width: 768px) {
@@ -646,9 +665,6 @@
       .hamburger { display: block; cursor: pointer; }
       .hero-title { font-size: 3rem; }
       .hero-subtitle { font-size: 1.5rem; }
-      
-@media (max-width: 768px) {
-      /* ... keep existing mobile css ... */
       
       .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
       .contact-image-container { min-height: 300px; }
@@ -663,7 +679,7 @@
       @media (pointer: coarse) {
         #blend-cursor { display: none !important; }
         body, a, button, input, textarea, select { cursor: auto !important; }
-        .btn-pill, .btn-circle, .gallery-item, .cert-card, .tab-btn { cursor: pointer; }
+        .btn-pill, .btn-circle, .gallery-item, .cert-card, .tab-btn, .back-to-top { cursor: pointer; }
       }
     }
   </style>
@@ -728,11 +744,14 @@
 
           <div class="btn-group">
             <a href="#contact" class="btn-pill" onclick="event.preventDefault(); showHomeViewAndScroll('contact')">Get in Touch <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></a>
-            <div style="display: flex; gap: 8px; margin-left: 10px;">
-              <a href="mailto:sanjeev753304@gmail.com" class="btn-circle light" aria-label="Email Sanjeev" title="Email"><i class="fa-solid fa-envelope"></i></a>
-              <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="LinkedIn Profile" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-              <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="GitHub Profile" title="GitHub"><i class="fa-brands fa-github"></i></a>
-            </div>
+            <div style="display: flex; gap: 8px; margin-left: 10px; flex-wrap: wrap; justify-content: center;">
+  
+  <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+  <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github"></i></a>
+  <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+  <a href="https://www.youtube.com/@isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="YouTube" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+  <a href="https://x.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="X (Twitter)" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+</div>
           </div>
         </div>
 
