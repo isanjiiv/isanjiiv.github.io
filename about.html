@@ -281,26 +281,113 @@
     .skill-card-bottom h3 { color: #fff; font-size: 1.4rem; font-family: var(--font-body); font-weight: 500;}
     .skill-card-bottom p { color: rgba(255,255,255,0.8); font-size: 0.85rem; }
 
-    /* --- 9. CONTACT BANNER --- */
-    .contact-wrapper { background: var(--bg); padding: 4rem 0 8rem; }
-    .inline-contact-banner {
-      background-color: #ffffff; border-radius: var(--radius-xl); padding: 5rem 2rem;
-      text-align: center; margin: 0 auto; max-width: 1200px; box-shadow: 0 10px 40px rgba(0,0,0,0.03);
-    }
-    .inline-contact-banner h2 { font-size: clamp(2rem, 6vw, 2.8rem); margin-bottom: 1rem; color: var(--text-main); letter-spacing: -1px; }
-    .inline-contact-banner h2 strong { font-weight: 600; }
-    .inline-contact-banner h2 .text-light { color: var(--text-muted); font-weight: 300; }
-    .inline-contact-banner > p { color: var(--text-muted); margin-bottom: 3rem; font-size: 1.05rem; }
+    /* --- 9. NEW CONTACT SECTION --- */
+    .contact-wrapper { padding: 4rem 0 4rem; }
+    
+    .contact-header { text-align: center; margin-bottom: 3rem; }
+    .contact-header h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 0.5rem; font-weight: 700; letter-spacing: -1px; color: var(--text-main); }
+    .contact-header h2 span { font-weight: 300; color: var(--text-muted); }
+    .contact-header p { color: var(--text-muted); font-size: 1.05rem; }
 
-    .inline-contact-form {
-      background: var(--bg); border-radius: 50px; padding: 10px 10px 10px 24px;
-      display: inline-flex; align-items: center; justify-content: space-between;
-      max-width: 900px; width: 100%; gap: 15px; flex-wrap: wrap;
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 2.5rem;
+      max-width: 1050px;
+      margin: 0 auto;
+      align-items: stretch;
     }
-    .inline-contact-form .input-group { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 120px; }
-    .inline-contact-form .input-group i { color: var(--text-muted); font-size: 1.1rem; }
-    .inline-contact-form .input-group input { border: none; background: transparent; color: var(--text-main); font-family: var(--font-body); font-size: 0.95rem; width: 100%; outline: none; }
-    .inline-contact-form .divider { width: 1px; height: 30px; background-color: var(--border-color); }
+    
+    .contact-image-container {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      min-height: 400px;
+    }
+    .contact-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0; left: 0;
+    }
+    
+    .contact-form-container {
+      background: var(--bg-alt); /* White background */
+      border-radius: var(--radius-md);
+      padding: 3rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .new-contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .new-contact-form .form-row {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .new-contact-form .form-group {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 8px;
+    }
+    .new-contact-form label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .new-contact-form input,
+    .new-contact-form textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid rgba(0,0,0,0.1); /* Clean border */
+      background: #ffffff;
+      border-radius: 12px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--text-main);
+      outline: none;
+      transition: var(--transition);
+    }
+    .new-contact-form input::placeholder,
+    .new-contact-form textarea::placeholder {
+      color: #adb5bd;
+    }
+    .new-contact-form input:focus,
+    .new-contact-form textarea:focus {
+      border-color: var(--text-main);
+      box-shadow: 0 0 0 1px var(--text-main);
+    }
+    .btn-submit-pill {
+      background: #0f172a; 
+      color: #fff;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 50px; /* Pill shape */
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.95rem;
+      cursor: pointer; 
+      align-self: flex-start;
+      margin-top: 5px;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-submit-pill:hover {
+      background: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
 
     /* --- 10. FOOTER --- */
     .footer-bottom { display: flex; flex-direction: column; align-items: center; gap: 2rem; padding: 4rem 0 2rem; }
@@ -359,20 +446,18 @@
       .explore-section { padding: 2rem 0 3rem; }
       .experience-section { padding: 3rem 0; }
       .expertise-section { padding: 3rem 0; }
-      .contact-wrapper { padding: 3rem 0; }
       
       .exp-card { padding: 2rem; }
       .btn-pill { width: 100%; }
       .section-header-split .btn-group { width: 100%; justify-content: space-between;}
 
-      /* Contact Banner Overrides */
-      .inline-contact-banner { padding: 3rem 1.5rem; border-radius: var(--radius-lg);}
-      .inline-contact-form { 
-          flex-direction: column; border-radius: 20px; padding: 20px; 
-          gap: 20px; background: #fff; border: 1px solid var(--border-color);
-      }
-      .inline-contact-form .divider { width: 100%; height: 1px; }
-      .inline-contact-form .input-group { width: 100%; padding: 5px 0; }
+      /* Contact Layout Overrides */
+      .contact-wrapper { padding: 3rem 0; }
+      .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .contact-image-container { min-height: 250px; }
+      .contact-form-container { padding: 2rem 1.5rem; }
+      .new-contact-form .form-row { flex-direction: column; gap: 1.5rem; }
+      .btn-submit-pill { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -391,7 +476,7 @@
       <a href="index.html#projects">Projects</a>
       <a href="index.html#certs">Certifications</a>
       <a href="index.html#experience">Experience</a>
-      <a href="index.html#contact">Contact</a>
+      <a href="#about-contact">Contact</a>
     </nav>
     
     <div class="header-right">
@@ -408,7 +493,7 @@
     <a href="index.html#projects">Projects</a>
     <a href="index.html#certs">Certifications</a>
     <a href="index.html#experience">Experience</a>
-    <a href="index.html#contact">Contact</a>
+    <a href="#about-contact">Contact</a>
   </div>
 
   <div class="hero-wrapper">
@@ -527,7 +612,8 @@
         </div>
       </div>
     </section>
-<section class="expertise-section">
+
+    <section class="expertise-section">
       <div class="section-header-split fade-up">
         <div>
           <span class="tag-label">Featured Projects</span>
@@ -579,55 +665,73 @@
 
   </main>
 
-  <div class="contact-wrapper" id="about-contact">
-    <div class="container">
-        <div class="inline-contact-banner fade-up">
-          <h2><strong>Connect for your</strong> <span class="text-light">next project</span></h2>
-          <p>Reach out to discuss IT infrastructure, web development, or technical support for your team.</p>
+  <section id="about-contact" class="contact-wrapper container">
+    <div class="contact-header fade-up">
+      <h2>Connect for your <span>next project</span></h2>
+      <p>Whether you have a job opportunity, a project, or just want to say hi, my inbox is open.</p>
+    </div>
 
-          <form action="https://formspree.io/f/xzzabloy" method="POST" class="inline-contact-form">
-            <div class="input-group">
-              <i class="fa-regular fa-user"></i>
-              <input type="text" name="name" placeholder="Your Name" required>
+    <div class="contact-layout fade-up">
+      
+      <div class="contact-image-container">
+        <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-engineer-noida.jpg" alt="Sanjeev Kumar" loading="lazy">
+      </div>
+      
+      <div class="contact-form-container">
+        <form action="https://formspree.io/f/xzzabloy" method="POST" class="new-contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" name="name" placeholder="Enter your name" required>
             </div>
-            
-            <div class="divider"></div>
-            
-            <div class="input-group">
-              <i class="fa-regular fa-envelope"></i>
-              <input type="email" name="email" placeholder="Email Address" required>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" name="email" placeholder="Enter your email" required>
             </div>
-            
-            <div class="divider"></div>
-            
-            <div class="input-group">
-              <i class="fa-regular fa-comment-dots"></i>
-              <input type="text" name="message" placeholder="Project Details" required>
-            </div>
-
-            <input type="hidden" name="_subject" value="New message from detailed About Page">
-            <input type="hidden" name="_replyto" value="Sanjeev753304@gmail.com">
-
-            <button type="submit" class="btn-pill" style="padding: 12px 30px;">
-              <i class="fa-solid fa-paper-plane" style="margin-right: 6px;"></i> Send
-            </button>
-          </form>
-        </div>
-
-        <div class="footer-bottom fade-up">
-          <div class="footer-socials">
-            <a href="mailto:sanjeev753304@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-            <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.youtube.com/@isanjiiv/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://x.com/isanjiiv" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
           </div>
           
-          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0; text-align: center;">
-            © <span id="year">2026</span>. Design By <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" style="color:var(--text-main); font-weight:600;">Sanjeev Kumar</a>. All rights reserved.
-          </p>
-        </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" name="phone" placeholder="Phone number">
+            </div>
+            <div class="form-group">
+              <label>Subject</label>
+              <input type="text" name="subject" placeholder="Subject" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>Your Message</label>
+            <textarea name="message" rows="4" placeholder="Enter your comments here..." required></textarea>
+          </div>
+          
+          <input type="hidden" name="_subject" value="New message from portfolio About page">
+          <input type="hidden" name="_replyto" value="Sanjeev753304@gmail.com">
+          
+          <button type="submit" class="btn-submit-pill">
+            Submit Now <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="footer-bottom fade-up">
+      <div class="footer-socials">
+        <a href="mailto:sanjeev753304@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@isanjiiv/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://x.com/isanjiiv" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+      
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0; text-align: center;">
+        © <span id="year">2026</span>. Design By <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" style="color:var(--text-main); font-weight:600;">Sanjeev Kumar</a>. All rights reserved.
+      </p>
     </div>
   </div>
 
