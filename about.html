@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,7 +15,7 @@
   <title>About Sanjeev Kumar | IT Engineer</title>
   <meta name="title" content="About Sanjeev Kumar | IT Engineer">
   <meta name="description" content="Professional profile of Sanjeev Kumar, an IT Engineer based in Noida specializing in IT infrastructure, Windows Server administration, and web development." />
-  <meta name="theme-color" content="#0b0f12" />
+  <meta name="theme-color" content="#f4f4f2" />
   
   <link rel="canonical" href="https://isanjiiv.github.io/about.html" />
 
@@ -53,11 +53,11 @@
     ]
   }
   </script>
-    
+
   <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
@@ -65,585 +65,525 @@
     :root {
       --font-heading: 'Outfit', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
-      --bg: #0b0f12; 
-      --bg-secondary: #13191f; 
-      --text-main: #ffffff;
-      --text-muted: #a0a0a0;
-      --primary: #00c875; 
-      --primary-glow: rgba(0, 200, 117, 0.25);
-      --card-bg: rgba(19, 25, 31, 0.6); 
-      --card-border: rgba(255, 255, 255, 0.05);
-      --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      --nav-bg: rgba(11, 15, 18, 0.95);
-      --pattern-dot: rgba(255, 255, 255, 0.02);
-      --radius-md: 12px; 
-      --container: 1200px; 
-      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      --section-spacing: 5rem;
-    }
-
-    [data-theme="light"] {
-      --bg: #f9fafb; 
-      --bg-secondary: #ffffff; 
-      --text-main: #111827;
-      --text-muted: #4b5563;
-      --primary-glow: rgba(0, 200, 117, 0.15);
-      --card-bg: rgba(255, 255, 255, 0.8); 
-      --card-border: rgba(0, 0, 0, 0.08);
-      --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      --nav-bg: rgba(249, 250, 251, 0.95);
-      --pattern-dot: rgba(0, 0, 0, 0.06);
+      
+      --bg: #f4f4f2; 
+      --bg-alt: #ffffff;
+      --text-main: #111111;
+      --text-muted: #555555;
+      --border-color: rgba(0, 0, 0, 0.08);
+      
+      --radius-sm: 12px;
+      --radius-md: 24px; 
+      --radius-lg: 32px;
+      --radius-xl: 40px;
+      
+      --container: 1400px; 
+      --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
     /* --- 2. GLOBAL RESET --- */
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 100px; transition: background-color 0.3s ease, color 0.3s ease; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: var(--font-body); background-color: var(--bg); color: var(--text-main); line-height: 1.6; font-size: 16px; overflow-x: hidden;
-      background-image: radial-gradient(var(--pattern-dot) 1px, transparent 1px); background-size: 30px 30px; background-position: center center; background-attachment: fixed; transition: background-color 0.3s ease, color 0.3s ease;
+      font-family: var(--font-body); background-color: var(--bg); color: var(--text-main); 
+      line-height: 1.6; font-size: 16px; overflow-x: hidden;
     }
     a { text-decoration: none; color: inherit; transition: var(--transition); cursor: pointer; }
     img { max-width: 100%; display: block; }
-    h1, h2, h3, h4, .brand { font-family: var(--font-heading); }
-    .container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: 1.5rem; position: relative; z-index: 2; }
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
-
-    /* --- 3. COMPONENTS --- */
-    .btn-icon {
-      display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--bg-secondary); border: none; color: var(--text-main); backdrop-filter: blur(8px); transition: var(--transition); cursor: pointer; font-size: 0.9rem;
-    }
-    .btn-icon:hover { background: var(--primary); color: #000; }
-    .btn-primary {
-      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.8rem 1.8rem; background-color: var(--primary); color: #000; font-family: var(--font-heading); font-weight: 600; font-size: 0.95rem; border-radius: 4px; border: none; cursor: pointer; transition: var(--transition); 
-    }
-    .btn-primary:hover { background-color: #00a862; transform: translateY(-2px); box-shadow: 0 6px 15px var(--primary-glow); }
+    h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--text-main); font-weight: 400; }
+    ul { list-style: none; }
     
-    .glass-card {
-      background: var(--card-bg); 
-      border: 1px solid var(--card-border); 
-      backdrop-filter: blur(12px); 
-      -webkit-backdrop-filter: blur(12px); 
-      border-radius: var(--radius-md); 
-      padding: 3rem 2rem; 
-      box-shadow: var(--glass-shadow); 
-      transition: background 0.3s ease, border-color 0.3s ease;
-    }
+    .container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: 2rem; }
     
-    .section-header { text-align: center; margin-bottom: 4rem; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-    .section-kicker { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 0.8rem; font-weight: 500; font-family: var(--font-body); }
-    .section-header h1, .section-header h2 { font-size: 2.8rem; font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; line-height: 1.2; }
-    .header-line { width: 2px; height: 40px; background-color: var(--primary); }
-
-    /* --- 4. LAYOUT (PILL HEADER) --- */
-    header { 
-      position: fixed; 
-      top: 15px; 
-      left: 50%; 
-      transform: translateX(-50%); 
-      width: calc(100% - 2rem); 
-      max-width: 1200px; 
-      z-index: 1000; 
-      background: rgba(11, 15, 18, 0.6); 
-      backdrop-filter: blur(12px); 
-      -webkit-backdrop-filter: blur(12px);
-      height: 70px; 
-      border-radius: 50px; 
-      border: 1px solid var(--card-border);
-      transition: all 0.3s ease; 
-    }
-    header.scrolled { 
-      background: var(--nav-bg); 
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
-      top: 10px; 
-    }
-    [data-theme="light"] header {
-      background: rgba(255, 255, 255, 0.6);
-    }
-    [data-theme="light"] header.scrolled {
-      background: var(--nav-bg);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
-    }
-
-    .nav-inner { display: flex; justify-content: space-between; align-items: center; height: 100%; padding-inline: 1.5rem; }
-    .brand { font-size: 1.4rem; font-weight: 700; display: flex; align-items: center; gap: 10px; cursor: pointer; text-decoration: none;}
-    .nav-menu { display: flex; gap: 1.8rem; align-items: center; }
-    .nav-menu a { font-family: var(--font-heading); font-weight: 400; font-size: 0.95rem; color: var(--text-muted); cursor: pointer; }
-    .nav-menu a:hover, .nav-menu a.active { color: var(--text-main); }
-    .nav-contact-btn { background-color: transparent !important; color: var(--text-main) !important; padding: 8px 0 !important; border-bottom: 2px solid var(--primary); border-radius: 0; transition: all 0.3s ease; }
-    .nav-contact-btn:hover { color: var(--primary) !important; transform: translateY(-2px); }
-    .nav-actions { display: flex; gap: 12px; align-items: center; }
-
-    /* MOBILE MENU */
-    .hamburger { display: none; background: none; border: none; font-size: 1.4rem; color: var(--text-main); cursor: pointer; }
-    .mobile-menu { 
-      position: fixed; 
-      top: 95px; 
-      left: 50%; 
-      width: calc(100% - 2rem); 
-      max-width: 1200px; 
-      background: var(--nav-bg); 
-      backdrop-filter: blur(10px); 
-      padding: 1rem; 
-      transform: translate(-50%, -150%); 
-      transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
-      z-index: 999; 
-      border-radius: 24px; 
-      border: 1px solid var(--card-border); 
-      opacity: 0; 
-      pointer-events: none; 
-      text-align: center; 
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
-    .mobile-menu.open { transform: translate(-50%, 0); opacity: 1; pointer-events: auto; }
-    .mobile-menu a { display: block; padding: 15px; font-weight: 500; font-size: 1.1rem; color: var(--text-muted); border-bottom: 1px solid rgba(255,255,255,0.05); font-family: var(--font-heading);}
-    .mobile-menu a:last-child { border-bottom: none; }
-
-    /* ABOUT PAGE SPECIFIC */
-    main { padding-top: 140px; padding-bottom: 60px; min-height: 80vh;}
+    /* --- 3. REUSABLE COMPONENTS --- */
+    .btn-group { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
     
-    .project-banner-wrapper { width: 100%; border-radius: var(--radius-md); margin-bottom: 3rem; border: none; transition: transform 0.3s;}
-    .project-banner-img { width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 16 / 6; filter: brightness(0.6); object-position: center 30%;}
-
-    /* --- SHINE ANIMATION EFFECT --- */
-    .shine-effect {
-      position: relative;
-      overflow: hidden; 
-      border-radius: var(--radius-md);
+    .btn-pill {
+      display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; 
+      background-color: var(--text-main); color: #fff; font-family: var(--font-body); 
+      font-weight: 500; font-size: 0.95rem; border-radius: 50px; border: none; cursor: pointer; transition: var(--transition); 
     }
-    .shine-effect::before {
-      position: absolute;
-      top: 0;
-      left: -75%;
-      z-index: 2;
-      display: block;
-      content: '';
-      width: 50%;
-      height: 100%;
-      background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
-      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
-      -webkit-transform: skewX(-25deg);
-      transform: skewX(-25deg);
-      pointer-events: none; 
-    }
-    .shine-effect:hover::before {
-      -webkit-animation: shine 0.75s;
-      animation: shine 0.75s;
-    }
-    @-webkit-keyframes shine { 100% { left: 125%; } }
-    @keyframes shine { 100% { left: 125%; } }
-
-    /* ZIG-ZAG LAYOUT SYSTEM */
-    .split-row {
-      display: flex;
-      align-items: center;
-      gap: 5rem;
-      margin-bottom: 6rem;
-      perspective: 1000px; 
-    }
-    .split-row.reverse {
-      flex-direction: row-reverse;
-    }
-    .split-content {
-      flex: 1.2;
-    }
-    .split-content h3 { 
-      font-size: 2.2rem; 
-      color: var(--text-main); 
-      margin-bottom: 1.5rem; 
-      line-height: 1.2; 
-    }
-    .split-content p { 
-      font-size: 1.05rem; 
-      color: var(--text-muted); 
-      margin-bottom: 1.2rem; 
-      line-height: 1.7; 
-      font-weight: 300; 
-    }
-    .split-content ul {
-      padding-left: 20px;
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      line-height: 1.7;
-      margin-bottom: 1.2rem;
-    }
-    .split-content li { margin-bottom: 0.8rem; }
-    .split-content strong { color: var(--text-main); font-weight: 500; }
+    .btn-pill:hover { background-color: #333; transform: scale(1.02); }
     
-    .split-image {
-      flex: 0.8;
-      position: relative;
-      border-radius: var(--radius-md); 
+    .btn-circle {
+      display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px;
+      background-color: var(--text-main); color: #fff; border-radius: 50%; border: none;
+      cursor: pointer; transition: var(--transition); font-size: 1.1rem;
+    }
+    .btn-circle:hover { background-color: #333; transform: scale(1.05); }
+
+    .btn-circle.light { background-color: #fff; color: var(--text-main); }
+    .btn-circle.light:hover { background-color: #f0f0f0; }
+
+    .tag-label {
+      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; 
+      font-weight: 600; color: var(--text-muted); margin-bottom: 1rem; display: block;
+    }
+
+    /* Modern Bullet Points */
+    .modern-list { margin-top: 1.5rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.8rem; }
+    .modern-list li {
+      position: relative; padding-left: 28px; font-size: 1rem; color: var(--text-main); font-weight: 500;
+    }
+    .modern-list li::before {
+      content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+      position: absolute; left: 0; top: 2px; color: var(--text-main); font-size: 1.1rem; opacity: 0.8;
+    }
+
+    /* --- 4. HEADER --- */
+    header {
+      display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 3rem;
+      background: transparent; position: relative; z-index: 100;
+    }
+    .brand { flex: 1; display: flex; align-items: center; }
+    .brand img { height: 36px; width: 37px; }
+    
+    .nav-menu { flex: 2; display: flex; gap: 2.5rem; justify-content: center; align-items: center; }
+    .nav-menu a { font-family: var(--font-body); font-weight: 500; font-size: 0.95rem; color: var(--text-main); }
+    .nav-menu a:hover, .nav-menu a.active { color: var(--text-muted); }
+    
+    .header-right { flex: 1; }
+
+    /* --- 5. HERO SECTION --- */
+    .hero-wrapper { padding: 0 1.5rem; margin-bottom: 6rem; }
+    .hero-card {
+      position: relative; width: 100%; height: 80vh; min-height: 650px;
+      border-radius: var(--radius-xl); overflow: hidden; display: flex;
+      flex-direction: column; justify-content: flex-end; padding: 4rem;
+    }
+    .hero-bg {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;
+    }
+    .hero-overlay {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%); z-index: 2;
     }
     
-    /* --- SCROLL ANIMATIONS: CONTAINERS --- */
-    .split-row, .glass-card, .section-header {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    .hero-content {
+      position: relative; z-index: 3; display: flex; justify-content: space-between;
+      align-items: flex-end; width: 100%; padding-bottom: 6rem;
     }
-    .split-row.visible, .glass-card.visible, .section-header.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .hero-title {
+      font-size: clamp(3.5rem, 6vw, 6rem); line-height: 1.05; font-weight: 300;
+      color: #ffffff; max-width: 800px; letter-spacing: -2px;
     }
-
-    /* --- SCROLL ANIMATIONS: TEXT SLIDE UP STAGGER --- */
-    .section-header .section-kicker,
-    .section-header h1,
-    .section-header h2,
-    .section-header .header-line,
-    .split-content h3, 
-    .split-content p, 
-    .split-content li,
-    .contact-wrapper h3, 
-    .contact-wrapper p, 
-    .contact-info-item, 
-    .contact-wrapper form {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    .hero-desc {
+      color: rgba(255,255,255,0.9); max-width: 320px; font-size: 0.95rem;
+      line-height: 1.6; font-weight: 400; text-align: right; margin-bottom: 1rem;
     }
 
-    .section-header.visible .section-kicker,
-    .section-header.visible h1,
-    .section-header.visible h2,
-    .section-header.visible .header-line,
-    .split-row.visible .split-content h3, 
-    .split-row.visible .split-content p, 
-    .split-row.visible .split-content li,
-    .glass-card.visible .contact-wrapper h3, 
-    .glass-card.visible .contact-wrapper p, 
-    .glass-card.visible .contact-info-item, 
-    .glass-card.visible .contact-wrapper form {
-      opacity: 1;
-      transform: translateY(0);
+    .hero-bottom-bar {
+      position: absolute; bottom: 2rem; left: 4rem; right: 4rem; z-index: 3;
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;
+    }
+    .hero-stats { color: #fff; font-size: 0.95rem; display: flex; align-items: center; gap: 1.5rem; }
+    .hero-icons { 
+      display: flex; gap: 10px; color: rgba(255,255,255,0.7); font-size: 1.1rem;
+      background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 8px 16px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    .hero-tags { display: flex; gap: 1rem; flex-wrap: wrap;}
+    .hero-tag { 
+      border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 10px 24px; 
+      border-radius: 50px; backdrop-filter: blur(8px); font-size: 0.85rem; 
+      display: flex; align-items: center; gap: 8px; font-weight: 500;
     }
 
-    /* Text Animation Delays */
-    .section-header.visible .section-kicker { transition-delay: 0.1s; }
-    .section-header.visible h1, .section-header.visible h2 { transition-delay: 0.2s; }
-    .section-header.visible .header-line { transition-delay: 0.3s; }
+    /* --- 6. EXPLORE / ABOUT GRID --- */
+    .explore-section { padding: 4rem 0 4rem; }
+    .grid-3-col { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 2.5rem; }
+    
+    /* Col 1: Text */
+    .explore-text-col { display: flex; flex-direction: column; justify-content: center; padding-right: 1.5rem; }
+    .explore-title { font-size: clamp(2rem, 3vw, 2.5rem); line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -1px; }
+    .explore-desc { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1rem; line-height: 1.6; }
 
-    .split-row.visible .split-content h3 { transition-delay: 0.2s; }
-    .split-row.visible .split-content p:nth-of-type(1) { transition-delay: 0.3s; }
-    .split-row.visible .split-content p:nth-of-type(2) { transition-delay: 0.4s; }
-    .split-row.visible .split-content p:nth-of-type(3) { transition-delay: 0.5s; }
-    .split-row.visible .split-content ul { transition-delay: 0.3s; }
-    .split-row.visible .split-content li:nth-child(1) { transition-delay: 0.4s; }
-    .split-row.visible .split-content li:nth-child(2) { transition-delay: 0.5s; }
-    .split-row.visible .split-content li:nth-child(3) { transition-delay: 0.6s; }
+    /* Col 2: Vertical Card (Profile Image) */
+    .card-vertical { position: relative; border-radius: var(--radius-md); overflow: hidden; height: 500px; }
+    .card-vertical img { width: 100%; height: 100%; object-fit: cover; }
+    .card-vertical::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%); }
+    .card-vertical-content { position: absolute; bottom: 0; left: 0; width: 100%; padding: 2rem; z-index: 2; display: flex; justify-content: space-between; align-items: flex-end; }
+    .card-vertical h3 { color: #fff; font-size: 1.2rem; font-weight: 400; max-width: 200px; line-height: 1.3; font-family: var(--font-body); }
 
-    .glass-card.visible .contact-wrapper h3 { transition-delay: 0.2s; }
-    .glass-card.visible .contact-wrapper p { transition-delay: 0.3s; }
-    .glass-card.visible .contact-info-item:nth-child(1) { transition-delay: 0.4s; }
-    .glass-card.visible .contact-info-item:nth-child(2) { transition-delay: 0.5s; }
-    .glass-card.visible .contact-wrapper form { transition-delay: 0.4s; }
+    /* Col 3: Horizontal Card (Text Below) */
+    .card-horizontal-wrapper { display: flex; flex-direction: column; gap: 1.5rem; justify-content: flex-start; }
+    .card-horizontal { position: relative; border-radius: var(--radius-md); overflow: hidden; height: 280px; }
+    .card-horizontal img { width: 100%; height: 100%; object-fit: cover; }
+    .floating-tag { position: absolute; top: 1.5rem; right: 1.5rem; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); color: #fff; padding: 6px 16px; border-radius: 50px; font-size: 0.8rem; border: 1px solid rgba(255,255,255,0.3); }
+    .card-horizontal-text { color: var(--text-main); font-size: 1rem; line-height: 1.6; }
 
-    /* --- SCROLL ANIMATIONS: IMAGE RELOAD --- */
-    .split-image img {
-      width: 100%;
-      border-radius: var(--radius-md);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-      border: none;
-      opacity: 0;
-      transform: scale(0.8) rotateX(-15deg);
-      filter: blur(10px) grayscale(50%);
-      transition: all 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* --- 7. NEW EXPERIENCE SECTION --- */
+    .experience-section { padding: 4rem 0 8rem; }
+    .experience-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
+    .experience-sticky { position: sticky; top: 120px; }
+    
+    .exp-card {
+      background: var(--bg-alt); padding: 3rem; border-radius: var(--radius-md);
+      border: 1px solid var(--border-color); margin-bottom: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.02); transition: var(--transition);
     }
-    .split-row.visible .split-image img {
-      opacity: 1;
-      transform: scale(1) rotateX(0deg);
-      filter: blur(0px) grayscale(0%);
+    .exp-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
+    
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;}
+    .exp-title-area h3 { font-size: 1.8rem; font-weight: 500; color: var(--text-main); margin-bottom: 5px; }
+    .exp-title-area p { color: var(--text-muted); font-size: 1.05rem; font-weight: 500; }
+    .exp-date { background: var(--bg); padding: 8px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; color: var(--text-main); border: 1px solid var(--border-color); }
+    
+    .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .exp-bullets li { position: relative; padding-left: 20px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+    .exp-bullets li::before { content: ''; position: absolute; left: 0; top: 8px; width: 6px; height: 6px; border-radius: 50%; background: var(--text-main); }
+
+
+    /* --- 8. EXPERTISE / PROJECTS SECTION --- */
+    .expertise-section { padding: 4rem 0 8rem; }
+    .section-header-split { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; }
+    .section-header-split h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: 1.05; letter-spacing: -1.5px; max-width: 500px;}
+    
+    .expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    
+    .skill-card {
+      position: relative; border-radius: var(--radius-md); overflow: hidden; height: 420px;
+      display: flex; flex-direction: column; justify-content: space-between; padding: 1.5rem; transition: var(--transition);
     }
+    .skill-card img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: transform 0.6s ease; }
+    .skill-card:hover img { transform: scale(1.05); }
+    .skill-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 70%); z-index: 2; }
+    
+    .skill-card-top { position: relative; z-index: 3; display: flex; justify-content: flex-end; }
+    .skill-card-bottom { position: relative; z-index: 3; display: flex; flex-direction: column; gap: 4px; padding-bottom: 0.5rem;}
+    
+    .skill-card-bottom h3 { color: #fff; font-size: 1.4rem; font-family: var(--font-body); font-weight: 500;}
+    .skill-card-bottom p { color: rgba(255,255,255,0.8); font-size: 0.85rem; }
 
-    /* CONTACT */
-    .contact-layout { display: flex; flex-wrap: wrap; gap: 3rem; align-items: center; }
-    .contact-wrapper { flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 2rem; }
-    .contact-info-item { display: flex; gap: 15px; align-items: center; font-size: 1.05rem; color: var(--text-muted); margin-bottom: 10px;}
-    .contact-info-item i { color: var(--primary); font-size: 1.2rem; width: 24px; text-align: center;}
-    .form-control { width: 100%; padding: 14px; border-radius: 4px; border: 1px solid var(--card-border); background: var(--bg-secondary); color: var(--text-main); margin-bottom: 1rem; font-family: inherit; font-size: 0.95rem; transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;}
-    .form-control:focus { outline: none; background: var(--bg); border-color: var(--primary); }
+    /* --- 9. CONTACT BANNER --- */
+    .contact-wrapper { background: var(--bg); padding: 4rem 0 8rem; }
+    .inline-contact-banner {
+      background-color: #ffffff; border-radius: var(--radius-xl); padding: 5rem 2rem;
+      text-align: center; margin: 0 auto; max-width: 1200px; box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+    }
+    .inline-contact-banner h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 1rem; color: var(--text-main); letter-spacing: -1px; }
+    .inline-contact-banner h2 strong { font-weight: 600; }
+    .inline-contact-banner h2 .text-light { color: var(--text-muted); font-weight: 300; }
+    .inline-contact-banner > p { color: var(--text-muted); margin-bottom: 3rem; font-size: 1.05rem; }
 
-    /* FOOTER */
-    .stacked-footer { background-color: var(--bg-secondary); padding: 4rem 1rem 2rem; border-top: none; margin-top: var(--section-spacing); }
-    .stacked-footer-content { display: flex; flex-direction: column; align-items: center; max-width: 800px; margin: 0 auto; text-align: center;}
-    .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-bottom: 2rem; }
-    .footer-nav a { color: var(--text-muted); font-weight: 400; font-family: var(--font-heading); transition: var(--transition); }
-    .footer-nav a:hover { color: var(--text-main); }
-    .footer-socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2.5rem; }
+    .inline-contact-form {
+      background: var(--bg); border-radius: 50px; padding: 10px 10px 10px 24px;
+      display: inline-flex; align-items: center; justify-content: space-between;
+      max-width: 900px; width: 100%; gap: 15px;
+    }
+    .inline-contact-form .input-group { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 120px; }
+    .inline-contact-form .input-group i { color: var(--text-muted); font-size: 1.1rem; }
+    .inline-contact-form .input-group input { border: none; background: transparent; color: var(--text-main); font-family: var(--font-body); font-size: 0.95rem; width: 100%; outline: none; }
+    .inline-contact-form .divider { width: 1px; height: 30px; background-color: var(--border-color); }
 
-    /* CUSTOM CURSOR & EXTRAS */
-    .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 45px; height: 45px; background-color: var(--bg-secondary); color: var(--text-main); border: none; border-radius: 4px; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s ease; z-index: 1000; }
-    .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
-    .back-to-top:hover { background-color: var(--primary); color: #000; }
-    #blend-cursor { position: fixed; top: 0; left: 0; width: 35px; height: 35px; border-radius: 50%; background-color: var(--primary); pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); mix-blend-mode: difference; transition: width 0.3s, height 0.3s, background-color 0.3s; display: none; }
-    #blend-cursor.hovering { width: 70px; height: 70px; background-color: #ffffff; }
+    /* --- 10. FOOTER --- */
+    .footer-bottom { display: flex; flex-direction: column; align-items: center; gap: 2rem; padding: 4rem 0 2rem; }
+    .footer-socials { display: flex; gap: 1rem; }
+    .footer-socials a {
+      width: 45px; height: 45px; border-radius: 50%; background: #ffffff; 
+      display: flex; align-items: center; justify-content: center; color: var(--text-main); 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: var(--transition);
+    }
+    .footer-socials a:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+    
+    /* Animations */
+    .fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* Custom Cursor */
+    #blend-cursor { position: fixed; top: 0; left: 0; width: 20px; height: 20px; border-radius: 50%; background-color: rgba(0,0,0,0.8); pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s; display: none; }
+    #blend-cursor.hovering { width: 50px; height: 50px; background-color: rgba(0,0,0,0.1); backdrop-filter: blur(2px); border: 1px solid rgba(0,0,0,0.2);}
     @media (pointer: fine) { #blend-cursor { display: block; } }
 
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .grid-3-col { grid-template-columns: 1fr; gap: 4rem;}
+      .explore-text-col { padding-right: 0; }
+      .card-vertical { height: 400px; }
+      .experience-grid { grid-template-columns: 1fr; gap: 2rem;}
+      .experience-sticky { position: relative; top: 0; margin-bottom: 2rem;}
+      .expertise-grid { grid-template-columns: 1fr; }
+      .section-header-split { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      .hero-content { flex-direction: column; align-items: flex-start; justify-content: center; padding-bottom: 8rem;}
+      .hero-desc { text-align: left; margin-top: 1.5rem; }
+      .hero-bottom-bar { flex-direction: column; align-items: flex-start; gap: 1.5rem; left: 2rem; right: 2rem; }
+      .nav-menu { gap: 1.5rem; }
+    }
+    @media (max-width: 768px) {
       .nav-menu { display: none; }
-      .hamburger { display: block; }
-      .contact-layout { flex-direction: column; gap: 2rem; }
-      
-      /* Mobile Zig-Zag Fix */
-      .split-row, .split-row.reverse { 
-        flex-direction: column; 
-        gap: 3rem; 
-        text-align: center;
-        margin-bottom: 4rem;
-      }
-      .split-content ul {
-        text-align: left; 
-        display: inline-block;
-      }
-      .split-image { width: 100%; max-width: 500px; margin: 0 auto; }
+      .hero-card { padding: 2rem; min-height: 500px;}
+      .hero-title { font-size: 3rem; }
+      .inline-contact-form { flex-direction: column; border-radius: 20px; padding: 20px; gap: 20px; background: #fff; border: 1px solid var(--border-color);}
+      .inline-contact-form .divider { width: 100%; height: 1px; }
+      .inline-contact-form .input-group { width: 100%; padding: 10px 0; }
+      .btn-pill { width: 100%; }
+      .hero-tags { display: none; } 
     }
   </style>
 </head>
 
 <body>
 
-  <header id="main-header">
-    <div class="container nav-inner">
-      <a href="index.html" class="brand" aria-label="Sanjeev Kumar Homepage">
-        <img src="https://isanjiiv.github.io/assets/images/favicon.png" alt="Sanjiiv Logo" style="height: 36px; width: 37px; margin-right: 8px; vertical-align: middle;">
-      </a>
+  <header class="container">
+    <a href="index.html" class="brand" aria-label="Sanjeev Kumar Homepage">
+      <img src="https://isanjiiv.github.io/assets/images/favicon.png" alt="Sanjiiv Logo">
+    </a>
 
-      <nav class="nav-menu" aria-label="Main Navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html" class="active" style="color: var(--text-main);" aria-current="page">About</a>
-        <a href="index.html#skills">Skills</a>
-        <a href="index.html#projects">Projects</a>
-        <a href="index.html#certs">Certifications</a>
-        <a href="index.html#experience">Experience</a>
-        <a href="index.html#contact" class="nav-contact-btn">Contact</a>
-      </nav>
-
-      <div class="nav-actions">
-        <button id="theme-toggle" class="btn-icon" aria-label="Toggle Theme" title="Toggle Theme"><i class="fa-solid fa-sun"></i></button>
-        <a href="https://www.wayoftech.net/" target="_blank" rel="noopener noreferrer" class="btn-icon" title="WAY OF TECH" aria-label="Visit Way of Tech Blog"><img src="https://www.wayoftech.net/favicon.ico" alt="Way of Tech Blog" style="width:16px;"></a>
-        <a href="https://isanjiiv.github.io/assets/docs/Resume.pdf" class="btn-icon" download aria-label="Download Sanjeev Kumar Resume" title="Download Resume"><i class="fa-solid fa-download"></i></a>
-        <button class="hamburger" id="hamburger" aria-label="Open Mobile Menu"><i class="fa-solid fa-bars"></i></button>
-      </div>
-    </div>
+    <nav class="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active" style="font-weight: 600;">About</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#certs">Certifications</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    
+    <div class="header-right"></div>
   </header>
 
-  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="index.html#skills">Skills</a>
-    <a href="index.html#projects">Projects</a>
-    <a href="index.html#certs">Certifications</a>
-    <a href="index.html#experience">Experience</a>
-    <a href="index.html#contact">Contact</a>
+  <div class="hero-wrapper">
+    <div class="hero-card fade-up">
+      <img src="https://plus.unsplash.com/premium_photo-1661775756810-82dbd209fc95?q=80&w=1954&auto=format&fit=crop" alt="Windows Server and IT Infrastructure" class="hero-bg">
+      <div class="hero-overlay"></div>
+      
+      <div class="hero-content">
+        <h1 class="hero-title">Building Reliable IT Environments</h1>
+        <p class="hero-desc">Specializing in Windows Server, Networking, Cloud systems, and Cybersecurity to help teams ship fast and safe.</p>
+      </div>
+
+      <div class="hero-bottom-bar">
+        <div class="hero-stats">
+          IT Infrastructure & Networking
+          <div class="hero-icons">
+            <i class="fa-solid fa-server"></i>
+            <i class="fa-solid fa-network-wired"></i>
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+        </div>
+        <div class="hero-tags">
+          <div class="hero-tag"><i class="fa-brands fa-windows"></i> Windows Server</div>
+          <div class="hero-tag"><i class="fa-solid fa-shield"></i> Fortinet SD-WAN</div>
+          <div class="hero-tag"><i class="fa-solid fa-cloud"></i> AWS & Azure</div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <main class="container">
-      <div class="project-banner-wrapper shine-effect">
-        <img src="https://plus.unsplash.com/premium_photo-1661775756810-82dbd209fc95?q=80&w=1954&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Abstract technology and network background banner" class="project-banner-img" loading="lazy">
-      </div>
-
-      <div class="section-header" style="margin-top: 2rem;">
-        <span class="section-kicker">GET TO KNOW ME</span>
-        <h1>About Me</h1>
-        <div class="header-line"></div>
-      </div>
-
-      <div class="glass-card" style="border:none; box-shadow:none; padding:0; background:transparent;">
+    
+    <section class="explore-section">
+      <div class="grid-3-col">
         
-        <div class="split-row">
-          <div class="split-content">
-            <h2>My Professional Journey</h2>
-            <p>Hello, I’m <strong>Sanjeev Kumar</strong>, an IT Engineer with strong hands-on experience in IT infrastructure support, Windows Server administration, networking, firewall security, and cloud fundamentals. Based in Noida, I specialize in building stable, secure, and well-managed IT environments.</p>
-            <p>Over the years, I have worked on a wide range of IT responsibilities—from managing day-to-day technical support to implementing enterprise-level solutions in Windows Server domains. I believe in continuous learning and applying new technologies to solve complex business problems.</p>
-          </div>
-          <div class="split-image shine-effect">
-            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-noida.png" alt="Portrait of Sanjeev Kumar, IT Engineer in Noida" loading="lazy">
+        <div class="explore-text-col fade-up">
+          <span class="tag-label">Biography</span>
+          <h2 class="explore-title">Who am I?</h2>
+          <p class="explore-desc">Hello, I’m Sanjeev Kumar, an IT Engineer with strong hands-on experience in IT infrastructure support, Windows Server administration, networking, firewall security, and cloud fundamentals. I specialize in building stable and secure environments.</p>
+          
+          <ul class="modern-list">
+            <li>Building stable, secure IT environments</li>
+            <li>Leveraging AI to automate workflows</li>
+            <li>Enhancing business process efficiency</li>
+          </ul>
+
+          <div class="btn-group">
+            <a href="https://isanjiiv.github.io/assets/docs/Resume.pdf" class="btn-pill" download>Download Resume</a>
+            <a href="#about-contact" class="btn-circle"><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></a>
           </div>
         </div>
 
-        <div class="split-row reverse">
-          <div class="split-content">
-            <h2>IT Infrastructure & Networking</h2>
-            <p>I have dedicated my career to mastering the tools that keep modern businesses secure and operational. My core technical skills include:</p>
-            <ul>
-                <li><strong>Windows Server Knowledge:</strong> Extensive experience managing Active Directory (AD), deploying Group Policies (GPO), WSUS, and user access control.</li>
-                <li><strong>Networking Skills:</strong> Strong grasp of LAN/WAN, IP addressing, DNS, DHCP, VLANs, and resolving real-time connectivity issues.</li>
-                <li><strong>Firewall & Security:</strong> Configuring Fortinet FortiGate 60F policies, basic routing, and VPN setups to keep networks secure from threats.</li>
-            </ul>
-          </div>
-          <div class="split-image shine-effect">
-            <img src="https://isanjiiv.github.io/assets/images/sanjeev-it-engineer.png" alt="Illustration representing IT networking, infrastructure, and server management" loading="lazy">
+        <div class="card-vertical fade-up" style="transition-delay: 0.2s;">
+          <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-noida.png" alt="Sanjeev Kumar in Noida">
+          <div class="card-vertical-content">
+            <h3>Sanjeev Kumar <br><span style="font-size: 0.9rem; opacity: 0.8;">Noida, India</span></h3>
+            <button class="btn-circle light" style="width: 40px; height: 40px; font-size: 0.9rem;"><i class="fa-solid fa-location-dot"></i></button>
           </div>
         </div>
 
-        <div class="split-row" style="margin-bottom: 0;">
-          <div class="split-content">
-            <h2>Web Development & AI Automation</h2>
-            <p>Beyond traditional IT support, I leverage modern web tools and Artificial Intelligence to build digital solutions that drive business growth:</p>
-            <ul>
-                <li><strong>Website Creation:</strong> Highly capable of designing and building custom websites, professional portfolios, and fully functional e-commerce sites.</li>
-                <li><strong>WordPress Expertise:</strong> Deep knowledge of managing, designing, securing, and updating WordPress platforms from top to bottom.</li>
-                <li><strong>AI Agents & Automation:</strong> Skilled in utilizing AI tools (like Lovable, Cursor, and Emergent) to build smart no-code web applications and automate repetitive workflows.</li>
-            </ul>
+        <div class="card-horizontal-wrapper fade-up" style="transition-delay: 0.4s;">
+          <div class="card-horizontal">
+            <div class="floating-tag">Infrastructure Path</div>
+            <img src="https://isanjiiv.github.io/assets/images/sanjeev-it-engineer.png" alt="Fortinet SD-WAN Network Architecture">
           </div>
-          <div class="split-image shine-effect">
-            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-It-engineer.png" alt="Concept art representing Web Development and Artificial Intelligence Automation" loading="lazy">
-          </div>
+          <p class="card-horizontal-text">Dedicated to mastering the tools that keep modern businesses secure, operational, and ready for future scaling with minimal disruptions.</p>
         </div>
 
       </div>
+    </section>
 
-      <div id="about-contact" style="margin-top: 6rem; padding-top: 3rem;">
-        <div class="section-header" style="margin-bottom: 3rem;"> 
-          <span class="section-kicker">GET IN TOUCH</span>
-          <h2>Let's Connect</h2>
-          <div class="header-line"></div>
-        </div>
+    <section class="experience-section">
+      <div class="experience-grid">
         
-        <div class="glass-card contact-layout">
-          <div class="contact-wrapper" style="flex: 1;">
-            <div>
-              <h3 style="font-size: 2rem; margin-bottom: 1rem; font-family: var(--font-heading); color: var(--text-main);">Have an opportunity?</h3>
-              <p style="font-size:1.05rem; margin-bottom: 2rem; color: var(--text-muted);">
-                Send me a direct message here and I'll get back to you shortly.
-              </p>
-              
-              <div style="margin-bottom: 2rem;">
-                <div class="contact-info-item">
-                  <i class="fa-solid fa-location-dot" aria-hidden="true"></i> 
-                  <span>Noida, India</span>
-                </div>
-                <div class="contact-info-item">
-                  <i class="fa-solid fa-envelope" aria-hidden="true"></i> 
-                  <span>Sanjeev753304@gmail.com</span>
-                </div>
+        <div class="experience-sticky fade-up">
+          <span class="tag-label">My Journey</span>
+          <h2 class="explore-title" style="margin-bottom: 1rem;">Career Growth & Experience</h2>
+          <p class="explore-desc">A progressive track record in solving complex technical problems and supporting large-scale corporate networks.</p>
+        </div>
+
+        <div class="experience-cards">
+          
+          <div class="exp-card fade-up" style="transition-delay: 0.2s;">
+            <div class="exp-header">
+              <div class="exp-title-area">
+                <h3>IT Engineer</h3>
+                <p>Grain Milling Solutions Pvt Ltd | MR Engineers</p>
               </div>
+              <div class="exp-date">Apr 2024 – Present</div>
             </div>
+            <ul class="exp-bullets">
+              <li>Managing office IT infrastructure and day-to-day technical operations.</li>
+              <li>Administering Windows Server environments including Active Directory and Group Policy.</li>
+              <li>Configuring and maintaining Fortinet FortiGate 60F firewall, VPN, and security policies.</li>
+              <li>Monitoring cloud infrastructure on AWS and Microsoft Azure.</li>
+              <li>Developing AI-based applications and automation solutions for business operations.</li>
+            </ul>
           </div>
 
-          <div class="contact-wrapper" style="flex: 1.5;">
-            <form action="https://formspree.io/f/xzzabloy" method="POST" style="width:100%;">
-              <label for="about-contact-name" class="sr-only">Your Name</label>
-              <input type="text" id="about-contact-name" name="name" class="form-control" required placeholder="Your Name">
-              
-              <label for="about-contact-email" class="sr-only">Your Email</label>
-              <input type="email" id="about-contact-email" name="email" class="form-control" required placeholder="Your Email">
-              
-              <label for="about-contact-message" class="sr-only">Message</label>
-              <textarea id="about-contact-message" name="message" rows="5" class="form-control" required placeholder="How can I help you?"></textarea>
-              
-              <input type="hidden" name="_subject" value="New message from detailed About Page">
-              <input type="hidden" name="_replyto" value="Sanjeev753304@gmail.com">
-              
-              <button type="submit" class="btn-primary btn-submit" aria-label="Send Message" style="margin-top: 10px;">
-                Send Message <i class="fa-solid fa-paper-plane" style="margin-left:8px;" aria-hidden="true"></i>
-              </button>
-            </form>
+          <div class="exp-card fade-up" style="transition-delay: 0.3s;">
+            <div class="exp-header">
+              <div class="exp-title-area">
+                <h3>Desktop Support Engineer</h3>
+                <p>Grain Milling Solutions Pvt Ltd | MR Engineers</p>
+              </div>
+              <div class="exp-date">Dec 2023 – Mar 2024</div>
+            </div>
+            <ul class="exp-bullets">
+              <li>Provided technical support for desktops, laptops, printers, and office IT infrastructure.</li>
+              <li>Troubleshot network connectivity issues, system errors, and software problems.</li>
+              <li>Supported factory and office users with remote troubleshooting and technical guidance.</li>
+              <li>Maintained system performance and ensured smooth daily IT operations.</li>
+            </ul>
           </div>
+
         </div>
       </div>
+    </section>
+
+    <section class="expertise-section">
+      <div class="section-header-split fade-up">
+        <div>
+          <span class="tag-label">Featured Projects</span>
+          <h2>Explore my core technical solutions</h2>
+        </div>
+        <div class="btn-group">
+          <a href="index.html#projects" class="btn-pill">See All Projects</a>
+          <button class="btn-circle"><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></button>
+        </div>
+      </div>
+
+      <div class="expertise-grid">
+        
+        <div class="skill-card fade-up">
+          <img src="https://digitalkeysbox.com/wp-content/uploads/2026/01/microsoft-windows-server-2022-standard.png" alt="Windows Server and Active Directory">
+          <div class="skill-card-top">
+            <button class="btn-circle light" style="width: 35px; height: 35px; font-size: 0.8rem;"><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></button>
+          </div>
+          <div class="skill-card-bottom">
+            <h3>Enterprise AD & GPO</h3>
+            <p>Windows Server 2022 • Active Directory • Acronis</p>
+          </div>
+        </div>
+
+        <div class="skill-card fade-up" style="transition-delay: 0.2s;">
+          <img src="https://eleven-public-cdn.elevenlabs.io/payloadcms/4uxfvugz1r7-Lovable%20-%201_1.webp" alt="Lovable AI App Interface">
+          <div class="skill-card-top">
+            <button class="btn-circle light" style="width: 35px; height: 35px; font-size: 0.8rem;"><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></button>
+          </div>
+          <div class="skill-card-bottom">
+            <h3>AI Cost Sheet Builder</h3>
+            <p>Lovable AI • No-Code • Automated Workflows</p>
+          </div>
+        </div>
+<div class="skill-card fade-up" style="transition-delay: 0.2s;">
+          <img src="https://www.mistersito.com/wp-content/uploads/2024/03/Che-cosa-si-puo-fare-con-WordPress.jpg" alt="Lovable AI App Interface">
+          <div class="skill-card-top">
+            <button class="btn-circle light" style="width: 35px; height: 35px; font-size: 0.8rem;"><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></button>
+          </div>
+         <div class="skill-card-bottom">
+            <h3>Website Redesign</h3>
+            <p>WordPress • In-House Management • HTML/CSS</p>
+          </div>
+        </div>
+
+      
+
+</div>
+        
+   
+    </section>
+
   </main>
 
-  <footer class="stacked-footer">
-    <div class="stacked-footer-content">
-      <div class="footer-logo" style="margin-bottom: 1.5rem;">
-        <a href="index.html" aria-label="Sanjeev Kumar Homepage">
-          <img src="https://isanjiiv.github.io/assets/images/favicon.png" alt="Sanjiiv Logo" style="height: 46px; width: 46px; display: inline-block; transition: transform 0.3s ease;">
-        </a>
-      </div>
+  <div class="contact-wrapper" id="about-contact">
+    <div class="container">
+        <div class="inline-contact-banner fade-up">
+          <h2><strong>Connect for your</strong> <span class="text-light">next project</span></h2>
+          <p>Reach out to discuss IT infrastructure, web development, or technical support for your team.</p>
 
-      <nav class="footer-nav" aria-label="Footer Navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="index.html#skills">Skills</a>
-        <a href="index.html#projects">Projects</a>
-        <a href="index.html#certs">Certifications</a>
-        <a href="index.html#experience">Experience</a>
-        <a href="index.html#contact">Contact</a>
-      </nav>
+          <form action="https://formspree.io/f/xzzabloy" method="POST" class="inline-contact-form">
+            <div class="input-group">
+              <i class="fa-regular fa-user"></i>
+              <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="input-group">
+              <i class="fa-regular fa-envelope"></i>
+              <input type="email" name="email" placeholder="Email Address" required>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="input-group">
+              <i class="fa-regular fa-comment-dots"></i>
+              <input type="text" name="message" placeholder="Project Details" required>
+            </div>
 
-      <div class="footer-socials">
-        <a href="mailto:sanjeev753304@gmail.com" class="btn-icon" aria-label="Email Sanjeev" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
-        <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="LinkedIn Profile" title="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
-        <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="GitHub Profile" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
-        <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="Instagram Profile" title="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-        <a href="https://www.youtube.com/@isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="YouTube Channel" title="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
-        <a href="https://x.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="X (Twitter) Profile" title="X (Twitter)"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
-      </div>
+            <input type="hidden" name="_subject" value="New message from detailed About Page">
+            <input type="hidden" name="_replyto" value="Sanjeev753304@gmail.com">
 
-      <div style="text-align: center; color: var(--text-muted); font-size: 0.95rem;">
-        <p style="margin-top: 0.5rem;">© <span id="year">2026</span>. Design By <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600;">Sanjeev Kumar</a>. All rights reserved.</p>
-      </div>
+            <button type="submit" class="btn-pill" style="padding: 12px 30px;">
+              <i class="fa-solid fa-paper-plane" style="margin-right: 6px;"></i> Send
+            </button>
+          </form>
+        </div>
+
+        <div class="footer-bottom fade-up">
+          <div class="footer-socials">
+            <a href="mailto:sanjeev753304@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@isanjiiv/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://x.com/isanjiiv" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+          
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0;">
+            © <span id="year">2026</span>. Design By <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" style="color:var(--text-main); font-weight:600;">Sanjeev Kumar</a>. All rights reserved.
+          </p>
+        </div>
     </div>
-  </footer>
-
-  <button id="backToTop" class="back-to-top" aria-label="Back to Top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
+  </div>
 
   <script>
-    // Theme logic
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = themeToggle.querySelector('i');
-    const htmlElement = document.documentElement;
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    htmlElement.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme);
-
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        htmlElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme);
-    });
-
-    function updateThemeIcon(theme) {
-        themeIcon.className = theme === 'light' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
-    }
-
-    // Header scroll
-    window.addEventListener('scroll', () => {
-        const header = document.getElementById('main-header');
-        if (window.scrollY > 50) header.classList.add('scrolled');
-        else header.classList.remove('scrolled');
-    });
-
-    // Mobile Menu
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    hamburger.addEventListener('click', () => {
-        mobileMenu.classList.toggle('open');
-        const isOpen = mobileMenu.classList.contains('open');
-        hamburger.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
-    });
-
-    // Fade In & Text Slide Up Animation Trigger
+    // Scroll Animations
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible'); 
-            } else {
-                entry.target.classList.remove('visible'); 
             }
         });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.1 });
 
-    // Attach observer to layout blocks
-    document.querySelectorAll('.split-row, .glass-card, .section-header').forEach(el => {
+    document.querySelectorAll('.fade-up').forEach(el => {
         observer.observe(el);
     });
 
-    // Back to Top
-    const backToTopBtn = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) backToTopBtn.classList.add('show');
-        else backToTopBtn.classList.remove('show');
-    });
-    backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
-
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // COLOR BLEND MOUSE CURSOR
+    // Subtle Custom Cursor
     const blendCursor = document.createElement('div');
     blendCursor.id = 'blend-cursor';
     document.body.appendChild(blendCursor);
@@ -654,8 +594,8 @@
     let cursorY = mouseY;
 
     function animateCursor() {
-        cursorX += (mouseX - cursorX) * 0.15;
-        cursorY += (mouseY - cursorY) * 0.15;
+        cursorX += (mouseX - cursorX) * 0.2;
+        cursorY += (mouseY - cursorY) * 0.2;
         blendCursor.style.left = cursorX + 'px';
         blendCursor.style.top = cursorY + 'px';
         requestAnimationFrame(animateCursor);
@@ -670,13 +610,13 @@
         });
 
         document.addEventListener('mouseover', (e) => {
-            if (e.target.closest('a, button, .cert-card, .gallery-item, input, textarea, .btn-icon, .close-modal, .close-lightbox, .modern-gallery-item, .skill-icon-wrapper')) {
+            if (e.target.closest('a, button, input')) {
                 blendCursor.classList.add('hovering');
             }
         });
 
         document.addEventListener('mouseout', (e) => {
-            if (e.target.closest('a, button, .cert-card, .gallery-item, input, textarea, .btn-icon, .close-modal, .close-lightbox, .modern-gallery-item, .skill-icon-wrapper')) {
+            if (e.target.closest('a, button, input')) {
                 blendCursor.classList.remove('hovering');
             }
         });
