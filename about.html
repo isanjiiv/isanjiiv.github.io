@@ -61,6 +61,26 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
+  /* --- CUSTOM BLACK DOT CURSOR --- */
+/* 1. Hide default cursor on large screens */
+@media (min-width: 1200px) and (pointer: fine) {
+    body, a, button, input, textarea, select { cursor: none; }
+}
+
+/* 2. Base state (hidden on mobile) */
+#blend-cursor { display: none; }
+
+/* 3. Desktop styling & Hover effect */
+@media (min-width: 1200px) {
+    #blend-cursor { 
+        position: fixed; top: 0; left: 0; width: 20px; height: 20px; border-radius: 50%; 
+        background-color: #222222; pointer-events: none; z-index: 99999; 
+        transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, background-color 0.2s; display: block; 
+    }
+    #blend-cursor.hovering { 
+        width: 45px; height: 45px; background-color: rgba(34, 34, 34, 0.1); border: 1px solid rgba(34, 34, 34, 0.3); 
+    }
+}
     /* --- 1. VARIABLES & THEME --- */
     :root {
       --font-heading: 'Outfit', sans-serif;
@@ -84,11 +104,6 @@
     /* --- 2. GLOBAL RESET & BASE (Mobile First) --- */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    
-    /* Cursor fix: Only hides default cursor on large screens */
-    @media (min-width: 1200px) and (pointer: fine) {
-        body, a, button, input, textarea, select { cursor: none; }
-    }
 
     body {
       font-family: var(--font-body); background-color: var(--bg); color: var(--text-main); 
@@ -332,9 +347,6 @@
     .fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-    /* Custom Cursor */
-    #blend-cursor { display: none; }
-
 
     /* ========================================= */
     /* RESPONSIVE BREAKPOINTS (Progressive)      */
@@ -377,19 +389,9 @@
       .contact-image-container img { position: absolute; top: 0; left: 0; height: 100%; }
     }
 
-    /* Large Desktop (Cursor Enable) */
+    /* Large Desktop */
     @media (min-width: 1200px) {
       .container { padding-inline: 2rem; }
-      
-      #blend-cursor { 
-        position: fixed; top: 0; left: 0; width: 20px; height: 20px; border-radius: 50%; 
-        background-color: rgba(0,0,0,0.8); pointer-events: none; z-index: 99999; 
-        transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s; display: block; 
-      }
-      #blend-cursor.hovering { 
-        width: 50px; height: 50px; background-color: rgba(0,0,0,0.1); 
-        backdrop-filter: blur(2px); border: 1px solid rgba(0,0,0,0.2);
-      }
     }
     
     @media (max-width: 768px) {
@@ -413,6 +415,31 @@
       .new-contact-form .form-row { flex-direction: column; gap: 1.5rem; }
       .btn-submit-pill { width: 100%; justify-content: center; }
     }
+    /* --- BACK TO TOP BUTTON --- */
+.back-to-top { 
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    width: 48px; 
+    height: 48px; 
+    border-radius: 50%; 
+    background: var(--text-main); 
+    color: #fff; 
+    border: none; 
+    font-size: 1.2rem; 
+    opacity: 0; 
+    visibility: hidden; 
+    transform: translateY(20px); 
+    transition: var(--transition); 
+    z-index: 1000; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+    cursor: pointer; 
+}
+.back-to-top.show { 
+    opacity: 1; 
+    visibility: visible; 
+    transform: translateY(0); 
+}
   </style>
 </head>
 
@@ -486,12 +513,12 @@
         <div class="explore-text-col fade-up">
           <span class="tag-label">Biography</span>
           <h2 class="explore-title">Who am I?</h2>
-          <p class="explore-desc">Hello, I’m Sanjeev Kumar, an IT Engineer with strong hands-on experience in IT infrastructure support, Windows Server administration, networking, firewall security, and cloud fundamentals. I specialize in building stable and secure environments.</p>
+          <p class="explore-desc">Hello, I’m Sanjeev Kumar, an IT Engineer passionate about technology, problem‑solving, and building reliable digital infrastructure. With hands‑on experience in Windows Server administration, networking, cloud platforms, and IT support, I focus on delivering practical, efficient, and scalable solutions for businesses and individuals.</p>
           
           <ul class="modern-list">
-            <li>Building stable, secure IT environments</li>
+            <li>Stability, Security & Performance</li>
+            <li>Scalability & Cost‑Effective Solutions</li>
             <li>Leveraging AI to automate workflows</li>
-            <li>Enhancing business process efficiency</li>
           </ul>
 
           <div class="btn-group">
@@ -525,7 +552,7 @@
         <div class="experience-sticky fade-up">
           <span class="tag-label">My Journey</span>
           <h2 class="explore-title" style="margin-bottom: 1rem;">Career Growth & Experience</h2>
-          <p class="explore-desc">A progressive track record in solving complex technical problems and supporting large-scale corporate networks.</p>
+          <p class="explore-desc">A progressive track record in solving complex technical problems, setting up networks, and supporting large-scale corporate infrastructure.</p>
         </div>
 
         <div class="experience-cards">
@@ -563,6 +590,80 @@
             </ul>
           </div>
 
+          <div class="exp-card fade-up" style="transition-delay: 0.4s;">
+            <div class="exp-header">
+              <div class="exp-title-area">
+                <h3>IT Support</h3>
+                <p>Konexions Back Office Pvt Ltd</p>
+              </div>
+              <div class="exp-date">Previous Role</div>
+            </div>
+            <ul class="exp-bullets">
+              <li>Provided hands-on IT Support and hardware maintenance for organizational infrastructure.</li>
+              <li>Conducted routine network troubleshooting and resolved connectivity issues.</li>
+              <li>Assisted in system deployments and configuration of end-user workstations.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="expertise-section">
+      <div class="section-header-split fade-up">
+        <div>
+          <span class="tag-label">Technical Arsenal</span>
+          <h2>Comprehensive IT Skills & Certifications</h2>
+        </div>
+      </div>
+
+      <div class="expertise-grid">
+        <div class="skill-card fade-up">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Windows Server Administration">
+          <div class="skill-card-bottom">
+            <h3>Windows Server</h3>
+            <p>Active Directory • DNS/DHCP • Group Policy • Server Migration</p>
+          </div>
+        </div>
+
+        <div class="skill-card fade-up" style="transition-delay: 0.1s;">
+          <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80" alt="Networking Skills">
+          <div class="skill-card-bottom">
+            <h3>Networking</h3>
+            <p>LAN/WAN • VLAN • Fortinet Fortigate • VPN • Switch/Router Setup</p>
+          </div>
+        </div>
+
+        <div class="skill-card fade-up" style="transition-delay: 0.2s;">
+          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="Cloud Computing">
+          <div class="skill-card-bottom">
+            <h3>Cloud Computing</h3>
+            <p>AWS (EC2, S3, IAM) • Microsoft Azure • Infrastructure Migration</p>
+          </div>
+        </div>
+
+        <div class="skill-card fade-up">
+          <img src="https://images.unsplash.com/photo-1600267175161-cfaa711b4a81?auto=format&fit=crop&w=800&q=80" alt="Backup and Disaster Recovery">
+          <div class="skill-card-bottom">
+            <h3>Backup & Recovery</h3>
+            <p>Acronis • Server/Cloud Backup • Disaster Recovery Planning</p>
+          </div>
+        </div>
+
+        <div class="skill-card fade-up" style="transition-delay: 0.1s;">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" alt="Certifications">
+          <div class="skill-card-bottom">
+            <h3>Certifications</h3>
+            <p>Cisco CCNA • CompTIA A+ • Azure & AWS Fundamentals</p>
+          </div>
+        </div>
+
+        <div class="skill-card fade-up" style="transition-delay: 0.2s;">
+          <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=800&q=80" alt="Software and Tools">
+          <div class="skill-card-bottom">
+            <h3>Software & Tools</h3>
+            <p>AutoCAD • SolidWorks • Microsoft 365 • Remote Desktop Support</p>
+          </div>
         </div>
       </div>
     </section>
@@ -617,12 +718,45 @@
       </div>
     </section>
 
+    <section class="explore-section">
+      <div class="grid-3-col">
+        
+        <div class="explore-text-col fade-up">
+          <span class="tag-label">My Approach</span>
+          <h2 class="explore-title">Philosophy & Vision</h2>
+          <p class="explore-desc">Technology changes every day, and I enjoy learning new things. My vision is to become a highly skilled IT Infrastructure Specialist, build useful IT resources, and help organizations secure, scale, and thrive efficiently.</p>
+          
+          <ul class="modern-list">
+            <li>Honesty, Hard Work & Continuous Learning</li>
+            <li>Solving problems quickly while maintaining stability</li>
+            <li>Ensuring robust data security and user support</li>
+          </ul>
+        </div>
+
+        <div class="card-vertical fade-up" style="transition-delay: 0.2s;">
+          <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-engineer-noida.jpg" alt="Financial and data growth">
+          <div class="card-vertical-content">
+            <h3>Delivering Value <br><span style="font-size: 0.9rem; opacity: 0.8;">Long-term Solutions</span></h3>
+          </div>
+        </div>
+
+        <div class="card-horizontal-wrapper fade-up" style="transition-delay: 0.4s;">
+          <div class="card-horizontal">
+            <div class="floating-tag">Why Work With Me</div>
+            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-it.jpg" alt="Team Collaboration">
+          </div>
+          <p class="card-horizontal-text">Organizations choose me for a security-focused mindset, professional communication, and reliable troubleshooting skills. My goal is always to make technology simple and reliable.</p>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
   <section id="about-contact" class="contact-wrapper container">
     <div class="contact-header fade-up">
       <h2>Connect for your <span>next project</span></h2>
-      <p>Whether you have a job opportunity, a project, or just want to say hi, my inbox is open.</p>
+      <p>Whether you have a job opportunity, a project, or just want to say hi, my inbox is open. Also, check out my technology platforms: <strong>WAY OF TECH</strong>, <strong>TECH CALL YOU</strong>, and my guides on Github.</p>
     </div>
 
     <div class="contact-layout fade-up">
@@ -686,8 +820,25 @@
       © <span id="year">2026</span>. Design By <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" style="color:var(--text-main); font-weight:600;">Sanjeev Kumar</a>. All rights reserved.
     </p>
   </footer>
-
+<button id="backToTop" class="back-to-top" aria-label="Back to Top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
   <script>
+      // --- BACK TO TOP LOGIC ---
+const backToTopBtn = document.getElementById('backToTop');
+if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) { 
+            backToTopBtn.classList.add('show'); 
+        } else { 
+            backToTopBtn.classList.remove('show'); 
+        }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
     // Scroll Animations
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -729,45 +880,45 @@
             body.classList.remove('no-scroll');
         });
     });
+    // CUSTOM BLACK DOT CURSOR LOGIC (Desktop Only)
+if (window.matchMedia("(pointer: fine)").matches) {
+    const blendCursor = document.createElement('div');
+    blendCursor.id = 'blend-cursor';
+    document.body.appendChild(blendCursor);
 
-    // Subtle Custom Cursor (Desktop Only)
-    if (window.matchMedia("(min-width: 1200px) and (pointer: fine)").matches) {
-        const blendCursor = document.createElement('div');
-        blendCursor.id = 'blend-cursor';
-        document.body.appendChild(blendCursor);
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let cursorX = mouseX;
+    let cursorY = mouseY;
 
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
-        let cursorX = mouseX;
-        let cursorY = mouseY;
-
-        function animateCursor() {
-            cursorX += (mouseX - cursorX) * 0.2;
-            cursorY += (mouseY - cursorY) * 0.2;
-            blendCursor.style.left = cursorX + 'px';
-            blendCursor.style.top = cursorY + 'px';
-            requestAnimationFrame(animateCursor);
-        }
-        
-        animateCursor();
-        
-        window.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
-        document.addEventListener('mouseover', (e) => {
-            if (e.target.closest('a, button, input')) {
-                blendCursor.classList.add('hovering');
-            }
-        });
-
-        document.addEventListener('mouseout', (e) => {
-            if (e.target.closest('a, button, input')) {
-                blendCursor.classList.remove('hovering');
-            }
-        });
+    function animateCursor() {
+        cursorX += (mouseX - cursorX) * 0.2;
+        cursorY += (mouseY - cursorY) * 0.2;
+        blendCursor.style.left = cursorX + 'px';
+        blendCursor.style.top = cursorY + 'px';
+        requestAnimationFrame(animateCursor);
     }
+    
+    animateCursor();
+    
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    document.addEventListener('mouseover', (e) => {
+        // Triggers the larger circle effect when hovering over links and buttons
+        if (e.target.closest('a, button, input, textarea, .btn-circle, .btn-pill')) {
+            blendCursor.classList.add('hovering');
+        }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+        if (e.target.closest('a, button, input, textarea, .btn-circle, .btn-pill')) {
+            blendCursor.classList.remove('hovering');
+        }
+    });
+}
   </script>
 </body>
 </html>
