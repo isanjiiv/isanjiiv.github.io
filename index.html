@@ -136,6 +136,7 @@
       overflow-x: hidden;
       width: 100%;
     }
+    body.no-scroll { overflow: hidden; }
     
     a { text-decoration: none; color: inherit; transition: var(--transition); }
     img { max-width: 100%; height: auto; display: block; }
@@ -201,29 +202,35 @@
     .section-header { margin-bottom: clamp(2rem, 5vw, 3.5rem); text-align: center; display: flex; flex-direction: column; align-items: center; }
     .section-header h2 { font-size: clamp(2rem, 6vw, 3.2rem); font-weight: 500; letter-spacing: -1px; line-height: 1.1; }
 
-    /* --- 4. HEADER & NAV (Mobile First) --- */
+    /* --- 4. HEADER (Matching About Page) --- */
     header {
-      display: flex; justify-content: space-between; align-items: center; 
-      padding: 1rem clamp(1.5rem, 5vw, 3rem);
-      background: rgba(244, 244, 242, 0.95); backdrop-filter: blur(10px); 
-      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; transition: var(--transition);
-      border-bottom: 1px solid var(--border-color);
+      display: flex; justify-content: space-between; align-items: center; padding: 1rem clamp(1.5rem, 5vw, 3rem);
+      background: transparent; position: relative; z-index: 1000;
     }
-    .brand { flex: 1; display: flex; align-items: center; }
+    .brand { flex: 1; display: flex; align-items: center; position: relative; z-index: 1001; }
     .brand img { height: 32px; width: 33px; }
-    .nav-menu { display: none; } 
-    .header-right { flex: 1; display: flex; justify-content: flex-end; gap: 10px; align-items: center;}
     
-    .hamburger { display: block; background: none; border: none; font-size: 1.5rem; color: var(--text-main); padding: 5px; cursor: pointer; }
+    .nav-menu { display: none; } /* Hidden on mobile */
+    .header-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 10px; }
     
-    .mobile-menu { 
-      position: fixed; top: 75px; left: 1rem; right: 1rem; background: var(--bg-alt); padding: 1rem; 
-      border-radius: var(--radius-md); border: 1px solid var(--border-color); opacity: 0; pointer-events: none; 
-      transform: translateY(-20px); transition: var(--transition); z-index: 999; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    .hamburger {
+        display: block; background: none; border: none; font-size: 1.5rem; 
+        color: var(--text-main); cursor: pointer; z-index: 1001; padding: 5px;
     }
-    .mobile-menu.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
-    .mobile-menu a { display: block; padding: 15px; font-weight: 500; font-size: 1.1rem; color: var(--text-muted); border-bottom: 1px solid var(--border-color); text-align: center;}
-    .mobile-menu a:last-child { border-bottom: none; }
+
+    .mobile-menu {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+        background-color: var(--bg); z-index: 999; display: flex;
+        flex-direction: column; justify-content: center; align-items: center; gap: 2rem;
+        transform: translateY(-100%); transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        opacity: 0; pointer-events: none;
+    }
+    .mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    .mobile-menu a {
+        font-size: 1.8rem; font-family: var(--font-heading); font-weight: 500;
+        color: var(--text-main); transition: color 0.3s;
+    }
+    .mobile-menu a:hover, .mobile-menu a.active { color: var(--text-muted); }
 
     /* --- 5. SECTIONS BASE LAYOUT (Mobile First) --- */
     section { padding: clamp(4rem, 10vw, 6rem) 0; }
@@ -231,7 +238,7 @@
     /* Hero */
     .hero-split {
       display: flex; flex-direction: column; gap: 2.5rem; align-items: center; text-align: center;
-      padding-top: 120px; min-height: auto;
+      padding-top: 50px; min-height: auto;
     }
     .hero-text-col { display: flex; flex-direction: column; align-items: center; width: 100%; }
     .hero-badge { 
@@ -318,7 +325,7 @@
     .btn-submit-pill { background: #0f172a; color: #fff; border: none; padding: 16px 32px; border-radius: 50px; font-family: var(--font-body); font-weight: 500; font-size: 1rem; width: 100%; display: flex; justify-content: center; align-items: center; gap: 10px; transition: var(--transition); cursor: pointer; }
 
     /* Page Views (Project details) */
-    .page-view { display: none; padding-top: 100px; padding-bottom: 60px; }
+    .page-view { display: none; padding-top: 50px; padding-bottom: 60px; }
     .page-view.active { display: block; }
     .project-banner-img { border-radius: var(--radius-lg); margin-bottom: 2rem; aspect-ratio: 16/9; width: 100%; object-fit: cover; }
     .project-detail-card { padding: clamp(1.5rem, 5vw, 4rem); background: var(--bg-alt); border-radius: var(--radius-lg); border: 1px solid var(--border-color); }
@@ -401,14 +408,10 @@
 
     /* Small Desktop / Large Tablet */
     @media (min-width: 900px) {
-      header { background: transparent; }
-      header.scrolled { background: rgba(244, 244, 242, 0.95); }
       .hamburger { display: none; }
       .nav-menu { display: flex; flex: 2; justify-content: center; gap: 2.5rem; }
-      .nav-menu a { font-weight: 500; font-size: 0.95rem; }
-      .nav-menu a:hover, .nav-menu a.active { color: var(--text-muted); }
 
-      .hero-split { flex-direction: row; text-align: left; padding-top: 180px; align-items: center; min-height: 85vh; display: grid; grid-template-columns: 1.2fr 0.8fr; }
+      .hero-split { flex-direction: row; text-align: left; padding-top: 80px; align-items: center; min-height: 85vh; display: grid; grid-template-columns: 1.2fr 0.8fr; }
       .hero-image-col { order: 2; height: 600px; max-width: 100%; aspect-ratio: auto; }
       .hero-text-col { align-items: flex-start; padding-right: 2rem; }
       .hero-subtitle { justify-content: flex-start; }
@@ -485,13 +488,13 @@
 
 <body>
 
-  <header id="main-header" class="container">
+  <header class="container">
     <a href="#" onclick="event.preventDefault(); showHomeView()" class="brand" aria-label="Sanjeev Kumar Homepage">
       <img src="https://isanjiiv.github.io/assets/images/favicon.png" alt="Sanjiiv Logo">
     </a>
 
-    <nav class="nav-menu" aria-label="Main Navigation">
-      <a href="/" class="active">Home</a>
+    <nav class="nav-menu">
+      <a href="/" class="active" style="font-weight: 600;">Home</a>
       <a href="about.html">About</a>
       <a href="#skills" onclick="event.preventDefault(); showHomeViewAndScroll('skills')">Skills</a>
       <a href="#projects" onclick="event.preventDefault(); showHomeViewAndScroll('projects')">Projects</a>
@@ -499,19 +502,19 @@
       <a href="#experience" onclick="event.preventDefault(); showHomeViewAndScroll('experience')">Experience</a>
       <a href="#contact" onclick="event.preventDefault(); showHomeViewAndScroll('contact')">Contact</a>
     </nav>
-
+    
     <div class="header-right">
-      <a href="https://www.wayoftech.net/" target="_blank" rel="noopener noreferrer" class="btn-circle light" title="WAY OF TECH" style="width: 38px; height: 38px;">
-        <img src="https://www.wayoftech.net/favicon.ico" alt="Way of Tech" style="width:16px;">
-      </a>
-      <button class="hamburger" id="hamburger" aria-label="Open Mobile Menu">
-        <i class="fa-solid fa-bars"></i>
-      </button>
+        <a href="https://www.wayoftech.net/" target="_blank" rel="noopener noreferrer" class="btn-circle light" title="WAY OF TECH" style="width: 38px; height: 38px; position: relative; z-index: 1001;">
+          <img src="https://www.wayoftech.net/favicon.ico" alt="Way of Tech" style="width:16px;">
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle Navigation">
+            <i class="fa-solid fa-bars"></i>
+        </button>
     </div>
   </header>
 
-  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <a href="/">Home</a>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" class="active">Home</a>
     <a href="about.html">About</a>
     <a href="#skills" onclick="event.preventDefault(); showHomeViewAndScroll('skills')">Skills</a>
     <a href="#projects" onclick="event.preventDefault(); showHomeViewAndScroll('projects')">Projects</a>
@@ -1295,13 +1298,6 @@
   </button>
 
   <script>
-    // HEADER SCROLL EFFECT
-    window.addEventListener('scroll', () => {
-        const header = document.getElementById('main-header');
-        if (window.scrollY > 50) { header.classList.add('scrolled'); } 
-        else { header.classList.remove('scrolled'); }
-    });
-
     // 1. GLOBAL NAVIGATION FUNCTIONS
     function switchPageVisuals(viewId) {
         const homeView = document.getElementById('home-view');
@@ -1403,18 +1399,27 @@
 
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
+        const body = document.body;
+
         if (hamburger && mobileMenu) {
             hamburger.addEventListener('click', () => {
-                mobileMenu.classList.toggle('open');
                 const isOpen = mobileMenu.classList.contains('open');
-                hamburger.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
-                mobileMenu.setAttribute('aria-hidden', !isOpen);
+                if (isOpen) {
+                    mobileMenu.classList.remove('open');
+                    hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                    body.classList.remove('no-scroll');
+                } else {
+                    mobileMenu.classList.add('open');
+                    hamburger.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                    body.classList.add('no-scroll');
+                }
             });
+
             document.querySelectorAll('.mobile-menu a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.remove('open');
-                    mobileMenu.setAttribute('aria-hidden', 'true');
                     hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                    body.classList.remove('no-scroll');
                 });
             });
         }
