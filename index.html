@@ -201,6 +201,26 @@
 
     .section-header { margin-bottom: clamp(2rem, 5vw, 3.5rem); text-align: center; display: flex; flex-direction: column; align-items: center; }
     .section-header h2 { font-size: clamp(2rem, 6vw, 3.2rem); font-weight: 500; letter-spacing: -1px; line-height: 1.1; }
+    /* --- Scroll Hint Animation --- */
+    /* --- Scroll Hint (Static) --- */
+    .scroll-hint {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-top: 0.5rem;
+      opacity: 0.7;
+    }
+    .scroll-hint i {
+      font-size: 1.1rem;
+      color: var(--text-main);
+    }
+    @keyframes pulse-hint {
+      0%, 100% { transform: translateX(0); opacity: 0.5; }
+      50% { transform: translateX(5px); opacity: 1; }
+    }
 
     /* --- 4. HEADER (Fixed specificities for overlapping logo & button) --- */
     #main-header {
@@ -291,15 +311,45 @@
     @media (min-width: 600px) { .section-header-split { flex-direction: row; justify-content: space-between; align-items: flex-end; } }
     .section-header-split h2 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.1; letter-spacing: -1px; }
     
-    .expertise-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; width: 100%; }
-    @media (min-width: 900px) { .expertise-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; } }
+    .expertise-grid { 
+      display: flex; 
+      gap: 1.5rem; 
+      width: 100%; 
+      overflow-x: auto; 
+      padding-bottom: 1.5rem; 
+      -ms-overflow-style: none; 
+      scrollbar-width: none; 
+      /* Removed scroll-snap and smooth behavior here */
+    }
+    
+    .expertise-grid::-webkit-scrollbar {
+      display: none;
+    }
     
     .skill-card {
-      position: relative; border-radius: var(--radius-md); overflow: hidden; height: 350px; width: 100%;
-      display: flex; flex-direction: column; justify-content: space-between; padding: 1.5rem; transition: var(--transition);
+      position: relative; 
+      border-radius: var(--radius-md); 
+      overflow: hidden; 
+      height: 350px; 
+      flex: 0 0 85%; /* Mobile width */
+      display: flex; 
+      flex-direction: column; 
+      justify-content: space-between; 
+      padding: 1.5rem; 
+      transition: var(--transition);
       cursor: pointer;
     }
-    @media (min-width: 900px) { .skill-card { height: 420px; } }
+    @media (min-width: 600px) { 
+      .skill-card { flex: 0 0 calc(50% - 0.75rem); }
+    }
+    
+    @media (min-width: 900px) { 
+      .skill-card { 
+        height: 420px; 
+        flex: 0 0 calc(33.333% - 1rem);
+      } 
+    }
+    
     .skill-card img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: transform 0.6s ease; }
     .skill-card:hover img { transform: scale(1.05); }
     .skill-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 70%); z-index: 2; transition: var(--transition); }
@@ -675,11 +725,14 @@
       </section>
 
       <section id="projects" class="container projects-section">
-        <div class="section-header-split fade-up">
-          <div>
-            <span class="tag-label">My Portfolio</span>
-            <h2>Featured Projects</h2>
+      <div class="section-header fade-up">
+          <span class="tag-label">My Portfolio</span>
+          <h2>Featured Projects</h2>
+          
+          <div class="scroll-hint">
+            <i class="fa-solid fa-computer-mouse"></i> Scroll to explore <i class="fa-solid fa-arrow-right-long"></i>
           </div>
+          
         </div>
 
         <div class="expertise-grid">
@@ -1310,7 +1363,7 @@
 
   <footer class="footer-bottom fade-up container" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; padding: 1rem 0 2rem;">
     <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-      <a href="mailto:sanjeev753304@gmail.com" class="btn-circle light" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+     
       <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
       <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
       <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -1341,7 +1394,7 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <script>
+ <script>
     // 1. GLOBAL NAVIGATION FUNCTIONS
     function switchPageVisuals(viewId) {
         const homeView = document.getElementById('home-view');
@@ -1548,7 +1601,63 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         }
-    });
+        
+      // --- HORIZONTAL SCROLL ON PROJECTS SECTION ---
+        const expertiseGrid = document.querySelector('.expertise-grid');
+        if (expertiseGrid) {
+            let isAnimating = false;
+            let targetScroll = expertiseGrid.scrollLeft;
+            let currentScroll = expertiseGrid.scrollLeft;
+
+            function smoothScrollLoop() {
+                let distance = targetScroll - currentScroll;
+                currentScroll += distance * 0.08; 
+                expertiseGrid.scrollLeft = currentScroll;
+
+                if (Math.abs(distance) > 0.5) {
+                    requestAnimationFrame(smoothScrollLoop);
+                } else {
+                    isAnimating = false;
+                }
+            }
+
+            expertiseGrid.addEventListener('wheel', function(evt) {
+                const maxScrollLeft = this.scrollWidth - this.clientWidth;
+                
+                // Allow a tiny 1px buffer to prevent getting stuck on fractional pixels
+                const atLeftEdge = this.scrollLeft <= 1;
+                const atRightEdge = Math.ceil(this.scrollLeft) >= maxScrollLeft - 1;
+
+                const isScrollingUp = evt.deltaY < 0;
+                const isScrollingDown = evt.deltaY > 0;
+
+                // ONLY hijack the scroll if we are scrolling in a direction that has room
+                if ((isScrollingUp && !atLeftEdge) || (isScrollingDown && !atRightEdge)) {
+                    evt.preventDefault(); // Stop vertical page scroll
+                    
+                    targetScroll += evt.deltaY * 2.5; 
+                    targetScroll = Math.max(0, Math.min(targetScroll, maxScrollLeft));
+
+                    if (!isAnimating) {
+                        isAnimating = true;
+                        currentScroll = this.scrollLeft;
+                        requestAnimationFrame(smoothScrollLoop);
+                    }
+                } else {
+                    // We are at the edge! Let the browser scroll the page normally.
+                    targetScroll = this.scrollLeft; 
+                }
+            }, { passive: false });
+
+            // Sync variables if the user swipes on a trackpad or touchscreen
+            expertiseGrid.addEventListener('scroll', () => {
+                if (!isAnimating) {
+                    targetScroll = expertiseGrid.scrollLeft;
+                    currentScroll = expertiseGrid.scrollLeft;
+                }
+            });
+        }
+    }); // <--- THIS IS THE FIX. The brackets and parenthesis match now!
 
     // 4. LIGHTBOX LOGIC
     let currentImageIndex = 0;
