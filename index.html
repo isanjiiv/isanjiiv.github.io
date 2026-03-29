@@ -204,10 +204,11 @@
 
     /* --- 4. HEADER (Fixed specificities for overlapping logo & button) --- */
     #main-header {
-      display: flex; justify-content: space-between; align-items: center;padding-top: 1rem; padding-bottom: 1rem;
-padding-left: max(clamp(1.5rem, 5vw, 3rem), calc((100% - 1300px) / 2));
-padding-right: max(clamp(1.5rem, 5vw, 3rem), calc((100% - 1300px) / 2));
-      background: transparent; position: fixed; top: 0; left: 0; right: 0; width: 100%; max-width: var(--container);
+      display: flex; justify-content: space-between; align-items: center; 
+      padding-top: 1rem; padding-bottom: 1rem;
+      padding-left: max(clamp(1.5rem, 5vw, 3rem), calc((100% - 1300px) / 2));
+      padding-right: max(clamp(1.5rem, 5vw, 3rem), calc((100% - 1300px) / 2));
+      background: transparent; position: fixed; top: 0; left: 0; right: 0; width: 100%; max-width: 100%;
       margin-inline: auto; z-index: 1005; transition: var(--transition);
     }
     #main-header.scrolled {
@@ -285,17 +286,29 @@ padding-right: max(clamp(1.5rem, 5vw, 3rem), calc((100% - 1300px) / 2));
     .skill-animated-icon { width: 50px; height: 50px; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08)); }
     .skill-icon-title { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; text-align: center; }
 
-    /* Projects */
-    .project-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 2rem; }
-    .tab-btn { background: var(--bg-alt); border: 1px solid var(--border-color); padding: 10px 18px; font-size: 0.9rem; border-radius: 50px; color: var(--text-muted); font-weight: 500; transition: var(--transition); cursor: pointer; }
-    .tab-btn.active { background: var(--text-main); color: #fff; border-color: var(--text-main); }
-
-    .project-tab-content-container { background: var(--bg-alt); border-radius: var(--radius-lg); padding: clamp(1.5rem, 5vw, 4rem); box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid var(--border-color); }
-    .project-tab-pane { display: none; flex-direction: column; gap: 2rem; text-align: center; }
-    .project-tab-pane.active { display: flex; }
-    .pane-text h3 { font-size: clamp(1.8rem, 5vw, 2.2rem); margin-bottom: 1rem; }
-    .pane-text p { font-size: 1rem; margin-bottom: 1.5rem; color: var(--text-muted); }
-    .pane-image { border-radius: var(--radius-md); overflow: hidden; }
+    /* Projects / Expertise Grid */
+    .section-header-split { display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; margin-bottom: 3rem;}
+    @media (min-width: 600px) { .section-header-split { flex-direction: row; justify-content: space-between; align-items: flex-end; } }
+    .section-header-split h2 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.1; letter-spacing: -1px; }
+    
+    .expertise-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; width: 100%; }
+    @media (min-width: 900px) { .expertise-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; } }
+    
+    .skill-card {
+      position: relative; border-radius: var(--radius-md); overflow: hidden; height: 350px; width: 100%;
+      display: flex; flex-direction: column; justify-content: space-between; padding: 1.5rem; transition: var(--transition);
+      cursor: pointer;
+    }
+    @media (min-width: 900px) { .skill-card { height: 420px; } }
+    .skill-card img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: transform 0.6s ease; }
+    .skill-card:hover img { transform: scale(1.05); }
+    .skill-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 70%); z-index: 2; transition: var(--transition); }
+    
+    .skill-card-top { position: relative; z-index: 3; display: flex; justify-content: flex-end; }
+    .skill-card-bottom { position: relative; z-index: 3; display: flex; flex-direction: column; gap: 4px; padding-bottom: 0.5rem;}
+    
+    .skill-card-bottom h3 { color: #fff; font-size: 1.6rem; font-family: var(--font-body); font-weight: 500; margin-bottom: 0;}
+    .skill-card-bottom p { color: rgba(255,255,255,0.8); font-size: 1rem; }
 
     /* Certifications */
     .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem; }
@@ -376,7 +389,7 @@ padding-right: max(clamp(1.5rem, 5vw, 3rem), calc((100% - 1300px) / 2));
     .modal-content { background: var(--bg-alt); width: 100%; max-width: 900px; height: 80vh; border-radius: var(--radius-md); padding: 1rem; position: relative; }
     .modal-content iframe { width: 100%; height: 100%; border: none; border-radius: 8px; }
     .close-modal { position: absolute; top: -40px; right: 0; color: #fff; font-size: 2rem; cursor: pointer; }
-.close-lightbox { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 3rem; cursor: pointer; z-index: 3010; }
+    .close-lightbox { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 3rem; cursor: pointer; z-index: 3010; }
     
     .lightbox-content { max-width: 100%; max-height: 80vh; object-fit: contain; }
     .lightbox-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.2); color: #fff; border: none; width: 44px; height: 44px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; }
@@ -429,10 +442,6 @@ padding-right: max(clamp(1.5rem, 5vw, 3rem), calc((100% - 1300px) / 2));
       .explore-text-col { align-items: flex-start; padding-right: 1.5rem; justify-content: center; }
       .card-vertical { height: 500px; }
       .card-horizontal { height: 320px; }
-
-      .project-tab-pane { flex-direction: row; text-align: left; align-items: center; }
-      .pane-text { flex: 1; padding-right: 2rem; }
-      .pane-image { flex: 1; }
 
       .experience-grid { display: grid; grid-template-columns: 1fr 2fr; align-items: start; }
       .experience-sticky { position: sticky; top: 120px; text-align: left; }
@@ -495,7 +504,7 @@ padding-right: max(clamp(1.5rem, 5vw, 3rem), calc((100% - 1300px) / 2));
 
 <body>
 
-  <header id="main-header" class="container">
+  <header id="main-header">
     <a href="#" onclick="event.preventDefault(); showHomeView()" class="brand" aria-label="Sanjeev Kumar Homepage">
       <img src="https://isanjiiv.github.io/assets/images/favicon.png" alt="Sanjiiv Logo">
     </a>
@@ -666,61 +675,56 @@ padding-right: max(clamp(1.5rem, 5vw, 3rem), calc((100% - 1300px) / 2));
       </section>
 
       <section id="projects" class="container projects-section">
-        <div class="section-header fade-up">
-          <span class="tag-label">My Portfolio</span>
-          <h2>Featured Projects</h2>
+        <div class="section-header-split fade-up">
+          <div>
+            <span class="tag-label">My Portfolio</span>
+            <h2>Featured Projects</h2>
+          </div>
         </div>
 
-        <div class="project-tabs fade-up">
-          <button class="tab-btn active" onclick="switchTab(event, 'tab-1')">Windows Server</button>
-          <button class="tab-btn" onclick="switchTab(event, 'tab-2')">SD-WAN</button>
-          <button class="tab-btn" onclick="switchTab(event, 'tab-3')">AI Apps</button>
-          <button class="tab-btn" onclick="switchTab(event, 'tab-4')">Web Redesign</button>
-        </div>
-
-        <div class="project-tab-content-container fade-up">
+        <div class="expertise-grid">
           
-          <div id="tab-1" class="project-tab-pane active">
-            <div class="pane-text">
+          <div class="skill-card fade-up" onclick="event.preventDefault(); showProjectView('project-1')">
+            <img src="https://isanjiiv.github.io/assets/images/windows-Server-2022.png" alt="Windows Server Active Directory">
+            <div class="skill-card-top">
+              <button class="btn-circle light" style="width: 40px; height: 40px; font-size: 0.9rem;"><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></button>
+            </div>
+            <div class="skill-card-bottom">
               <h3>Enterprise AD & GPO</h3>
-              <p>Planned and implemented a Windows Server 2016 Active Directory environment. Set up OU design, user access policies, GPO configurations, and WSUS for 120+ endpoints. Configured Acronis Backup for disaster recovery.</p>
-              <button class="btn-pill" onclick="event.preventDefault(); showProjectView('project-1')" style="width:auto;">Learn more <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></button>
-            </div>
-            <div class="pane-image">
-              <img src="https://isanjiiv.github.io/assets/images/windows-Server-2022.png" alt="Windows Server Active Directory">
+              <p>Windows Server 2022 • Active Directory • Acronis</p>
             </div>
           </div>
 
-          <div id="tab-2" class="project-tab-pane">
-            <div class="pane-text">
+          <div class="skill-card fade-up" style="transition-delay: 0.1s;" onclick="event.preventDefault(); showProjectView('project-2')">
+            <img src="https://isanjiiv.github.io/assets/images/sd-wan.png" alt="Fortinet SD-WAN Architecture">
+            <div class="skill-card-top">
+              <button class="btn-circle light" style="width: 40px; height: 40px; font-size: 0.9rem;"><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></button>
+            </div>
+            <div class="skill-card-bottom">
               <h3>Fortinet 60F SD-WAN</h3>
-              <p>Designed SD-WAN on FortiGate 60F to enhance network performance. Integrated two ISP connections (Jio & Spectra) with load balancing and automated failover. Applied firewall rules, IPS/AV profiles, and VLANs.</p>
-              <button class="btn-pill" onclick="event.preventDefault(); showProjectView('project-2')" style="width:auto;">Learn more <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></button>
-            </div>
-            <div class="pane-image">
-              <img src="https://isanjiiv.github.io/assets/images/sd-wan.png" alt="Fortinet SD-WAN Architecture">
+              <p>FortiGate 60F • Load Balancing • VLANs</p>
             </div>
           </div>
 
-          <div id="tab-3" class="project-tab-pane">
-            <div class="pane-text">
+          <div class="skill-card fade-up" style="transition-delay: 0.2s;" onclick="event.preventDefault(); showProjectView('project-3')">
+            <img src="https://isanjiiv.github.io/assets/images/lovable.png" alt="Lovable AI Cost Sheet App">
+            <div class="skill-card-top">
+              <button class="btn-circle light" style="width: 40px; height: 40px; font-size: 0.9rem;"><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></button>
+            </div>
+            <div class="skill-card-bottom">
               <h3>AI Cost Sheet Builder</h3>
-              <p>Built a no-code web application at Grain Milling Solutions using Lovable AI to automate cost sheet generation. Includes logic for tax calculations, Excel/PDF exports, alongside Resume Builders and Notes apps.</p>
-              <button class="btn-pill" onclick="event.preventDefault(); showProjectView('project-3')" style="width:auto;">Learn more <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></button>
-            </div>
-            <div class="pane-image">
-              <img src="https://isanjiiv.github.io/assets/images/lovable.png" alt="Lovable AI Cost Sheet App">
+              <p>Lovable AI • No-Code • Automated Workflows</p>
             </div>
           </div>
 
-          <div id="tab-4" class="project-tab-pane">
-            <div class="pane-text">
-              <h3>GMS Website Redesign</h3>
-              <p>Took complete ownership of managing, designing, and updating the company website (www.gmsdelhi.com). Transitioned the platform from a third-party vendor to a fully in-house operation.</p>
-              <button class="btn-pill" onclick="event.preventDefault(); showProjectView('project-4')" style="width:auto;">Learn more <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></button>
+          <div class="skill-card fade-up" style="transition-delay: 0.3s;" onclick="event.preventDefault(); showProjectView('project-4')">
+            <img src="https://isanjiiv.github.io/assets/images/wordpress-banner.png" alt="WordPress Website Redesign">
+            <div class="skill-card-top">
+              <button class="btn-circle light" style="width: 40px; height: 40px; font-size: 0.9rem;"><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></button>
             </div>
-            <div class="pane-image">
-              <img src="https://isanjiiv.github.io/assets/images/wordpress-banner.png" alt="WordPress Website Redesign">
+            <div class="skill-card-bottom">
+              <h3>GMS Website Redesign</h3>
+              <p>WordPress • HTML/CSS • In-House Management</p>
             </div>
           </div>
 
@@ -917,7 +921,7 @@ padding-right: max(clamp(1.5rem, 5vw, 3rem), calc((100% - 1300px) / 2));
     </div>
 
     <div id="project-1" class="page-view container">
-    <a href="#projects" class="btn-pill" onclick="event.preventDefault(); showHomeViewAndScroll('projects')" style="width: max-content; margin-top: 60px; margin-bottom: 2rem; position: relative; z-index: 10;">
+     <a href="#projects" class="btn-pill" onclick="event.preventDefault(); showHomeViewAndScroll('projects')" style="width: max-content; margin-top: 10px; margin-bottom: 2rem; position: relative; z-index: 10;">
   <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Projects
 </a>
       <div class="project-banner-wrapper">
@@ -1071,9 +1075,9 @@ padding-right: max(clamp(1.5rem, 5vw, 3rem), calc((100% - 1300px) / 2));
     </div>
     
     <div id="project-2" class="page-view container">
-      <a href="#projects" class="btn-pill" onclick="event.preventDefault(); showHomeViewAndScroll('projects')" style="width: max-content; margin-top: 60px; margin-bottom: 2rem; position: relative; z-index: 10;">
-        <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Projects
-      </a>
+     <a href="#projects" class="btn-pill" onclick="event.preventDefault(); showHomeViewAndScroll('projects')" style="width: max-content; margin-top: 10px; margin-bottom: 2rem; position: relative; z-index: 10;">
+  <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Projects
+</a>
       <div class="project-banner-wrapper">
         <img src="https://isanjiiv.github.io/assets/images/sd-wan.png" alt="SD-WAN Banner" class="project-banner-img" loading="lazy">
       </div>
@@ -1153,9 +1157,9 @@ padding-right: max(clamp(1.5rem, 5vw, 3rem), calc((100% - 1300px) / 2));
     </div>
     
     <div id="project-3" class="page-view container">
-      <a href="#projects" class="btn-pill" onclick="event.preventDefault(); showHomeViewAndScroll('projects')" style="width: max-content; margin-top: 60px; margin-bottom: 2rem; position: relative; z-index: 10;">
-        <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Projects
-      </a>
+      <a href="#projects" class="btn-pill" onclick="event.preventDefault(); showHomeViewAndScroll('projects')" style="width: max-content; margin-top: 10px; margin-bottom: 2rem; position: relative; z-index: 10;">
+  <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Projects
+</a>
       <div class="project-banner-wrapper">
         <img src="https://isanjiiv.github.io/assets/images/lovable-ai.png" alt="Lovable AI Banner" class="project-banner-img" loading="lazy">
       </div>
@@ -1217,9 +1221,9 @@ padding-right: max(clamp(1.5rem, 5vw, 3rem), calc((100% - 1300px) / 2));
     </div>
 
     <div id="project-4" class="page-view container">
-      <a href="#projects" class="btn-pill" onclick="event.preventDefault(); showHomeViewAndScroll('projects')" style="width: max-content; margin-top: 60px; margin-bottom: 2rem; position: relative; z-index: 10;">
-        <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Projects
-      </a>
+     <a href="#projects" class="btn-pill" onclick="event.preventDefault(); showHomeViewAndScroll('projects')" style="width: max-content; margin-top: 10px; margin-bottom: 2rem; position: relative; z-index: 10;">
+  <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Projects
+</a>
       <div class="project-banner-wrapper">
         <img src="https://isanjiiv.github.io/assets/images/wordpress-banner.png" alt="Website Redesign Banner" class="project-banner-img" loading="lazy">
       </div>
@@ -1632,19 +1636,6 @@ padding-right: max(clamp(1.5rem, 5vw, 3rem), calc((100% - 1300px) / 2));
                 blendCursor.classList.remove('hovering');
             }
         });
-    }
-
-    // TAB SWITCHING LOGIC FOR PROJECTS SECTION
-    window.switchTab = function(event, tabId) {
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      event.currentTarget.classList.add('active');
-
-      document.querySelectorAll('.project-tab-pane').forEach(pane => {
-        pane.classList.remove('active');
-      });
-      document.getElementById(tabId).classList.add('active');
     }
   </script>
 </body>
