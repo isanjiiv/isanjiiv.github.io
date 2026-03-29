@@ -549,6 +549,19 @@
         height: auto;
       }
     }
+    /* --- About Section Buttons --- */
+    .about-btn-group {
+      flex-direction: row;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 2rem;
+    }
+    
+    @media (min-width: 900px) {
+      .about-btn-group {
+        justify-content: flex-start; /* Keeps it left-aligned on desktop */
+      }
+    }
   </style>
 </head>
 
@@ -641,9 +654,12 @@
               <li>Enhancing business process efficiency</li>
             </ul>
 
-            <div class="btn-group" style="flex-direction: row; gap: 12px; margin-top: 2rem;">
+            <div class="btn-group about-btn-group">
               <a href="https://isanjiiv.github.io/about.html" class="btn-pill" style="width: auto;">Know more</a>
-              <a href="https://isanjiiv.github.io/about.html" class="btn-circle" title="Download Resume" download><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></a>
+              
+              
+              
+              <a href="https://isanjiiv.github.io/about.html" class="btn-circle" title="Know More" ><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></a>
             </div>
           </div>
 
