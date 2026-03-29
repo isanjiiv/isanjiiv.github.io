@@ -202,20 +202,26 @@
     .section-header { margin-bottom: clamp(2rem, 5vw, 3.5rem); text-align: center; display: flex; flex-direction: column; align-items: center; }
     .section-header h2 { font-size: clamp(2rem, 6vw, 3.2rem); font-weight: 500; letter-spacing: -1px; line-height: 1.1; }
 
-    /* --- 4. HEADER (Matching About Page) --- */
-    header {
-      display: flex; justify-content: space-between; align-items: center; padding: 1rem clamp(1.5rem, 5vw, 3rem);
-      background: transparent; position: relative; z-index: 1000;
+    /* --- 4. HEADER (Fixed specificities for overlapping logo & button) --- */
+    #main-header {
+      display: flex; justify-content: space-between; align-items: center;padding-top: 1rem; padding-bottom: 1rem;
+padding-left: max(clamp(1.5rem, 5vw, 3rem), calc((100% - 1300px) / 2));
+padding-right: max(clamp(1.5rem, 5vw, 3rem), calc((100% - 1300px) / 2));
+      background: transparent; position: fixed; top: 0; left: 0; right: 0; width: 100%; max-width: var(--container);
+      margin-inline: auto; z-index: 1005; transition: var(--transition);
     }
-    .brand { flex: 1; display: flex; align-items: center; position: relative; z-index: 1001; }
+    #main-header.scrolled {
+      background: rgba(244, 244, 242, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color);
+    }
+    .brand { flex: 1; display: flex; align-items: center; position: relative; z-index: 1010; }
     .brand img { height: 32px; width: 33px; }
     
     .nav-menu { display: none; } /* Hidden on mobile */
-    .header-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 10px; }
+    .header-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 10px; position: relative; z-index: 1010; }
     
     .hamburger {
         display: block; background: none; border: none; font-size: 1.5rem; 
-        color: var(--text-main); cursor: pointer; z-index: 1001; padding: 5px;
+        color: var(--text-main); cursor: pointer; padding: 5px; position: relative; z-index: 1010;
     }
 
     .mobile-menu {
@@ -228,9 +234,9 @@
     .mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
     .mobile-menu a {
         font-size: 1.8rem; font-family: var(--font-heading); font-weight: 500;
-        color: var(--text-main); transition: color 0.3s;
+        color: var(--text-main); transition: color 0.3s; border: none; padding: 0;
     }
-    .mobile-menu a:hover, .mobile-menu a.active { color: var(--text-muted); }
+    .mobile-menu a:hover, .mobile-menu a.active { color: var(--text-muted); background: transparent; }
 
     /* --- 5. SECTIONS BASE LAYOUT (Mobile First) --- */
     section { padding: clamp(4rem, 10vw, 6rem) 0; }
@@ -325,7 +331,7 @@
     .btn-submit-pill { background: #0f172a; color: #fff; border: none; padding: 16px 32px; border-radius: 50px; font-family: var(--font-body); font-weight: 500; font-size: 1rem; width: 100%; display: flex; justify-content: center; align-items: center; gap: 10px; transition: var(--transition); cursor: pointer; }
 
     /* Page Views (Project details) */
-    .page-view { display: none; padding-top: 50px; padding-bottom: 60px; }
+    .page-view { display: none; padding-top: 100px; padding-bottom: 60px; }
     .page-view.active { display: block; }
     .project-banner-img { border-radius: var(--radius-lg); margin-bottom: 2rem; aspect-ratio: 16/9; width: 100%; object-fit: cover; }
     .project-detail-card { padding: clamp(1.5rem, 5vw, 4rem); background: var(--bg-alt); border-radius: var(--radius-lg); border: 1px solid var(--border-color); }
@@ -369,7 +375,8 @@
     .modal.show, .lightbox.show { display: flex; }
     .modal-content { background: var(--bg-alt); width: 100%; max-width: 900px; height: 80vh; border-radius: var(--radius-md); padding: 1rem; position: relative; }
     .modal-content iframe { width: 100%; height: 100%; border: none; border-radius: 8px; }
-    .close-modal, .close-lightbox { position: absolute; top: -40px; right: 0; color: #fff; font-size: 2rem; cursor: pointer; }
+    .close-modal { position: absolute; top: -40px; right: 0; color: #fff; font-size: 2rem; cursor: pointer; }
+.close-lightbox { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 3rem; cursor: pointer; z-index: 3010; }
     
     .lightbox-content { max-width: 100%; max-height: 80vh; object-fit: contain; }
     .lightbox-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.2); color: #fff; border: none; width: 44px; height: 44px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; }
@@ -488,7 +495,7 @@
 
 <body>
 
-  <header class="container">
+  <header id="main-header" class="container">
     <a href="#" onclick="event.preventDefault(); showHomeView()" class="brand" aria-label="Sanjeev Kumar Homepage">
       <img src="https://isanjiiv.github.io/assets/images/favicon.png" alt="Sanjiiv Logo">
     </a>
@@ -504,7 +511,7 @@
     </nav>
     
     <div class="header-right">
-        <a href="https://www.wayoftech.net/" target="_blank" rel="noopener noreferrer" class="btn-circle light" title="WAY OF TECH" style="width: 38px; height: 38px; position: relative; z-index: 1001;">
+        <a href="https://www.wayoftech.net/" target="_blank" rel="noopener noreferrer" class="btn-circle light" title="WAY OF TECH" style="width: 38px; height: 38px; position: relative; z-index: 1010;">
           <img src="https://www.wayoftech.net/favicon.ico" alt="Way of Tech" style="width:16px;">
         </a>
         <button class="hamburger" id="hamburger" aria-label="Toggle Navigation">
@@ -910,6 +917,9 @@
     </div>
 
     <div id="project-1" class="page-view container">
+    <a href="#projects" class="btn-pill" onclick="event.preventDefault(); showHomeViewAndScroll('projects')" style="width: max-content; margin-top: 60px; margin-bottom: 2rem; position: relative; z-index: 10;">
+  <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Projects
+</a>
       <div class="project-banner-wrapper">
         <img src="https://isanjiiv.github.io/assets/images/windows-Server-2022.png" alt="Windows Server Banner" class="project-banner-img" loading="lazy">
       </div>
@@ -1061,6 +1071,9 @@
     </div>
     
     <div id="project-2" class="page-view container">
+      <a href="#projects" class="btn-pill" onclick="event.preventDefault(); showHomeViewAndScroll('projects')" style="width: max-content; margin-top: 60px; margin-bottom: 2rem; position: relative; z-index: 10;">
+        <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Projects
+      </a>
       <div class="project-banner-wrapper">
         <img src="https://isanjiiv.github.io/assets/images/sd-wan.png" alt="SD-WAN Banner" class="project-banner-img" loading="lazy">
       </div>
@@ -1089,36 +1102,60 @@
         <div class="detail-block">
           <h3>Project Gallery</h3>
           <div class="gallery-grid">
+             
              <div class="gallery-item" onclick="openLightbox(this)">
                <div class="gallery-img-wrapper">
                  <img src="https://lh3.googleusercontent.com/d/1QVqEnZJppA65rfYMtaPojxjoLq7vNTyx" alt="Firewall Dashboard" referrerpolicy="no-referrer">
                  <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
                </div>
+               <div class="gallery-details">
+                 <h4 class="gallery-title">Firewall Dashboard</h4>
+                 <p class="gallery-desc">Overview of FortiGate 60F system health, security fabric, and active network sessions.</p>
+               </div>
              </div>
+             
              <div class="gallery-item" onclick="openLightbox(this)">
                <div class="gallery-img-wrapper">
                  <img src="https://lh3.googleusercontent.com/d/1_NyX_QxOsGUGIWpUHpRbb-I2vUx9qxOE" alt="Network Interface" referrerpolicy="no-referrer">
                  <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
                </div>
+               <div class="gallery-details">
+                 <h4 class="gallery-title">Network Interfaces</h4>
+                 <p class="gallery-desc">Configuration of physical ports, VLANs, and IP assignments for internal routing.</p>
+               </div>
              </div>
+             
              <div class="gallery-item" onclick="openLightbox(this)">
                <div class="gallery-img-wrapper">
                  <img src="https://lh3.googleusercontent.com/d/1EXgMCqiT6eZ768wz43MsLkeazpz9giUI" alt="SD-WAN Zone" referrerpolicy="no-referrer">
                  <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
                </div>
+               <div class="gallery-details">
+                 <h4 class="gallery-title">SD-WAN Configuration</h4>
+                 <p class="gallery-desc">Multi-WAN setup with Jio and Spectra lines configured for load balancing and automatic failover.</p>
+               </div>
              </div>
+             
              <div class="gallery-item" onclick="openLightbox(this)">
                <div class="gallery-img-wrapper">
                  <img src="https://lh3.googleusercontent.com/d/14K94Z7uQAGTlfT8vEZPAOkTeh1codxvP" alt="Security Policies" referrerpolicy="no-referrer">
                  <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
                </div>
+               <div class="gallery-details">
+                 <h4 class="gallery-title">Security Policies</h4>
+                 <p class="gallery-desc">Strict IPv4 policies regulating traffic flow, web filtering, and application control.</p>
+               </div>
              </div>
+
           </div>
         </div>
       </div>
     </div>
     
     <div id="project-3" class="page-view container">
+      <a href="#projects" class="btn-pill" onclick="event.preventDefault(); showHomeViewAndScroll('projects')" style="width: max-content; margin-top: 60px; margin-bottom: 2rem; position: relative; z-index: 10;">
+        <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Projects
+      </a>
       <div class="project-banner-wrapper">
         <img src="https://isanjiiv.github.io/assets/images/lovable-ai.png" alt="Lovable AI Banner" class="project-banner-img" loading="lazy">
       </div>
@@ -1180,6 +1217,9 @@
     </div>
 
     <div id="project-4" class="page-view container">
+      <a href="#projects" class="btn-pill" onclick="event.preventDefault(); showHomeViewAndScroll('projects')" style="width: max-content; margin-top: 60px; margin-bottom: 2rem; position: relative; z-index: 10;">
+        <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Projects
+      </a>
       <div class="project-banner-wrapper">
         <img src="https://isanjiiv.github.io/assets/images/wordpress-banner.png" alt="Website Redesign Banner" class="project-banner-img" loading="lazy">
       </div>
@@ -1423,6 +1463,13 @@
                 });
             });
         }
+        
+        // Header Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) { header.classList.add('scrolled'); }
+            else { header.classList.remove('scrolled'); }
+        });
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
