@@ -301,8 +301,9 @@
     .card-horizontal-text { color: var(--text-main); font-size: 1rem; line-height: 1.6; }
 
     /* Skills */
-    .skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; padding-top: 1rem; }
-    .skill-icon-wrapper { width: 100px; display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
+  /* Skills */
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding-top: 1rem; justify-items: center; }
+.skill-icon-wrapper { width: 100%; max-width: 100px; display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
     .skill-animated-icon { width: 50px; height: 50px; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08)); }
     .skill-icon-title { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; text-align: center; }
 
@@ -330,12 +331,12 @@
       position: relative; 
       border-radius: var(--radius-md); 
       overflow: hidden; 
-      height: 350px; 
-      flex: 0 0 85%; /* Mobile width */
+      height: 260px; /* Made smaller for mobile */
+      flex: 0 0 80%; /* Slightly narrower */
       display: flex; 
       flex-direction: column; 
       justify-content: space-between; 
-      padding: 1.5rem; 
+      padding: 1.2rem; /* Tighter padding for mobile */
       transition: var(--transition);
       cursor: pointer;
     }
@@ -461,11 +462,11 @@
        MEDIA QUERIES (Progressive Enhancement)
        ========================================================= */
 
-    /* Tablet Styles */
-    @media (min-width: 600px) {
-      .cert-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-      .skills-grid { gap: 2.5rem; }
-      .skill-icon-wrapper { width: 120px; }
+   /* Tablet Styles */
+@media (min-width: 600px) {
+  .cert-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem; }
+  .skill-icon-wrapper { width: 120px; max-width: none; }
       .skill-animated-icon { width: 60px; height: 60px; }
       
       .new-contact-form .form-row { flex-direction: row; }
