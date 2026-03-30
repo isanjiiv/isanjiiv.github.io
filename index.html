@@ -506,7 +506,16 @@
       .hero-text-col { align-items: flex-start; padding-right: 2rem; }
       .hero-subtitle { justify-content: flex-start; }
       .hero-desc { margin: 0 0 2.5rem 0; max-width: 500px; }
-      .btn-group { justify-content: flex-start; }
+      /* Sirf Desktop ke liye: Button auto size aur icons ek line me */
+      .btn-group { 
+        flex-direction: row; 
+        justify-content: flex-start; 
+        align-items: center; 
+      }
+      .btn-group .btn-pill { 
+        width: max-content; /* Button ko stretch hone se rokega */
+        padding: 14px 32px; /* Button ko perfect shape me rakhega */
+      }
 
       .grid-3-col { display: grid; grid-template-columns: 1.2fr 1fr 1fr; text-align: left; }
       .explore-text-col { align-items: flex-start; padding-right: 1.5rem; justify-content: center; }
@@ -521,7 +530,18 @@
       .contact-layout { display: grid; grid-template-columns: 0.8fr 1.2fr; align-items: stretch; max-width: 1050px; margin: 0 auto; }
       .contact-image-container { min-height: 400px; }
       
-      .cert-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+      /* Desktop par exactly 4 cards per row aur bada size */
+      .cert-grid { 
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 2rem; 
+      }
+      .cert-card {
+        padding: 2rem 1.5rem; /* Cards ko aur bada aur premium dikhane ke liye padding badhayi hai */
+      }
+      .cert-img {
+        height: 45px; /* Icons ko thoda bada kiya hai */
+        margin-bottom: 1.2rem;
+      }
       .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
     }
 
