@@ -340,8 +340,14 @@
       transition: var(--transition);
       cursor: pointer;
     }
-    @media (min-width: 600px) { 
-      .skill-card { flex: 0 0 calc(50% - 0.75rem); }
+   @media (min-width: 600px) { 
+      .skill-card { 
+        height: 350px; /* Restore original height */
+        flex: 0 0 calc(50% - 0.75rem); 
+        padding: 1.5rem; /* Restore original padding */
+      }
+      .skill-card-bottom h3 { font-size: 1.6rem; } /* Restore font size */
+      .skill-card-bottom p { font-size: 1rem; } /* Restore font size */
     }
     
     @media (min-width: 900px) { 
@@ -358,8 +364,8 @@
     .skill-card-top { position: relative; z-index: 3; display: flex; justify-content: flex-end; }
     .skill-card-bottom { position: relative; z-index: 3; display: flex; flex-direction: column; gap: 4px; padding-bottom: 0.5rem;}
     
-    .skill-card-bottom h3 { color: #fff; font-size: 1.6rem; font-family: var(--font-body); font-weight: 500; margin-bottom: 0;}
-    .skill-card-bottom p { color: rgba(255,255,255,0.8); font-size: 1rem; }
+    .skill-card-bottom h3 { color: #fff; font-size: 1.25rem; font-family: var(--font-body); font-weight: 500; margin-bottom: 0;}
+    .skill-card-bottom p { color: rgba(255,255,255,0.8); font-size: 0.85rem; line-height: 1.4; }
 
     /* Certifications */
     .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem; }
