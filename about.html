@@ -97,7 +97,7 @@
       --radius-lg: 32px;
       --radius-xl: 40px;
       
-      --container: 1400px; 
+      --container: 1500px; /* <--- Updated to match Main Page Width */
       --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
@@ -380,7 +380,7 @@ header {
       .hamburger { display: none; }
       .nav-menu { display: flex; flex: 2; justify-content: center; gap: 2.5rem; }
       
-      .hero-card { padding: 4rem; height: 80vh; }
+      .hero-card { padding: 6rem 4rem 4rem 4rem; height: auto; min-height: auto; } /* <-- Gap fixed here */
       .hero-content { flex-direction: row; justify-content: space-between; align-items: flex-end; padding-bottom: 6rem;}
       .hero-desc { text-align: right; margin-top: 0; margin-bottom: 1rem; max-width: 320px; }
       .hero-bottom-bar { flex-direction: row; align-items: center; left: 4rem; right: 4rem; bottom: 2rem;}
@@ -398,9 +398,27 @@ header {
       .expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
       .skill-card { height: 420px; }
 
-      .contact-layout { display: grid; grid-template-columns: 0.8fr 1.2fr; align-items: stretch; max-width: 1050px; margin: 0 auto; }
-      .contact-image-container { min-height: 400px; }
-      .contact-image-container img { position: absolute; top: 0; left: 0; height: 100%; }
+      /* Desktop Contact Fixes (Gap & Image Stretch) */
+      .contact-layout { 
+        display: grid; 
+        grid-template-columns: 0.8fr 1.2fr; 
+        align-items: stretch; 
+        max-width: 1300px; /* Matched to main page */
+        margin: 0 auto; 
+        gap: 4rem; /* Proper spacing */
+      }
+      .contact-image-container { 
+        min-height: 400px; 
+        max-width: 100%; 
+      }
+      .contact-image-container img { 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        object-fit: cover; 
+      }
     }
 
     /* Large Desktop */
@@ -408,52 +426,75 @@ header {
       .container { padding-inline: 2rem; }
     }
     
-    @media (max-width: 768px) {
-      /* Contact Layout Overrides */
+    /* --- MOBILE CONTACT SECTION FIX (Heading Center & Full Image) --- */
+    @media (max-width: 899px) {
       .contact-wrapper { padding: 3rem 0; }
+      
+      .contact-header {
+        align-items: center !important;
+        text-align: center !important;
+      }
+      .contact-header h2, 
+      .contact-header p {
+        text-align: center !important;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
       .contact-layout { 
-        grid-template-columns: 1fr; 
-        gap: 2rem; 
-        padding: 0 1.5rem; 
+        display: flex !important; 
+        flex-direction: column !important; 
+        gap: 3.5rem !important; 
+        padding: 0 1.5rem;
       }
-      /* Fix for uncropped image on mobile */
-      .contact-image-container { 
-        min-height: unset; /* Remove the 250px restriction */
-        position: static; 
+
+      .contact-image-container {
+        height: auto !important;
+        min-height: unset !important;
+        position: relative !important;
+        display: flex !important;
+        justify-content: center !important;
+        width: 100%;
       }
-      .contact-image-container img { 
-        height: auto; 
-        position: static; 
+      .contact-image-container img {
+        position: relative !important;
+        width: 100% !important;
+        max-width: 320px !important; 
+        height: auto !important;
+        object-fit: contain !important; 
       }
+      
       .contact-form-container { padding: 2rem 1.5rem; }
       .new-contact-form .form-row { flex-direction: column; gap: 1.5rem; }
       .btn-submit-pill { width: 100%; justify-content: center; }
     }
+
     /* --- BACK TO TOP BUTTON --- */
-.back-to-top { 
-    position: fixed; 
-    bottom: 20px; 
-    right: 20px; 
-    width: 48px; 
-    height: 48px; 
-    border-radius: 50%; 
-    background: var(--text-main); 
-    color: #fff; 
-    border: none; 
-    font-size: 1.2rem; 
-    opacity: 0; 
-    visibility: hidden; 
-    transform: translateY(20px); 
-    transition: var(--transition); 
-    z-index: 1000; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
-    cursor: pointer; 
-}
-.back-to-top.show { 
-    opacity: 1; 
-    visibility: visible; 
-    transform: translateY(0); 
-}
+    .back-to-top { 
+        position: fixed; 
+        bottom: 20px; 
+        right: 20px; 
+        width: 48px; 
+        height: 48px; 
+        border-radius: 50%; 
+        background: var(--text-main); 
+        color: #fff; 
+        border: none; 
+        font-size: 1.2rem; 
+        opacity: 0; 
+        visibility: hidden; 
+        transform: translateY(20px); 
+        transition: var(--transition); 
+        z-index: 1000; 
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+        cursor: pointer; 
+    }
+    .back-to-top.show { 
+        opacity: 1; 
+        visibility: visible; 
+        transform: translateY(0); 
+    }
   </style>
 </head>
 
@@ -606,7 +647,7 @@ header {
             </ul>
           </div>
 
-       
+        
 
         </div>
       </div>
