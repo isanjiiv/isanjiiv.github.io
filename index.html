@@ -560,7 +560,17 @@
       .hamburger { display: none; }
       .nav-menu { display: flex; flex: 2; justify-content: center; gap: 2.5rem; }
 
-      .hero-split { flex-direction: row; text-align: left; padding-top: 80px; align-items: center; min-height: 85vh; display: grid; grid-template-columns: 1.2fr 0.8fr; }
+      /* Desktop par Hero section ka upar aur niche ka gap kam karne ke liye */
+      .hero-split { 
+        flex-direction: row; 
+        text-align: left; 
+        padding-top: 130px; /* Header ke theek niche thodi jagah chhodne ke liye */
+        padding-bottom: 20px; /* Niche ka faltu gap khatam karne ke liye */
+        align-items: center; 
+        min-height: auto; /* <--- Ye 85vh hata kar auto karne se fix hoga */
+        display: grid; 
+        grid-template-columns: 1.2fr 0.8fr; 
+      }
       /* The new, smaller size for the hero image */
       .hero-image-col { order: 2; height: 500px; max-width: 400px; aspect-ratio: auto; }
       .hero-text-col { align-items: flex-start; padding-right: 2rem; }
