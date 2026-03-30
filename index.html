@@ -314,9 +314,8 @@
     .card-horizontal-text { color: var(--text-main); font-size: 1rem; line-height: 1.6; }
 
     /* Skills */
-  /* Skills */
-.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding-top: 1rem; justify-items: center; }
-.skill-icon-wrapper { width: 100%; max-width: 100px; display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding-top: 1rem; justify-items: center; }
+    .skill-icon-wrapper { width: 100%; max-width: 100px; display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
     .skill-animated-icon { width: 50px; height: 50px; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08)); }
     .skill-icon-title { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; text-align: center; }
 
@@ -398,12 +397,56 @@
     .exp-bullets li { position: relative; padding-left: 20px; font-size: 0.95rem; line-height: 1.6; margin-bottom: 8px; color: var(--text-muted); }
     .exp-bullets li::before { content: ''; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border-radius: 50%; background: var(--text-main); }
 
-    /* Contact */
-    .contact-layout
-    .contact-image-container { min-height: 250px; border-radius: var(--radius-md); overflow: hidden; position: relative;}
-    .contact-image-container img { position: absolute; top:0; left:0; width: 100%; height: 100%; object-fit: cover; }
+    /* --- CONTACT SECTION (CLEAN MOBILE CSS) --- */
+    .contact-wrapper { width: 100%; }
+    .contact-header { 
+      text-align: center; 
+      margin-bottom: clamp(2rem, 5vw, 3.5rem); 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      width: 100%;
+    }
+    .contact-header h2 { 
+      font-size: clamp(2.2rem, 5vw, 3rem); 
+      margin-bottom: 0.5rem; 
+      font-weight: 600; 
+      letter-spacing: -1px; 
+      color: var(--text-main); 
+      text-align: center;
+    }
+    .contact-header p { 
+      color: var(--text-muted); 
+      font-size: 1.05rem; 
+      max-width: 600px;
+      margin: 0 auto; /* Centers text on mobile */
+      text-align: center;
+    }
     
-    .contact-form-container { background: var(--bg-alt); border-radius: var(--radius-md); padding: clamp(1.5rem, 5vw, 3rem); border: 1px solid var(--border-color); box-shadow: 0 10px 40px rgba(0,0,0,0.04); }
+    .contact-layout { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 3rem; 
+      align-items: center;
+    }
+    
+    .contact-image-container { 
+      width: 100%; 
+      max-width: 380px; /* Limits size on mobile */
+      position: relative; 
+      border-radius: var(--radius-md); 
+      overflow: hidden; 
+      display: flex;
+      justify-content: center;
+    }
+    .contact-image-container img { 
+      width: 100%; 
+      height: auto; /* Image will show naturally without crop */
+      object-fit: contain; 
+      border-radius: var(--radius-md);
+    }
+    
+    .contact-form-container { width: 100%; background: var(--bg-alt); border-radius: var(--radius-md); padding: clamp(1.5rem, 5vw, 3rem); border: 1px solid var(--border-color); box-shadow: 0 10px 40px rgba(0,0,0,0.04); }
     .new-contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
     .new-contact-form .form-row { display: flex; flex-direction: column; gap: 1.5rem; }
     .new-contact-form .form-group { display: flex; flex-direction: column; gap: 8px; }
@@ -476,6 +519,14 @@
     /* Custom Cursor */
     #blend-cursor { display: none; }
 
+    /* --- About Section Buttons --- */
+    .about-btn-group {
+      flex-direction: row;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 2rem;
+    }
+
 
     /* =========================================================
        MEDIA QUERIES (Progressive Enhancement)
@@ -493,7 +544,16 @@
       .cert-link { font-size: 0.8rem; }
       
       .skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem; }
-      /* ... baki code waisa hi rahega ... */
+      .skill-icon-wrapper { width: 120px; max-width: none; }
+      .skill-animated-icon { width: 60px; height: 60px; }
+      
+      .new-contact-form .form-row { flex-direction: row; }
+      .new-contact-form .form-group { flex: 1; }
+      .btn-submit-pill { width: auto; align-self: flex-start; }
+      
+      .btn-group { flex-direction: row; justify-content: center; width: auto; }
+      .btn-pill { width: auto; }
+    }
 
     /* Small Desktop / Large Tablet */
     @media (min-width: 900px) {
@@ -502,10 +562,11 @@
 
       .hero-split { flex-direction: row; text-align: left; padding-top: 80px; align-items: center; min-height: 85vh; display: grid; grid-template-columns: 1.2fr 0.8fr; }
       /* The new, smaller size for the hero image */
-.hero-image-col { order: 2; height: 500px; max-width: 400px; aspect-ratio: auto; }
+      .hero-image-col { order: 2; height: 500px; max-width: 400px; aspect-ratio: auto; }
       .hero-text-col { align-items: flex-start; padding-right: 2rem; }
       .hero-subtitle { justify-content: flex-start; }
       .hero-desc { margin: 0 0 2.5rem 0; max-width: 500px; }
+      
       /* Sirf Desktop ke liye: Button auto size aur icons ek line me */
       .btn-group { 
         flex-direction: row; 
@@ -527,8 +588,28 @@
       .exp-header { flex-direction: row; justify-content: space-between; align-items: flex-start; }
       .exp-date { align-self: center; }
 
-      .contact-layout { display: grid; grid-template-columns: 0.8fr 1.2fr; align-items: stretch; max-width: 1050px; margin: 0 auto; }
-      .contact-image-container { min-height: 400px; }
+      .about-btn-group { justify-content: flex-start; }
+
+      /* Desktop par image aur form ke beech gap ke liye */
+      .contact-layout { 
+        display: grid; 
+        grid-template-columns: 0.8fr 1.2fr; 
+        align-items: stretch; 
+        max-width: 1300px; 
+        margin: 0 auto; 
+        gap: 4rem; /* <-- Ye spacing image aur form ko alag karegi */
+      }
+      .contact-image-container { 
+        max-width: 100%; /* Reset max-width for desktop */
+        min-height: 400px; 
+      }
+      .contact-image-container img { 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        height: 100%; /* Stretch to fill desktop left column */
+        object-fit: cover; 
+      }
       
       /* Desktop par exactly 4 cards per row aur bada size */
       .cert-grid { 
@@ -557,51 +638,7 @@
       }
       #blend-cursor.hovering { width: 45px; height: 45px; background-color: rgba(34, 34, 34, 0.1); border: 1px solid rgba(34, 34, 34, 0.3); }
     }
-    /* --- CONTACT HEADER FIX --- */
-    .contact-header { 
-      text-align: center; 
-      margin-bottom: clamp(2rem, 5vw, 3.5rem); 
-      display: flex; 
-      flex-direction: column; 
-      align-items: center; 
-      width: 100%;
-    }
-    .contact-header h2 { 
-      font-size: clamp(2.2rem, 5vw, 3rem); 
-      margin-bottom: 0.5rem; 
-      font-weight: 600; 
-      letter-spacing: -1px; 
-      color: var(--text-main); 
-    }
-    .contact-header p { 
-      color: var(--text-muted); 
-      font-size: 1.05rem; 
-      max-width: 600px;
-    }
-    /* --- MOBILE CONTACT IMAGE FIX --- */
-    @media (max-width: 899px) {
-      .contact-image-container {
-        min-height: unset;
-        position: static;
-      }
-      .contact-image-container img {
-        position: static;
-        height: auto;
-      }
-    }
-    /* --- About Section Buttons --- */
-    .about-btn-group {
-      flex-direction: row;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 2rem;
-    }
-    
-    @media (min-width: 900px) {
-      .about-btn-group {
-        justify-content: flex-start; /* Keeps it left-aligned on desktop */
-      }
-    }
+
   </style>
 </head>
 
@@ -984,7 +1021,6 @@
           
           <div class="contact-image-container">
             <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-It-engineer.png" alt="Sanjeev Kumar" loading="lazy">
-          
           </div>
           
           <div class="contact-form-container">
@@ -1419,7 +1455,7 @@
 
   <footer class="footer-bottom fade-up container" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; padding: 1rem 0 2rem;">
     <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-     
+      
       <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
       <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
       <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
