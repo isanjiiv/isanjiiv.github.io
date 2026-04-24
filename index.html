@@ -61,14 +61,7 @@
         "worksFor": {
           "@type": "Organization",
           "name": "Grain Milling Solutions Pvt Ltd"
-        },
-        "sameAs": [
-          "https://www.linkedin.com/in/isanjiiv/",
-          "https://github.com/isanjiiv",
-          "https://www.instagram.com/isanjiiv/",
-          "https://www.youtube.com/@isanjiiv/",
-          "https://x.com/isanjiiv"
-        ]
+        }
       },
       {
         "@type": "ProfilePage",
@@ -459,8 +452,8 @@
     /* Page Views (Project details) */
     .page-view { display: none; padding-top: 100px; padding-bottom: 60px; }
     .page-view.active { display: block; }
-    .project-banner-img { border-radius: var(--radius-lg); margin-bottom: 2rem; aspect-ratio: 16/9; width: 100%; object-fit: cover; }
-    .project-detail-card { padding: clamp(1.5rem, 5vw, 4rem); background: var(--bg-alt); border-radius: var(--radius-lg); border: 1px solid var(--border-color); }
+    .project-banner-img { border-radius: var(--radius-lg); margin: 0 auto 2rem; width: 100%; max-height: 400px; object-fit: cover; }
+    .project-detail-card { padding: 2rem 0; background: transparent; border: none; border-radius: 0; }
     .project-title { font-size: clamp(1.8rem, 6vw, 3rem); margin-bottom: 1rem; line-height: 1.2; }
     
     .detail-block { margin-bottom: 2.5rem; }
@@ -670,7 +663,7 @@
     </nav>
     
     <div class="header-right">
-       
+        
         <button class="hamburger" id="hamburger" aria-label="Toggle Navigation">
             <i class="fa-solid fa-bars"></i>
         </button>
@@ -826,14 +819,13 @@
       </section>
 
       <section id="projects" class="container projects-section">
-      <div class="section-header fade-up">
+        <div class="section-header fade-up">
           <span class="tag-label">My Portfolio</span>
           <h2>Featured Projects</h2>
           
           <div class="scroll-hint">
             <i class="fa-solid fa-computer-mouse"></i> Scroll to explore <i class="fa-solid fa-arrow-right-long"></i>
           </div>
-          
         </div>
 
         <div class="expertise-grid">
@@ -879,6 +871,17 @@
             <div class="skill-card-bottom">
               <h3>GMS Website Redesign</h3>
               <p>WordPress • HTML/CSS • In-House Management</p>
+            </div>
+          </div>
+
+          <div class="skill-card fade-up" style="transition-delay: 0.4s;" onclick="event.preventDefault(); showProjectView('project-5')">
+            <img src="https://images.unsplash.com/photo-1614332287897-cdc485fa562d?q=80&w=800&auto=format&fit=crop" alt="ToolForPDF Web App">
+            <div class="skill-card-top">
+              <button class="btn-circle light" style="width: 40px; height: 40px; font-size: 0.9rem;"><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></button>
+            </div>
+            <div class="skill-card-bottom">
+              <h3>ToolForPDF Utility</h3>
+              <p>Web App • Utility • Modern UI</p>
             </div>
           </div>
 
@@ -1459,6 +1462,56 @@
         </div>
       </div>
     </div>
+    
+    <div id="project-5" class="page-view container">
+      <a href="#projects" class="btn-pill" onclick="event.preventDefault(); showHomeViewAndScroll('projects')" style="width: max-content; margin-top: 10px; margin-bottom: 2rem; position: relative; z-index: 10;">
+        <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Projects
+      </a>
+      <div class="project-banner-wrapper">
+        <img src="https://images.unsplash.com/photo-1614332287897-cdc485fa562d?q=80&w=2000&auto=format&fit=crop" alt="ToolForPDF Banner" class="project-banner-img" loading="lazy">
+      </div>
+      
+      <div class="project-detail-card">
+        <h1 class="project-title">ToolForPDF – Free Web-Based PDF Utility</h1>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom: 3rem;">
+            <span class="tech-tag" style="background: #f0f0f0; padding: 5px 12px; border-radius: 50px; font-size: 0.85rem;">React</span>
+            <span class="tech-tag" style="background: #f0f0f0; padding: 5px 12px; border-radius: 50px; font-size: 0.85rem;">Frontend Development</span>
+            <span class="tech-tag" style="background: #f0f0f0; padding: 5px 12px; border-radius: 50px; font-size: 0.85rem;">Web App</span>
+            <span class="tech-tag" style="background: #f0f0f0; padding: 5px 12px; border-radius: 50px; font-size: 0.85rem;">UI/UX</span>
+        </div>
+
+        <div class="detail-block">
+          <h3>Overview</h3>
+          <p>Designed and developed a comprehensive, completely free web application to simplify everyday PDF management. I built this tool to provide users with a fast, seamless, and cost-free alternative for handling PDF files without the hassle of paywalls or intrusive advertisements.</p>
+        </div>
+
+        <div class="detail-block">
+          <h3>Key Features</h3>
+          <ul>
+              <li><strong>100% Free & Accessible:</strong> Built from the ground up to be a completely free resource for the community, ensuring high-quality PDF tools are accessible to everyone.</li>
+              <li><strong>Modern UI/UX:</strong> Features a clean, minimalist interface optimized for both desktop and mobile devices, ensuring an intuitive user experience.</li>
+              <li><strong>Client-Side Processing:</strong> Engineered to process files securely in the browser, reducing server load and ensuring user data privacy.</li>
+          </ul>
+        </div>
+
+        <div class="detail-block">
+          <h3>Live App Preview</h3>
+          <p>Click the button below to load and explore the ToolForPDF application directly inside this portfolio.</p>
+          <button class="btn-pill" onclick="loadP5Website('https://toolforpdf.lovable.app/', 'ToolForPDF Utility')" style="width: auto;">Load Live App <i class="fa-solid fa-eye" style="margin-left:5px;"></i></button>
+
+          <div id="previewBox-p5" class="app-preview-box" style="margin-top: 30px;">
+            <div class="app-preview-header">
+              <strong id="previewTitle-p5" style="font-weight: 500; font-size: 1.1rem;">App Preview</strong>
+              <div style="display:flex; gap:10px;">
+                <a id="openFullBtn-p5" href="https://toolforpdf.lovable.app/" target="_blank" rel="noopener noreferrer" style="color:var(--text-main); font-size:0.9rem; font-weight:600; display:flex; align-items:center; gap:5px; text-decoration:none;">Open Full <i class="fa-solid fa-external-link-alt"></i></a>
+                <button style="background:transparent; border:none; font-size:1.2rem; cursor:pointer;" aria-label="Close Preview" onclick="closeP5Website()">×</button>
+              </div>
+            </div>
+            <iframe id="appFrame-p5" src="" class="app-iframe" style="filter:none;" title="ToolForPDF Live Preview"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer class="footer-bottom fade-up container" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; padding: 1rem 0 2rem;">
@@ -1578,6 +1631,26 @@
         previewBox.style.display = "none";
     }
 
+    function loadP5Website(url, title) {
+        const previewBox = document.getElementById("previewBox-p5");
+        const frame = document.getElementById("appFrame-p5");
+        const previewTitle = document.getElementById("previewTitle-p5");
+        const fullBtn = document.getElementById("openFullBtn-p5");
+
+        previewTitle.innerText = title + " - Live Preview";
+        previewBox.style.display = "block";
+        frame.src = url;
+        fullBtn.href = url;
+        
+        setTimeout(() => { previewBox.scrollIntoView({ behavior: "smooth", block: "start" }); }, 100);
+    }
+    function closeP5Website() {
+        const previewBox = document.getElementById("previewBox-p5");
+        const frame = document.getElementById("appFrame-p5");
+        frame.src = "";
+        previewBox.style.display = "none";
+    }
+
     // 3. INITIALIZATION
     document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('popstate', function(event) {
@@ -1639,8 +1712,7 @@
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
         // Typing effect
-        const texts = [
-  "IT Engineer","System Admin","Network Engineer","Cloud Engineer","Windows Server","Technical Support"];
+        const texts = ["IT Engineer","System Admin","Network Engineer","Cloud Engineer","Windows Server","Technical Support"];
         let count = 0; let index = 0; let currentText = ""; let letter = "";
         (function type() {
             if (count === texts.length) { count = 0; }
@@ -1758,7 +1830,7 @@
                 }
             });
         }
-    }); // <--- THIS IS THE FIX. The brackets and parenthesis match now!
+    });
 
     // 4. LIGHTBOX LOGIC
     let currentImageIndex = 0;
@@ -1847,6 +1919,6 @@
             }
         });
     }
-  </script>
+ </script>
 </body>
 </html>
