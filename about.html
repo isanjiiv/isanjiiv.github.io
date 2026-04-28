@@ -101,7 +101,7 @@
       --radius-lg: 32px;
       --radius-xl: 40px;
       
-      --container: 1500px; /* <--- Updated to match Main Page Width */
+      --container: 1500px; 
       --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
@@ -179,7 +179,7 @@ header {
     .brand { flex: 1; display: flex; align-items: center; position: relative; z-index: 1001; }
     .brand img { height: 32px; width: 33px; }
     
-    .nav-menu { display: none; } /* Hidden on mobile */
+    .nav-menu { display: none; } 
     .header-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; }
     
     .hamburger {
@@ -219,7 +219,7 @@ header {
       align-items: flex-start; width: 100%; padding-bottom: 9rem;
     }
     .hero-title {
-  font-size: 3.5rem; /* Adjust this number up or down manually */
+  font-size: 3.5rem; 
   line-height: 1.1; 
   font-weight: 300;
   color: #ffffff; 
@@ -388,7 +388,7 @@ header {
       .hamburger { display: none; }
       .nav-menu { display: flex; flex: 2; justify-content: center; gap: 2.5rem; }
       
-      .hero-card { padding: 6rem 4rem 4rem 4rem; height: auto; min-height: auto; } /* <-- Gap fixed here */
+      .hero-card { padding: 6rem 4rem 4rem 4rem; height: auto; min-height: auto; }
       .hero-content { flex-direction: row; justify-content: space-between; align-items: flex-end; padding-bottom: 6rem;}
       .hero-desc { text-align: right; margin-top: 0; margin-bottom: 1rem; max-width: 320px; }
       .hero-bottom-bar { flex-direction: row; align-items: center; left: 4rem; right: 4rem; bottom: 2rem;}
@@ -406,14 +406,13 @@ header {
       .expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
       .skill-card { height: 420px; }
 
-      /* Desktop Contact Fixes (Gap & Image Stretch) */
       .contact-layout { 
         display: grid; 
         grid-template-columns: 0.8fr 1.2fr; 
         align-items: stretch; 
-        max-width: 1300px; /* Matched to main page */
+        max-width: 1300px; 
         margin: 0 auto; 
-        gap: 4rem; /* Proper spacing */
+        gap: 4rem; 
       }
       .contact-image-container { 
         min-height: 400px; 
@@ -434,7 +433,7 @@ header {
       .container { padding-inline: 2rem; }
     }
     
-    /* --- MOBILE CONTACT SECTION FIX (Heading Center & Full Image) --- */
+    /* --- MOBILE CONTACT SECTION FIX --- */
     @media (max-width: 899px) {
       .contact-wrapper { padding: 3rem 0; }
       
@@ -566,7 +565,7 @@ header {
         </div>
 
         <div class="card-vertical fade-up" style="transition-delay: 0.2s;">
-          <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-noida.png" alt="Sanjeev Kumar in Noida">
+          <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-noida.png" alt="Portrait of Sanjeev Kumar, IT Professional located in Noida">
           <div class="card-vertical-content">
             <h3>Sanjeev Kumar <br><span style="font-size: 0.9rem; opacity: 0.8;">Noida, India</span></h3>
             <button class="btn-circle light" style="width: 40px; height: 40px; font-size: 0.9rem;"><i class="fa-solid fa-location-dot"></i></button>
@@ -576,7 +575,7 @@ header {
         <div class="card-horizontal-wrapper fade-up" style="transition-delay: 0.4s;">
           <div class="card-horizontal">
             <div class="floating-tag">Infrastructure Path</div>
-            <img src="https://isanjiiv.github.io/assets/images/sanjeev-it-engineer.png" alt="Fortinet SD-WAN Network Architecture">
+            <img src="https://isanjiiv.github.io/assets/images/sanjeev-it-engineer.png" alt="Fortinet SD-WAN Network Architecture setup by Sanjeev Kumar">
           </div>
           <p class="card-horizontal-text">Dedicated to mastering the tools that keep modern businesses secure, operational, and ready for future scaling with minimal disruptions.</p>
         </div>
@@ -630,6 +629,7 @@ header {
         </div>
       </div>
     </section>
+    
     <section class="expertise-section">
       <div class="section-header-split fade-up">
         <div>
@@ -645,7 +645,7 @@ header {
       <div class="expertise-grid">
         
         <div class="skill-card fade-up">
-          <img src="https://digitalkeysbox.com/wp-content/uploads/2026/01/microsoft-windows-server-2022-standard.png" alt="Windows Server and Active Directory">
+          <img src="https://isanjiiv.github.io/assets/images/windows-Server-2022.png" alt="Windows Server 2022 and Enterprise Active Directory Configuration" loading="lazy">
           <div class="skill-card-top">
             <a href="index.html#project-1" class="btn-circle light" style="width: 35px; height: 35px; font-size: 0.8rem;"><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></a>
           </div>
@@ -656,7 +656,7 @@ header {
         </div>
 
         <div class="skill-card fade-up" style="transition-delay: 0.2s;">
-          <img src="https://eleven-public-cdn.elevenlabs.io/payloadcms/4uxfvugz1r7-Lovable%20-%201_1.webp" alt="Lovable AI App Interface">
+          <img src="https://isanjiiv.github.io/assets/images/lovable.png" alt="Lovable AI Cost Sheet Builder Application Interface" loading="lazy">
           <div class="skill-card-top">
             <a href="index.html#project-3" class="btn-circle light" style="width: 35px; height: 35px; font-size: 0.8rem;"><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></a>
           </div>
@@ -667,7 +667,7 @@ header {
         </div>
         
         <div class="skill-card fade-up" style="transition-delay: 0.2s;">
-          <img src="https://www.mistersito.com/wp-content/uploads/2024/03/Che-cosa-si-puo-fare-con-WordPress.jpg" alt="Website Redesign Project">
+          <img src="https://isanjiiv.github.io/assets/images/wordpress-banner.png" alt="Grain Milling Solutions WordPress Website Redesign Project" loading="lazy">
           <div class="skill-card-top">
             <a href="index.html#project-4" class="btn-circle light" style="width: 35px; height: 35px; font-size: 0.8rem;"><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></a>
           </div>
@@ -696,7 +696,7 @@ header {
         </div>
 
         <div class="card-vertical fade-up" style="transition-delay: 0.2s;">
-          <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-workspace.png" alt="Sanjeev Kumar at his desk managing enterprise IT infrastructure and AD servers" title="Sanjeev Kumar IT Infrastructure Workspace" loading="lazy">
+          <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-workspace.png" alt="Sanjeev Kumar IT Infrastructure Specialist managing enterprise server logs and AD networks" title="Sanjeev Kumar IT Infrastructure Workspace" loading="lazy">
           <div class="card-vertical-content">
             <h3>Delivering Value <br><span style="font-size: 0.9rem; opacity: 0.8;">Long-term Solutions</span></h3>
           </div>
@@ -704,7 +704,7 @@ header {
 
         <div class="card-horizontal-wrapper fade-up" style="transition-delay: 0.4s;">
           <div class="card-horizontal">
-            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-network-admin.png" alt="Sanjeev Kumar - IT Engineer and Network Admin sitting at office desk" title="Sanjeev Kumar Network Admin" loading="lazy">
+            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-network-admin.png" alt="Sanjeev Kumar Network Administrator optimizing cloud infrastructure and AWS servers" title="Sanjeev Kumar Network Admin" loading="lazy">
           </div>
           <p class="card-horizontal-text">Organizations choose me for a security-focused mindset, professional communication, and reliable troubleshooting skills. My goal is always to make technology simple and reliable.</p>
         </div>
@@ -723,7 +723,7 @@ header {
     <div class="contact-layout fade-up">
       
       <div class="contact-image-container">
-        <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-It-engineer.png" alt="Sanjeev Kumar" loading="lazy">
+        <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-It-engineer.png" alt="Sanjeev Kumar IT Consultant ready to collaborate on network and server projects" loading="lazy">
       </div>
       
       <div class="contact-form-container">
