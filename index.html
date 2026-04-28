@@ -115,7 +115,7 @@
       --radius-md: 24px; 
       --radius-lg: 32px;
       --radius-xl: 40px;
-      --container: 1500px; /* <--- Ye sabhi sections ko wide kar dega */
+      --container: 1500px; 
       --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
     /* --- 2. GLOBAL RESET & BASE (Mobile First) --- */
@@ -154,10 +154,10 @@
     /* --- TYPING EFFECT CURSOR --- */
    .typing-container { 
       position: relative; 
-      white-space: normal; /* Isse agar text bada hua to screen se bahar katne ki bajaye niche wali line me aayega */
+      white-space: normal; 
       font-weight: 600; 
       color: var(--text-main); 
-      font-size: clamp(1.6rem, 5vw, 3.2rem); /* Ye typing text ko alag se auto-adjust karega */
+      font-size: clamp(1.6rem, 5vw, 3.2rem); 
       display: inline-block;
     }
     .typing-container::after {
@@ -207,7 +207,7 @@
 
     .section-header { margin-bottom: clamp(2rem, 5vw, 3.5rem); text-align: center; display: flex; flex-direction: column; align-items: center; }
     .section-header h2 { font-size: clamp(2rem, 6vw, 3.2rem); font-weight: 500; letter-spacing: -1px; line-height: 1.1; }
-    /* --- Scroll Hint Animation --- */
+    
     /* --- Scroll Hint (Static) --- */
     .scroll-hint {
       display: flex;
@@ -228,7 +228,7 @@
       50% { transform: translateX(5px); opacity: 1; }
     }
 
-    /* --- 4. HEADER (Fixed specificities for overlapping logo & button) --- */
+    /* --- 4. HEADER --- */
     #main-header {
       display: flex; justify-content: space-between; align-items: center; 
       padding-top: 1rem; padding-bottom: 1rem;
@@ -243,7 +243,7 @@
     .brand { flex: 1; display: flex; align-items: center; position: relative; z-index: 1010; }
     .brand img { height: 32px; width: 33px; }
     
-    .nav-menu { display: none; } /* Hidden on mobile */
+    .nav-menu { display: none; } 
     .header-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 10px; position: relative; z-index: 1010; }
     
     .hamburger {
@@ -265,13 +265,13 @@
     }
     .mobile-menu a:hover, .mobile-menu a.active { color: var(--text-muted); background: transparent; }
 
-    /* --- 5. SECTIONS BASE LAYOUT (Mobile First) --- */
+    /* --- 5. SECTIONS BASE LAYOUT --- */
     section { padding: clamp(4rem, 10vw, 6rem) 0; }
 
    /* Hero */
     .hero-split {
       display: flex; flex-direction: column; gap: 2.5rem; align-items: center; text-align: center;
-      padding-top: 90px; /* Gap badhane ke liye isko 90px kiya gaya hai */
+      padding-top: 90px; 
       min-height: auto;
     }
     .hero-text-col { display: flex; flex-direction: column; align-items: center; width: 100%; }
@@ -282,7 +282,7 @@
     }
     .hero-badge i { font-size: 6px; color: #00c875; }
     .hero-title { 
-      font-size: clamp(1.8rem, 6vw, 3.5rem); /* Mobile pe 1.8rem, Desktop pe 3.5rem (Auto Adjust) */
+      font-size: clamp(1.8rem, 6vw, 3.5rem); 
       line-height: 1.3; 
       font-weight: 300; 
       letter-spacing: -1px; 
@@ -332,7 +332,6 @@
       padding-bottom: 1.5rem; 
       -ms-overflow-style: none; 
       scrollbar-width: none; 
-      /* Removed scroll-snap and smooth behavior here */
     }
     
     .expertise-grid::-webkit-scrollbar {
@@ -343,23 +342,23 @@
       position: relative; 
       border-radius: var(--radius-md); 
       overflow: hidden; 
-      height: 260px; /* Made smaller for mobile */
-      flex: 0 0 80%; /* Slightly narrower */
+      height: 260px; 
+      flex: 0 0 80%; 
       display: flex; 
       flex-direction: column; 
       justify-content: space-between; 
-      padding: 1.2rem; /* Tighter padding for mobile */
+      padding: 1.2rem; 
       transition: var(--transition);
       cursor: pointer;
     }
    @media (min-width: 600px) { 
       .skill-card { 
-        height: 350px; /* Restore original height */
+        height: 350px; 
         flex: 0 0 calc(50% - 0.75rem); 
-        padding: 1.5rem; /* Restore original padding */
+        padding: 1.5rem; 
       }
-      .skill-card-bottom h3 { font-size: 1.6rem; } /* Restore font size */
-      .skill-card-bottom p { font-size: 1rem; } /* Restore font size */
+      .skill-card-bottom h3 { font-size: 1.6rem; } 
+      .skill-card-bottom p { font-size: 1rem; } 
     }
     
     @media (min-width: 900px) { 
@@ -397,7 +396,7 @@
     .exp-bullets li { position: relative; padding-left: 20px; font-size: 0.95rem; line-height: 1.6; margin-bottom: 8px; color: var(--text-muted); }
     .exp-bullets li::before { content: ''; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border-radius: 50%; background: var(--text-main); }
 
-    /* --- CONTACT SECTION (CLEAN MOBILE CSS) --- */
+    /* --- CONTACT SECTION --- */
     .contact-wrapper { width: 100%; }
     .contact-header { 
       text-align: center; 
@@ -419,7 +418,7 @@
       color: var(--text-muted); 
       font-size: 1.05rem; 
       max-width: 600px;
-      margin: 0 auto; /* Centers text on mobile */
+      margin: 0 auto; 
       text-align: center;
     }
     
@@ -432,7 +431,7 @@
     
     .contact-image-container { 
       width: 100%; 
-      max-width: 380px; /* Limits size on mobile */
+      max-width: 380px; 
       position: relative; 
       border-radius: var(--radius-md); 
       overflow: hidden; 
@@ -441,7 +440,7 @@
     }
     .contact-image-container img { 
       width: 100%; 
-      height: auto; /* Image will show naturally without crop */
+      height: auto; 
       object-fit: contain; 
       border-radius: var(--radius-md);
     }
@@ -535,8 +534,6 @@
    /* Tablet Styles */
     @media (min-width: 600px) {
       .cert-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-      
-      /* Desktop ke liye cert cards ko wapas bada karein */
       .cert-card { padding: 1.5rem 1rem; border-radius: var(--radius-md); }
       .cert-img { height: 35px; margin-bottom: 1rem; }
       .cert-card h3 { font-size: 0.95rem; margin-bottom: 0.5rem; }
@@ -560,32 +557,29 @@
       .hamburger { display: none; }
       .nav-menu { display: flex; flex: 2; justify-content: center; gap: 2.5rem; }
 
-      /* Desktop par Hero section ka upar aur niche ka gap kam karne ke liye */
       .hero-split { 
         flex-direction: row; 
         text-align: left; 
-        padding-top: 130px; /* Header ke theek niche thodi jagah chhodne ke liye */
-        padding-bottom: 20px; /* Niche ka faltu gap khatam karne ke liye */
+        padding-top: 130px; 
+        padding-bottom: 20px; 
         align-items: center; 
-        min-height: auto; /* <--- Ye 85vh hata kar auto karne se fix hoga */
+        min-height: auto; 
         display: grid; 
         grid-template-columns: 1.2fr 0.8fr; 
       }
-      /* The new, smaller size for the hero image */
       .hero-image-col { order: 2; height: 500px; max-width: 400px; aspect-ratio: auto; }
       .hero-text-col { align-items: flex-start; padding-right: 2rem; }
       .hero-subtitle { justify-content: flex-start; }
       .hero-desc { margin: 0 0 2.5rem 0; max-width: 500px; }
       
-      /* Sirf Desktop ke liye: Button auto size aur icons ek line me */
       .btn-group { 
         flex-direction: row; 
         justify-content: flex-start; 
         align-items: center; 
       }
       .btn-group .btn-pill { 
-        width: max-content; /* Button ko stretch hone se rokega */
-        padding: 14px 32px; /* Button ko perfect shape me rakhega */
+        width: max-content; 
+        padding: 14px 32px; 
       }
 
       .grid-3-col { display: grid; grid-template-columns: 1.2fr 1fr 1fr; text-align: left; }
@@ -600,37 +594,35 @@
 
       .about-btn-group { justify-content: flex-start; }
 
-      /* Desktop par image aur form ke beech gap ke liye */
       .contact-layout { 
         display: grid; 
         grid-template-columns: 0.8fr 1.2fr; 
         align-items: stretch; 
         max-width: 1300px; 
         margin: 0 auto; 
-        gap: 4rem; /* <-- Ye spacing image aur form ko alag karegi */
+        gap: 4rem; 
       }
       .contact-image-container { 
-        max-width: 100%; /* Reset max-width for desktop */
+        max-width: 100%; 
         min-height: 400px; 
       }
       .contact-image-container img { 
         position: absolute; 
         top: 0; 
         left: 0; 
-        height: 100%; /* Stretch to fill desktop left column */
+        height: 100%; 
         object-fit: cover; 
       }
       
-      /* Desktop par exactly 4 cards per row aur bada size */
       .cert-grid { 
         grid-template-columns: repeat(4, 1fr); 
         gap: 2rem; 
       }
       .cert-card {
-        padding: 2rem 1.5rem; /* Cards ko aur bada aur premium dikhane ke liye padding badhayi hai */
+        padding: 2rem 1.5rem; 
       }
       .cert-img {
-        height: 45px; /* Icons ko thoda bada kiya hai */
+        height: 45px; 
         margin-bottom: 1.2rem;
       }
       .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
@@ -720,7 +712,7 @@
         </div>
 
         <div class="hero-image-col fade-up" style="transition-delay: 0.2s;">
-          <img src="https://isanjiiv.github.io/assets/images/sanjeev.jpg" alt="Sanjeev Kumar IT Engineer" loading="lazy">
+          <img src="https://isanjiiv.github.io/assets/images/sanjeev.jpg" alt="Portrait of Sanjeev Kumar, IT Engineer and Cloud Administrator based in Noida" loading="lazy">
         </div>
 
       </section>
@@ -741,15 +733,12 @@
 
             <div class="btn-group about-btn-group">
               <a href="https://isanjiiv.github.io/about.html" class="btn-pill" style="width: auto;">Know more</a>
-              
-              
-              
               <a href="https://isanjiiv.github.io/about.html" class="btn-circle" title="Know More" ><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></a>
             </div>
           </div>
 
           <div class="card-vertical fade-up" style="transition-delay: 0.2s;">
-            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-engineer-noida.jpg" alt="Sanjeev Kumar in Noida">
+            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-engineer-noida.jpg" alt="Sanjeev Kumar managing enterprise IT infrastructure and AD servers">
             <div class="card-vertical-content">
               <h3>Sanjeev Kumar <br><span>Noida, India</span></h3>
               <button class="btn-circle light" style="width: 40px; height: 40px; font-size: 0.9rem;"><i class="fa-solid fa-location-dot"></i></button>
@@ -759,7 +748,7 @@
           <div class="card-horizontal-wrapper fade-up" style="transition-delay: 0.4s;">
             <div class="card-horizontal">
               <div class="floating-tag">Infrastructure Path</div>
-              <img src="https://isanjiiv.github.io/assets/images/sanjeev-it-engineer.png" alt="Fortinet Security Concept">
+              <img src="https://isanjiiv.github.io/assets/images/sanjeev-it-engineer.png" alt="Fortinet 60F SD-WAN Firewall Configuration visualization">
             </div>
             <p class="card-horizontal-text">Dedicated to mastering the tools that keep modern businesses secure, operational, and ready for future scaling with minimal disruptions.</p>
           </div>
@@ -839,7 +828,7 @@
         <div class="expertise-grid">
           
           <div class="skill-card fade-up" onclick="event.preventDefault(); showProjectView('project-1')">
-            <img src="https://isanjiiv.github.io/assets/images/windows-Server-2022.png" alt="Windows Server Active Directory">
+            <img src="https://isanjiiv.github.io/assets/images/windows-Server-2022.png" alt="Windows Server 2022 Active Directory Implementation">
             <div class="skill-card-top">
               <button class="btn-circle light" style="width: 40px; height: 40px; font-size: 0.9rem;"><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></button>
             </div>
@@ -850,7 +839,7 @@
           </div>
 
           <div class="skill-card fade-up" style="transition-delay: 0.1s;" onclick="event.preventDefault(); showProjectView('project-2')">
-            <img src="https://isanjiiv.github.io/assets/images/sd-wan.png" alt="Fortinet SD-WAN Architecture">
+            <img src="https://isanjiiv.github.io/assets/images/sd-wan.png" alt="Fortinet SD-WAN Architecture Diagram">
             <div class="skill-card-top">
               <button class="btn-circle light" style="width: 40px; height: 40px; font-size: 0.9rem;"><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></button>
             </div>
@@ -861,7 +850,7 @@
           </div>
 
           <div class="skill-card fade-up" style="transition-delay: 0.2s;" onclick="event.preventDefault(); showProjectView('project-3')">
-            <img src="https://isanjiiv.github.io/assets/images/lovable.png" alt="Lovable AI Cost Sheet App">
+            <img src="https://isanjiiv.github.io/assets/images/lovable.png" alt="Lovable AI Cost Sheet Application Interface">
             <div class="skill-card-top">
               <button class="btn-circle light" style="width: 40px; height: 40px; font-size: 0.9rem;"><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></button>
             </div>
@@ -872,7 +861,7 @@
           </div>
 
           <div class="skill-card fade-up" style="transition-delay: 0.3s;" onclick="event.preventDefault(); showProjectView('project-4')">
-            <img src="https://isanjiiv.github.io/assets/images/wordpress-banner.png" alt="WordPress Website Redesign">
+            <img src="https://isanjiiv.github.io/assets/images/wordpress-banner.png" alt="Grain Milling Solutions WordPress Website Redesign">
             <div class="skill-card-top">
               <button class="btn-circle light" style="width: 40px; height: 40px; font-size: 0.9rem;"><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></button>
             </div>
@@ -960,7 +949,7 @@
                 <div class="exp-title-area">
                   <h3>IT Engineer</h3>
                   <a href="http://www.gmsdelhi.com" target="_blank" rel="noopener noreferrer" class="exp-company">
-                    <img src="https://gmsdelhi.com/wp-content/uploads/2026/02/cropped-cropped-cropped-cropped-GMS-Pvt-Ltd-300x137.png" alt="Company Logo" style="height: 16px;">
+                    <img src="https://gmsdelhi.com/wp-content/uploads/2026/02/cropped-cropped-cropped-cropped-GMS-Pvt-Ltd-300x137.png" alt="Grain Milling Solutions Pvt Ltd Logo" style="height: 16px;">
                     Grain Milling Solutions Pvt Ltd
                   </a>
                 </div>
@@ -987,7 +976,7 @@
                 <div class="exp-title-area">
                   <h3>Desktop Support Engineer</h3>
                   <a href="http://www.gmsdelhi.com" target="_blank" rel="noopener noreferrer" class="exp-company">
-                    <img src="https://gmsdelhi.com/wp-content/uploads/2026/02/cropped-cropped-cropped-cropped-GMS-Pvt-Ltd-300x137.png" alt="Company Logo" style="height: 16px;">
+                    <img src="https://gmsdelhi.com/wp-content/uploads/2026/02/cropped-cropped-cropped-cropped-GMS-Pvt-Ltd-300x137.png" alt="Grain Milling Solutions Pvt Ltd Logo" style="height: 16px;">
                     Grain Milling Solutions Pvt Ltd
                   </a>
                 </div>
@@ -1028,7 +1017,7 @@
         <div class="contact-layout fade-up">
           
           <div class="contact-image-container">
-            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-It-engineer.png" alt="Sanjeev Kumar" loading="lazy">
+            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-It-engineer.png" alt="Sanjeev Kumar IT Consultant ready for networking projects" loading="lazy">
           </div>
           
           <div class="contact-form-container">
@@ -1099,72 +1088,11 @@
         </div>
 
         <div class="detail-block">
-          <h3>Key Responsibilities & Implementation</h3>
-          
-          <h4>1) Active Directory Domain Services (AD DS) Deployment</h4>
-          <p>Configured Windows Server 2022 as a Domain Controller to provide centralized authentication and access control across the enterprise network.</p>
-          <ul>
-              <li>Installed and configured AD DS and DNS roles.</li>
-              <li>Promoted server to Domain Controller with proper domain/forest setup.</li>
-              <li>Configured DNS zones for internal network resolution.</li>
-              <li>Managed users, computers, and groups via Active Directory Users and Computers (ADUC).</li>
-              <li>Ensured secure domain authentication and connectivity.</li>
-          </ul>
-
-          <h4>2) Department-Wise OU Structure & User Management</h4>
-          <p>Designed a structured Organizational Unit (OU) hierarchy based on departmental segmentation to simplify administration and enable targeted policy enforcement.</p>
-          <ul>
-              <li>Created OUs for departments: Accounts, Costing, CRM, Design, HR, IT, Purchase, Reception, and Management.</li>
-              <li>Implemented role-based access using security groups.</li>
-              <li>Managed user lifecycle (creation, modification, permissions).</li>
-              <li>Delegated administrative control for efficient management.</li>
-          </ul>
-
-          <h4>3) Group Policy (GPO) Implementation</h4>
-          <p>Implemented multiple Group Policy Objects to automate system configuration, enforce security, and standardize user environments.</p>
-          <ul>
-              <li><strong>USB Restriction Policy</strong> to prevent unauthorized data transfer.</li>
-              <li><strong>Drive Mapping Policy</strong> to automatically connect shared network drives.</li>
-              <li><strong>Printer Deployment Policy</strong> for automatic printer setup.</li>
-              <li>Security policies including password enforcement, login restrictions, and system hardening.</li>
-          </ul>
-
-          <h4>4) Shared Folder & Access Control</h4>
-          <p>Configured centralized file storage with secure access control to enable safe and efficient data sharing across departments.</p>
-          <ul>
-              <li>Created shared folders on the server.</li>
-              <li>Applied NTFS and share-level permissions.</li>
-              <li>Integrated access control using Active Directory security groups.</li>
-              <li>Ensured controlled and secure collaboration environment.</li>
-          </ul>
-
-          <h4>5) Backup & Disaster Recovery using Acronis</h4>
-          <p>Implemented a comprehensive backup and disaster recovery solution using Acronis Cyber Protect Cloud.</p>
-          <ul>
-              <li>Configured backup plans for servers and critical data.</li>
-              <li>Scheduled daily incremental backups for efficiency.</li>
-              <li>Enabled cloud backup for redundancy and protection.</li>
-              <li>Tested recovery processes to ensure reliability and readiness.</li>
-          </ul>
-        </div>
-
-        <div class="detail-block">
-          <h3>Key Outcomes</h3>
-          <ul>
-              <li>Centralized user and device management across the organization.</li>
-              <li>Improved security through policy-based controls.</li>
-              <li>Reduced manual IT workload via automation.</li>
-              <li>Enhanced system reliability and operational efficiency.</li>
-              <li>Ensured business continuity with a robust backup and recovery strategy.</li>
-          </ul>
-        </div>
-
-        <div class="detail-block">
           <h3>Project Gallery</h3>
           <div class="gallery-grid">
              <div class="gallery-item" onclick="openLightbox(this)">
                <div class="gallery-img-wrapper">
-                 <img src="https://lh3.googleusercontent.com/d/1ZnGdTn_fKq4QBGefs-shCwvMkk_AyaUn" alt="Windows Server Dashboard Overview" referrerpolicy="no-referrer">
+                 <img src="https://isanjiiv.github.io/assets/images/gallery/server-dashboard.jpg" alt="Screenshot of Centralized Windows Server Dashboard Overview" referrerpolicy="no-referrer">
                  <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
                </div>
                <div class="gallery-details">
@@ -1174,7 +1102,7 @@
              </div>
              <div class="gallery-item" onclick="openLightbox(this)">
                <div class="gallery-img-wrapper">
-                 <img src="https://lh3.googleusercontent.com/d/1inyWgMWxzt5bllljVpYW7ON-ZdinqfQx" alt="Active Directory Setup" referrerpolicy="no-referrer">
+                 <img src="https://isanjiiv.github.io/assets/images/gallery/active-directory-setup.jpg" alt="Screenshot of Active Directory Domain Services Configuration" referrerpolicy="no-referrer">
                  <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
                </div>
                <div class="gallery-details">
@@ -1184,7 +1112,7 @@
              </div>
              <div class="gallery-item" onclick="openLightbox(this)">
                <div class="gallery-img-wrapper">
-                 <img src="https://lh3.googleusercontent.com/d/1aFtsM3ZlIp3sHi2XiGM7P-r0dD9WU84K" alt="Group Policy" referrerpolicy="no-referrer">
+                 <img src="https://isanjiiv.github.io/assets/images/gallery/group-policy.jpg" alt="Screenshot of Group Policy Object Automation interface" referrerpolicy="no-referrer">
                  <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
                </div>
                <div class="gallery-details">
@@ -1194,7 +1122,7 @@
              </div>
              <div class="gallery-item" onclick="openLightbox(this)">
                <div class="gallery-img-wrapper">
-                 <img src="https://lh3.googleusercontent.com/d/12-8dF8_BAoeELIvCiNeY4yyVB6QRQrSP" alt="Acronis Cyber Protect" referrerpolicy="no-referrer">
+                 <img src="https://isanjiiv.github.io/assets/images/gallery/acronis-cyber-protect.jpg" alt="Screenshot of Acronis Cyber Protect Backup and Recovery dashboard" referrerpolicy="no-referrer">
                  <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
                </div>
                <div class="gallery-details">
@@ -1204,7 +1132,7 @@
              </div>
              <div class="gallery-item" onclick="openLightbox(this)">
                <div class="gallery-img-wrapper">
-                 <img src="https://lh3.googleusercontent.com/d/1B8KH3Z7KDHwuOfmhkbYkclC6pkelnnx-" alt="Secure File Sharing" referrerpolicy="no-referrer">
+                 <img src="https://isanjiiv.github.io/assets/images/gallery/secure-file-sharing.jpg" alt="Screenshot of Network Secure File Sharing and NTFS permissions setup" referrerpolicy="no-referrer">
                  <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
                </div>
                <div class="gallery-details">
@@ -1214,7 +1142,7 @@
              </div>
              <div class="gallery-item" onclick="openLightbox(this)">
                <div class="gallery-img-wrapper">
-                 <img src="https://lh3.googleusercontent.com/d/13xGHGpYbyf4CWA4MjzRgMowhMzv5xa6y" alt="Print Management" referrerpolicy="no-referrer">
+                 <img src="https://isanjiiv.github.io/assets/images/gallery/print-management.jpg" alt="Screenshot of Enterprise Print Management configuration" referrerpolicy="no-referrer">
                  <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
                </div>
                <div class="gallery-details">
@@ -1244,25 +1172,11 @@
         </div>
 
         <div class="detail-block">
-          <h3>Overview</h3>
-          <p>Configured and deployed a FortiGate 60F firewall to secure the company network and improve internet reliability. The key focus was implementing SD-WAN to manage two ISP connections (Jio & Spectra) for redundancy and load balancing.</p>
-        </div>
-
-        <div class="detail-block">
-          <h3>Key Implementation Details</h3>
-          <h4>1) SD-WAN Configuration</h4>
-          <p>Integrated multiple ISP links (Jio Fiber and Spectra) into a single logical interface using SD-WAN. Configured rules to route business-critical traffic through the most stable line and enabled automatic failover.</p>
-          <h4>2) Security Policies</h4>
-          <p>Applied strict firewall policies to control traffic flow between internal VLANs and the WAN. Enabled Web Filtering and Application Control to block non-business websites and risky applications.</p>
-        </div>
-
-        <div class="detail-block">
           <h3>Project Gallery</h3>
           <div class="gallery-grid">
-             
              <div class="gallery-item" onclick="openLightbox(this)">
                <div class="gallery-img-wrapper">
-                 <img src="https://lh3.googleusercontent.com/d/1QVqEnZJppA65rfYMtaPojxjoLq7vNTyx" alt="Firewall Dashboard" referrerpolicy="no-referrer">
+                 <img src="https://isanjiiv.github.io/assets/images/gallery/firewall-dashboard.jpg" alt="Screenshot of Fortinet FortiGate 60F Firewall System Dashboard" referrerpolicy="no-referrer">
                  <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
                </div>
                <div class="gallery-details">
@@ -1273,7 +1187,7 @@
              
              <div class="gallery-item" onclick="openLightbox(this)">
                <div class="gallery-img-wrapper">
-                 <img src="https://lh3.googleusercontent.com/d/1_NyX_QxOsGUGIWpUHpRbb-I2vUx9qxOE" alt="Network Interface" referrerpolicy="no-referrer">
+                 <img src="https://isanjiiv.github.io/assets/images/gallery/network-interface.jpg" alt="Screenshot of Fortinet VLAN and Physical Network Interface Configuration" referrerpolicy="no-referrer">
                  <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
                </div>
                <div class="gallery-details">
@@ -1284,7 +1198,7 @@
              
              <div class="gallery-item" onclick="openLightbox(this)">
                <div class="gallery-img-wrapper">
-                 <img src="https://lh3.googleusercontent.com/d/1EXgMCqiT6eZ768wz43MsLkeazpz9giUI" alt="SD-WAN Zone" referrerpolicy="no-referrer">
+                 <img src="https://isanjiiv.github.io/assets/images/gallery/sd-wan-zone.jpg" alt="Screenshot of SD-WAN Zone setup with Jio and Spectra ISP lines" referrerpolicy="no-referrer">
                  <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
                </div>
                <div class="gallery-details">
@@ -1295,7 +1209,7 @@
              
              <div class="gallery-item" onclick="openLightbox(this)">
                <div class="gallery-img-wrapper">
-                 <img src="https://lh3.googleusercontent.com/d/14K94Z7uQAGTlfT8vEZPAOkTeh1codxvP" alt="Security Policies" referrerpolicy="no-referrer">
+                 <img src="https://isanjiiv.github.io/assets/images/gallery/security-policies.jpg" alt="Screenshot of Fortinet IPv4 Security Policies and Traffic Rules" referrerpolicy="no-referrer">
                  <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
                </div>
                <div class="gallery-details">
@@ -1329,17 +1243,10 @@
           <h3>AI Cost Sheet Builder</h3>
           <p>Built a no-code web application at Grain Milling Solutions using Lovable AI to automate cost sheet generation. Integrated secure login, automated calculations, and PDF/Excel export.</p>
           <p><a href="https://item-bill-builder.lovable.app" target="_blank" rel="noopener noreferrer" style="color:var(--text-main); font-weight:600; text-decoration: underline; text-underline-offset: 4px;">Visit Live App <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
-          
-          <h4 style="margin-top: 1rem;">Key Features</h4>
-          <ul>
-              <li><strong>Automated Calculations:</strong> Automatically calculates total costs, taxes (GST), and profit margins.</li>
-              <li><strong>PDF & Excel Export:</strong> Integrated functionality to export the final cost sheet as a professional file.</li>
-          </ul>
         </div>
 
         <div class="detail-block">
             <h3>More Lovable AI Apps</h3>
-            <p>Here are some other applications I created using Lovable AI. Click on View App to preview the project inside this page.</p>
             
             <div class="lovable-grid">
                 <div class="lovable-app-card">
@@ -1393,52 +1300,6 @@
         <div class="detail-block">
           <h3>Overview</h3>
           <p>Successfully transitioned the company’s primary website (<a href="http://www.gmsdelhi.com" target="_blank" style="color:var(--text-main); font-weight:bold;">www.gmsdelhi.com</a>) from a third-party web development agency to a fully in-house managed platform. This initiative involved a complete structural redesign, content overhaul, and ongoing technical management to ensure the digital presence aligned perfectly with the company's brand identity.</p>
-          <p>By taking absolute ownership of the website, I eliminated external dependencies, which drastically reduced operational costs and allowed the company to execute digital updates instantly rather than waiting for vendor turnarounds.</p>
-        </div>
-
-        <div class="detail-block">
-          <h3>Key Responsibilities & Implementation</h3>
-          
-          <h4>1) Complete Website Redesign</h4>
-          <p>Independently redesigned the visual architecture of the website to provide a more modern, clean, and professional user experience.</p>
-          <ul>
-              <li>Revamped page layouts to improve mobile responsiveness and readability.</li>
-              <li>Upgraded brand visuals, typography, and color schemes to match corporate standards.</li>
-              <li>Optimized navigation menus to help visitors find services and products faster.</li>
-          </ul>
-
-          <h4>2) Content Strategy & Restructuring</h4>
-          <p>Developed and deployed a comprehensive content strategy to ensure clear communication of company services.</p>
-          <ul>
-              <li>Rewrote and organized copy across all core pages (Home, About Us, Services, Contact).</li>
-              <li>Structured product and service hierarchies for better user flow.</li>
-              <li>Ensured all technical information regarding company offerings was highly accurate and easily accessible.</li>
-          </ul>
-
-          <h4>3) In-House Technical Management</h4>
-          <p>Replaced the external vendor workflow with a streamlined internal process.</p>
-          <ul>
-              <li>Took full control of backend hosting settings, domain management, and CMS configuration.</li>
-              <li>Implemented regular security checks, plugin updates, and site backups.</li>
-              <li>Saved the company significant capital by eliminating monthly third-party maintenance retainers.</li>
-          </ul>
-
-          <h4>4) Agile Updates & SEO Maintenance</h4>
-          <p>Established a workflow for rapid response to business needs.</p>
-          <ul>
-              <li>Published new service announcements, banners, and updates instantly.</li>
-              <li>Applied basic on-page SEO principles to ensure page titles, images, and descriptions met web standards.</li>
-          </ul>
-        </div>
-
-        <div class="detail-block">
-          <h3>Key Outcomes</h3>
-          <ul>
-              <li><strong>Zero External Dependency:</strong> Achieved 100% internal control over web assets.</li>
-              <li><strong>Cost Efficiency:</strong> Eliminated ongoing third-party vendor charges for maintenance and minor updates.</li>
-              <li><strong>Rapid Deployment:</strong> Reduced the turnaround time for website changes from days to mere minutes.</li>
-              <li><strong>Improved UX:</strong> Delivered a faster, cleaner, and more structured interface for business clients.</li>
-          </ul>
         </div>
 
         <div class="detail-block">
@@ -1463,14 +1324,12 @@
 
   <footer class="footer-bottom fade-up container" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; padding: 1rem 0 2rem;">
     <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-      
       <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
       <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
       <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
       <a href="https://www.youtube.com/@isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
       <a href="https://x.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
     </div>
-    
     <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0; text-align: center;">
       © <span id="year">2026</span>. Design By <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" style="color:var(--text-main); font-weight:600;">Sanjeev Kumar</a>. All rights reserved.
     </p>
@@ -1495,7 +1354,6 @@
   </button>
 
  <script>
-    // 1. GLOBAL NAVIGATION FUNCTIONS
     function switchPageVisuals(viewId) {
         const homeView = document.getElementById('home-view');
         if (viewId === 'home-view') { homeView.classList.add('active'); } 
@@ -1537,7 +1395,6 @@
         }, 50);
     };
     
-    // 2. APP PREVIEW LOGIC
     window.loadApp = function(url, title) {
         const previewBox = document.getElementById("previewBox");
         const frame = document.getElementById("appFrame");
@@ -1578,7 +1435,6 @@
         previewBox.style.display = "none";
     }
 
-    // 3. INITIALIZATION
     document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('popstate', function(event) {
             if (event.state && event.state.page) { switchPageVisuals(event.state.page); } 
@@ -1621,7 +1477,6 @@
             });
         }
         
-        // Header Scroll
         window.addEventListener('scroll', () => {
             const header = document.getElementById('main-header');
             if (window.scrollY > 50) { header.classList.add('scrolled'); }
@@ -1638,9 +1493,7 @@
 
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-        // Typing effect
-        const texts = [
-  "IT Engineer","System Admin","Network Engineer","Cloud Engineer","Windows Server","Technical Support"];
+        const texts = ["IT Engineer","System Admin","Network Engineer","Cloud Engineer","Windows Server","Technical Support"];
         let count = 0; let index = 0; let currentText = ""; let letter = "";
         (function type() {
             if (count === texts.length) { count = 0; }
@@ -1658,7 +1511,6 @@
         const yearSpan = document.getElementById("year");
         if(yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-        // Modals
         const certModal = document.getElementById('certModal');
         const certFrame = document.getElementById('certFrame');
         const closeModal = document.querySelector('.close-modal');
@@ -1691,7 +1543,6 @@
             }
         });
         
-        // --- BACK TO TOP LOGIC ---
         const backToTopBtn = document.getElementById('backToTop');
         if (backToTopBtn) {
             window.addEventListener('scroll', () => {
@@ -1703,7 +1554,6 @@
             });
         }
         
-      // --- HORIZONTAL SCROLL ON PROJECTS SECTION ---
         const expertiseGrid = document.querySelector('.expertise-grid');
         if (expertiseGrid) {
             let isAnimating = false;
@@ -1724,17 +1574,13 @@
 
             expertiseGrid.addEventListener('wheel', function(evt) {
                 const maxScrollLeft = this.scrollWidth - this.clientWidth;
-                
-                // Allow a tiny 1px buffer to prevent getting stuck on fractional pixels
                 const atLeftEdge = this.scrollLeft <= 1;
                 const atRightEdge = Math.ceil(this.scrollLeft) >= maxScrollLeft - 1;
-
                 const isScrollingUp = evt.deltaY < 0;
                 const isScrollingDown = evt.deltaY > 0;
 
-                // ONLY hijack the scroll if we are scrolling in a direction that has room
                 if ((isScrollingUp && !atLeftEdge) || (isScrollingDown && !atRightEdge)) {
-                    evt.preventDefault(); // Stop vertical page scroll
+                    evt.preventDefault(); 
                     
                     targetScroll += evt.deltaY * 2.5; 
                     targetScroll = Math.max(0, Math.min(targetScroll, maxScrollLeft));
@@ -1745,12 +1591,10 @@
                         requestAnimationFrame(smoothScrollLoop);
                     }
                 } else {
-                    // We are at the edge! Let the browser scroll the page normally.
                     targetScroll = this.scrollLeft; 
                 }
             }, { passive: false });
 
-            // Sync variables if the user swipes on a trackpad or touchscreen
             expertiseGrid.addEventListener('scroll', () => {
                 if (!isAnimating) {
                     targetScroll = expertiseGrid.scrollLeft;
@@ -1758,9 +1602,8 @@
                 }
             });
         }
-    }); // <--- THIS IS THE FIX. The brackets and parenthesis match now!
+    }); 
 
-    // 4. LIGHTBOX LOGIC
     let currentImageIndex = 0;
     let currentGalleryImages = [];
 
@@ -1809,7 +1652,6 @@
         }
     });
 
-    // 5. CUSTOM BLACK DOT CURSOR (Desktop Only)
     if (window.matchMedia("(pointer: fine)").matches) {
         const blendCursor = document.createElement('div');
         blendCursor.id = 'blend-cursor';
