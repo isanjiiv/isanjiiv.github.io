@@ -1639,14 +1639,55 @@
             }
         });
         
-        const backToTopBtn = document.getElementById('backToTop');
-        if (backToTopBtn) {
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) { backToTopBtn.classList.add('show'); } 
-                else { backToTopBtn.classList.remove('show'); }
-            });
-            backToTopBtn.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+       // --- DUAL DIRECTION SCROLL BUTTON LOGIC ---
+        const scrollBtn = document.getElementById('backToTop');
+        if (scrollBtn) {
+            const scrollIcon = scrollBtn.querySelector('i');
+            scrollBtn.classList.add('show'); // Force button to stay visible
+            
+            let lastScrollY = window.scrollY;
+
+            function updateScrollButton() {
+                let currentScrollY = window.scrollY;
+                const isAtBottom = (window.innerHeight + currentScrollY) >= (document.body.offsetHeight - 50);
+                
+                if (currentScrollY === 0) {
+                    // 1. If at the very top, always point down
+                    scrollIcon.className = 'fa-solid fa-arrow-down';
+                } else if (isAtBottom) {
+                    // 2. If at the very bottom, always point up
+                    scrollIcon.className = 'fa-solid fa-arrow-up';
+                } else {
+                    // 3. If in the middle, point based on which way you are scrolling
+                    if (currentScrollY > lastScrollY) {
+                        // Scrolling Down
+                        scrollIcon.className = 'fa-solid fa-arrow-down';
+                    } else if (currentScrollY < lastScrollY) {
+                        // Scrolling Up
+                        scrollIcon.className = 'fa-solid fa-arrow-up';
+                    }
+                }
+                
+                // Save the current position for the next time you scroll
+                lastScrollY = currentScrollY; 
+            }
+
+            // Run once on page load
+            updateScrollButton();
+
+            // Listen for user scrolling
+            window.addEventListener('scroll', updateScrollButton);
+
+            // Handle button clicks
+            scrollBtn.addEventListener('click', () => {
+                // Check which way the arrow is currently pointing
+                if (scrollIcon.classList.contains('fa-arrow-up')) {
+                    // If pointing up, go to Top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    // If pointing down, go to Bottom
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                }
             });
         }
         
