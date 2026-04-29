@@ -387,6 +387,11 @@ header {
     @media (min-width: 900px) {
       .hamburger { display: none; }
       .nav-menu { display: flex; flex: 2; justify-content: center; gap: 2.5rem; }
+      /* Contact Section Fixes (Desktop Only) */
+      .contact-header { align-items: center; text-align: center; }
+      .contact-header p { margin: 0 auto; text-align: center; }
+      .contact-form-container { padding: 3rem; justify-content: flex-start; }
+      .new-contact-form .btn-submit-pill { width: max-content; align-self: flex-start; }
       
       .hero-card { padding: 6rem 4rem 4rem 4rem; height: auto; min-height: auto; }
       .hero-content { flex-direction: row; justify-content: space-between; align-items: flex-end; padding-bottom: 6rem;}
@@ -716,7 +721,7 @@ header {
 
   <section id="about-contact" class="contact-wrapper container">
     <div class="contact-header fade-up">
-      <h2>Connect for your <span>next project</span></h2>
+      <h2>Connect for your <span style="font-weight: 300; color: var(--text-muted);">next project</span></h2>
       <p>Whether you have a job opportunity, a project, or just want to say hi, my inbox is open</p>
     </div>
 
