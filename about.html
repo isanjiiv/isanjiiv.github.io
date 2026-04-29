@@ -258,7 +258,7 @@ header {
     .explore-desc { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; line-height: 1.6; }
 
     .card-vertical { position: relative; border-radius: var(--radius-md); overflow: hidden; height: 400px; width: 100%; }
-    .card-vertical img { width: 100%; height: 100%; object-fit: cover; }
+    .card-vertical img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
     .card-vertical::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%); }
     .card-vertical-content { position: absolute; bottom: 0; left: 0; width: 100%; padding: 1.5rem; z-index: 2; display: flex; justify-content: space-between; align-items: flex-end; }
     .card-vertical h3 { color: #fff; font-size: 1.2rem; font-weight: 400; max-width: 200px; line-height: 1.3; text-align: left;}
@@ -373,9 +373,12 @@ header {
     /* ========================================= */
     /* RESPONSIVE BREAKPOINTS (Progressive)      */
     /* ========================================= */
+  
 
-    /* Tablets */
+   
+   /* Tablets */
     @media (min-width: 600px) {
+      .card-vertical { height: 550px; } /* <-- Add this line here */
       .btn-group { flex-direction: row; width: auto; justify-content: center; }
       .btn-pill { width: auto; }
       .btn-submit-pill { width: auto; align-self: flex-start; justify-content: flex-start; }
@@ -789,21 +792,58 @@ header {
   <i class="fa-solid fa-arrow-up"></i>
 </button>
   <script>
-      // --- BACK TO TOP LOGIC ---
-const backToTopBtn = document.getElementById('backToTop');
-if (backToTopBtn) {
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) { 
-            backToTopBtn.classList.add('show'); 
-        } else { 
-            backToTopBtn.classList.remove('show'); 
+     // --- DUAL DIRECTION SCROLL BUTTON LOGIC ---
+        const scrollBtn = document.getElementById('backToTop');
+        if (scrollBtn) {
+            const scrollIcon = scrollBtn.querySelector('i');
+            scrollBtn.classList.add('show'); // Force button to stay visible
+            
+            let lastScrollY = window.scrollY;
+
+            function updateScrollButton() {
+                let currentScrollY = window.scrollY;
+                // Calculate if user is at the bottom of the page
+                const isAtBottom = (window.innerHeight + currentScrollY) >= (document.body.offsetHeight - 50);
+                
+                if (currentScrollY === 0) {
+                    // 1. If at the very top, always point down
+                    scrollIcon.className = 'fa-solid fa-arrow-down';
+                } else if (isAtBottom) {
+                    // 2. If at the very bottom, always point up
+                    scrollIcon.className = 'fa-solid fa-arrow-up';
+                } else {
+                    // 3. If in the middle, point based on which way you are scrolling
+                    if (currentScrollY > lastScrollY) {
+                        // Scrolling Down
+                        scrollIcon.className = 'fa-solid fa-arrow-down';
+                    } else if (currentScrollY < lastScrollY) {
+                        // Scrolling Up
+                        scrollIcon.className = 'fa-solid fa-arrow-up';
+                    }
+                }
+                
+                // Save the current position for the next time you scroll
+                lastScrollY = currentScrollY; 
+            }
+
+            // Run once on page load
+            updateScrollButton();
+
+            // Listen for user scrolling
+            window.addEventListener('scroll', updateScrollButton);
+
+            // Handle button clicks
+            scrollBtn.addEventListener('click', () => {
+                // Check which way the arrow is currently pointing
+                if (scrollIcon.classList.contains('fa-arrow-up')) {
+                    // If pointing up, go to Top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    // If pointing down, go to Bottom
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                }
+            });
         }
-    });
-    
-    backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-}
     // Scroll Animations
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
