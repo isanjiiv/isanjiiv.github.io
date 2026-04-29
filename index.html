@@ -384,7 +384,7 @@
     .cert-img { height: 26px; margin-bottom: 0.8rem; object-fit: contain; }
     .cert-card h3 { font-size: 0.85rem; margin-bottom: 0.3rem; font-weight: 600; line-height: 1.2; }
     .cert-card p { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.8rem; line-height: 1.3; }
-    .cert-link { margin-top: auto; font-size: 0.75rem; color: var(--text-main); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+    .cert-link { margin-top: auto; font-size: 0.75rem; color: var(--text-main); font-weight: 600; text-decoration: none; }
 
     /* Experience */
     .experience-grid { display: flex; flex-direction: column; gap: 2.5rem; }
@@ -458,8 +458,8 @@
     /* Page Views (Project details) */
     .page-view { display: none; padding-top: 100px; padding-bottom: 60px; }
     .page-view.active { display: block; }
-    .project-banner-img { border-radius: var(--radius-lg); margin-bottom: 2rem; aspect-ratio: 16/9; width: 100%; object-fit: cover; }
-    .project-detail-card { padding: clamp(1.5rem, 5vw, 4rem); background: var(--bg-alt); border-radius: var(--radius-lg); border: 1px solid var(--border-color); }
+    .project-banner-img { border-radius: var(--radius-lg); margin-bottom: 2rem; aspect-ratio: 21/9; width: 100%; object-fit: cover; max-height: 400px; }
+    .project-detail-card { padding: clamp(1.5rem, 5vw, 4rem) 0; background: transparent; border: none; border-radius: 0; }
     .project-title { font-size: clamp(1.8rem, 6vw, 3rem); margin-bottom: 1rem; line-height: 1.2; }
     
     .detail-block { margin-bottom: 2.5rem; }
@@ -870,7 +870,16 @@
               <p>WordPress • HTML/CSS • In-House Management</p>
             </div>
           </div>
-
+<div class="skill-card fade-up" style="transition-delay: 0.4s;" onclick="event.preventDefault(); showProjectView('project-5')">
+            <img src="https://isanjiiv.github.io/assets/images/toolfor-pdf.jpg" alt="ToolForPDF Web App">
+            <div class="skill-card-top">
+              <button class="btn-circle light" style="width: 40px; height: 40px; font-size: 0.9rem;"><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></button>
+            </div>
+            <div class="skill-card-bottom">
+              <h3>ToolForPDF Utility</h3>
+              <p>Web App • Utility • Modern UI</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -886,49 +895,49 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Cisco Logo" class="cert-img">
             <h3>Networking Basics</h3>
             <p>IPv4/IPv6 Addressing</p>
-            <span class="cert-link">View Certificate</span>
+            <span class="cert-link">view</span>
           </a>
           <a href="https://drive.google.com/file/d/1ExcnlsVy3ZHLtRs_RoF2hNQ05G4Cj154/view?usp=drive_link" class="cert-card">
             <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Cisco Logo" class="cert-img">
             <h3>Cisco CCNA</h3>
             <p>Network Fundamentals</p>
-            <span class="cert-link">View Certificate</span>
+            <span class="cert-link">view</span>
           </a>
           <a href="https://drive.google.com/file/d/14aOsqQTKcxbeSA23yXPuLvjPUKDfNpvb/view?usp=drive_link" class="cert-card">
             <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" alt="Azure Logo" class="cert-img">
             <h3>Microsoft Azure</h3>
             <p>Fundamentals</p>
-            <span class="cert-link">View Certificate</span>
+            <span class="cert-link">view</span>
           </a>
           <a href="https://drive.google.com/file/d/15hSFkJXr92o4VhM5YgF13pZFv2aSakaD/view?usp=drive_link" class="cert-card">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP Logo" class="cert-img">
             <h3>Google Cloud</h3>
             <p>Trust & Security</p>
-            <span class="cert-link">View Certificate</span>
+            <span class="cert-link">view</span>
           </a>
           <a href="https://drive.google.com/file/d/1kUh_5kU6V_FEYsFhnyf1yHfr12Cmzkdd/view?usp=drive_link" class="cert-card">
             <img src="https://cdn-icons-png.flaticon.com/512/5723/5723238.png" alt="Networking Logo" class="cert-img">
             <h3>Computer Networking</h3>
             <p>Networking</p>
-            <span class="cert-link">View Certificate</span>
+            <span class="cert-link">view</span>
           </a>
           <a href="https://drive.google.com/file/d/1Hcgl0Drn_niSwc64zhvL0LY2tFEnL6hx/view?usp=drive_link" class="cert-card">
             <img src="https://cdn3d.iconscout.com/3d/premium/thumb/cyber-securityprotect-shield-3d-icon-png-download-7277200.png" alt="Security Logo" class="cert-img">
             <h3>Advance Cyber Security</h3>
             <p>Threats & Governance</p>
-            <span class="cert-link">View Certificate</span>
+            <span class="cert-link">view</span>
           </a>
           <a href="https://drive.google.com/file/d/1OhjH3b2gffiHm4KIUrTo_2pP_5BNnKJG/view?usp=drive_link" class="cert-card">
             <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" class="cert-img">
             <h3>MCSA</h3>
             <p>Windows Server</p>
-            <span class="cert-link">View Certificate</span>
+            <span class="cert-link">view</span>
           </a>
           <a href="https://drive.google.com/file/d/17KrwhkqjLYgkR_UPLiW4GigtmFC7_GSn/view?usp=drive_link" class="cert-card">
             <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/fortinet.svg" alt="Fortinet Logo" class="cert-img">
             <h3>Fortinet Fundamentals</h3>
             <p>Network Security</p>
-            <span class="cert-link">View Certificate</span>
+            <span class="cert-link">view</span>
           </a>
         </div>
       </section>
@@ -1320,6 +1329,55 @@
         </div>
       </div>
     </div>
+    <div id="project-5" class="page-view container">
+      <a href="#projects" class="btn-pill" onclick="event.preventDefault(); showHomeViewAndScroll('projects')" style="width: max-content; margin-top: 10px; margin-bottom: 2rem; position: relative; z-index: 10;">
+        <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Projects
+      </a>
+      <div class="project-banner-wrapper">
+        <img src="https://isanjiiv.github.io/assets/images/toolfor-pdf.jpg" alt="ToolForPDF Banner" class="project-banner-img" loading="lazy">
+      </div>
+      
+      <div class="project-detail-card">
+        <h1 class="project-title">ToolForPDF|Free Web-Based PDF Utility</h1>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom: 3rem;">
+            <span class="tech-tag" style="background: #f0f0f0; padding: 5px 12px; border-radius: 50px; font-size: 0.85rem;">React</span>
+            <span class="tech-tag" style="background: #f0f0f0; padding: 5px 12px; border-radius: 50px; font-size: 0.85rem;">Frontend Development</span>
+            <span class="tech-tag" style="background: #f0f0f0; padding: 5px 12px; border-radius: 50px; font-size: 0.85rem;">Web App</span>
+            <span class="tech-tag" style="background: #f0f0f0; padding: 5px 12px; border-radius: 50px; font-size: 0.85rem;">UI/UX</span>
+        </div>
+
+        <div class="detail-block">
+          <h3>Overview</h3>
+          <p>Designed and developed a comprehensive, completely free web application to simplify everyday PDF management. I built this tool to provide users with a fast, seamless, and cost-free alternative for handling PDF files without the hassle of paywalls or intrusive advertisements.</p>
+        </div>
+
+        <div class="detail-block">
+          <h3>Key Features</h3>
+          <ul>
+              <li><strong>100% Free & Accessible:</strong> Built from the ground up to be a completely free resource for the community, ensuring high-quality PDF tools are accessible to everyone.</li>
+              <li><strong>Modern UI/UX:</strong> Features a clean, minimalist interface optimized for both desktop and mobile devices, ensuring an intuitive user experience.</li>
+              <li><strong>Client-Side Processing:</strong> Engineered to process files securely in the browser, reducing server load and ensuring user data privacy.</li>
+          </ul>
+        </div>
+
+        <div class="detail-block">
+          <h3>Live App Preview</h3>
+          <p>Click the button below to load and explore the ToolForPDF application directly inside this portfolio.</p>
+          <button class="btn-pill" onclick="loadP5Website('https://toolforpdf.lovable.app/', 'ToolForPDF Utility')" style="width: auto;">Load Live App <i class="fa-solid fa-eye" style="margin-left:5px;"></i></button>
+
+          <div id="previewBox-p5" class="app-preview-box" style="margin-top: 30px;">
+            <div class="app-preview-header">
+              <strong id="previewTitle-p5" style="font-weight: 500; font-size: 1.1rem;">App Preview</strong>
+              <div style="display:flex; gap:10px;">
+                <a id="openFullBtn-p5" href="https://toolforpdf.lovable.app/" target="_blank" rel="noopener noreferrer" style="color:var(--text-main); font-size:0.9rem; font-weight:600; display:flex; align-items:center; gap:5px; text-decoration:none;">Open Full <i class="fa-solid fa-external-link-alt"></i></a>
+                <button style="background:transparent; border:none; font-size:1.2rem; cursor:pointer;" aria-label="Close Preview" onclick="closeP5Website()">×</button>
+              </div>
+            </div>
+            <iframe id="appFrame-p5" src="" class="app-iframe" style="filter:none;" title="ToolForPDF Live Preview"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer class="footer-bottom fade-up container" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; padding: 1rem 0 2rem;">
@@ -1431,6 +1489,26 @@
     function closeP4Website() {
         const previewBox = document.getElementById("previewBox-p4");
         const frame = document.getElementById("appFrame-p4");
+        frame.src = "";
+        previewBox.style.display = "none";
+        
+    }
+    function loadP5Website(url, title) {
+        const previewBox = document.getElementById("previewBox-p5");
+        const frame = document.getElementById("appFrame-p5");
+        const previewTitle = document.getElementById("previewTitle-p5");
+        const fullBtn = document.getElementById("openFullBtn-p5");
+
+        previewTitle.innerText = title + " - Live Preview";
+        previewBox.style.display = "block";
+        frame.src = url;
+        fullBtn.href = url;
+        
+        setTimeout(() => { previewBox.scrollIntoView({ behavior: "smooth", block: "start" }); }, 100);
+    }
+    function closeP5Website() {
+        const previewBox = document.getElementById("previewBox-p5");
+        const frame = document.getElementById("appFrame-p5");
         frame.src = "";
         previewBox.style.display = "none";
     }
