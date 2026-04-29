@@ -241,7 +241,7 @@
       background: rgba(244, 244, 242, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color);
     }
     .brand { flex: 1; display: flex; align-items: center; position: relative; z-index: 1010; }
-    .brand img { height: 32px; width: 33px; }
+    .brand img { height: 44px; width: auto; }
     
     .nav-menu { display: none; } 
     .header-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 10px; position: relative; z-index: 1010; }
@@ -640,7 +640,20 @@
       }
       #blend-cursor.hovering { width: 45px; height: 45px; background-color: rgba(34, 34, 34, 0.1); border: 1px solid rgba(34, 34, 34, 0.3); }
     }
-
+/* --- MOBILE ONLY: Vertical Stack for Projects --- */
+    @media (max-width: 599px) {
+      .expertise-grid {
+        flex-direction: column; /* Stacks the cards top to bottom */
+        overflow-x: hidden; /* Removes the horizontal scroll */
+        gap: 1.5rem; /* Space between stacked cards */
+      }
+      
+      .skill-card {
+        width: 100%; /* Forces cards to stretch full width of screen */
+        flex: none; /* Removes the 80% width limitation */
+        height: 260px; /* Keeps the proportion nice and sleek */
+      }
+    }
   </style>
 </head>
 
@@ -963,7 +976,7 @@
                 <div class="exp-title-area">
                   <h3>IT Engineer</h3>
                   <a href="http://www.gmsdelhi.com" target="_blank" rel="noopener noreferrer" class="exp-company">
-                    <img src="https://gmsdelhi.com/wp-content/uploads/2026/02/cropped-cropped-cropped-cropped-GMS-Pvt-Ltd-300x137.png" alt="Grain Milling Solutions Pvt Ltd Logo" style="height: 16px;">
+                    
                     Grain Milling Solutions Pvt Ltd
                   </a>
                 </div>
@@ -990,7 +1003,7 @@
                 <div class="exp-title-area">
                   <h3>Desktop Support Engineer</h3>
                   <a href="http://www.gmsdelhi.com" target="_blank" rel="noopener noreferrer" class="exp-company">
-                    <img src="https://gmsdelhi.com/wp-content/uploads/2026/02/cropped-cropped-cropped-cropped-GMS-Pvt-Ltd-300x137.png" alt="Grain Milling Solutions Pvt Ltd Logo" style="height: 16px;">
+                    
                     Grain Milling Solutions Pvt Ltd
                   </a>
                 </div>
