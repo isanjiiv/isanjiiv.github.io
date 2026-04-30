@@ -122,10 +122,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; scroll-padding-top: 100px; }
     
-   @media (min-width: 1200px) and (pointer: fine) {
-    body, a, button, input, textarea, select { cursor: none; }
-}
-
+ 
     body {
       font-family: var(--font-body); 
       background-color: var(--bg); 
@@ -222,6 +219,7 @@
     .scroll-hint i {
       font-size: 1.1rem;
       color: var(--text-main);
+      animation: pulse-hint 1.5s ease-in-out infinite;
     }
     @keyframes pulse-hint {
       0%, 100% { transform: translateX(0); opacity: 0.5; }
@@ -292,7 +290,7 @@
     .hero-subtitle .line { width: 30px; height: 1px; background: var(--text-muted); }
     .hero-desc { color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; margin: 0 auto 2rem; max-width: 100%; }
 
-    .hero-image-col { order: -1; width: 100%; max-width: 300px; position: relative; border-radius: var(--radius-xl); overflow: hidden; aspect-ratio: 4/5; }
+    .hero-image-col { order: -1; width: 100%; max-width: 300px; position: relative; border-radius: 50%; overflow: hidden; aspect-ratio: 1 / 1; }
     .hero-image-col img { width: 100%; height: 100%; object-fit: cover; }
 
     /* Explore / About */
@@ -515,8 +513,7 @@
     .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-    /* Custom Cursor */
-    #blend-cursor { display: none; }
+ 
 
     /* --- About Section Buttons --- */
     .about-btn-group {
@@ -567,7 +564,7 @@
         display: grid; 
         grid-template-columns: 1.2fr 0.8fr; 
       }
-      .hero-image-col { order: 2; height: 500px; max-width: 400px; aspect-ratio: auto; }
+      .hero-image-col { order: 2; width: 100%; max-width: 400px; height: auto; aspect-ratio: 1 / 1; border-radius: 50%; flex-shrink: 0; }
       .hero-text-col { align-items: flex-start; padding-right: 2rem; }
       .hero-subtitle { justify-content: flex-start; }
       .hero-desc { margin: 0 0 2.5rem 0; max-width: 500px; }
@@ -628,18 +625,7 @@
       .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
     }
 
-    /* Large Desktop */
-    @media (min-width: 1200px) {
-      .container { padding-inline: 2rem; }
-      .skills-grid { max-width: 1000px; margin: 0 auto; }
-      
-      #blend-cursor { 
-        position: fixed; top: 0; left: 0; width: 20px; height: 20px; border-radius: 50%; 
-        background-color: #222222; pointer-events: none; z-index: 99999; 
-        transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, background-color 0.2s; display: block; 
-      }
-      #blend-cursor.hovering { width: 45px; height: 45px; background-color: rgba(34, 34, 34, 0.1); border: 1px solid rgba(34, 34, 34, 0.3); }
-    }
+    
 /* --- MOBILE ONLY: Vertical Stack for Projects --- */
     @media (max-width: 599px) {
       .expertise-grid {
@@ -652,6 +638,42 @@
         width: 100%; /* Forces cards to stretch full width of screen */
         flex: none; /* Removes the 80% width limitation */
         height: 260px; /* Keeps the proportion nice and sleek */
+      }
+    }
+    /* --- MOBILE ONLY: Smaller Text Adjustments --- */
+    @media (max-width: 599px) {
+      body {
+        font-size: 14px; /* Drops the base font size from 16px to 14px */
+      }
+      
+      p, .hero-desc, .explore-desc, .contact-header p, .card-horizontal-text {
+        font-size: 0.95rem; /* Scales down paragraph text */
+        line-height: 1.5; /* Tightens the line spacing slightly for small screens */
+      }
+      
+      .btn-pill, .btn-submit-pill {
+        font-size: 0.9rem; /* Makes button text slightly smaller */
+        padding: 14px 28px; /* Slims down the buttons to match the text */
+      }
+      
+      .modern-list li, .exp-bullets li {
+        font-size: 0.9rem; /* Makes list items smaller */
+      }
+    }
+    /* --- BULLETPROOF CUSTOM CURSOR (Works on all laptops/desktops) --- */
+    @media (pointer: fine) {
+      body, a, button, input, textarea, select, .skill-card, .gallery-item { 
+        cursor: none !important; 
+      }
+      
+      #blend-cursor { 
+        position: fixed; top: 0; left: 0; width: 20px; height: 20px; border-radius: 50%; 
+        background-color: #222222; pointer-events: none; z-index: 999999; 
+        transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, background-color 0.2s; display: block; 
+      }
+      
+      #blend-cursor.hovering { 
+        width: 45px; height: 45px; background-color: rgba(34, 34, 34, 0.1); border: 1px solid rgba(34, 34, 34, 0.3); 
       }
     }
   </style>
@@ -1356,7 +1378,7 @@
       </div>
       
       <div class="project-detail-card">
-        <h1 class="project-title">ToolForPDF |Free Web-Based PDF Utility</h1>
+        <h1 class="project-title">ToolForPDF | Free Web-Based PDF Utility</h1>
         <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom: 3rem;">
             <span class="tech-tag" style="background: #f0f0f0; padding: 5px 12px; border-radius: 50px; font-size: 0.85rem;">React</span>
             <span class="tech-tag" style="background: #f0f0f0; padding: 5px 12px; border-radius: 50px; font-size: 0.85rem;">Frontend Development</span>
@@ -1509,8 +1531,8 @@
         const frame = document.getElementById("appFrame-p4");
         frame.src = "";
         previewBox.style.display = "none";
-        
     }
+
     function loadP5Website(url, title) {
         const previewBox = document.getElementById("previewBox-p5");
         const frame = document.getElementById("appFrame-p5");
@@ -1575,8 +1597,10 @@
         
         window.addEventListener('scroll', () => {
             const header = document.getElementById('main-header');
-            if (window.scrollY > 50) { header.classList.add('scrolled'); }
-            else { header.classList.remove('scrolled'); }
+            if (header) {
+                if (window.scrollY > 50) { header.classList.add('scrolled'); }
+                else { header.classList.remove('scrolled'); }
+            }
         });
 
         const observer = new IntersectionObserver((entries) => {
@@ -1591,18 +1615,18 @@
 
         const texts = ["IT Engineer","System Admin","Network Engineer","Cloud Engineer","Windows Server","Technical Support"];
         let count = 0; let index = 0; let currentText = ""; let letter = "";
-        (function type() {
-            if (count === texts.length) { count = 0; }
-            currentText = texts[count];
-            letter = currentText.slice(0, ++index);
-            const target = document.querySelector('.typing-text');
-            if (target) {
+        const target = document.querySelector('.typing-text');
+        if (target) {
+            (function type() {
+                if (count === texts.length) { count = 0; }
+                currentText = texts[count];
+                letter = currentText.slice(0, ++index);
                 target.textContent = letter;
                 if (letter.length === currentText.length) {
                     count++; index = 0; setTimeout(type, 2000);
                 } else { setTimeout(type, 100); }
-            }
-        })();
+            })();
+        }
 
         const yearSpan = document.getElementById("year");
         if(yearSpan) yearSpan.textContent = new Date().getFullYear();
@@ -1639,58 +1663,7 @@
             }
         });
         
-       // --- DUAL DIRECTION SCROLL BUTTON LOGIC ---
-        const scrollBtn = document.getElementById('backToTop');
-        if (scrollBtn) {
-            const scrollIcon = scrollBtn.querySelector('i');
-            scrollBtn.classList.add('show'); // Force button to stay visible
-            
-            let lastScrollY = window.scrollY;
-
-            function updateScrollButton() {
-                let currentScrollY = window.scrollY;
-                const isAtBottom = (window.innerHeight + currentScrollY) >= (document.body.offsetHeight - 50);
-                
-                if (currentScrollY === 0) {
-                    // 1. If at the very top, always point down
-                    scrollIcon.className = 'fa-solid fa-arrow-down';
-                } else if (isAtBottom) {
-                    // 2. If at the very bottom, always point up
-                    scrollIcon.className = 'fa-solid fa-arrow-up';
-                } else {
-                    // 3. If in the middle, point based on which way you are scrolling
-                    if (currentScrollY > lastScrollY) {
-                        // Scrolling Down
-                        scrollIcon.className = 'fa-solid fa-arrow-down';
-                    } else if (currentScrollY < lastScrollY) {
-                        // Scrolling Up
-                        scrollIcon.className = 'fa-solid fa-arrow-up';
-                    }
-                }
-                
-                // Save the current position for the next time you scroll
-                lastScrollY = currentScrollY; 
-            }
-
-            // Run once on page load
-            updateScrollButton();
-
-            // Listen for user scrolling
-            window.addEventListener('scroll', updateScrollButton);
-
-            // Handle button clicks
-            scrollBtn.addEventListener('click', () => {
-                // Check which way the arrow is currently pointing
-                if (scrollIcon.classList.contains('fa-arrow-up')) {
-                    // If pointing up, go to Top
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
-                    // If pointing down, go to Bottom
-                    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-                }
-            });
-        }
-        
+        // --- HORIZONTAL SCROLL ON PROJECTS SECTION ---
         const expertiseGrid = document.querySelector('.expertise-grid');
         if (expertiseGrid) {
             let isAnimating = false;
@@ -1789,6 +1762,49 @@
         }
     });
 
+    // --- DUAL DIRECTION SCROLL BUTTON LOGIC ---
+    const scrollBtn = document.getElementById('backToTop');
+    if (scrollBtn) {
+        const scrollIcon = scrollBtn.querySelector('i');
+        scrollBtn.classList.add('show');
+        scrollBtn.style.opacity = '1';
+        scrollBtn.style.visibility = 'visible';
+        
+        let lastScrollY = window.scrollY || document.documentElement.scrollTop;
+
+        function updateScrollButton() {
+            let currentScrollY = window.scrollY || document.documentElement.scrollTop;
+            const fullPageHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+            const isAtBottom = (window.innerHeight + currentScrollY) >= (fullPageHeight - 100);
+            
+            if (currentScrollY <= 50) {
+                scrollIcon.className = 'fa-solid fa-arrow-down';
+            } else if (isAtBottom) {
+                scrollIcon.className = 'fa-solid fa-arrow-up';
+            } else {
+                if (currentScrollY > lastScrollY) {
+                    scrollIcon.className = 'fa-solid fa-arrow-down';
+                } else if (currentScrollY < lastScrollY) {
+                    scrollIcon.className = 'fa-solid fa-arrow-up';
+                }
+            }
+            lastScrollY = currentScrollY; 
+        }
+
+        updateScrollButton();
+        window.addEventListener('scroll', updateScrollButton);
+
+        scrollBtn.addEventListener('click', () => {
+            if (scrollIcon.classList.contains('fa-arrow-up')) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                const fullPageHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+                window.scrollTo({ top: fullPageHeight, behavior: 'smooth' });
+            }
+        });
+    }
+
+    // --- CUSTOM CURSOR ---
     if (window.matchMedia("(pointer: fine)").matches) {
         const blendCursor = document.createElement('div');
         blendCursor.id = 'blend-cursor';
