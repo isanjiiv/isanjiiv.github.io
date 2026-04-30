@@ -511,6 +511,34 @@ header {
         visibility: visible; 
         transform: translateY(0); 
     }
+    /* --- MOBILE TEXT SIZE ADJUSTMENTS --- */
+@media (max-width: 599px) {
+    /* 1. Reduce the global base font size from 16px to 14px */
+    body {
+        font-size: 14px; 
+    }
+    
+    /* 2. Target specific large paragraphs to scale them down */
+    .explore-desc, .contact-header p, .card-horizontal-text {
+        font-size: 0.95rem; 
+    }
+
+    /* 3. Scale down the section headings slightly */
+    .explore-title, .section-header-split h2, .contact-header h2 {
+        font-size: 1.8rem;
+    }
+
+    /* 4. Adjust button text and padding for smaller screens */
+    .btn-pill, .btn-submit-pill {
+        font-size: 0.9rem;
+        padding: 12px 24px;
+    }
+    
+    /* 5. Make the form labels a bit more compact */
+    .new-contact-form label {
+        font-size: 0.7rem;
+    }
+}
   </style>
 </head>
 
