@@ -306,7 +306,7 @@
     .explore-desc { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; line-height: 1.6; }
 
     .card-vertical { position: relative; border-radius: var(--radius-md); overflow: hidden; height: 350px; width: 100%; }
-    .card-vertical img { width: 100%; height: 100%; object-fit: cover; }
+    .card-vertical img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
     .card-vertical::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%); }
     .card-vertical-content { position: absolute; bottom: 0; left: 0; width: 100%; padding: 1.5rem; z-index: 2; display: flex; justify-content: space-between; align-items: flex-end; }
     .card-vertical h3 { color: #fff; font-size: 1.2rem; font-weight: 400; line-height: 1.4; text-align: left; }
@@ -433,22 +433,8 @@
       align-items: center;
     }
     
-    .contact-image-container { 
-      width: 100%; 
-      max-width: 380px; 
-      position: relative; 
-      border-radius: var(--radius-md); 
-      overflow: hidden; 
-      display: flex;
-      justify-content: center;
-    }
-    .contact-image-container img { 
-      width: 100%; 
-      height: auto; 
-      object-fit: contain; 
-      border-radius: var(--radius-md);
-    }
-    
+   .contact-image-container { width: 100%; max-width: 380px; position: relative; border-radius: var(--radius-sm); overflow: hidden; display: flex; justify-content: center; }
+    .contact-image-container img { width: 100%; height: auto; object-fit: contain; border-radius: var(--radius-sm); }
     .contact-form-container { width: 100%; background: var(--bg-alt); border-radius: var(--radius-md); padding: clamp(1.5rem, 5vw, 3rem); border: 1px solid var(--border-color); box-shadow: 0 10px 40px rgba(0,0,0,0.04); }
     .new-contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
     .new-contact-form .form-row { display: flex; flex-direction: column; gap: 1.5rem; }
@@ -462,7 +448,7 @@
     /* Page Views (Project details) */
     .page-view { display: none; padding-top: 100px; padding-bottom: 60px; }
     .page-view.active { display: block; }
-    .project-banner-img { border-radius: var(--radius-lg); margin-bottom: 2rem; aspect-ratio: 21/9; width: 100%; object-fit: cover; max-height: 400px; }
+    .project-banner-img { border-radius: var(--radius-sm); margin-bottom: 2rem; aspect-ratio: 21/9; width: 100%; object-fit: cover; max-height: 400px; }
     .project-detail-card { padding: clamp(1.5rem, 5vw, 4rem) 0; background: transparent; border: none; border-radius: 0; }
     .project-title { font-size: clamp(1.8rem, 6vw, 3rem); margin-bottom: 1rem; line-height: 1.2; }
     
@@ -560,6 +546,12 @@
       .hamburger { display: none; }
       .nav-menu { display: flex; flex: 2; justify-content: center; gap: 2.5rem; }
 
+      /* Increases project cover image height on desktop */
+      .project-banner-img {
+        max-height: 550px; /* Increased from 400px */
+        aspect-ratio: 16/9; /* Changes from ultra-wide (21/9) to standard widescreen to make it taller */
+      }
+
       .hero-split { 
         flex-direction: row; 
         text-align: left; 
@@ -605,9 +597,9 @@
         margin: 0 auto; 
         gap: 4rem; 
       }
-      .contact-image-container { 
+     .contact-image-container { 
         max-width: 100%; 
-        min-height: 400px; 
+        min-height: 600px; /* Increased from 400px. Adjust this number if you want it taller/shorter */
       }
       .contact-image-container img { 
         position: absolute; 
@@ -646,10 +638,15 @@
         height: 260px; /* Keeps the proportion nice and sleek */
       }
     }
-    /* --- MOBILE ONLY: Smaller Text Adjustments --- */
+   /* --- MOBILE ONLY: Smaller Text Adjustments --- */
     @media (max-width: 599px) {
       body {
         font-size: 14px; /* Drops the base font size from 16px to 14px */
+      }
+      
+      /* Fixes project cover image rounded corners on mobile */
+      .project-banner-img {
+        border-radius: var(--radius-sm); /* Reduces from 32px to 12px */
       }
       
       p, .hero-desc, .explore-desc, .contact-header p, .card-horizontal-text {
@@ -1236,6 +1233,21 @@
             <span class="tech-tag" style="background: #f0f0f0; padding: 5px 12px; border-radius: 50px; font-size: 0.85rem;">FortiGate 60F</span>
             <span class="tech-tag" style="background: #f0f0f0; padding: 5px 12px; border-radius: 50px; font-size: 0.85rem;">SD-WAN</span>
             <span class="tech-tag" style="background: #f0f0f0; padding: 5px 12px; border-radius: 50px; font-size: 0.85rem;">VLAN</span>
+        </div>
+        <div class="detail-block">
+          <h3>Project Overview</h3>
+          
+          <p>Engineered and deployed a highly resilient, enterprise-grade network architecture utilizing a Fortinet FortiGate 60F firewall. This project was centered on transforming the organization's network into a highly available, secure, and optimized infrastructure capable of supporting seamless corporate operations and mitigating modern cyber threats.</p>
+          
+          <h4 style="margin-top: 1.5rem; margin-bottom: 1rem; font-size: 1.1rem; font-weight: 600;">Key Technical Implementations:</h4>
+          <ul style="padding-left: 20px;">
+            <li style="margin-bottom: 0.8rem; color: var(--text-muted); line-height: 1.6;"><strong>SD-WAN & High Availability:</strong> Integrated dual ISP links (Jio and Spectra) into a robust SD-WAN architecture. Configured intelligent load balancing and automated failover routing to guarantee zero-downtime connectivity and optimize bandwidth for mission-critical applications.</li>
+            <li style="margin-bottom: 0.8rem; color: var(--text-muted); line-height: 1.6;"><strong>Strategic Network Segmentation:</strong> Designed and deployed isolated VLANs to separate corporate departments. This logical segmentation prevents broadcast storms, significantly minimizes the internal attack surface, and enables precise, department-level bandwidth allocation.</li>
+            <li style="margin-bottom: 0.8rem; color: var(--text-muted); line-height: 1.6;"><strong>Next-Generation Firewall (NGFW):</strong> Implemented comprehensive security protocols including strict IPv4 traffic rules, advanced intrusion prevention (IPS), deep application control, and stringent web filtering to actively block external threats and unauthorized access.</li>
+            <li style="margin-bottom: 0.8rem; color: var(--text-muted); line-height: 1.6;"><strong>Centralized Management & Monitoring:</strong> Leveraged the FortiOS dashboard to establish real-time visibility into the security fabric, active network sessions, and overall system health, allowing for rapid incident response and proactive maintenance.</li>
+          </ul>
+
+          <p style="margin-top: 1rem;">The successful deployment of this infrastructure significantly reduced network latency, eliminated single points of failure, and established a fortified, future-proof security perimeter for the organization.</p>
         </div>
 
         <div class="detail-block">
