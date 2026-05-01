@@ -433,8 +433,8 @@
       align-items: center;
     }
     
-   .contact-image-container { width: 100%; max-width: 380px; position: relative; border-radius: var(--radius-sm); overflow: hidden; display: flex; justify-content: center; }
-    .contact-image-container img { width: 100%; height: auto; object-fit: contain; border-radius: var(--radius-sm); }
+   .contact-image-container { width: 100%; height: 660px; position: relative; border-radius: var(--radius-sm); overflow: hidden; }
+   .contact-image-container img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
     .contact-form-container { width: 100%; background: var(--bg-alt); border-radius: var(--radius-md); padding: clamp(1.5rem, 5vw, 3rem); border: 1px solid var(--border-color); box-shadow: 0 10px 40px rgba(0,0,0,0.04); }
     .new-contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
     .new-contact-form .form-row { display: flex; flex-direction: column; gap: 1.5rem; }
@@ -599,16 +599,18 @@
       }
      .contact-image-container { 
         max-width: 100%; 
-        min-height: 600px; /* Increased from 400px. Adjust this number if you want it taller/shorter */
+        min-height: 630px;
+        height: 100%; 
       }
       .contact-image-container img { 
         position: absolute; 
         top: 0; 
         left: 0; 
+        width: 100%;
         height: 100%; 
         object-fit: cover; 
+        object-position: center top;
       }
-      
       .cert-grid { 
         grid-template-columns: repeat(4, 1fr); 
         gap: 2rem; 
