@@ -239,7 +239,13 @@
       background: rgba(244, 244, 242, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color);
     }
     .brand { flex: 1; display: flex; align-items: center; position: relative; z-index: 1010; }
-    .brand img { height: 44px; width: auto; }
+    
+    .brand img { 
+      /* Automatically adjusts between 40px (mobile) and 55px (desktop) */
+      height: clamp(40px, 5vw, 55px); 
+      width: auto; 
+      object-fit: contain;
+    }
     
     .nav-menu { display: none; } 
     .header-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 10px; position: relative; z-index: 1010; }
