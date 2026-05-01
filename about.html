@@ -177,8 +177,14 @@ header {
   max-width: var(--container);
   margin: 0 auto;
 }
-    .brand { flex: 1; display: flex; align-items: center; position: relative; z-index: 1001; }
-    .brand img { height: 32px; width: 33px; }
+   .brand { flex: 1; display: flex; align-items: center; position: relative; z-index: 1001; }
+    
+    .brand img { 
+      /* Automatically adjusts between 40px (mobile) and 55px (desktop) */
+      height: clamp(40px, 5vw, 55px); 
+      width: auto; /* Keeps your logo's proportions perfect */
+      object-fit: contain;
+    }
     
     .nav-menu { display: none; } 
     .header-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; }
