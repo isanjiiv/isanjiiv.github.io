@@ -707,7 +707,7 @@
     </nav>
     
     <div class="header-right">
-       
+        
         <button class="hamburger" id="hamburger" aria-label="Toggle Navigation">
             <i class="fa-solid fa-bars"></i>
         </button>
@@ -931,7 +931,8 @@
               <p>WordPress • HTML/CSS • In-House Management</p>
             </div>
           </div>
-<div class="skill-card fade-up" style="transition-delay: 0.4s;" onclick="event.preventDefault(); showProjectView('project-5')">
+          
+          <div class="skill-card fade-up" style="transition-delay: 0.4s;" onclick="event.preventDefault(); showProjectView('project-5')">
             <img src="https://isanjiiv.github.io/assets/images/toolfor-pdf.jpg" alt="ToolForPDF Web App">
             <div class="skill-card-top">
               <button class="btn-circle light" style="width: 40px; height: 40px; font-size: 0.9rem;"><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></button>
@@ -941,6 +942,19 @@
               <p>Web App • Utility • Modern UI</p>
             </div>
           </div>
+          
+          <!-- Add Project 6 Card Here -->
+          <div class="skill-card fade-up" style="transition-delay: 0.5s;" onclick="event.preventDefault(); showProjectView('project-6')">
+            <img src="https://isanjiiv.github.io/assets/images/lovable.png" alt="Job Resume Builder App"> 
+            <div class="skill-card-top">
+              <button class="btn-circle light" style="width: 40px; height: 40px; font-size: 0.9rem;"><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></button>
+            </div>
+            <div class="skill-card-bottom">
+              <h3>Job Resume App</h3>
+              <p>React • Tailwind • Lovable AI</p>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -1396,6 +1410,7 @@
         </div>
       </div>
     </div>
+    
     <div id="project-5" class="page-view container">
       <a href="#projects" class="btn-pill" onclick="event.preventDefault(); showHomeViewAndScroll('projects')" style="width: max-content; margin-top: 10px; margin-bottom: 2rem; position: relative; z-index: 10;">
         <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Projects
@@ -1445,6 +1460,66 @@
         </div>
       </div>
     </div>
+
+    <!-- NEW PROJECT 6: Job Resume -->
+    <div id="project-6" class="page-view container">
+      <a href="#projects" class="btn-pill" onclick="event.preventDefault(); showHomeViewAndScroll('projects')" style="width: max-content; margin-top: 10px; margin-bottom: 2rem; position: relative; z-index: 10;">
+        <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Projects
+      </a>
+      <div class="project-banner-wrapper">
+        <img src="https://isanjiiv.github.io/assets/images/lovable.png" alt="Job Resume Builder App Banner" class="project-banner-img" loading="lazy" style="object-fit: cover; background: #e5e7eb;">
+      </div>
+      
+      <div class="project-detail-card">
+        <h1 class="project-title">Job Resume | Automated ATS-Friendly Builder</h1>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom: 3rem;">
+            <span class="tech-tag" style="background: #f0f0f0; padding: 5px 12px; border-radius: 50px; font-size: 0.85rem;">React / Vite</span>
+            <span class="tech-tag" style="background: #f0f0f0; padding: 5px 12px; border-radius: 50px; font-size: 0.85rem;">Tailwind CSS</span>
+            <span class="tech-tag" style="background: #f0f0f0; padding: 5px 12px; border-radius: 50px; font-size: 0.85rem;">Lovable AI</span>
+            <span class="tech-tag" style="background: #f0f0f0; padding: 5px 12px; border-radius: 50px; font-size: 0.85rem;">Supabase</span>
+        </div>
+
+        <div class="detail-block">
+          <h3>Overview</h3>
+          <p><strong>Job Resume</strong> is a high-performance web application designed to democratize the resume-building process. It transforms the daunting task of resume formatting into a seamless, automated experience. By focusing on a "content-first" philosophy, the app allows users to input their professional history through a structured interface while the engine handles complex layout logic and ATS (Applicant Tracking System) optimization.</p>
+        </div>
+
+        <div class="detail-block">
+          <h3>Key Technical Features</h3>
+          <ul class="modern-list">
+              <li><strong>Dynamic Data Rendering:</strong> Built a reactive input system that syncs user data instantly with a live document preview, ensuring "what you see is what you get."</li>
+              <li><strong>Professional Template Engine:</strong> Developed a collection of minimalist, high-conversion templates designed specifically to pass through modern recruitment software filters.</li>
+              <li><strong>Intuitive UX/UI Flow:</strong> Engineered a multi-step form architecture that reduces "blank page syndrome" by breaking the resume down into digestible sections.</li>
+              <li><strong>One-Click Export:</strong> Integrated a robust PDF generation engine that preserves typography and layout integrity across all devices and screen sizes.</li>
+              <li><strong>Mobile-First Architecture:</strong> Optimized the entire build for mobile responsiveness, enabling users to make last-minute edits to their professional profiles directly from their smartphones.</li>
+          </ul>
+        </div>
+
+        <div class="detail-block">
+          <h3>Impact & Problem Solved</h3>
+          <p>Traditional word processors often lead to formatting errors and broken layouts when adding new content. <strong>Job Resume</strong> solves this by decoupling content from design. The result is a tool that saves users hours of manual adjustment, providing a polished, recruitment-ready document in under 10 minutes.</p>
+        </div>
+
+        <div class="detail-block">
+          <h3>Live App Preview</h3>
+          <p>Click the button below to load and explore the Job Resume application directly inside this portfolio.</p>
+          <button class="btn-pill" onclick="loadP6Website('https://jobresume.lovable.app/', 'Job Resume')" style="width: auto;">Load Live App <i class="fa-solid fa-eye" style="margin-left:5px;"></i></button>
+
+          <div id="previewBox-p6" class="app-preview-box" style="margin-top: 30px;">
+            <div class="app-preview-header">
+              <strong id="previewTitle-p6" style="font-weight: 500; font-size: 1.1rem;">App Preview</strong>
+              <div style="display:flex; gap:10px;">
+                <a id="openFullBtn-p6" href="https://jobresume.lovable.app/" target="_blank" rel="noopener noreferrer" style="color:var(--text-main); font-size:0.9rem; font-weight:600; display:flex; align-items:center; gap:5px; text-decoration:none;">Open Full <i class="fa-solid fa-external-link-alt"></i></a>
+                <button style="background:transparent; border:none; font-size:1.2rem; cursor:pointer;" aria-label="Close Preview" onclick="closeP6Website()">×</button>
+              </div>
+            </div>
+            <iframe id="appFrame-p6" src="" class="app-iframe" style="filter:none;" title="Job Resume Live Preview"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END OF PROJECT 6 -->
+
   </main>
 
   <footer class="footer-bottom fade-up container" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; padding: 1rem 0 2rem;">
@@ -1576,6 +1651,27 @@
     function closeP5Website() {
         const previewBox = document.getElementById("previewBox-p5");
         const frame = document.getElementById("appFrame-p5");
+        frame.src = "";
+        previewBox.style.display = "none";
+    }
+
+    /* --- ADDED PROJECT 6 FUNCTIONS --- */
+    function loadP6Website(url, title) {
+        const previewBox = document.getElementById("previewBox-p6");
+        const frame = document.getElementById("appFrame-p6");
+        const previewTitle = document.getElementById("previewTitle-p6");
+        const fullBtn = document.getElementById("openFullBtn-p6");
+
+        previewTitle.innerText = title + " - Live Preview";
+        previewBox.style.display = "block";
+        frame.src = url;
+        fullBtn.href = url;
+        
+        setTimeout(() => { previewBox.scrollIntoView({ behavior: "smooth", block: "start" }); }, 100);
+    }
+    function closeP6Website() {
+        const previewBox = document.getElementById("previewBox-p6");
+        const frame = document.getElementById("appFrame-p6");
         frame.src = "";
         previewBox.style.display = "none";
     }
