@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-  <title>IT Services & Hardware | Sanjeev Kumar</title>
-  <meta name="description" content="Home Visit IT Services in Noida by Sanjeev Kumar. PC repair, custom desktops, refurbished laptops, and network troubleshooting." />
+  <title>IT Services, Hardware & Consultation | Sanjeev Kumar</title>
+  <meta name="description" content="Home Visit IT Services in Noida by Sanjeev Kumar. PC repair, custom desktops, web development, software licenses, and IT consultation." />
   <meta name="theme-color" content="#f4f4f2" />
 
   <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
@@ -26,6 +26,7 @@
       --text-main: #111111;
       --text-muted: #555555;
       --border-color: rgba(0, 0, 0, 0.08);
+      --accent-green: #00c875;
       --radius-sm: 12px;
       --radius-md: 24px; 
       --radius-lg: 32px;
@@ -35,7 +36,7 @@
     }
     
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     
     body {
       font-family: var(--font-body); 
@@ -56,7 +57,7 @@
       width: 100%; 
       max-width: var(--container); 
       margin-inline: auto; 
-      padding-inline: clamp(1.5rem, 5vw, 3rem); 
+      padding-inline: clamp(1.2rem, 5vw, 3rem); 
       position: relative; 
       z-index: 2; 
     }
@@ -77,6 +78,7 @@
       display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; 
       background-color: var(--bg-alt); color: var(--text-main); border-radius: 50%; border: 1px solid var(--border-color);
       transition: var(--transition); font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.02); cursor: pointer;
+      flex-shrink: 0;
     }
     .btn-circle:hover { background-color: var(--text-main); color: #fff; transform: translateY(-2px); border-color: var(--text-main);}
     .btn-circle.light { background-color: #fff; border: none;}
@@ -90,12 +92,47 @@
     .section-header { margin-bottom: clamp(2rem, 5vw, 3.5rem); text-align: center; display: flex; flex-direction: column; align-items: center; }
     .section-header h2 { font-size: clamp(2rem, 6vw, 3.2rem); font-weight: 500; letter-spacing: -1px; line-height: 1.1; }
 
+    /* --- HIGHLIGHTING CUSTOM CLASSES --- */
+    .text-highlight { color: var(--accent-green); font-weight: 600; }
+    
+    .badge-popular {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--accent-green);
+      color: #fff;
+      padding: 6px 16px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 10px rgba(0, 200, 117, 0.3);
+      z-index: 10;
+    }
+
+    .highlight-card {
+      border: 2px solid var(--accent-green) !important;
+      box-shadow: 0 10px 30px rgba(0, 200, 117, 0.1) !important;
+      position: relative; /* needed for the absolute badge */
+    }
+
+    /* Pulse animation for the WhatsApp Button */
+    .pulse-btn {
+      animation: pulse-green 2s infinite;
+    }
+    @keyframes pulse-green {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
     /* --- HEADER & NAVIGATION --- */
     #main-header {
       display: flex; justify-content: space-between; align-items: center; 
       padding-top: 1rem; padding-bottom: 1rem;
-      padding-left: max(clamp(1.5rem, 5vw, 3rem), calc((100% - 1300px) / 2));
-      padding-right: max(clamp(1.5rem, 5vw, 3rem), calc((100% - 1300px) / 2));
+      padding-left: max(clamp(1.2rem, 5vw, 3rem), calc((100% - 1300px) / 2));
+      padding-right: max(clamp(1.2rem, 5vw, 3rem), calc((100% - 1300px) / 2));
       background: transparent; position: fixed; top: 0; left: 0; right: 0; width: 100%; max-width: 100%;
       margin-inline: auto; z-index: 1005; transition: var(--transition);
     }
@@ -121,29 +158,69 @@
     .mobile-menu a:hover, .mobile-menu a.active { color: var(--text-muted); }
 
     /* --- PAGE LAYOUT & CARDS --- */
-    section { padding: clamp(4rem, 8vw, 6rem) 0; }
+    section { padding: clamp(3rem, 8vw, 6rem) 0; }
     .exp-card { background: var(--bg-alt); padding: clamp(1.5rem, 5vw, 2.5rem); border-radius: var(--radius-md); border: 1px solid var(--border-color); transition: var(--transition); }
     .exp-card.hoverable:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.04); }
     
     .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-    /* --- SPECIFIC LAYOUTS --- */
+    /* --- GRIDS & ALIGNMENTS --- */
+    .services-grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .why-choose-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+    
+    .contact-info-banner { display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center; gap: 2rem; background: var(--text-main); color: #fff; border: none; padding: 2rem; border-radius: var(--radius-md); }
+    .contact-info-item { display: flex; align-items: center; gap: 15px; }
+    
     .hardware-banner-inner { display: flex; flex-direction: column; gap: 2rem; align-items: center; text-align: center; }
     .hardware-img-box { width: 100%; max-width: 400px; border-radius: var(--radius-md); overflow: hidden; border: 4px solid rgba(255,255,255,0.1); }
     
+    .btn-wrap { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; width: 100%; margin-top: 1.5rem; }
+
     /* --- MEDIA QUERIES --- */
+    
+    /* Dedicated Mobile Optimization */
+    @media (max-width: 599px) {
+      body { font-size: 15px; }
+      
+      .hero-title { font-size: 2.3rem !important; margin-top: 0.5rem !important; }
+      .hero-desc { font-size: 1rem !important; text-align: left; }
+      .hero-section-inner { text-align: left !important; align-items: flex-start !important; }
+      .hero-section-inner .tag-label { text-align: left !important; margin-left: 0 !important; }
+
+      .contact-info-banner { 
+        flex-direction: column !important; 
+        align-items: flex-start !important; 
+        gap: 1.5rem !important; 
+        padding: 1.5rem !important; 
+      }
+      
+      .services-grid-container { grid-template-columns: 1fr !important; }
+      .why-choose-grid { grid-template-columns: 1fr !important; }
+      
+      .btn-wrap { flex-direction: column; gap: 0.8rem; }
+      .btn-pill { width: 100% !important; }
+      
+      .hardware-banner-inner { text-align: left !important; align-items: flex-start !important; }
+      .hardware-text .tag-label { text-align: left !important; }
+      .hardware-text h3 { font-size: 1.8rem !important; text-align: left !important; }
+      .hardware-text p { text-align: left !important; font-size: 0.95rem !important; }
+      .hardware-img-box { display: none; } /* Hide large image on mobile to save space */
+    }
+
     @media (min-width: 600px) {
       .btn-pill { width: auto; }
+      .btn-wrap { width: auto; flex-direction: row; }
     }
+    
     @media (min-width: 900px) {
       .hamburger { display: none; }
       .nav-menu { display: flex; flex: 2; justify-content: center; gap: 2.5rem; }
       
       .hardware-banner-inner { flex-direction: row; text-align: left; justify-content: space-between; }
       .hardware-text { flex: 1.2; padding-right: 2rem; }
-      .hardware-img-box { flex: 0.8; max-width: none; }
-      .hardware-banner-inner .btn-wrap { justify-content: flex-start; }
+      .hardware-img-box { display: block; flex: 0.8; max-width: none; }
+      .btn-wrap { justify-content: flex-start; }
     }
 
     /* --- CUSTOM CURSOR --- */
@@ -198,17 +275,17 @@
 
   <main style="padding-top: 100px;">
     
-    <!-- 1. HERO SECTION (CENTERED, NO IMAGE) -->
-    <section class="container" style="padding-bottom: 2rem;">
-      <div class="fade-up" style="text-align: center; max-width: 800px; margin: 0 auto;">
-        <span class="tag-label" style="text-align: center; color: var(--text-main);"><i class="fa-solid fa-circle" style="color:#00c875; font-size: 8px; margin-right: 5px; vertical-align: middle;"></i> Available in Noida & NCR</span>
-        <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 400; letter-spacing: -1px; line-height: 1.1; margin: 1rem 0;">
+    <!-- 1. HERO SECTION -->
+    <section class="container" style="padding-bottom: 2rem; padding-top: 2rem;">
+      <div class="fade-up hero-section-inner" style="text-align: center; max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; align-items: center;">
+        <span class="tag-label" style="text-align: center; color: var(--text-main); margin-bottom: 1rem;"><i class="fa-solid fa-circle" style="color:var(--accent-green); font-size: 8px; margin-right: 5px; vertical-align: middle;"></i> Available in <span class="text-highlight">Noida & NCR</span></span>
+        <h1 class="hero-title" style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 400; letter-spacing: -1px; line-height: 1.1; margin: 0 0 1rem 0;">
           IT Solutions Delivered <br><span style="color: var(--text-muted);">Right to Your Doorstep.</span>
         </h1>
-        <p style="color:var(--text-muted); font-size: 1.1rem; line-height: 1.6; margin-bottom: 2.5rem;">
-          Enterprise-level technical support, networking, and hardware sales tailored for homes and small businesses. Fast, reliable, and entirely hassle-free.
+        <p class="hero-desc" style="color:var(--text-muted); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+          Enterprise-level technical support, networking, hardware sales, software licenses, <strong>website development</strong>, and IT purchase consultation for homes and small businesses. Fast, reliable, and hassle-free.
         </p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <div class="btn-wrap">
           <a href="tel:+918766234962" class="btn-pill"><i class="fa-solid fa-phone" style="margin-right: 8px;"></i> Call Now</a>
           <a href="#services-grid" class="btn-pill outline">Explore Services <i class="fa-solid fa-arrow-down" style="margin-left: 8px;"></i></a>
         </div>
@@ -216,10 +293,10 @@
     </section>
 
     <!-- 2. CONTACT DETAILS BANNER -->
-    <section class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
-      <div class="exp-card fade-up" style="display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center; gap: 2rem; background: var(--text-main); color: #fff; border: none;">
+    <section class="container" style="padding-top: 1rem; padding-bottom: 4rem;">
+      <div class="contact-info-banner fade-up">
         
-        <div style="display: flex; align-items: center; gap: 15px;">
+        <div class="contact-info-item">
           <div class="btn-circle" style="background: rgba(255,255,255,0.1); border: none; color: #fff;"><i class="fa-solid fa-mobile-screen"></i></div>
           <div>
             <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.6);">Mobile</span>
@@ -227,7 +304,7 @@
           </div>
         </div>
 
-        <div style="display: flex; align-items: center; gap: 15px;">
+        <div class="contact-info-item">
           <div class="btn-circle" style="background: rgba(255,255,255,0.1); border: none; color: #fff;"><i class="fa-solid fa-envelope-open-text"></i></div>
           <div>
             <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.6);">Email</span>
@@ -235,7 +312,7 @@
           </div>
         </div>
 
-        <div style="display: flex; align-items: center; gap: 15px;">
+        <div class="contact-info-item">
           <div class="btn-circle" style="background: rgba(255,255,255,0.1); border: none; color: #fff;"><i class="fa-solid fa-location-dot"></i></div>
           <div>
             <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.6);">Location</span>
@@ -246,18 +323,19 @@
       </div>
     </section>
 
-    <!-- 3. SERVICES GRID -->
-    <section id="services-grid" class="container" style="padding-bottom: 2rem;">
+    <!-- 3. SERVICES & PRODUCTS GRID -->
+    <section id="services-grid" class="container" style="padding-top: 0; padding-bottom: 2rem;">
       <div class="section-header fade-up">
-        <span class="tag-label" style="text-align: center;">What I Can Fix</span>
-        <h2>Home & Small Office Services</h2>
+        <span class="tag-label" style="text-align: center;">What I Fix, Provide & Build</span>
+        <h2>Services, Sales & Development</h2>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+      <div class="services-grid-container">
         
-        <!-- Service 1 -->
-        <div class="exp-card hoverable fade-up" style="margin-bottom: 0; text-align: left;">
-          <i class="fa-solid fa-laptop-medical" style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--text-main);"></i>
+        <!-- Service 1: HIGHLIGHTED -->
+        <div class="exp-card hoverable highlight-card fade-up" style="margin-bottom: 0; text-align: left;">
+          <div class="badge-popular"><i class="fa-solid fa-star" style="margin-right:4px;"></i> Top Service</div>
+          <i class="fa-solid fa-laptop-medical" style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--accent-green);"></i>
           <h3 style="margin-bottom: 0.8rem; font-size: 1.3rem;">PC & Laptop Repair</h3>
           <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5;">
             Hardware diagnostics, OS formatting, resolving blue screen errors, speeding up slow machines, and software installations.
@@ -309,33 +387,92 @@
           </p>
         </div>
 
+        <!-- Service 7 -->
+        <div class="exp-card hoverable fade-up" style="margin-bottom: 0; text-align: left;">
+          <i class="fa-solid fa-laptop" style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--text-main);"></i>
+          <h3 style="margin-bottom: 0.8rem; font-size: 1.3rem;">New & Refurbished Laptops</h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5;">
+            Supplying top-brand new laptops and highly reliable, certified refurbished machines that fit your specific budget and needs.
+          </p>
+        </div>
+
+        <!-- Service 8 -->
+        <div class="exp-card hoverable fade-up" style="margin-bottom: 0; text-align: left; transition-delay: 0.1s;">
+          <i class="fa-solid fa-desktop" style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--text-main);"></i>
+          <h3 style="margin-bottom: 0.8rem; font-size: 1.3rem;">Custom Built Desktops</h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5;">
+            Expertly assembled custom PCs tailored for office productivity, heavy editing workloads, or high-performance gaming.
+          </p>
+        </div>
+
+        <!-- Service 9 -->
+        <div class="exp-card hoverable fade-up" style="margin-bottom: 0; text-align: left; transition-delay: 0.2s;">
+          <i class="fa-solid fa-key" style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--text-main);"></i>
+          <h3 style="margin-bottom: 0.8rem; font-size: 1.3rem;">Genuine Software Licenses</h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5;">
+            Providing official licenses for Windows, Microsoft Office 365, AutoCAD, and top-tier security like McAfee & Bitdefender.
+          </p>
+        </div>
+
+        <!-- Service 10 -->
+        <div class="exp-card hoverable fade-up" style="margin-bottom: 0; text-align: left;">
+          <i class="fa-solid fa-comments" style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--text-main);"></i>
+          <h3 style="margin-bottom: 0.8rem; font-size: 1.3rem;">IT & Buying Consultation</h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5;">
+            Planning to buy a laptop, desktop, or gadget elsewhere? Consult with me first to get expert advice on specs and avoid overspending.
+          </p>
+        </div>
+
+        <!-- Service 11: HIGHLIGHTED -->
+        <div class="exp-card hoverable highlight-card fade-up" style="margin-bottom: 0; text-align: left; transition-delay: 0.1s;">
+          <div class="badge-popular"><i class="fa-solid fa-fire" style="margin-right:4px;"></i> High Demand</div>
+          <i class="fa-solid fa-globe" style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--accent-green);"></i>
+          <h3 style="margin-bottom: 0.8rem; font-size: 1.3rem;">Website Development</h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5;">
+            Need a professional online presence? I design and build modern, mobile-friendly, and fast-loading websites for businesses and personal brands.
+          </p>
+        </div>
+
       </div>
     </section>
 
-    <!-- 4. HARDWARE SALES PREMIUM BANNER WITH IMAGE -->
+    <!-- 4. HARDWARE, SOFTWARE & CONSULTATION BANNER -->
     <section class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
-      <div class="exp-card fade-up" style="background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%); color: #fff; padding: clamp(2.5rem, 5vw, 4rem);">
+      <div class="exp-card fade-up" style="background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%); color: #fff; padding: clamp(1.5rem, 5vw, 4rem);">
         
         <div class="hardware-banner-inner">
           <div class="hardware-text">
-            <span class="tag-label" style="color: #00c875;">Sales & Assembly</span>
-            <h3 style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 500; margin-bottom: 1rem; line-height: 1.1; color: #fff;">Looking for New Hardware?</h3>
-            <p style="font-size: 1.05rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 2rem;">
-              Beyond repairs, I also supply <strong>New and Refurbished Laptops</strong>, and build highly optimized <strong>Custom Assembled Desktops</strong>. Whether you need a budget-friendly office workstation, a student laptop, or a high-end gaming PC, I can source and assemble the perfect machine for your needs.
-            </p>
+            <span class="tag-label" style="color: var(--accent-green);">Sales, Software & Development</span>
+            <h3 style="font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 500; margin-bottom: 1rem; line-height: 1.2; color: #fff;">Hardware, Software & New Websites</h3>
             
-            <div class="btn-wrap" style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-              <a href="tel:+918766234962" class="btn-pill" style="background: #fff; color: var(--text-main); font-weight: 600; width: auto;">
-                <i class="fa-solid fa-phone" style="margin-right: 8px;"></i> Get a Quick Quote
+            <p style="font-size: 1.05rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 1rem;">
+              Beyond repairs, I supply <strong>New and Refurbished Laptops</strong> and build fully optimized <strong>Custom Assembled Desktops</strong> tailored to your workflow and budget.
+            </p>
+            <p style="font-size: 1.05rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 1.5rem;">
+              I also provide genuine software installations and keys, including <strong>Windows OS, Microsoft Office 365, AutoCAD, McAfee Antivirus, and Bitdefender</strong> at competitive prices.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+              <p style="font-size: 1rem; color: rgba(255,255,255,0.9); line-height: 1.6; margin: 0; background: rgba(255,255,255,0.05); padding: 1rem; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-green);">
+                <i class="fa-solid fa-globe" style="color:var(--accent-green); margin-right: 8px;"></i><strong>Web Development:</strong> Want to take your business online? Ask me about building a stunning, high-performing website tailored to your brand!
+              </p>
+              
+              <p style="font-size: 1rem; color: rgba(255,255,255,0.9); line-height: 1.6; margin: 0; background: rgba(255,255,255,0.05); padding: 1rem; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-green);">
+                <i class="fa-solid fa-lightbulb" style="color:var(--accent-green); margin-right: 8px;"></i><strong><span class="text-highlight">Free Buying Consultation:</span></strong> Want to buy a desktop, laptop, or any IT equipment? Feel free to consult with me first to pick the exact specs for your needs without overpaying.
+              </p>
+            </div>
+            
+            <div class="btn-wrap">
+              <a href="tel:+918766234962" class="btn-pill" style="background: #fff; color: var(--text-main); font-weight: 600;">
+                <i class="fa-solid fa-phone" style="margin-right: 8px;"></i> Call to Discuss
               </a>
-              <a href="https://wa.me/918766234962" target="_blank" class="btn-pill" style="background: #25D366; color: #fff; font-weight: 600; width: auto;">
-                <i class="fa-brands fa-whatsapp" style="margin-right: 8px;"></i> WhatsApp Me
+              <a href="https://wa.me/918766234962" target="_blank" class="btn-pill pulse-btn" style="background: #25D366; color: #fff; font-weight: 600;">
+                <i class="fa-brands fa-whatsapp" style="margin-right: 8px;"></i> WhatsApp Message
               </a>
             </div>
           </div>
           
           <div class="hardware-img-box">
-            <!-- High quality stock image representing hardware/custom PC builds -->
             <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=800&q=80" alt="Custom Desktop Build" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
           </div>
         </div>
@@ -352,10 +489,10 @@
           <p style="color: var(--text-muted);">Bringing corporate-level IT expertise directly to your home.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+        <div class="why-choose-grid">
           
           <div style="display: flex; gap: 15px;">
-            <div style="font-size: 1.5rem; color: var(--text-main);"><i class="fa-solid fa-bolt"></i></div>
+            <div style="font-size: 1.5rem; color: var(--text-main);"><i class="fa-solid fa-bolt" style="color:var(--accent-green);"></i></div>
             <div>
               <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 5px;">Fast Local Response</h4>
               <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">Because I am based right here in Noida, I can often provide same-day visits to resolve critical tech emergencies.</p>
@@ -363,7 +500,7 @@
           </div>
 
           <div style="display: flex; gap: 15px;">
-            <div style="font-size: 1.5rem; color: var(--text-main);"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+            <div style="font-size: 1.5rem; color: var(--text-main);"><i class="fa-solid fa-hand-holding-dollar" style="color:var(--accent-green);"></i></div>
             <div>
               <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 5px;">Transparent Pricing</h4>
               <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">No hidden fees or unexpected charges. I evaluate the problem and provide a clear cost estimate before starting any work.</p>
@@ -371,7 +508,7 @@
           </div>
 
           <div style="display: flex; gap: 15px;">
-            <div style="font-size: 1.5rem; color: var(--text-main);"><i class="fa-solid fa-user-shield"></i></div>
+            <div style="font-size: 1.5rem; color: var(--text-main);"><i class="fa-solid fa-user-shield" style="color:var(--accent-green);"></i></div>
             <div>
               <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 5px;">Enterprise Experience</h4>
               <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">I manage complex servers and networks for businesses daily. I bring that exact same high standard of security and care to your home.</p>
