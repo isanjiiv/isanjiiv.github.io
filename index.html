@@ -117,6 +117,7 @@
       --radius-xl: 40px;
       --container: 1500px; 
       --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --accent-green: #00c875;
     }
     /* --- 2. GLOBAL RESET & BASE (Mobile First) --- */
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -180,6 +181,8 @@
       transition: var(--transition); width: 100%; text-align: center; cursor: pointer;
     }
     .btn-pill:hover { background-color: #333; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+    .btn-pill.outline { background-color: transparent; color: var(--text-main); border: 1px solid var(--border-color); }
+    .btn-pill.outline:hover { border-color: var(--text-main); background-color: var(--bg-alt); }
 
     .btn-circle {
       display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; 
@@ -783,8 +786,8 @@
             </ul>
 
             <div class="btn-group about-btn-group">
-              <a href="https://isanjiiv.github.io/about.html" class="btn-pill" style="width: auto;">Know more</a>
-              <a href="https://isanjiiv.github.io/about.html" class="btn-circle" title="Know More" ><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></a>
+              <a href="about.html" class="btn-pill" style="width: auto;">Know more</a>
+              <a href="about.html" class="btn-circle" title="Know More" ><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></a>
             </div>
           </div>
 
@@ -806,6 +809,50 @@
 
         </div>
       </section>
+
+     <!-- ==========================================
+           NEW HOME VISIT SERVICES SECTION 
+           ========================================== -->
+      <section id="services-preview" class="container" style="padding-top: 0; padding-bottom: 4rem;">
+        <div class="exp-card fade-up" style="border: none; background: rgba(0,0,0,0.03); display: flex; flex-direction: column; gap: 2rem; align-items: center; text-align: center; padding: clamp(2.5rem, 5vw, 4rem);">
+          
+          <div style="max-width: 700px;">
+            <span class="tag-label" style="color: var(--accent-green); background: rgba(0, 200, 117, 0.1); padding: 6px 16px; border-radius: 50px; display: inline-block; margin-bottom: 1rem;">Local Support (Noida & NCR)</span>
+            <h2 style="font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 600; margin-bottom: 1rem; color: var(--text-main); line-height: 1.2;">Home Visit IT Services & Hardware</h2>
+            <p style="font-size: 1.05rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0;">
+              Need a laptop repaired at home? Looking to buy a custom desktop? Or need a professional website built for your business? I offer affordable, reliable, and professional tech solutions right at your doorstep.
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; width: 100%;">
+            
+            <div style="background: var(--bg-alt); padding: 2rem 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); flex: 1; min-width: 250px; transition: transform 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.02);">
+              <i class="fa-solid fa-laptop-medical" style="font-size: 2.5rem; color: var(--accent-green); margin-bottom: 1rem;"></i>
+              <h4 style="font-size: 1.2rem; margin-bottom: 5px; color: var(--text-main); font-weight: 600;">PC & Laptop Repair</h4>
+              <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0;">Hardware fixes, OS formatting, & data recovery.</p>
+            </div>
+
+            <div style="background: var(--bg-alt); padding: 2rem 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); flex: 1; min-width: 250px; transition: transform 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.02);">
+              <i class="fa-solid fa-globe" style="font-size: 2.5rem; color: var(--accent-green); margin-bottom: 1rem;"></i>
+              <h4 style="font-size: 1.2rem; margin-bottom: 5px; color: var(--text-main); font-weight: 600;">Web Development</h4>
+              <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0;">Fast, mobile-friendly websites for your business.</p>
+            </div>
+
+            <div style="background: var(--bg-alt); padding: 2rem 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); flex: 1; min-width: 250px; transition: transform 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.02);">
+              <i class="fa-solid fa-desktop" style="font-size: 2.5rem; color: var(--accent-green); margin-bottom: 1rem;"></i>
+              <h4 style="font-size: 1.2rem; margin-bottom: 5px; color: var(--text-main); font-weight: 600;">Sales & Consultation</h4>
+              <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0;">New laptops, custom PCs, & buying advice.</p>
+            </div>
+
+          </div>
+
+          <a href="services.html" class="btn-pill" style="background: var(--accent-green); color: #fff; font-weight: 600; width: auto; margin-top: 1.5rem; box-shadow: 0 4px 15px rgba(0,200,117,0.3);">
+            View All Services <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>
+          </a>
+
+        </div>
+      </section>
+      <!-- ========================================== -->
 
       <section id="skills" class="container skills-section">
         <div class="section-header fade-up">
