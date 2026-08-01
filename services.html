@@ -1,1 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>IT Services & Hardware | Sanjeev Kumar</title>
+  <meta name="description" content="Home Visit IT Services in Noida by Sanjeev Kumar. PC repair, custom desktops, refurbished laptops, and network troubleshooting." />
+  <meta name="theme-color" content="#f4f4f2" />
+
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* --- VARIABLES & BASE STYLES --- */
+    :root {
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --bg: #f4f4f2; 
+      --bg-alt: #ffffff;
+      --text-main: #111111;
+      --text-muted: #555555;
+      --border-color: rgba(0, 0, 0, 0.08);
+      --radius-sm: 12px;
+      --radius-md: 24px; 
+      --radius-lg: 32px;
+      --radius-xl: 40px;
+      --container: 1300px; 
+      --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    
+    body {
+      font-family: var(--font-body); 
+      background-color: var(--bg); 
+      color: var(--text-main); 
+      line-height: 1.6; 
+      font-size: 16px; 
+      overflow-x: hidden;
+      width: 100%;
+    }
+    body.no-scroll { overflow: hidden; }
+    
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    img { max-width: 100%; height: auto; display: block; }
+    h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--text-main); font-weight: 400; }
+    
+    .container { 
+      width: 100%; 
+      max-width: var(--container); 
+      margin-inline: auto; 
+      padding-inline: clamp(1.5rem, 5vw, 3rem); 
+      position: relative; 
+      z-index: 2; 
+    }
+
+    /* --- REUSABLE COMPONENTS --- */
+    .btn-pill {
+      display: inline-flex; align-items: center; justify-content: center; 
+      padding: 16px 32px; 
+      background-color: var(--text-main); color: #fff; font-family: var(--font-body); 
+      font-weight: 500; font-size: 1rem; border-radius: 50px; border: none; 
+      transition: var(--transition); width: 100%; text-align: center; cursor: pointer;
+    }
+    .btn-pill:hover { background-color: #333; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+    .btn-pill.outline { background-color: transparent; color: var(--text-main); border: 1px solid var(--border-color); }
+    .btn-pill.outline:hover { border-color: var(--text-main); background-color: var(--bg-alt); }
+
+    .btn-circle {
+      display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; 
+      background-color: var(--bg-alt); color: var(--text-main); border-radius: 50%; border: 1px solid var(--border-color);
+      transition: var(--transition); font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.02); cursor: pointer;
+    }
+    .btn-circle:hover { background-color: var(--text-main); color: #fff; transform: translateY(-2px); border-color: var(--text-main);}
+    .btn-circle.light { background-color: #fff; border: none;}
+    .btn-circle.light:hover { background-color: #f0f0f0; color: var(--text-main); }
+
+    .tag-label {
+      font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; 
+      font-weight: 600; color: var(--text-muted); margin-bottom: 0.5rem; display: block; text-align: inherit;
+    }
+
+    .section-header { margin-bottom: clamp(2rem, 5vw, 3.5rem); text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .section-header h2 { font-size: clamp(2rem, 6vw, 3.2rem); font-weight: 500; letter-spacing: -1px; line-height: 1.1; }
+
+    /* --- HEADER & NAVIGATION --- */
+    #main-header {
+      display: flex; justify-content: space-between; align-items: center; 
+      padding-top: 1rem; padding-bottom: 1rem;
+      padding-left: max(clamp(1.5rem, 5vw, 3rem), calc((100% - 1300px) / 2));
+      padding-right: max(clamp(1.5rem, 5vw, 3rem), calc((100% - 1300px) / 2));
+      background: transparent; position: fixed; top: 0; left: 0; right: 0; width: 100%; max-width: 100%;
+      margin-inline: auto; z-index: 1005; transition: var(--transition);
+    }
+    #main-header.scrolled {
+      background: rgba(244, 244, 242, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color);
+    }
+    .brand { flex: 1; display: flex; align-items: center; position: relative; z-index: 1010; }
+    .brand img { height: clamp(40px, 5vw, 55px); width: auto; object-fit: contain; }
+    
+    .nav-menu { display: none; } 
+    .header-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 10px; position: relative; z-index: 1010; }
+    .hamburger { display: block; background: none; border: none; font-size: 1.5rem; color: var(--text-main); cursor: pointer; padding: 5px; position: relative; z-index: 1010; }
+
+    .mobile-menu {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+        background-color: var(--bg); z-index: 999; display: flex;
+        flex-direction: column; justify-content: center; align-items: center; gap: 2rem;
+        transform: translateY(-100%); transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        opacity: 0; pointer-events: none;
+    }
+    .mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    .mobile-menu a { font-size: 1.8rem; font-family: var(--font-heading); font-weight: 500; color: var(--text-main); transition: color 0.3s; }
+    .mobile-menu a:hover, .mobile-menu a.active { color: var(--text-muted); }
+
+    /* --- PAGE LAYOUT & CARDS --- */
+    section { padding: clamp(4rem, 8vw, 6rem) 0; }
+    .exp-card { background: var(--bg-alt); padding: clamp(1.5rem, 5vw, 2.5rem); border-radius: var(--radius-md); border: 1px solid var(--border-color); transition: var(--transition); }
+    .exp-card.hoverable:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.04); }
+    
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* --- SPECIFIC LAYOUTS --- */
+    .hardware-banner-inner { display: flex; flex-direction: column; gap: 2rem; align-items: center; text-align: center; }
+    .hardware-img-box { width: 100%; max-width: 400px; border-radius: var(--radius-md); overflow: hidden; border: 4px solid rgba(255,255,255,0.1); }
+    
+    /* --- MEDIA QUERIES --- */
+    @media (min-width: 600px) {
+      .btn-pill { width: auto; }
+    }
+    @media (min-width: 900px) {
+      .hamburger { display: none; }
+      .nav-menu { display: flex; flex: 2; justify-content: center; gap: 2.5rem; }
+      
+      .hardware-banner-inner { flex-direction: row; text-align: left; justify-content: space-between; }
+      .hardware-text { flex: 1.2; padding-right: 2rem; }
+      .hardware-img-box { flex: 0.8; max-width: none; }
+      .hardware-banner-inner .btn-wrap { justify-content: flex-start; }
+    }
+
+    /* --- CUSTOM CURSOR --- */
+    @media (pointer: fine) {
+      body, a, button { cursor: none !important; }
+      #blend-cursor { 
+        position: fixed; top: 0; left: 0; width: 20px; height: 20px; border-radius: 50%; 
+        background-color: #222222; pointer-events: none; z-index: 999999; 
+        transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, background-color 0.2s; 
+      }
+      #blend-cursor.hovering { width: 45px; height: 45px; background-color: rgba(34, 34, 34, 0.1); border: 1px solid rgba(34, 34, 34, 0.3); }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header id="main-header">
+    <a href="index.html" class="brand" aria-label="Sanjeev Kumar Homepage">
+      <img src="https://isanjiiv.github.io/assets/images/favicon.png" alt="Sanjiiv Logo">
+    </a>
+
+    <nav class="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html" class="active" style="font-weight: 600;">Services</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#certs">Certifications</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    
+    <div class="header-right">
+        <button class="hamburger" id="hamburger" aria-label="Toggle Navigation">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#certs">Certifications</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+
+  <main style="padding-top: 100px;">
+    
+    <!-- 1. HERO SECTION (CENTERED, NO IMAGE) -->
+    <section class="container" style="padding-bottom: 2rem;">
+      <div class="fade-up" style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <span class="tag-label" style="text-align: center; color: var(--text-main);"><i class="fa-solid fa-circle" style="color:#00c875; font-size: 8px; margin-right: 5px; vertical-align: middle;"></i> Available in Noida & NCR</span>
+        <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 400; letter-spacing: -1px; line-height: 1.1; margin: 1rem 0;">
+          IT Solutions Delivered <br><span style="color: var(--text-muted);">Right to Your Doorstep.</span>
+        </h1>
+        <p style="color:var(--text-muted); font-size: 1.1rem; line-height: 1.6; margin-bottom: 2.5rem;">
+          Enterprise-level technical support, networking, and hardware sales tailored for homes and small businesses. Fast, reliable, and entirely hassle-free.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="tel:+918766234962" class="btn-pill"><i class="fa-solid fa-phone" style="margin-right: 8px;"></i> Call Now</a>
+          <a href="#services-grid" class="btn-pill outline">Explore Services <i class="fa-solid fa-arrow-down" style="margin-left: 8px;"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. CONTACT DETAILS BANNER -->
+    <section class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+      <div class="exp-card fade-up" style="display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center; gap: 2rem; background: var(--text-main); color: #fff; border: none;">
+        
+        <div style="display: flex; align-items: center; gap: 15px;">
+          <div class="btn-circle" style="background: rgba(255,255,255,0.1); border: none; color: #fff;"><i class="fa-solid fa-mobile-screen"></i></div>
+          <div>
+            <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.6);">Mobile</span>
+            <a href="tel:+918766234962" style="font-size: 1.1rem; font-weight: 500;">+91 876623 4962</a>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 15px;">
+          <div class="btn-circle" style="background: rgba(255,255,255,0.1); border: none; color: #fff;"><i class="fa-solid fa-envelope-open-text"></i></div>
+          <div>
+            <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.6);">Email</span>
+            <a href="mailto:sanjeev753304@gmail.com" style="font-size: 1.1rem; font-weight: 500;">sanjeev753304@gmail.com</a>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 15px;">
+          <div class="btn-circle" style="background: rgba(255,255,255,0.1); border: none; color: #fff;"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.6);">Location</span>
+            <span style="font-size: 1.1rem; font-weight: 500;">Noida, Uttar Pradesh</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. SERVICES GRID -->
+    <section id="services-grid" class="container" style="padding-bottom: 2rem;">
+      <div class="section-header fade-up">
+        <span class="tag-label" style="text-align: center;">What I Can Fix</span>
+        <h2>Home & Small Office Services</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+        
+        <!-- Service 1 -->
+        <div class="exp-card hoverable fade-up" style="margin-bottom: 0; text-align: left;">
+          <i class="fa-solid fa-laptop-medical" style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--text-main);"></i>
+          <h3 style="margin-bottom: 0.8rem; font-size: 1.3rem;">PC & Laptop Repair</h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5;">
+            Hardware diagnostics, OS formatting, resolving blue screen errors, speeding up slow machines, and software installations.
+          </p>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="exp-card hoverable fade-up" style="margin-bottom: 0; text-align: left; transition-delay: 0.1s;">
+          <i class="fa-solid fa-wifi" style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--text-main);"></i>
+          <h3 style="margin-bottom: 0.8rem; font-size: 1.3rem;">Wi-Fi & Networking</h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5;">
+            Router setup, eliminating dead zones, extending Wi-Fi range, and securing your network from unauthorized access.
+          </p>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="exp-card hoverable fade-up" style="margin-bottom: 0; text-align: left; transition-delay: 0.2s;">
+          <i class="fa-solid fa-print" style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--text-main);"></i>
+          <h3 style="margin-bottom: 0.8rem; font-size: 1.3rem;">Printers & Peripherals</h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5;">
+            Wireless printer configuration, scanner troubleshooting, network sharing setups, and external drive connections.
+          </p>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="exp-card hoverable fade-up" style="margin-bottom: 0; text-align: left;">
+          <i class="fa-solid fa-hard-drive" style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--text-main);"></i>
+          <h3 style="margin-bottom: 0.8rem; font-size: 1.3rem;">Data Backup & Recovery</h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5;">
+            Safe recovery of lost or deleted files, cloud backup configuration, and setting up automated local storage solutions.
+          </p>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="exp-card hoverable fade-up" style="margin-bottom: 0; text-align: left; transition-delay: 0.1s;">
+          <i class="fa-solid fa-microchip" style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--text-main);"></i>
+          <h3 style="margin-bottom: 0.8rem; font-size: 1.3rem;">Hardware Upgrades</h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5;">
+            RAM installation, upgrading old HDDs to fast SSDs, graphics card upgrades, and general component replacements.
+          </p>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="exp-card hoverable fade-up" style="margin-bottom: 0; text-align: left; transition-delay: 0.2s;">
+          <i class="fa-solid fa-shield-halved" style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--text-main);"></i>
+          <h3 style="margin-bottom: 0.8rem; font-size: 1.3rem;">Virus & Malware Removal</h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5;">
+            Deep system scanning, removal of malicious software, pop-up ad blocking, and installing robust antivirus protection.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. HARDWARE SALES PREMIUM BANNER WITH IMAGE -->
+    <section class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+      <div class="exp-card fade-up" style="background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%); color: #fff; padding: clamp(2.5rem, 5vw, 4rem);">
+        
+        <div class="hardware-banner-inner">
+          <div class="hardware-text">
+            <span class="tag-label" style="color: #00c875;">Sales & Assembly</span>
+            <h3 style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 500; margin-bottom: 1rem; line-height: 1.1; color: #fff;">Looking for New Hardware?</h3>
+            <p style="font-size: 1.05rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 2rem;">
+              Beyond repairs, I also supply <strong>New and Refurbished Laptops</strong>, and build highly optimized <strong>Custom Assembled Desktops</strong>. Whether you need a budget-friendly office workstation, a student laptop, or a high-end gaming PC, I can source and assemble the perfect machine for your needs.
+            </p>
+            
+            <div class="btn-wrap" style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+              <a href="tel:+918766234962" class="btn-pill" style="background: #fff; color: var(--text-main); font-weight: 600; width: auto;">
+                <i class="fa-solid fa-phone" style="margin-right: 8px;"></i> Get a Quick Quote
+              </a>
+              <a href="https://wa.me/918766234962" target="_blank" class="btn-pill" style="background: #25D366; color: #fff; font-weight: 600; width: auto;">
+                <i class="fa-brands fa-whatsapp" style="margin-right: 8px;"></i> WhatsApp Me
+              </a>
+            </div>
+          </div>
+          
+          <div class="hardware-img-box">
+            <!-- High quality stock image representing hardware/custom PC builds -->
+            <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=800&q=80" alt="Custom Desktop Build" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. WHY CHOOSE ME SECTION -->
+    <section class="container">
+      <div class="exp-card fade-up" style="border: none; background: rgba(0,0,0,0.02); display: flex; flex-direction: column; gap: 2rem;">
+        
+        <div style="text-align: center; margin-bottom: 1rem;">
+          <h2 style="font-size: clamp(2rem, 5vw, 2.5rem); margin-bottom: 0.5rem;">Why Work With Me?</h2>
+          <p style="color: var(--text-muted);">Bringing corporate-level IT expertise directly to your home.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+          
+          <div style="display: flex; gap: 15px;">
+            <div style="font-size: 1.5rem; color: var(--text-main);"><i class="fa-solid fa-bolt"></i></div>
+            <div>
+              <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 5px;">Fast Local Response</h4>
+              <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">Because I am based right here in Noida, I can often provide same-day visits to resolve critical tech emergencies.</p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 15px;">
+            <div style="font-size: 1.5rem; color: var(--text-main);"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+            <div>
+              <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 5px;">Transparent Pricing</h4>
+              <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">No hidden fees or unexpected charges. I evaluate the problem and provide a clear cost estimate before starting any work.</p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 15px;">
+            <div style="font-size: 1.5rem; color: var(--text-main);"><i class="fa-solid fa-user-shield"></i></div>
+            <div>
+              <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 5px;">Enterprise Experience</h4>
+              <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">I manage complex servers and networks for businesses daily. I bring that exact same high standard of security and care to your home.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-bottom fade-up container" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; padding: 1rem 0 2rem;">
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+      <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="https://x.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+    </div>
+    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0; text-align: center;">
+      © <span id="year">2026</span>. Design By <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" style="color:var(--text-main); font-weight:600;">Sanjeev Kumar</a>. All rights reserved.
+    </p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Header Scroll Effect
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('main-header');
+        if (header) {
+            if (window.scrollY > 50) { header.classList.add('scrolled'); }
+            else { header.classList.remove('scrolled'); }
+        }
+    });
+
+    // Mobile Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const body = document.body;
+
+    if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('open');
+            if (isOpen) {
+                mobileMenu.classList.remove('open');
+                hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                body.classList.remove('no-scroll');
+            } else {
+                mobileMenu.classList.add('open');
+                hamburger.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                body.classList.add('no-scroll');
+            }
+        });
+    }
+
+    // Scroll Animations (Fade Up)
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Current Year for Footer
+    const yearSpan = document.getElementById("year");
+    if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+    // Custom Cursor
+    if (window.matchMedia("(pointer: fine)").matches) {
+        const blendCursor = document.createElement('div');
+        blendCursor.id = 'blend-cursor';
+        document.body.appendChild(blendCursor);
+        let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+        let cursorX = mouseX, cursorY = mouseY;
+
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.2;
+            cursorY += (mouseY - cursorY) * 0.2;
+            blendCursor.style.left = cursorX + 'px';
+            blendCursor.style.top = cursorY + 'px';
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+        
+        window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.closest('a, button, .hoverable, .btn-circle')) { blendCursor.classList.add('hovering'); }
+        });
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.closest('a, button, .hoverable, .btn-circle')) { blendCursor.classList.remove('hovering'); }
+        });
+    }
+  </script>
+</body>
+</html>
