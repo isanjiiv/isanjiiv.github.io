@@ -24,10 +24,6 @@ The public website is intentionally kept simple and compatible with GitHub Pages
 └── ARCHITECTURE.md
 ```
 
-## Why files are not being removed
-
-This cleanup is deliberately non-destructive. Existing production URLs, assets, verification files, and historical work are preserved.
-
 ## Recommended future organization
 
 1. Keep public entry pages at the root.
