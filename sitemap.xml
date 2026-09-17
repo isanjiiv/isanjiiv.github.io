@@ -1,103 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-
   <url>
     <loc>https://isanjiiv.github.io/</loc>
     <lastmod>2026-09-17</lastmod>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
-    <image:image>
-      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev.jpg</image:loc>
-      <image:title>Sanjeev Kumar - IT Engineer</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-noida.png</image:loc>
-      <image:title>Sanjeev Kumar - IT Engineer in Noida</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-it-engineer.png</image:loc>
-      <image:title>Sanjeev Kumar IT Engineer</image:title>
-    </image:image>
+    <image:image><image:loc>https://isanjiiv.github.io/assets/images/sanjeev.jpg</image:loc><image:title>Sanjeev Kumar - IT Engineer</image:title></image:image>
+    <image:image><image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-noida.png</image:loc><image:title>Sanjeev Kumar - IT Engineer in Noida</image:title></image:image>
+    <image:image><image:loc>https://isanjiiv.github.io/assets/images/sanjeev-it-engineer.png</image:loc><image:title>Sanjeev Kumar IT Engineer</image:title></image:image>
   </url>
-
   <url>
     <loc>https://isanjiiv.github.io/about.html</loc>
     <lastmod>2026-09-17</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
-    <image:image>
-      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-noida.png</image:loc>
-      <image:title>Sanjeev Kumar Professional Portrait in Noida</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-It-engineer.png</image:loc>
-      <image:title>Sanjeev Kumar IT Engineer Portrait</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-professional.png</image:loc>
-      <image:title>Sanjeev Kumar IT Professional</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-engineer-noida.jpg</image:loc>
-      <image:title>Sanjeev Kumar IT Engineer Noida</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-workspace.png</image:loc>
-      <image:title>Sanjeev Kumar IT Engineer Workspace</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-it.jpg</image:loc>
-      <image:title>Sanjeev Kumar IT Professional Photo</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-network-admin.png</image:loc>
-      <image:title>Sanjeev Kumar Network Administrator</image:title>
-    </image:image>
+    <image:image><image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-noida.png</image:loc><image:title>Sanjeev Kumar Professional Portrait in Noida</image:title></image:image>
+    <image:image><image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-It-engineer.png</image:loc><image:title>Sanjeev Kumar IT Engineer Portrait</image:title></image:image>
+    <image:image><image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-professional.png</image:loc><image:title>Sanjeev Kumar IT Professional</image:title></image:image>
+    <image:image><image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-engineer-noida.jpg</image:loc><image:title>Sanjeev Kumar IT Engineer Noida</image:title></image:image>
+    <image:image><image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-workspace.png</image:loc><image:title>Sanjeev Kumar IT Engineer Workspace</image:title></image:image>
+    <image:image><image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-it.jpg</image:loc><image:title>Sanjeev Kumar IT Professional Photo</image:title></image:image>
+    <image:image><image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-network-admin.png</image:loc><image:title>Sanjeev Kumar Network Administrator</image:title></image:image>
+    <image:image><image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-professional-portrait.png</image:loc><image:title>Sanjeev Kumar Professional Portrait</image:title></image:image>
   </url>
-
   <url>
     <loc>https://isanjiiv.github.io/photos.html</loc>
     <lastmod>2026-09-17</lastmod>
     <priority>0.95</priority>
     <changefreq>monthly</changefreq>
-    <image:image>
-      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev.jpg</image:loc>
-      <image:title>Sanjeev Kumar IT Engineer</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-noida.png</image:loc>
-      <image:title>Sanjeev Kumar Professional Portrait in Noida</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-it-engineer.png</image:loc>
-      <image:title>Sanjeev Kumar IT Engineer Professional Photo</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-It-engineer.png</image:loc>
-      <image:title>Sanjeev Kumar IT Engineer Portrait</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-engineer-noida.jpg</image:loc>
-      <image:title>Sanjeev Kumar IT Engineer in Noida</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-professional.png</image:loc>
-      <image:title>Sanjeev Kumar IT Professional</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-workspace.png</image:loc>
-      <image:title>Sanjeev Kumar IT Workspace</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-it.jpg</image:loc>
-      <image:title>Sanjeev Kumar IT Professional Photo</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-network-admin.png</image:loc>
-      <image:title>Sanjeev Kumar Network Administrator</image:title>
-    </image:image>
+    <image:image><image:loc>https://isanjiiv.github.io/assets/images/sanjeev.jpg</image:loc><image:title>Sanjeev Kumar IT Engineer</image:title></image:image>
+    <image:image><image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-noida.png</image:loc><image:title>Sanjeev Kumar Professional Portrait in Noida</image:title></image:image>
+    <image:image><image:loc>https://isanjiiv.github.io/assets/images/sanjeev-it-engineer.png</image:loc><image:title>Sanjeev Kumar IT Engineer Professional Photo</image:title></image:image>
+    <image:image><image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-It-engineer.png</image:loc><image:title>Sanjeev Kumar IT Engineer Portrait</image:title></image:image>
+    <image:image><image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-engineer-noida.jpg</image:loc><image:title>Sanjeev Kumar IT Engineer in Noida</image:title></image:image>
+    <image:image><image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-professional.png</image:loc><image:title>Sanjeev Kumar IT Professional</image:title></image:image>
+    <image:image><image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-it-workspace.png</image:loc><image:title>Sanjeev Kumar IT Workspace</image:title></image:image>
+    <image:image><image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-it.jpg</image:loc><image:title>Sanjeev Kumar IT Professional Photo</image:title></image:image>
+    <image:image><image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-network-admin.png</image:loc><image:title>Sanjeev Kumar Network Administrator</image:title></image:image>
+    <image:image><image:loc>https://isanjiiv.github.io/assets/images/sanjeev-kumar-professional-portrait.png</image:loc><image:title>Sanjeev Kumar Professional Portrait</image:title></image:image>
   </url>
-
   <url><loc>https://isanjiiv.github.io/services.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
 </urlset>
