@@ -156,7 +156,7 @@ html, body, body * { cursor: auto !important; }
 </style>
 
 <style id="photo-gallery-layout-fix">
-/* Final gallery layout: equal image areas without large blank spaces. */
+/* Natural gallery: equal card widths, but every photo keeps its original proportions. */
 .gallery {
   display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
@@ -169,23 +169,23 @@ html, body, body * { cursor: auto !important; }
 }
 .gallery figure > a:first-child {
   width: 100% !important;
-  height: 420px !important;
+  height: auto !important;
   display: block !important;
   overflow: hidden !important;
   background: #e9e9e6 !important;
 }
 .gallery figure > a:first-child img {
+  display: block !important;
   width: 100% !important;
-  height: 100% !important;
+  height: auto !important;
   aspect-ratio: auto !important;
   object-fit: contain !important;
   object-position: center !important;
-  background: #e9e9e6 !important;
+  background: transparent !important;
   transform: none !important;
 }
-.gallery figure:hover .gallery figure > a:first-child img,
 .gallery figure:hover > a:first-child img {
-  transform: none !important;
+  transform: scale(1.015) !important;
 }
 .gallery figcaption {
   min-height: 76px !important;
@@ -195,18 +195,11 @@ html, body, body * { cursor: auto !important; }
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 18px !important;
   }
-  .gallery figure > a:first-child {
-    height: 360px !important;
-  }
 }
 @media (max-width: 560px) {
   .gallery {
     grid-template-columns: 1fr !important;
     gap: 18px !important;
-  }
-  .gallery figure > a:first-child {
-    height: min(125vw, 500px) !important;
-    min-height: 360px !important;
   }
   .gallery figcaption {
     min-height: 70px !important;
