@@ -154,6 +154,59 @@
 html, body, body * { cursor: auto !important; }
 #blend-cursor { display: none !important; visibility: hidden !important; opacity: 0 !important; }
 </style>
+
+<style id="photo-gallery-layout-fix">
+/* Final gallery layout: equal image areas without large blank spaces. */
+.gallery {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 22px !important;
+  align-items: start !important;
+}
+.gallery figure {
+  height: auto !important;
+  align-self: start !important;
+}
+.gallery figure > a:first-child {
+  width: 100% !important;
+  height: 420px !important;
+  display: block !important;
+  overflow: hidden !important;
+  background: #e9e9e6 !important;
+}
+.gallery figure > a:first-child img {
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: auto !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+.gallery figcaption {
+  min-height: 76px !important;
+}
+@media (max-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+  }
+  .gallery figure > a:first-child {
+    height: 360px !important;
+  }
+}
+@media (max-width: 560px) {
+  .gallery {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+  .gallery figure > a:first-child {
+    height: min(125vw, 500px) !important;
+    min-height: 360px !important;
+  }
+  .gallery figcaption {
+    min-height: 70px !important;
+  }
+}
+</style>
 </head>
 <body>
   <header class="topbar">
