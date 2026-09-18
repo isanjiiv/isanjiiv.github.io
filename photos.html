@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sanjeev Kumar Photos | IT Engineer in Noida</title>
-  <meta name="description" content="Photos of Sanjeev Kumar, IT Engineer based in Noida, India. Professional portraits and personal profile images.">
+  <meta name="description" content="Professional and personal photographs of Sanjeev Kumar, IT Engineer based in Noida, India.">
   <meta name="author" content="Sanjeev Kumar">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://isanjiiv.github.io/photos.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Sanjeev Kumar Photos | IT Engineer in Noida">
   <meta property="og:description" content="Professional and personal profile photos of Sanjeev Kumar, IT Engineer in Noida.">
@@ -54,53 +59,141 @@
   </script>
 
   <style>
-    :root{--bg:#f4f4f2;--text:#111;--muted:#555;--card:#fff;--border:rgba(0,0,0,.08)}
-    *{box-sizing:border-box}
+    :root{
+      --bg:#f4f4f2;
+      --surface:#ffffff;
+      --text:#111111;
+      --muted:#666666;
+      --line:rgba(0,0,0,.08);
+      --accent:#00c875;
+      --accent-soft:rgba(0,200,117,.10);
+      --radius:28px;
+      --shadow:0 18px 50px rgba(0,0,0,.07);
+      --transition:all .4s cubic-bezier(.25,.8,.25,1);
+      --heading:'Outfit',sans-serif;
+      --body:'Plus Jakarta Sans',sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
-    header{padding:28px 20px;text-align:center;border-bottom:1px solid var(--border);background:rgba(244,244,242,.96)}
-    header h1{margin:0 0 8px;font-size:clamp(2rem,5vw,3.2rem);font-weight:600}
-    header p{max-width:760px;margin:0 auto;color:var(--muted);font-size:1.05rem}
-    main{max-width:1200px;margin:0 auto;padding:40px 20px 70px}
-    .intro{max-width:850px;margin:0 auto 35px;text-align:center}
-    .intro h2{font-size:2rem;margin:0 0 12px}
-    .intro p{margin:0;color:var(--muted)}
-    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
-    figure{margin:0;background:var(--card);border:1px solid var(--border);border-radius:22px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.05)}
-    figure a{display:block}
-    figure img{display:block;width:100%;height:auto;max-height:620px;object-fit:cover}
-    figcaption{padding:18px 18px 20px;font-size:1rem;font-weight:600}
-    figcaption span{display:block;margin-top:5px;color:var(--muted);font-size:.88rem;font-weight:400}
-    footer{text-align:center;padding:30px 20px;border-top:1px solid var(--border);color:var(--muted)}
-    footer a{color:inherit}
+    body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+
+    .topbar{position:sticky;top:0;z-index:20;background:rgba(244,244,242,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .nav{max-width:1500px;margin:auto;padding:16px clamp(20px,5vw,48px);display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-family:var(--heading);font-size:1.25rem;font-weight:600;letter-spacing:-.3px}
+    .brand span{color:var(--accent)}
+    .back{display:inline-flex;align-items:center;gap:9px;font-size:.9rem;font-weight:600;color:var(--muted);transition:var(--transition)}
+    .back:hover{color:var(--text);transform:translateX(-3px)}
+
+    .hero{max-width:1100px;margin:auto;text-align:center;padding:clamp(70px,10vw,120px) 20px 65px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:8px 14px;border:1px solid rgba(0,200,117,.22);background:var(--accent-soft);border-radius:999px;color:#08794d;font-size:.78rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:22px}
+    .eyebrow i{font-size:.55rem}
+    h1{font-family:var(--heading);font-size:clamp(3rem,8vw,6.5rem);font-weight:500;letter-spacing:-4px;line-height:.95}
+    h1 span{position:relative;display:inline-block}
+    h1 span::after{content:"";position:absolute;left:4%;right:4%;bottom:-7px;height:3px;background:var(--accent);border-radius:10px;transform:rotate(-1deg)}
+    .hero p{max-width:680px;margin:28px auto 0;color:var(--muted);font-size:clamp(1rem,2vw,1.15rem)}
+
+    .gallery-wrap{max-width:1500px;margin:auto;padding:0 clamp(20px,5vw,48px) 90px}
+    .gallery-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:28px}
+    .gallery-head h2{font-family:var(--heading);font-size:clamp(1.7rem,4vw,2.5rem);font-weight:500;letter-spacing:-1px}
+    .gallery-head p{color:var(--muted);font-size:.9rem;max-width:420px;text-align:right}
+
+    .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
+    figure{grid-column:span 4;position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.035);transition:var(--transition)}
+    figure:hover{transform:translateY(-7px);box-shadow:var(--shadow);border-color:rgba(0,200,117,.25)}
+    figure a{display:block;overflow:hidden;background:#e9e9e6}
+    figure img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+    figure:hover img{transform:scale(1.035)}
+    figcaption{padding:18px 20px 20px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+    .caption-main{font-family:var(--heading);font-size:1.05rem;font-weight:600}
+    .caption-sub{display:block;color:var(--muted);font-family:var(--body);font-size:.76rem;font-weight:400;margin-top:2px}
+    .photo-link{width:40px;height:40px;flex:0 0 40px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:var(--muted);transition:var(--transition)}
+    figure:hover .photo-link{background:var(--text);color:#fff;border-color:var(--text);transform:rotate(45deg)}
+
+    figure:first-child{grid-column:span 6}
+    figure:first-child img{aspect-ratio:1/1}
+    figure:nth-child(2){grid-column:span 6}
+    figure:nth-child(2) img{aspect-ratio:1/1}
+
+    .bottom-cta{max-width:1500px;margin:0 auto 70px;padding:0 clamp(20px,5vw,48px)}
+    .cta{background:var(--text);color:#fff;border-radius:var(--radius);padding:clamp(32px,6vw,65px);display:flex;align-items:center;justify-content:space-between;gap:30px;position:relative;overflow:hidden}
+    .cta::after{content:"";position:absolute;width:230px;height:230px;border:1px solid rgba(255,255,255,.12);border-radius:50%;right:-80px;top:-90px}
+    .cta h2{font-family:var(--heading);font-size:clamp(1.8rem,4vw,3rem);font-weight:500;line-height:1.05;letter-spacing:-1px;position:relative;z-index:1}
+    .cta p{color:#bdbdbd;margin-top:8px;font-size:.9rem;position:relative;z-index:1}
+    .cta-btn{position:relative;z-index:1;display:inline-flex;align-items:center;gap:10px;background:#fff;color:#111;padding:14px 20px;border-radius:999px;font-weight:600;font-size:.9rem;white-space:nowrap;transition:var(--transition)}
+    .cta-btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.2)}
+
+    footer{text-align:center;border-top:1px solid var(--line);padding:30px 20px;color:var(--muted);font-size:.82rem}
+    footer a:hover{color:var(--text)}
+
+    @media(max-width:850px){
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      figure,figure:first-child,figure:nth-child(2){grid-column:span 1}
+      figure img,figure:first-child img,figure:nth-child(2) img{aspect-ratio:4/5}
+      .gallery-head{align-items:start;flex-direction:column}
+      .gallery-head p{text-align:left}
+      .cta{flex-direction:column;align-items:flex-start}
+    }
+    @media(max-width:560px){
+      .nav{padding:14px 18px}
+      .brand{font-size:1.1rem}
+      .back{font-size:.8rem}
+      .hero{padding-top:65px}
+      h1{letter-spacing:-2.5px}
+      .gallery-wrap{padding-inline:16px}
+      .gallery{grid-template-columns:1fr;gap:18px}
+      figure,figure:first-child,figure:nth-child(2){grid-column:span 1}
+      .gallery-head{margin-bottom:20px}
+      .bottom-cta{padding-inline:16px}
+      .cta{padding:30px 24px}
+    }
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Sanjeev Kumar Photos</h1>
-    <p>Professional profile and portrait photos of Sanjeev Kumar, IT Engineer based in Noida, India.</p>
+  <header class="topbar">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="/">Sanjeev<span>.</span></a>
+      <a class="back" href="/"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+    </nav>
   </header>
 
   <main>
-    <section class="intro">
-      <h2>Sanjeev Kumar — IT Engineer</h2>
-      <p>This page provides a dedicated, crawlable collection of Sanjeev Kumar's personal and professional photographs. The images are hosted on isanjiiv.github.io and are described accurately for image search.</p>
+    <section class="hero">
+      <div class="eyebrow"><i class="fa-solid fa-circle"></i> Personal Photo Gallery</div>
+      <h1>Sanjeev <span>Kumar</span></h1>
+      <p>Professional and personal portraits of Sanjeev Kumar, an IT Engineer based in Noida, India.</p>
     </section>
 
-    <section class="gallery" aria-label="Sanjeev Kumar photo gallery">
-      <figure><a href="/assets/images/sanjeev.jpg"><img src="/assets/images/sanjeev.jpg" alt="Sanjeev Kumar, IT Engineer in Noida" width="1200" height="1200" fetchpriority="high"></a><figcaption>Sanjeev Kumar <span>IT Engineer in Noida</span></figcaption></figure>
-      <figure><a href="/assets/images/sanjeev-kumar-noida.png"><img src="/assets/images/sanjeev-kumar-noida.png" alt="Sanjeev Kumar professional portrait in Noida" loading="lazy"></a><figcaption>Sanjeev Kumar <span>Professional portrait in Noida</span></figcaption></figure>
-      <figure><a href="/assets/images/sanjeev-it-engineer.png"><img src="/assets/images/sanjeev-it-engineer.png" alt="Sanjeev Kumar IT Engineer professional photo" loading="lazy"></a><figcaption>Sanjeev Kumar <span>IT Engineer professional photo</span></figcaption></figure>
-      <figure><a href="/assets/images/sanjeev-kumar-It-engineer.png"><img src="/assets/images/sanjeev-kumar-It-engineer.png" alt="Sanjeev Kumar portrait, IT Engineer" loading="lazy"></a><figcaption>Sanjeev Kumar <span>IT Engineer portrait</span></figcaption></figure>
-      <figure><a href="/assets/images/sanjeev-kumar-it-engineer-noida.jpg"><img src="/assets/images/sanjeev-kumar-it-engineer-noida.jpg" alt="Sanjeev Kumar IT Engineer in Noida" loading="lazy"></a><figcaption>Sanjeev Kumar <span>IT Engineer in Noida</span></figcaption></figure>
-      <figure><a href="/assets/images/sanjeev-kumar-it-professional.png"><img src="/assets/images/sanjeev-kumar-it-professional.png" alt="Sanjeev Kumar IT professional" loading="lazy"></a><figcaption>Sanjeev Kumar <span>IT professional</span></figcaption></figure>
-      <figure><a href="/assets/images/sanjeev-kumar-it-workspace.png"><img src="/assets/images/sanjeev-kumar-it-workspace.png" alt="Sanjeev Kumar IT Engineer workspace photo" loading="lazy"></a><figcaption>Sanjeev Kumar <span>IT Engineer workspace</span></figcaption></figure>
-      <figure><a href="/assets/images/sanjeev-kumar-it.jpg"><img src="/assets/images/sanjeev-kumar-it.jpg" alt="Sanjeev Kumar IT professional photo" loading="lazy"></a><figcaption>Sanjeev Kumar <span>IT professional photo</span></figcaption></figure>
-      <figure><a href="/assets/images/sanjeev-kumar-network-admin.png"><img src="/assets/images/sanjeev-kumar-network-admin.png" alt="Sanjeev Kumar network administrator professional photo" loading="lazy"></a><figcaption>Sanjeev Kumar <span>Network administration professional</span></figcaption></figure>
-      <figure><a href="/assets/images/sanjeev-kumar-professional-portrait.png"><img src="/assets/images/sanjeev-kumar-professional-portrait.png" alt="Sanjeev Kumar professional portrait" loading="lazy"></a><figcaption>Sanjeev Kumar <span>Professional portrait</span></figcaption></figure>
+    <section class="gallery-wrap" aria-labelledby="gallery-title">
+      <div class="gallery-head">
+        <div><span class="eyebrow">My Photos</span><h2 id="gallery-title">A little more about me.</h2></div>
+        <p>A dedicated collection of profile and portrait photographs hosted on my personal portfolio.</p>
+      </div>
+
+      <div class="gallery" aria-label="Sanjeev Kumar photo gallery">
+        <figure><a href="/assets/images/sanjeev.jpg"><img src="/assets/images/sanjeev.jpg" alt="Sanjeev Kumar, IT Engineer in Noida" width="1200" height="1200" fetchpriority="high"></a><figcaption><div><div class="caption-main">Sanjeev Kumar</div><span class="caption-sub">IT Engineer in Noida</span></div><a class="photo-link" href="/assets/images/sanjeev.jpg" aria-label="Open Sanjeev Kumar photo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></figcaption></figure>
+        <figure><a href="/assets/images/sanjeev-kumar-noida.png"><img src="/assets/images/sanjeev-kumar-noida.png" alt="Sanjeev Kumar professional portrait in Noida" loading="lazy"></a><figcaption><div><div class="caption-main">Sanjeev Kumar</div><span class="caption-sub">Professional portrait in Noida</span></div><a class="photo-link" href="/assets/images/sanjeev-kumar-noida.png" aria-label="Open professional portrait"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></figcaption></figure>
+        <figure><a href="/assets/images/sanjeev-it-engineer.png"><img src="/assets/images/sanjeev-it-engineer.png" alt="Sanjeev Kumar IT Engineer professional photo" loading="lazy"></a><figcaption><div><div class="caption-main">Sanjeev Kumar</div><span class="caption-sub">IT Engineer professional photo</span></div><a class="photo-link" href="/assets/images/sanjeev-it-engineer.png" aria-label="Open IT Engineer photo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></figcaption></figure>
+        <figure><a href="/assets/images/sanjeev-kumar-It-engineer.png"><img src="/assets/images/sanjeev-kumar-It-engineer.png" alt="Sanjeev Kumar portrait, IT Engineer" loading="lazy"></a><figcaption><div><div class="caption-main">Sanjeev Kumar</div><span class="caption-sub">IT Engineer portrait</span></div><a class="photo-link" href="/assets/images/sanjeev-kumar-It-engineer.png" aria-label="Open IT Engineer portrait"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></figcaption></figure>
+        <figure><a href="/assets/images/sanjeev-kumar-it-engineer-noida.jpg"><img src="/assets/images/sanjeev-kumar-it-engineer-noida.jpg" alt="Sanjeev Kumar IT Engineer in Noida" loading="lazy"></a><figcaption><div><div class="caption-main">Sanjeev Kumar</div><span class="caption-sub">IT Engineer in Noida</span></div><a class="photo-link" href="/assets/images/sanjeev-kumar-it-engineer-noida.jpg" aria-label="Open Noida portrait"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></figcaption></figure>
+        <figure><a href="/assets/images/sanjeev-kumar-it-professional.png"><img src="/assets/images/sanjeev-kumar-it-professional.png" alt="Sanjeev Kumar IT professional" loading="lazy"></a><figcaption><div><div class="caption-main">Sanjeev Kumar</div><span class="caption-sub">IT professional</span></div><a class="photo-link" href="/assets/images/sanjeev-kumar-it-professional.png" aria-label="Open IT professional photo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></figcaption></figure>
+        <figure><a href="/assets/images/sanjeev-kumar-it-workspace.png"><img src="/assets/images/sanjeev-kumar-it-workspace.png" alt="Sanjeev Kumar IT Engineer workspace photo" loading="lazy"></a><figcaption><div><div class="caption-main">Sanjeev Kumar</div><span class="caption-sub">IT Engineer workspace</span></div><a class="photo-link" href="/assets/images/sanjeev-kumar-it-workspace.png" aria-label="Open workspace photo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></figcaption></figure>
+        <figure><a href="/assets/images/sanjeev-kumar-it.jpg"><img src="/assets/images/sanjeev-kumar-it.jpg" alt="Sanjeev Kumar IT professional photo" loading="lazy"></a><figcaption><div><div class="caption-main">Sanjeev Kumar</div><span class="caption-sub">IT professional photo</span></div><a class="photo-link" href="/assets/images/sanjeev-kumar-it.jpg" aria-label="Open IT professional photo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></figcaption></figure>
+        <figure><a href="/assets/images/sanjeev-kumar-network-admin.png"><img src="/assets/images/sanjeev-kumar-network-admin.png" alt="Sanjeev Kumar network administrator professional photo" loading="lazy"></a><figcaption><div><div class="caption-main">Sanjeev Kumar</div><span class="caption-sub">Network administration professional</span></div><a class="photo-link" href="/assets/images/sanjeev-kumar-network-admin.png" aria-label="Open network administrator photo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></figcaption></figure>
+        <figure><a href="/assets/images/sanjeev-kumar-professional-portrait.png"><img src="/assets/images/sanjeev-kumar-professional-portrait.png" alt="Sanjeev Kumar professional portrait" loading="lazy"></a><figcaption><div><div class="caption-main">Sanjeev Kumar</div><span class="caption-sub">Professional portrait</span></div><a class="photo-link" href="/assets/images/sanjeev-kumar-professional-portrait.png" aria-label="Open professional portrait"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="bottom-cta">
+      <div class="cta">
+        <div><h2>Want to know more about me?</h2><p>Explore my experience, skills and professional journey.</p></div>
+        <a class="cta-btn" href="/about.html">View About Me <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
     </section>
   </main>
 
-  <footer><a href="/">Sanjeev Kumar | IT Engineer</a> · <a href="/about.html">About</a></footer>
+  <footer>© 2026 <a href="/">Sanjeev Kumar</a> · IT Engineer · Noida, India</footer>
 </body>
 </html>
