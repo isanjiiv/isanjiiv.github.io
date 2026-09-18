@@ -178,8 +178,14 @@ html, body, body * { cursor: auto !important; }
   width: 100% !important;
   height: 100% !important;
   aspect-ratio: auto !important;
-  object-fit: cover !important;
+  object-fit: contain !important;
   object-position: center !important;
+  background: #e9e9e6 !important;
+  transform: none !important;
+}
+.gallery figure:hover .gallery figure > a:first-child img,
+.gallery figure:hover > a:first-child img {
+  transform: none !important;
 }
 .gallery figcaption {
   min-height: 76px !important;
