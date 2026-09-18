@@ -1,0 +1,100 @@
+name: Natural photo grid layout
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    if: ${{ !contains(github.event.head_commit.message, '[natural-grid]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Make gallery follow each photo's natural aspect ratio
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          p = Path('photos.html')
+          s = p.read_text(encoding='utf-8')
+
+          start = s.find('<style id="photo-gallery-layout-fix">')
+          end = s.find('</style>', start)
+          if start < 0 or end < 0:
+              raise SystemExit('Gallery fix style block not found; no changes made.')
+
+          new_css = '''<style id="photo-gallery-layout-fix">
+          /* Natural gallery: equal card widths, but every photo keeps its original proportions. */
+          .gallery {
+            display: grid !important;
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            gap: 22px !important;
+            align-items: start !important;
+          }
+          .gallery figure {
+            height: auto !important;
+            align-self: start !important;
+          }
+          .gallery figure > a:first-child {
+            width: 100% !important;
+            height: auto !important;
+            display: block !important;
+            overflow: hidden !important;
+            background: #e9e9e6 !important;
+          }
+          .gallery figure > a:first-child img {
+            display: block !important;
+            width: 100% !important;
+            height: auto !important;
+            aspect-ratio: auto !important;
+            object-fit: contain !important;
+            object-position: center !important;
+            background: transparent !important;
+            transform: none !important;
+          }
+          .gallery figure:hover > a:first-child img {
+            transform: scale(1.015) !important;
+          }
+          .gallery figcaption {
+            min-height: 76px !important;
+          }
+          @media (max-width: 900px) {
+            .gallery {
+              grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+              gap: 18px !important;
+            }
+          }
+          @media (max-width: 560px) {
+            .gallery {
+              grid-template-columns: 1fr !important;
+              gap: 18px !important;
+            }
+            .gallery figcaption {
+              min-height: 70px !important;
+            }
+          }
+          </style>'''
+
+          s = s[:start] + new_css + s[end + len('</style>'):]
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Commit change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add photos.html
+          git commit -m "Use natural photo proportions in gallery [natural-grid]"
+          git push
+
+      - name: Remove temporary workflow
+        if: success()
+        run: |
+          git rm .github/workflows/natural-photo-grid.yml
+          git commit -m "Remove temporary natural gallery workflow [natural-grid]"
+          git push
