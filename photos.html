@@ -99,22 +99,18 @@
     .gallery-head h2{font-family:var(--heading);font-size:clamp(1.7rem,4vw,2.5rem);font-weight:500;letter-spacing:-1px}
     .gallery-head p{color:var(--muted);font-size:.9rem;max-width:420px;text-align:right}
 
-    .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
-    figure{grid-column:span 4;position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.035);transition:var(--transition)}
+    /* Consistent image cards: three equal columns on desktop. */
+    .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+    figure{min-width:0;position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.035);transition:var(--transition)}
     figure:hover{transform:translateY(-7px);box-shadow:var(--shadow);border-color:rgba(0,200,117,.25)}
     figure a{display:block;overflow:hidden;background:#e9e9e6}
-    figure img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+    figure img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
     figure:hover img{transform:scale(1.035)}
     figcaption{padding:18px 20px 20px;display:flex;align-items:center;justify-content:space-between;gap:15px}
     .caption-main{font-family:var(--heading);font-size:1.05rem;font-weight:600}
     .caption-sub{display:block;color:var(--muted);font-family:var(--body);font-size:.76rem;font-weight:400;margin-top:2px}
     .photo-link{width:40px;height:40px;flex:0 0 40px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:var(--muted);transition:var(--transition)}
     figure:hover .photo-link{background:var(--text);color:#fff;border-color:var(--text);transform:rotate(45deg)}
-
-    figure:first-child{grid-column:span 6}
-    figure:first-child img{aspect-ratio:1/1}
-    figure:nth-child(2){grid-column:span 6}
-    figure:nth-child(2) img{aspect-ratio:1/1}
 
     .bottom-cta{max-width:1500px;margin:0 auto 70px;padding:0 clamp(20px,5vw,48px)}
     .cta{background:var(--text);color:#fff;border-radius:var(--radius);padding:clamp(32px,6vw,65px);display:flex;align-items:center;justify-content:space-between;gap:30px;position:relative;overflow:hidden}
@@ -127,10 +123,8 @@
     footer{text-align:center;border-top:1px solid var(--line);padding:30px 20px;color:var(--muted);font-size:.82rem}
     footer a:hover{color:var(--text)}
 
-    @media(max-width:850px){
-      .gallery{grid-template-columns:repeat(2,1fr)}
-      figure,figure:first-child,figure:nth-child(2){grid-column:span 1}
-      figure img,figure:first-child img,figure:nth-child(2) img{aspect-ratio:4/5}
+    @media(max-width:900px){
+      .gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
       .gallery-head{align-items:start;flex-direction:column}
       .gallery-head p{text-align:left}
       .cta{flex-direction:column;align-items:flex-start}
@@ -139,14 +133,18 @@
       .nav{padding:14px 18px}
       .brand{font-size:1.1rem}
       .back{font-size:.8rem}
-      .hero{padding-top:65px}
-      h1{letter-spacing:-2.5px}
-      .gallery-wrap{padding-inline:16px}
+      .hero{padding-top:65px;padding-left:16px;padding-right:16px}
+      h1{letter-spacing:-2.5px;font-size:clamp(2.7rem,14vw,4rem)}
+      .gallery-wrap{padding-inline:16px;padding-bottom:60px}
       .gallery{grid-template-columns:1fr;gap:18px}
-      figure,figure:first-child,figure:nth-child(2){grid-column:span 1}
+      figure img{aspect-ratio:4/5}
+      figcaption{padding:15px 16px 17px}
+      .caption-main{font-size:1rem}
+      .photo-link{width:38px;height:38px;flex-basis:38px}
       .gallery-head{margin-bottom:20px}
       .bottom-cta{padding-inline:16px}
       .cta{padding:30px 24px}
+      .cta-btn{width:100%;justify-content:center}
     }
     @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
   </style>
