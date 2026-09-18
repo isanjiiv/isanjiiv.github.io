@@ -1,0 +1,62 @@
+name: Remove custom mouse cursor
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  remove-custom-cursor:
+    if: ${{ !contains(github.event.head_commit.message, '[normal-cursor]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Restore normal mouse cursor on all HTML pages
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          css = '''\n<style id="normal-mouse-cursor-fix">\n/* Restore the standard browser mouse cursor. */\nhtml, body, body * { cursor: auto !important; }\n#blend-cursor { display: none !important; visibility: hidden !important; opacity: 0 !important; }\n</style>\n'''
+
+          js = '''\n<script id="normal-mouse-cursor-script">\n// Remove any custom cursor element created by the original page scripts.\n(function () {\n  function removeCustomCursor() {\n    document.querySelectorAll('#blend-cursor').forEach(function (el) { el.remove(); });\n    document.documentElement.style.cursor = 'auto';\n    document.body.style.cursor = 'auto';\n  }\n  removeCustomCursor();\n  document.addEventListener('DOMContentLoaded', removeCustomCursor);\n  window.addEventListener('load', removeCustomCursor);\n})();\n</script>\n'''
+
+          changed = []
+          for path in Path('.').rglob('*.html'):
+              if '.git' in path.parts:
+                  continue
+              text = path.read_text(encoding='utf-8')
+              if 'normal-mouse-cursor-fix' in text:
+                  continue
+              original = text
+              if '</head>' in text:
+                  text = text.replace('</head>', css + '</head>', 1)
+              if '</body>' in text:
+                  text = text.replace('</body>', js + '</body>', 1)
+              if text != original:
+                  path.write_text(text, encoding='utf-8')
+                  changed.append(str(path))
+          print('Updated:', ', '.join(changed))
+          PY
+
+      - name: Commit cursor fix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add '*.html'
+          if git diff --cached --quiet; then
+            echo "No HTML changes needed."
+            exit 0
+          fi
+          git commit -m "Restore normal mouse cursor [normal-cursor]"
+          git push
+
+      - name: Remove one-time workflow
+        if: success()
+        run: |
+          git rm .github/workflows/normal-mouse-cursor.yml
+          git commit -m "Remove one-time cursor fix workflow [normal-cursor]"
+          git push
