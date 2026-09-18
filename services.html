@@ -234,6 +234,12 @@
       #blend-cursor.hovering { width: 45px; height: 45px; background-color: rgba(34, 34, 34, 0.1); border: 1px solid rgba(34, 34, 34, 0.3); }
     }
   </style>
+
+<style id="normal-mouse-cursor-fix">
+/* Restore the standard browser mouse cursor. */
+html, body, body * { cursor: auto !important; }
+#blend-cursor { display: none !important; visibility: hidden !important; opacity: 0 !important; }
+</style>
 </head>
 
 <body>
@@ -604,5 +610,19 @@
         });
     }
   </script>
+
+<script id="normal-mouse-cursor-script">
+// Remove any custom cursor element created by the original page scripts.
+(function () {
+  function removeCustomCursor() {
+    document.querySelectorAll('#blend-cursor').forEach(function (el) { el.remove(); });
+    document.documentElement.style.cursor = 'auto';
+    document.body.style.cursor = 'auto';
+  }
+  removeCustomCursor();
+  document.addEventListener('DOMContentLoaded', removeCustomCursor);
+  window.addEventListener('load', removeCustomCursor);
+})();
+</script>
 </body>
 </html>
