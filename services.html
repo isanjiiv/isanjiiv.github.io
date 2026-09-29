@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>IT Services, Hardware & Consultation | Sanjeev Kumar</title>
   <meta name="description" content="Home Visit IT Services in Noida by Sanjeev Kumar. PC repair, custom desktops, web development, software licenses, and IT consultation." />
@@ -177,35 +177,368 @@
     
     .btn-wrap { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; width: 100%; margin-top: 1.5rem; }
 
-    /* --- MEDIA QUERIES --- */
-    
-    /* Dedicated Mobile Optimization */
-    @media (max-width: 599px) {
-      body { font-size: 15px; }
-      
-      .hero-title { font-size: 2.3rem !important; margin-top: 0.5rem !important; }
-      .hero-desc { font-size: 1rem !important; text-align: left; }
-      .hero-section-inner { text-align: left !important; align-items: flex-start !important; }
-      .hero-section-inner .tag-label { text-align: left !important; margin-left: 0 !important; }
+        /* --- PROFESSIONAL IMAGE VISUALS --- */
+    .service-visuals {
+      padding-top: 0;
+    }
 
-      .contact-info-banner { 
-        flex-direction: column !important; 
-        align-items: flex-start !important; 
-        gap: 1.5rem !important; 
-        padding: 1.5rem !important; 
+    .service-visual-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .service-visual-card {
+      margin: 0;
+      background: var(--bg-alt);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+
+    .service-visual-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .service-visual-card figcaption {
+      padding: 0.9rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+/* =========================================================
+       RESPONSIVE BREAKPOINTS
+       Desktop/tablet layout stays unchanged.
+       Mobile uses the same compact sizing system as Home/About.
+       ========================================================= */
+
+    @media (max-width: 599px) {
+      html { scroll-padding-top: 70px; }
+
+      body {
+        font-size: 13px;
+        line-height: 1.45;
       }
-      
-      .services-grid-container { grid-template-columns: 1fr !important; }
-      .why-choose-grid { grid-template-columns: 1fr !important; }
-      
-      .btn-wrap { flex-direction: column; gap: 0.8rem; }
-      .btn-pill { width: 100% !important; }
-      
-      .hardware-banner-inner { text-align: left !important; align-items: flex-start !important; }
-      .hardware-text .tag-label { text-align: left !important; }
-      .hardware-text h3 { font-size: 1.8rem !important; text-align: left !important; }
-      .hardware-text p { text-align: left !important; font-size: 0.95rem !important; }
-      .hardware-img-box { display: none; } /* Hide large image on mobile to save space */
+
+      .container {
+        padding-inline: 14px;
+      }
+
+      section {
+        padding: 2.5rem 0;
+      }
+
+      /* Header */
+      #main-header {
+        padding-top: 7px;
+        padding-bottom: 7px;
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .brand img {
+        height: 34px;
+      }
+
+      .hamburger {
+        font-size: 1.2rem;
+        padding: 3px;
+      }
+
+      .mobile-menu {
+        gap: 1.35rem;
+      }
+
+      .mobile-menu a {
+        font-size: 1.35rem;
+      }
+
+      /* Main / Hero */
+      main {
+        padding-top: 72px !important;
+      }
+
+      main > section:first-child {
+        padding-top: 0.9rem !important;
+        padding-bottom: 1.2rem !important;
+      }
+
+      .hero-section-inner {
+        text-align: left !important;
+        align-items: flex-start !important;
+        max-width: 100% !important;
+      }
+
+      .hero-section-inner .tag-label {
+        text-align: left !important;
+        margin-left: 0 !important;
+      }
+
+      .hero-title {
+        font-size: clamp(1.55rem, 7vw, 2rem) !important;
+        line-height: 1.2 !important;
+        letter-spacing: -0.5px;
+        margin-top: 0.15rem !important;
+        margin-bottom: 0.45rem !important;
+      }
+
+      .hero-desc {
+        font-size: 0.82rem !important;
+        line-height: 1.45 !important;
+        text-align: left !important;
+        margin-bottom: 1rem !important;
+      }
+
+      .tag-label {
+        font-size: 0.65rem;
+        letter-spacing: 0.7px;
+        margin-bottom: 0.35rem;
+      }
+
+      /* Buttons */
+      .btn-wrap {
+        flex-direction: row;
+        gap: 7px;
+        margin-top: 0.65rem;
+        width: 100%;
+      }
+
+      .btn-pill,
+      .btn-wrap .btn-pill {
+        width: auto !important;
+        flex: 1 1 0;
+        font-size: 0.78rem;
+        padding: 9px 12px;
+        min-height: 36px;
+      }
+
+      .btn-circle {
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+      }
+
+      /* Contact details */
+      main > section:nth-child(2) {
+        padding-top: 0 !important;
+        padding-bottom: 1.5rem !important;
+      }
+
+      .contact-info-banner {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.8rem !important;
+        padding: 1rem !important;
+        border-radius: 16px;
+      }
+
+      .contact-info-item {
+        gap: 9px;
+        width: 100%;
+      }
+
+      .contact-info-item .btn-circle {
+        width: 34px;
+        height: 34px;
+        font-size: 0.8rem;
+      }
+
+      .contact-info-item span[style*="font-size: 0.8rem"] {
+        font-size: 0.62rem !important;
+      }
+
+      .contact-info-item a[style*="font-size: 1.1rem"],
+      .contact-info-item span[style*="font-size: 1.1rem"] {
+        font-size: 0.82rem !important;
+      }
+
+      /* Section headings */
+      .section-header {
+        margin-bottom: 1.5rem;
+      }
+
+      .section-header h2 {
+        font-size: clamp(1.55rem, 7vw, 2.1rem);
+        letter-spacing: -0.5px;
+      }
+
+      /* Service cards */
+      .services-grid-container {
+        grid-template-columns: 1fr !important;
+        gap: 0.85rem;
+        margin-top: 1rem;
+      }
+
+      .exp-card {
+        padding: 1rem !important;
+        border-radius: 16px;
+      }
+
+      .services-grid-container .exp-card > i {
+        font-size: 1.7rem !important;
+        margin-bottom: 0.8rem !important;
+      }
+
+      .services-grid-container .exp-card h3 {
+        font-size: 0.98rem !important;
+        line-height: 1.25;
+        margin-bottom: 0.45rem !important;
+      }
+
+      .services-grid-container .exp-card p {
+        font-size: 0.76rem !important;
+        line-height: 1.45 !important;
+      }
+
+      .badge-popular {
+        top: -8px;
+        right: 12px;
+        padding: 4px 9px;
+        font-size: 0.58rem;
+        letter-spacing: 0.7px;
+      }
+
+      /* Professional images */
+      .service-visuals {
+        padding-top: 0;
+        padding-bottom: 2.5rem;
+      }
+
+      .service-visual-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        margin-top: 0.8rem;
+      }
+
+      .service-visual-card img {
+        height: 180px;
+        object-fit: cover;
+      }
+
+      .service-visual-card figcaption {
+        font-size: 0.72rem;
+        padding: 0.65rem 0.75rem;
+      }
+
+      /* Hardware / software banner */
+      .hardware-banner-section {
+        padding-top: 0.5rem !important;
+        padding-bottom: 2rem !important;
+      }
+
+      .hardware-banner-inner {
+        text-align: left !important;
+        align-items: flex-start !important;
+        gap: 1rem;
+      }
+
+      .hardware-text {
+        width: 100%;
+      }
+
+      .hardware-text .tag-label {
+        text-align: left !important;
+      }
+
+      .hardware-text h3 {
+        font-size: 1.5rem !important;
+        line-height: 1.15 !important;
+        text-align: left !important;
+        margin-bottom: 0.75rem !important;
+      }
+
+      .hardware-text > p {
+        font-size: 0.8rem !important;
+        line-height: 1.5 !important;
+        text-align: left !important;
+        margin-bottom: 0.75rem !important;
+      }
+
+      .hardware-text > div > p {
+        font-size: 0.74rem !important;
+        line-height: 1.4 !important;
+        padding: 0.75rem !important;
+      }
+
+      .hardware-img-box {
+        display: block !important;
+        width: 100%;
+        max-width: none;
+        border-width: 2px;
+        border-radius: 14px;
+        order: 2;
+      }
+
+      .hardware-img-box img {
+        width: 100%;
+        height: auto !important;
+        max-height: none;
+        object-fit: contain !important;
+        opacity: 0.95;
+      }
+
+      .hardware-banner-inner .btn-wrap {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.55rem;
+        margin-top: 0.8rem;
+      }
+
+      .hardware-banner-inner .btn-wrap .btn-pill {
+        width: 100% !important;
+        flex: none;
+      }
+
+      /* Why choose me */
+      .why-choose-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+      }
+
+      .why-choose-grid > div {
+        gap: 10px !important;
+      }
+
+      .why-choose-grid > div > div:first-child {
+        font-size: 1.15rem !important;
+        min-width: 22px;
+      }
+
+      .why-choose-grid h4 {
+        font-size: 0.88rem !important;
+        margin-bottom: 3px !important;
+      }
+
+      .why-choose-grid p {
+        font-size: 0.74rem !important;
+        line-height: 1.45 !important;
+      }
+
+      /* Footer */
+      .footer-bottom {
+        gap: 1.1rem !important;
+        padding: 0.5rem 0 1.25rem !important;
+      }
+
+      .footer-bottom > div {
+        gap: 0.65rem !important;
+      }
+
+      .footer-bottom .btn-circle {
+        width: 36px;
+        height: 36px;
+      }
+
+      .footer-bottom > p {
+        font-size: 0.75rem !important;
+        line-height: 1.4;
+      }
     }
 
     @media (min-width: 600px) {
@@ -329,6 +662,30 @@ html, body, body * { cursor: auto !important; }
       </div>
     </section>
 
+    <!-- 2B. PROFESSIONAL IT VISUALS -->
+    <section class="container service-visuals" aria-label="IT support and network administration">
+      <div class="section-header fade-up">
+        <span class="tag-label">Professional IT Support</span>
+        <h2>IT Infrastructure in Action</h2>
+      </div>
+
+      <div class="service-visual-grid">
+        <figure class="service-visual-card fade-up">
+          <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-It-engineer.png"
+               alt="Sanjeev Kumar IT professional working on business technology infrastructure"
+               loading="lazy">
+          <figcaption>IT Support & Infrastructure</figcaption>
+        </figure>
+
+        <figure class="service-visual-card fade-up" style="transition-delay: 0.1s;">
+          <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-network-admin.png"
+               alt="Sanjeev Kumar network administrator managing IT infrastructure and network systems"
+               loading="lazy">
+          <figcaption>Networking & Administration</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <!-- 3. SERVICES & PRODUCTS GRID -->
     <section id="services-grid" class="container" style="padding-top: 0; padding-bottom: 2rem;">
       <div class="section-header fade-up">
@@ -443,7 +800,7 @@ html, body, body * { cursor: auto !important; }
     </section>
 
     <!-- 4. HARDWARE, SOFTWARE & CONSULTATION BANNER -->
-    <section class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+    <section class="container hardware-banner-section" style="padding-top: 2rem; padding-bottom: 4rem;">
       <div class="exp-card fade-up" style="background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%); color: #fff; padding: clamp(1.5rem, 5vw, 4rem);">
         
         <div class="hardware-banner-inner">
