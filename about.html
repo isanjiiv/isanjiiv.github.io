@@ -265,7 +265,11 @@ header {
     .explore-desc { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; line-height: 1.6; }
 
     .card-vertical { position: relative; border-radius: var(--radius-md); overflow: hidden; height: 400px; width: 100%; }
-    .card-vertical img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+     .card-vertical img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+    }
     .card-vertical::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%); }
     .card-vertical-content { position: absolute; bottom: 0; left: 0; width: 100%; padding: 1.5rem; z-index: 2; display: flex; justify-content: space-between; align-items: flex-end; }
     .card-vertical h3 { color: #fff; font-size: 1.2rem; font-weight: 400; max-width: 200px; line-height: 1.3; text-align: left;}
@@ -448,50 +452,6 @@ header {
       .container { padding-inline: 2rem; }
     }
     
-    /* --- MOBILE CONTACT SECTION FIX --- */
-    @media (max-width: 899px) {
-      .contact-wrapper { padding: 3rem 0; }
-      
-      .contact-header {
-        align-items: center !important;
-        text-align: center !important;
-      }
-      .contact-header h2, 
-      .contact-header p {
-        text-align: center !important;
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .contact-layout { 
-        display: flex !important; 
-        flex-direction: column !important; 
-        gap: 3.5rem !important; 
-        padding: 0 1.5rem;
-      }
-
-      .contact-image-container {
-        height: auto !important;
-        min-height: unset !important;
-        position: relative !important;
-        display: flex !important;
-        justify-content: center !important;
-        width: 100%;
-      }
-     .contact-image-container img {
-        position: relative !important;
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important; /* Changes to cover for better filling */
-        border-radius: var(--radius-sm) !important;
-      }
-      
-      .contact-form-container { padding: 2rem 1.5rem; }
-      .new-contact-form .form-row { flex-direction: column; gap: 1.5rem; }
-      .btn-submit-pill { width: 100%; justify-content: center; }
-    }
-
     /* --- BACK TO TOP BUTTON --- */
     .back-to-top { 
         position: fixed; 
@@ -517,35 +477,395 @@ header {
         visibility: visible; 
         transform: translateY(0); 
     }
-    /* --- MOBILE TEXT SIZE ADJUSTMENTS --- */
-@media (max-width: 599px) {
-    /* 1. Reduce the global base font size from 16px to 14px */
-    body {
-        font-size: 14px; 
-    }
     
-    /* 2. Target specific large paragraphs to scale them down */
-    .explore-desc, .contact-header p, .card-horizontal-text {
-        font-size: 0.95rem; 
-    }
+    /* =========================================================
+       SMALL-SCREEN COMPACT MODE
+       Replaces the old mobile-only overrides.
+       Desktop/tablet styles remain unchanged.
+       ========================================================= */
+    @media (max-width: 599px) {
 
-    /* 3. Scale down the section headings slightly */
-    .explore-title, .section-header-split h2, .contact-header h2 {
-        font-size: 1.8rem;
-    }
+      /* ----- GLOBAL ----- */
+      html { scroll-padding-top: 70px; }
 
-    /* 4. Adjust button text and padding for smaller screens */
-    .btn-pill, .btn-submit-pill {
-        font-size: 0.9rem;
-        padding: 12px 24px;
-    }
-    
-    /* 5. Make the form labels a bit more compact */
-    .new-contact-form label {
+      body {
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .container {
+        padding-inline: 14px;
+      }
+
+      section {
+        padding: 2.5rem 0;
+      }
+
+      /* ----- HEADER ----- */
+      .header-inner {
+        padding-top: 7px;
+        padding-bottom: 7px;
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .brand img {
+        height: 34px;
+      }
+
+      .hamburger {
+        font-size: 1.2rem;
+        padding: 3px;
+      }
+
+      .mobile-menu {
+        gap: 1.35rem;
+      }
+
+      .mobile-menu a {
+        font-size: 1.35rem;
+      }
+
+      /* ----- ABOUT HERO ----- */
+      .hero-wrapper {
+        padding: 0 0.5rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .hero-card {
+        min-height: 62vh;
+        border-radius: 22px;
+        padding: 1.25rem 1rem;
+      }
+
+      .hero-content {
+        padding-bottom: 6rem;
+      }
+
+      .hero-title {
+        font-size: clamp(1.45rem, 7vw, 2rem);
+        line-height: 1.2;
+        letter-spacing: -0.5px;
+      }
+
+      .hero-desc {
+        font-size: 0.82rem;
+        line-height: 1.45;
+        margin-top: 0.9rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .hero-bottom-bar {
+        bottom: 1rem;
+        left: 1rem;
+        right: 1rem;
+        gap: 0.8rem;
+        padding-top: 0.8rem;
+      }
+
+      .hero-stats {
         font-size: 0.7rem;
+        gap: 0.6rem;
+      }
+
+      .hero-icons {
+        gap: 7px;
+        font-size: 0.85rem;
+        padding: 5px 10px;
+      }
+
+      .hero-tags {
+        gap: 0.4rem;
+        margin-top: 0.4rem;
+      }
+
+      .hero-tag {
+        padding: 5px 10px;
+        font-size: 0.65rem;
+        gap: 5px;
+      }
+
+      /* ----- COMMON TEXT ----- */
+      .explore-desc,
+      .contact-header p,
+      .card-horizontal-text {
+        font-size: 0.82rem;
+        line-height: 1.45;
+      }
+
+      .tag-label {
+        font-size: 0.65rem;
+        letter-spacing: 0.7px;
+        margin-bottom: 0.35rem;
+      }
+
+      .explore-title {
+        font-size: clamp(1.65rem, 7vw, 2.2rem);
+        letter-spacing: -0.5px;
+        margin-bottom: 0.8rem;
+      }
+
+      /* ----- ABOUT / EXPLORE CARDS ----- */
+      .grid-3-col {
+        gap: 1.25rem;
+      }
+
+      .explore-text-col {
+        padding-right: 0;
+      }
+
+      .modern-list {
+        margin-top: 0.7rem;
+        margin-bottom: 0.7rem;
+        gap: 0.55rem;
+      }
+
+      .modern-list li {
+        font-size: 0.78rem;
+        padding-left: 22px;
+      }
+
+      .modern-list li::before {
+        top: 1px;
+        font-size: 0.9rem;
+      }
+
+       .card-vertical {
+        height: auto !important;
+        border-radius: 16px;
     }
+
+      .card-vertical-content {
+        padding: 0.85rem;
+      }
+
+      .card-vertical h3 {
+        font-size: 0.9rem;
+      }
+
+      .card-horizontal-wrapper {
+        gap: 0.75rem;
+      }
+
+      .card-horizontal {
+        height: 180px;
+        border-radius: 16px;
+      }
+
+      /* ----- EXPERIENCE ----- */
+      .experience-section {
+        padding: 1.6rem 0;
+      }
+
+      .experience-grid {
+        gap: 0.7rem;
+      }
+
+      .experience-sticky {
+        margin-bottom: 0.15rem;
+      }
+
+      .experience-sticky .explore-title {
+        font-size: 1.65rem;
+        line-height: 1.05;
+        margin-bottom: 0.35rem;
+      }
+
+      .experience-sticky .explore-desc {
+        font-size: 0.72rem;
+        line-height: 1.3;
+        margin-bottom: 0.35rem;
+      }
+
+      .experience-sticky .tag-label {
+        font-size: 0.58rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .experience-cards {
+        width: 100%;
+      }
+
+      .exp-card {
+        padding: 0.75rem;
+        margin-bottom: 0.5rem;
+        border-radius: 10px;
+      }
+
+      .exp-header {
+        gap: 0.45rem;
+        margin-bottom: 0.55rem;
+      }
+
+      .exp-title-area h3 {
+        font-size: 0.82rem;
+        line-height: 1.15;
+        margin-bottom: 2px;
+      }
+
+      .exp-title-area p {
+        font-size: 0.67rem;
+        line-height: 1.25;
+      }
+
+      .exp-date {
+        padding: 3px 7px;
+        font-size: 0.57rem;
+        line-height: 1.2;
+        white-space: nowrap;
+      }
+
+      .exp-bullets {
+        gap: 0.3rem;
+      }
+
+      .exp-bullets li {
+        font-size: 0.67rem;
+        line-height: 1.3;
+        padding-left: 12px;
+        margin-bottom: 3px;
+      }
+
+      .exp-bullets li::before {
+        top: 5px;
+        width: 3px;
+        height: 3px;
+      }
+
+      /* ----- PROJECT / EXPERTISE CARDS ----- */
+      .section-header-split {
+        gap: 0.8rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .section-header-split h2 {
+        font-size: clamp(1.55rem, 7vw, 2.1rem);
+        letter-spacing: -0.5px;
+      }
+
+      .expertise-grid {
+        gap: 0.85rem;
+      }
+
+      .skill-card {
+        height: 190px;
+        border-radius: 16px;
+        padding: 0.85rem;
+      }
+
+      .skill-card-bottom h3 {
+        font-size: 1rem;
+      }
+
+      .skill-card-bottom p {
+        font-size: 0.7rem;
+      }
+
+      /* ----- CONTACT ----- */
+      .contact-wrapper {
+        padding: 2.5rem 0;
+      }
+
+      .contact-header {
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-header h2 {
+        font-size: 1.65rem;
+        margin-bottom: 0.35rem;
+      }
+
+      .contact-header p {
+        font-size: 0.82rem;
+      }
+
+      .contact-layout {
+        gap: 1.25rem;
+        padding: 0 14px;
+      }
+
+      .contact-image-container {
+    height: auto;
+    border-radius: 9px;
 }
-  </style>
+
+      .contact-image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+      .contact-form-container {
+        padding: 1rem;
+        border-radius: 16px;
+      }
+
+      .new-contact-form {
+        gap: 0.8rem;
+      }
+
+      .new-contact-form .form-row {
+        gap: 0.8rem;
+      }
+
+      .new-contact-form .form-group {
+        gap: 5px;
+      }
+
+      .new-contact-form label {
+        font-size: 0.62rem;
+      }
+
+      .new-contact-form input,
+      .new-contact-form textarea {
+        padding: 9px 10px;
+        border-radius: 8px;
+        font-size: 0.8rem;
+      }
+
+      .btn-submit-pill {
+        font-size: 0.78rem;
+        padding: 9px 16px;
+      }
+
+      /* ----- BUTTONS ----- */
+      .btn-group {
+        gap: 8px;
+        margin-top: 0.9rem;
+      }
+
+      .btn-pill {
+        font-size: 0.78rem;
+        padding: 9px 16px;
+      }
+
+      .btn-circle {
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+      }
+
+      /* ----- FOOTER ----- */
+      .footer-bottom {
+        gap: 1rem !important;
+        padding-bottom: 1.5rem !important;
+      }
+
+      .footer-bottom p {
+        font-size: 0.65rem !important;
+        line-height: 1.4;
+      }
+
+      /* ----- BACK TO TOP ----- */
+      .back-to-top {
+        bottom: 12px;
+        right: 12px;
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+      }
+    }
+</style>
 
 <style id="normal-mouse-cursor-fix">
 /* Restore the standard browser mouse cursor. */
