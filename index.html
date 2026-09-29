@@ -316,7 +316,10 @@
 
     .card-horizontal-wrapper { display: flex; flex-direction: column; gap: 1.5rem; width: 100%; }
     .card-horizontal { position: relative; border-radius: var(--radius-md); overflow: hidden; width: 100%; height: 250px; }
-    .card-horizontal img { width: 100%; height: 100%; object-fit: cover; position: absolute; top:0; left:0;}
+    .card-horizontal img {
+    height: auto !important;
+    object-fit: contain !important;
+}
     .floating-tag { position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,0.9); padding: 6px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; z-index: 10; border: 1px solid var(--border-color); }
     .card-horizontal-text { color: var(--text-main); font-size: 1rem; line-height: 1.6; }
 
@@ -881,10 +884,8 @@
   }
 
   .card-horizontal {
-    height: 180px;
-    border-radius: 16px;
-  }
-
+    height: auto !important;
+}
   .floating-tag {
     top: 0.65rem;
     right: 0.65rem;
