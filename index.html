@@ -437,7 +437,11 @@
     }
     
    .contact-image-container { width: 100%; height: 600px; position: relative; border-radius: var(--radius-sm); overflow: hidden; }
-   .contact-image-container img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
+   .contact-image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
     .contact-form-container { width: 100%; background: var(--bg-alt); border-radius: var(--radius-md); padding: clamp(1.5rem, 5vw, 3rem); border: 1px solid var(--border-color); box-shadow: 0 10px 40px rgba(0,0,0,0.04); }
     .new-contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
     .new-contact-form .form-row { display: flex; flex-direction: column; gap: 1.5rem; }
@@ -856,10 +860,14 @@
   }
 
   .card-vertical {
-    height: 250px;
+    height: auto;
     border-radius: 16px;
-  }
-
+}
+.card-vertical img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
   .card-vertical-content {
     padding: 0.85rem;
   }
@@ -1048,9 +1056,9 @@
   }
 
   .contact-image-container {
-    height: 270px;
+    height: auto;
     border-radius: 9px;
-  }
+}
 
   .contact-form-container {
     padding: 1rem;
@@ -2110,7 +2118,7 @@ html, body, body * { cursor: auto !important; }
       <a href="https://www.youtube.com/@isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
       <a href="https://x.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
     </div>
-    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0; text-align: center;">
+    <p style="font-size: 0.7rem; color: var(--text-muted); margin-bottom: 0; text-align: center;">
       © <span id="year">2026</span>. Design By <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" style="color:var(--text-main); font-weight:600;">Sanjeev Kumar</a>. All rights reserved.
     </p>
   </footer>
