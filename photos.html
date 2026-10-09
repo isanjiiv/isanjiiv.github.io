@@ -469,6 +469,22 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
   }
 </style>
 
+
+<style id="remove-gallery-image-overlay-text">
+  /* Keep gallery photos clean: no hover captions, labels or text overlays on images. */
+  .gallery figure > figcaption,
+  .gallery figure::after,
+  .gallery figure:hover::after,
+  .gallery figure.caption-visible::after {
+    display: none !important;
+    content: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+  .gallery figure > a:first-child { position: relative; }
+  .gallery figure > a:first-child img { filter: none !important; }
+</style>
+
 </head>
 <body>
   <header id="main-header" aria-label="Site header">
