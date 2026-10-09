@@ -367,6 +367,27 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
 }
 </style>
 
+<style id="service-gallery-image-layout">
+/* Use the same clean, edge-to-edge 4:3 image treatment as the Services gallery. */
+.gallery{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:clamp(12px,1.7vw,22px)!important;align-items:stretch!important}
+.gallery figure{height:100%!important;display:flex!important;flex-direction:column!important;border-radius:18px!important;overflow:hidden!important;background:var(--surface)!important}
+.gallery figure>a:first-child{display:block!important;width:100%!important;aspect-ratio:4/3!important;height:auto!important;overflow:hidden!important;background:#e9e9e6!important}
+.gallery figure>a:first-child img{display:block!important;width:100%!important;height:100%!important;aspect-ratio:4/3!important;object-fit:cover!important;object-position:center!important;background:transparent!important;transform:none;transition:transform .45s ease,filter .4s ease}
+.gallery figure:hover>a:first-child img{transform:scale(1.045)!important}
+.gallery figcaption{position:relative!important;inset:auto!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:.5rem!important;min-height:52px!important;padding:.75rem .85rem!important;background:var(--surface)!important;color:var(--text)!important;opacity:1!important;transform:none!important;pointer-events:auto!important}
+.gallery figcaption .caption-main{color:var(--text)!important;font-size:.9rem!important;font-weight:600}
+.gallery figcaption .caption-sub{color:var(--muted)!important;font-size:.75rem!important}
+.gallery .photo-link{width:34px!important;height:34px!important;flex:0 0 34px!important;background:transparent!important;color:var(--text)!important;border:1px solid var(--line)!important;backdrop-filter:none!important}
+.gallery figure::after{display:none!important}
+@media(max-width:900px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px!important}}
+@media(max-width:560px){.gallery{grid-template-columns:1fr!important;gap:18px!important}.gallery figure>a:first-child{aspect-ratio:4/3!important}.gallery figcaption{min-height:52px!important;padding:.75rem .85rem!important}}
+/* Keep the lightbox image centered without stretching it; arrows sit at the image edges. */
+.photo-lightbox figure{width:auto!important;max-width:calc(100vw - 2rem);height:auto!important;max-height:calc(100vh - 7.5rem);gap:.65rem}
+.photo-lightbox img{display:block;max-width:calc(100vw - 2rem)!important;max-height:calc(100vh - 145px)!important;width:auto;height:auto;object-fit:contain;border-radius:10px;box-shadow:0 15px 50px rgba(0,0,0,.3)}
+.photo-lightbox-caption{max-width:min(850px,calc(100vw - 2rem))}
+@media(max-width:600px){.photo-lightbox{padding:3.8rem .5rem 2.5rem!important}.photo-lightbox figure{max-width:100%;max-height:calc(100vh - 6.5rem)}.photo-lightbox img{max-width:calc(100vw - 1rem)!important;max-height:calc(100vh - 130px)!important}}
+</style>
+
 </head>
 <body>
   <header id="main-header" aria-label="Site header">
