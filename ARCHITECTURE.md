@@ -17,6 +17,7 @@ The public website is intentionally kept simple and compatible with GitHub Pages
 │   ├── audio/
 │   ├── docs/
 │   └── images/
+|       └── services/
 │       └── project/
 │
 ├── docs/
