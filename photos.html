@@ -287,6 +287,43 @@ html, body, body * { cursor: auto !important; }
   }
 </style>
 
+<style id="editorial-photo-page-enhancement">
+:root{--bg:#f7f4ed;--surface:#fffdf8;--text:#171714;--muted:#69685f;--line:rgba(28,27,23,.11);--accent:#b9e34a;--accent-soft:rgba(185,227,74,.22);--radius:22px;--shadow:0 22px 60px rgba(48,40,25,.11)}
+body{background:radial-gradient(ellipse at 12% 18%,rgba(231,219,193,.34),transparent 32%),radial-gradient(ellipse at 88% 42%,rgba(222,235,202,.3),transparent 28%),var(--bg)}
+.topbar{background:rgba(247,244,237,.84)}
+.hero{position:relative;isolation:isolate;padding-top:clamp(76px,11vw,142px);padding-bottom:clamp(54px,7vw,90px)}
+.hero:before{content:"";position:absolute;z-index:-1;width:clamp(180px,26vw,360px);aspect-ratio:1;border:1px solid rgba(28,27,23,.09);border-radius:50%;top:7%;left:50%;transform:translateX(-50%);box-shadow:0 0 0 22px rgba(255,255,255,.12),0 0 0 46px rgba(28,27,23,.025);pointer-events:none}
+.eyebrow{border-color:rgba(111,139,35,.26);background:rgba(185,227,74,.22);color:#3d4f14}
+h1{font-size:clamp(3.6rem,10vw,8.5rem);letter-spacing:-.075em;line-height:.88;font-weight:500}
+h1 span:after{height:clamp(4px,.7vw,8px);bottom:-.12em;background:var(--accent)}
+.hero p{max-width:590px;margin-top:34px;font-size:clamp(1rem,1.7vw,1.18rem)}
+.gallery-wrap{padding-bottom:clamp(75px,10vw,130px)}
+.gallery-head{margin-bottom:34px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.gallery-head .eyebrow{margin-bottom:10px}
+.gallery-head h2{font-size:clamp(2rem,4.8vw,3.5rem);letter-spacing:-.055em;line-height:1}
+.gallery-head p{max-width:350px}
+.gallery{gap:clamp(16px,2.2vw,30px);perspective:1400px}
+.gallery figure{border-radius:18px;background:var(--surface);border:1px solid rgba(35,32,25,.09);box-shadow:0 8px 24px rgba(49,41,27,.055);transform-origin:center 75%;will-change:transform;transition:transform .55s cubic-bezier(.2,.75,.25,1),box-shadow .45s ease,border-color .35s ease}
+.gallery figure:nth-child(3n+1){--card-tilt:-.45deg}.gallery figure:nth-child(3n+2){--card-tilt:.35deg}.gallery figure:nth-child(3n){--card-tilt:.15deg}
+.gallery figure:not(:hover){rotate:var(--card-tilt,0deg)}
+.gallery figure:hover{rotate:0deg;transform:translateY(-9px) scale(1.012);box-shadow:0 28px 55px rgba(49,41,27,.15);border-color:rgba(111,139,35,.35)}
+.gallery figure>a:first-child{background:#eae6dc}
+.gallery figure>a:first-child img{transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s ease}
+.gallery figure:hover>a:first-child img{transform:scale(1.045)!important;filter:saturate(1.04)}
+.gallery figcaption{padding:18px 19px 20px}
+.caption-main{font-size:1rem;letter-spacing:-.02em}.caption-sub{color:#77766d}
+.photo-link{width:38px;height:38px;border-radius:50%;background:#f0f0e7;color:#25271d;display:flex;align-items:center;justify-content:center;transition:transform .25s ease,background .25s ease,color .25s ease}
+.photo-link:hover{background:var(--accent);color:#1b2110;transform:rotate(8deg) scale(1.07)}
+.photo-reveal{opacity:0;transform:translateY(28px) scale(.985);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}
+.photo-reveal.is-visible{opacity:1;transform:translateY(0) scale(1)}
+.hero .eyebrow,.hero h1,.hero p{animation:photoIntro .8s cubic-bezier(.2,.7,.25,1) both}
+.hero h1{animation-delay:.08s}.hero p{animation-delay:.18s}
+@keyframes photoIntro{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.gallery-head{animation:photoIntro .75s .12s both}
+@media(max-width:900px){.hero{padding-top:75px}.gallery figure:not(:hover){rotate:0deg}}
+@media(max-width:560px){.hero{padding:65px 20px 48px}h1{letter-spacing:-.065em}.gallery-head{align-items:flex-start;flex-direction:column;gap:12px}.gallery-head p{text-align:left}.gallery figure{border-radius:17px}}
+@media(prefers-reduced-motion:reduce){.hero .eyebrow,.hero h1,.hero p,.gallery-head{animation:none!important}.photo-reveal{opacity:1;transform:none;transition:none}.gallery figure,.gallery figure>a:first-child img,.photo-link{transition:none!important}}
+</style>
 </head>
 <body>
   <header id="main-header" aria-label="Site header">
@@ -509,5 +546,14 @@ html, body, body * { cursor: auto !important; }
 })();
 </script>
 
+<script id="editorial-photo-reveal">
+(function(){
+ const elements=document.querySelectorAll('.gallery figure,.gallery-head');
+ elements.forEach((el,i)=>{el.classList.add('photo-reveal');el.style.transitionDelay=(i%3)*90+'ms';});
+ if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){elements.forEach(el=>el.classList.add('is-visible'));return;}
+ const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}}),{threshold:.12,rootMargin:'0px 0px -35px 0px'});
+ elements.forEach(el=>observer.observe(el));
+})();
+</script>
 </body>
 </html>
