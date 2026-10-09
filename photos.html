@@ -242,7 +242,7 @@ html, body, body * { cursor: auto !important; }
   #main-header .brand{display:flex;align-items:center;flex:0 0 auto;z-index:1010}
   #main-header .brand img{height:clamp(40px,5vw,55px);width:auto;object-fit:contain}
   #main-header .nav-menu{display:none;align-items:center;justify-content:center;gap:clamp(12px,1.7vw,26px);flex:1}
-  #main-header .nav-menu a{font-size:.82rem;font-weight:500;white-space:nowrap;color:var(--text);position:relative;transition:color .25s ease}
+  #main-header .nav-menu a{font-size:clamp(.9rem,1vw,1rem);font-weight:500;white-space:nowrap;color:var(--text);position:relative;transition:color .25s ease}
   #main-header .nav-menu a::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:2px;background:var(--accent);transition:right .25s ease}
   #main-header .nav-menu a:hover{color:var(--muted)}
   #main-header .nav-menu a:hover::after{right:0}
@@ -351,6 +351,22 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
 .footer-copyright a{color:var(--text);font-weight:600;text-decoration:none}.footer-copyright a:hover{text-decoration:underline}
 @media(max-width:599px){.footer-bottom{gap:1rem!important;padding:1rem 14px 1.5rem!important}.footer-socials{gap:.65rem}.footer-bottom .btn-circle.light{width:40px;height:40px}.footer-copyright{font-size:.75rem!important;line-height:1.5}}
 </style>
+<style id="portfolio-header-size-parity">
+/* Keep photos-page desktop navigation at the same readable scale as the main portfolio. */
+@media (min-width:1000px){
+  #main-header{padding-top:1rem;padding-bottom:1rem;padding-left:max(clamp(1.5rem,5vw,3rem),calc((100% - 1300px)/2));padding-right:max(clamp(1.5rem,5vw,3rem),calc((100% - 1300px)/2));gap:22px}
+  #main-header .brand{flex:1}
+  #main-header .brand img{height:clamp(40px,5vw,55px)}
+  #main-header .nav-menu{gap:clamp(12px,1.7vw,26px)}
+  #main-header .nav-menu a{font-size:clamp(.9rem,1vw,1rem);line-height:1.5;font-weight:500;letter-spacing:0}
+  #main-header .header-right{flex:1}
+}
+@media (min-width:1000px) and (max-width:1150px){
+  #main-header .nav-menu{gap:12px}
+  #main-header .nav-menu a{font-size:.88rem}
+}
+</style>
+
 </head>
 <body>
   <header id="main-header" aria-label="Site header">
