@@ -652,6 +652,81 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
   }
 </style>
 
+
+<style id="responsive-natural-photo-layout">
+/* Final gallery rules: show the complete photo with corners on its actual edges. */
+.gallery {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  align-items: start !important;
+  gap: clamp(18px, 2.2vw, 32px) !important;
+}
+.gallery figure {
+  height: auto !important;
+  align-self: start !important;
+  min-width: 0;
+  border-radius: 22px !important;
+  overflow: hidden !important;
+  background: transparent !important;
+}
+.gallery figure > a:first-child {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  border-radius: inherit !important;
+  overflow: hidden !important;
+  background: transparent !important;
+}
+.gallery figure > a:first-child img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  border-radius: inherit !important;
+  clip-path: inset(0 round 22px) !important;
+  transform: none !important;
+  filter: none !important;
+}
+.gallery figure:hover > a:first-child img,
+.gallery figure.caption-visible > a:first-child img {
+  transform: none !important;
+}
+#photoLightbox #photoLightboxImage {
+  border-radius: 22px !important;
+  clip-path: inset(0 round 22px) !important;
+  max-height: calc(100dvh - 48px) !important;
+}
+@media (max-width: 900px) {
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 560px) {
+  .gallery { grid-template-columns: minmax(0, 1fr) !important; gap: 22px !important; }
+  .gallery figure { border-radius: 18px !important; }
+  .gallery figure > a:first-child img {
+    clip-path: inset(0 round 18px) !important;
+  }
+  #photoLightbox { padding: 56px 12px 72px !important; }
+  #photoLightbox #photoLightboxImage {
+    border-radius: 18px !important;
+    clip-path: inset(0 round 18px) !important;
+    max-height: calc(100dvh - 128px) !important;
+  }
+  #photoLightbox .photo-lightbox-prev,
+  #photoLightbox .photo-lightbox-next {
+    top: auto !important;
+    bottom: 16px !important;
+    transform: none !important;
+  }
+  #photoLightbox .photo-lightbox-prev { left: calc(50% - 52px) !important; }
+  #photoLightbox .photo-lightbox-next { right: calc(50% - 52px) !important; }
+}
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .gallery figure:hover { transform: none !important; rotate: none !important; }
+}
+</style>
+
 </head>
 <body>
   <header id="main-header" aria-label="Site header">
