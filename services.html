@@ -592,6 +592,13 @@
       }
     }
 
+    /* Ensure service offer icons and highlighted text stay readable on the dark banner */
+    .hardware-text .hardware-offer-line { color: #f5f5f5 !important; }
+    .hardware-text .hardware-offer-line strong,
+    .hardware-text .hardware-offer-line .text-highlight { color: #ffffff !important; }
+    .hardware-text .hardware-offer-line .text-highlight { background: transparent !important; }
+    .hardware-text .hardware-offer-line > i { color: #39ff14 !important; opacity: 1; }
+
     /* Responsive gallery of real IT work and hardware */
     .work-gallery-section { padding-top: clamp(2.5rem, 6vw, 5rem); padding-bottom: clamp(3rem, 7vw, 5rem); }
     .work-gallery-intro { max-width: 650px; margin: 1rem auto 0; color: var(--text-muted); line-height: 1.7; font-size: .98rem; }
@@ -1057,12 +1064,12 @@ html, body, body * { cursor: auto !important; }
             </p>
 
             <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
-              <p style="font-size: 1rem; color: rgba(255,255,255,0.9); line-height: 1.6; margin: 0; background: rgba(255,255,255,0.05); padding: 1rem; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-green);">
-                <i class="fa-solid fa-globe" style="color:var(--accent-green); margin-right: 8px;"></i><strong>Web Development:</strong> Want to take your business online? Ask me about building a stunning, high-performing website tailored to your brand!
+              <p class="hardware-offer-line" style="font-size: 1rem; color: #f5f5f5; line-height: 1.6; margin: 0; background: rgba(255,255,255,0.08); padding: 1rem; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-green);">
+                <i class="fa-solid fa-globe" style="color:#39ff14; margin-right: 8px;"></i><strong>Web Development:</strong> Want to take your business online? Ask me about building a stunning, high-performing website tailored to your brand!
               </p>
               
-              <p style="font-size: 1rem; color: rgba(255,255,255,0.9); line-height: 1.6; margin: 0; background: rgba(255,255,255,0.05); padding: 1rem; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-green);">
-                <i class="fa-solid fa-lightbulb" style="color:var(--accent-green); margin-right: 8px;"></i><strong><span class="text-highlight">Free Buying Consultation:</span></strong> Want to buy a desktop, laptop, or any IT equipment? Feel free to consult with me first to pick the exact specs for your needs without overpaying.
+              <p class="hardware-offer-line" style="font-size: 1rem; color: #f5f5f5; line-height: 1.6; margin: 0; background: rgba(255,255,255,0.08); padding: 1rem; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-green);">
+                <i class="fa-solid fa-lightbulb" style="color:#39ff14; margin-right: 8px;"></i><strong><span class="text-highlight">Free Buying Consultation:</span></strong> Want to buy a desktop, laptop, or any IT equipment? Feel free to consult with me first to pick the exact specs for your needs without overpaying.
               </p>
             </div>
             
