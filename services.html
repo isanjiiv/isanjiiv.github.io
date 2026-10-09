@@ -631,6 +631,30 @@
     @media (max-width: 650px) { .work-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; } .work-gallery-card { border-radius: 13px; } .work-gallery-caption { min-height: 48px; padding: .6rem; font-size: .74rem; } .work-gallery-section .section-header h2 { letter-spacing: -.6px; } .work-gallery-intro { font-size: .9rem; } .work-lightbox { padding: 4rem 1rem 3.5rem; } .work-lightbox-prev { left: .5rem; } .work-lightbox-next { right: .5rem; } .work-lightbox-nav { width: 38px; height: 38px; } .work-lightbox-close { top: .8rem; right: .8rem; } }
     @media (prefers-reduced-motion: reduce) { .work-gallery-card, .work-gallery-card img, .work-lightbox, .work-lightbox-close, .work-lightbox-nav { transition: none !important; } }
 
+
+    /* Contact section copied from the home page */
+    .contact-wrapper { width: 100%; padding-top: clamp(3rem, 7vw, 6rem); padding-bottom: clamp(3rem, 7vw, 6rem); }
+    .contact-header { text-align: center; margin-bottom: clamp(2rem, 5vw, 3.5rem); display: flex; flex-direction: column; align-items: center; width: 100%; }
+    .contact-header h2 { font-size: clamp(2.2rem, 5vw, 3rem); margin-bottom: .5rem; font-weight: 600; letter-spacing: -1px; color: var(--text-main); text-align: center; }
+    .contact-header p { color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto; text-align: center; }
+    .contact-layout { display: flex; flex-direction: column; gap: 3rem; align-items: center; }
+    .contact-image-container { width: 100%; height: auto; position: relative; border-radius: var(--radius-sm); overflow: hidden; }
+    .contact-image-container img { width: 100%; height: auto; object-fit: contain; object-position: center; }
+    .contact-form-container { width: 100%; background: var(--bg-alt); border-radius: var(--radius-md); padding: clamp(1.5rem, 5vw, 3rem); border: 1px solid var(--border-color); box-shadow: 0 10px 40px rgba(0,0,0,.04); }
+    .new-contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
+    .new-contact-form .form-row { display: flex; flex-direction: column; gap: 1.5rem; }
+    .new-contact-form .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .new-contact-form label { font-size: .75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
+    .new-contact-form input, .new-contact-form textarea { width: 100%; padding: 14px 16px; border: 1px solid rgba(0,0,0,.1); border-radius: 12px; font-family: var(--font-body); font-size: 1rem; outline: none; transition: var(--transition); }
+    .new-contact-form input:focus, .new-contact-form textarea:focus { border-color: var(--text-main); box-shadow: 0 0 0 1px var(--text-main); }
+    .btn-submit-pill { background: #0f172a; color: #fff; border: none; padding: 16px 32px; border-radius: 50px; font-family: var(--font-body); font-weight: 500; font-size: 1rem; width: 100%; display: flex; justify-content: center; align-items: center; gap: 10px; transition: var(--transition); cursor: pointer; }
+    @media (min-width: 768px) {
+      .new-contact-form .form-row { flex-direction: row; }
+      .new-contact-form .form-group { flex: 1; min-width: 0; }
+      .btn-submit-pill { width: auto; align-self: flex-start; }
+      .contact-layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: start; gap: clamp(2rem, 4vw, 4rem); }
+    }
+
 </style>
 
 <style id="normal-mouse-cursor-fix">
@@ -1133,7 +1157,60 @@ html, body, body * { cursor: auto !important; }
   </main>
 
   <!-- FOOTER -->
-  <footer class="footer-bottom fade-up container">
+  <section id="contact" class="contact-wrapper container">
+        <div class="contact-header fade-up">
+          <h2>Connect for your <span style="font-weight: 300; color: var(--text-muted);">next project</span></h2>
+          <p>Whether you have a job opportunity, a project, or just want to say hi, my inbox is open.</p>
+        </div>
+
+        <div class="contact-layout fade-up">
+          
+          <div class="contact-image-container">
+            <img src="https://isanjiiv.github.io/assets/images/sanjeev-kumar-professional-portrait.png" alt="Sanjeev Kumar IT Consultant ready for networking projects" loading="lazy">
+          </div>
+          
+          <div class="contact-form-container">
+            <form action="https://formspree.io/f/xzzabloy" method="POST" class="new-contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Full Name</label>
+                  <input type="text" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                  <label>Email Address</label>
+                  <input type="email" name="email" placeholder="Enter your email" required>
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Phone Number</label>
+                  <input type="tel" name="phone" placeholder="Phone number">
+                </div>
+                <div class="form-group">
+                  <label>Subject</label>
+                  <input type="text" name="subject" placeholder="Subject" required>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>Your Message</label>
+                <textarea name="message" rows="4" placeholder="Enter your comments here..." required></textarea>
+              </div>
+              
+              <input type="hidden" name="_subject" value="New message from portfolio">
+              <input type="hidden" name="_replyto" value="Sanjeev753304@gmail.com">
+              
+              <button type="submit" class="btn-submit-pill">
+                Submit Now <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </section>
+
+    <footer class="footer-bottom fade-up container">
     <div class="footer-socials" aria-label="Social media links">
       <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
       <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
