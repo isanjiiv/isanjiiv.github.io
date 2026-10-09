@@ -627,6 +627,31 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
   }
 </style>
 
+
+<style id="consistent-rounded-corners-all-images">
+  .gallery figure,
+  .gallery figure > a:first-child,
+  .gallery figure > a:first-child img {
+    border-radius: 18px !important;
+    overflow: hidden !important;
+  }
+  #photoLightbox #photoLightboxImage {
+    border-radius: 18px !important;
+    clip-path: inset(0 round 18px) !important;
+  }
+  @media (max-width: 600px) {
+    .gallery figure,
+    .gallery figure > a:first-child,
+    .gallery figure > a:first-child img {
+      border-radius: 14px !important;
+    }
+    #photoLightbox #photoLightboxImage {
+      border-radius: 14px !important;
+      clip-path: inset(0 round 14px) !important;
+    }
+  }
+</style>
+
 </head>
 <body>
   <header id="main-header" aria-label="Site header">
