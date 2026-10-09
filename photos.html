@@ -269,8 +269,9 @@ html, body, body * { cursor: auto !important; }
   .photo-lightbox-control { position:absolute; display:flex; align-items:center; justify-content:center; width:48px; height:48px; border:1px solid rgba(255,255,255,.22); border-radius:50%; color:#fff; background:rgba(255,255,255,.1); cursor:pointer; backdrop-filter:blur(8px); transition:background .2s ease, transform .2s ease; }
   .photo-lightbox-control:hover { background:rgba(255,255,255,.23); transform:scale(1.06); }
   .photo-lightbox-close { top:1.2rem; right:1.2rem; font-size:1.25rem; }
-  .photo-lightbox-prev { left:1.25rem; top:50%; transform:translateY(-50%); }
-  .photo-lightbox-next { right:1.25rem; top:50%; transform:translateY(-50%); }
+  /* Navigation is positioned by JavaScript at the image's own left/right edges. */
+  .photo-lightbox-prev { left:0; top:50%; transform:translateY(-50%); }
+  .photo-lightbox-next { right:auto; left:0; top:50%; transform:translateY(-50%); }
   .photo-lightbox-prev:hover,.photo-lightbox-next:hover { transform:translateY(-50%) scale(1.06); }
   body.photo-lightbox-open { overflow:hidden; }
   #scroll-direction-btn { position:fixed; right:24px; bottom:24px; z-index:1500; width:48px; height:48px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,.2); border-radius:50%; color:#fff; background:#111827; box-shadow:0 8px 24px rgba(0,0,0,.2); cursor:pointer; opacity:0; visibility:hidden; transform:translateY(8px); transition:opacity .25s ease, transform .25s ease, visibility .25s ease, background .2s ease; }
@@ -328,26 +329,15 @@ h1 span:after{height:clamp(4px,.7vw,8px);bottom:-.12em;background:var(--accent)}
 @media(prefers-reduced-motion:reduce){.hero .eyebrow,.hero h1,.hero p,.gallery-head{animation:none!important}.photo-reveal{opacity:1;transform:none;transition:none}.gallery figure,.gallery figure>a:first-child img,.photo-link{transition:none!important}}
 </style>
 <style id="luma-inspired-motion">
-/* Ambient, cinematic motion inspired by modern Luma event pages */
+/* Keep the same neutral portfolio background; add only a subtle moving accent glow. */
 body{position:relative;isolation:isolate;overflow-x:clip}
-body:before,body:after{content:"";position:fixed;z-index:-1;pointer-events:none;width:min(52vw,680px);aspect-ratio:1;border-radius:50%;filter:blur(85px);opacity:.22;will-change:transform}
-body:before{top:-18%;left:-18%;background:radial-gradient(circle,#d8e9a1 0%,rgba(216,233,161,0) 70%);animation:ambientDriftOne 22s ease-in-out infinite alternate}
-body:after{right:-20%;top:35%;background:radial-gradient(circle,#d8c9f4 0%,rgba(216,201,244,0) 70%);animation:ambientDriftTwo 26s ease-in-out infinite alternate}
-@keyframes ambientDriftOne{0%{transform:translate3d(0,0,0) scale(.9)}50%{transform:translate3d(13vw,12vh,0) scale(1.12)}100%{transform:translate3d(4vw,28vh,0) scale(1)}}
-@keyframes ambientDriftTwo{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-12vw,-10vh,0) scale(1.12)}100%{transform:translate3d(-5vw,14vh,0) scale(.92)}}
-.hero{overflow:hidden}
-.hero:after{content:"";position:absolute;z-index:-1;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 25%,rgba(255,255,255,.34) 48%,transparent 68%);transform:translateX(-120%);animation:heroSheen 1.5s .35s ease-out forwards}
-@keyframes heroSheen{to{transform:translateX(120%)}}
-.gallery-head{position:relative}
-.gallery-head:after{content:"";position:absolute;left:0;bottom:-1px;width:clamp(72px,12vw,150px);height:2px;background:var(--accent);transform-origin:left;animation:underlineReveal 1s .3s both}
-@keyframes underlineReveal{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-.gallery figure{backface-visibility:hidden}
-.gallery figure.is-visible{animation:gallerySettle .75s both}
-@keyframes gallerySettle{from{filter:blur(3px)}to{filter:blur(0)}}
-.photo-lightbox.open{animation:lightboxAtmosphere .35s ease-out}
-@keyframes lightboxAtmosphere{from{backdrop-filter:blur(0);background:rgba(8,10,14,0)}to{backdrop-filter:blur(14px);background:rgba(8,10,14,.95)}}
-@media(max-width:700px){body:before,body:after{width:85vw;filter:blur(55px);opacity:.17}.hero:after{display:none}}
-@media(prefers-reduced-motion:reduce){body:before,body:after,.hero:after,.gallery-head:after,.gallery figure.is-visible,.photo-lightbox.open{animation:none!important}.gallery figure.is-visible{filter:none}}
+body:before,body:after{content:"";position:fixed;z-index:-1;pointer-events:none;width:min(48vw,620px);aspect-ratio:1;border-radius:50%;filter:blur(95px);opacity:.10;will-change:transform}
+body:before{top:-22%;left:-20%;background:radial-gradient(circle,rgba(0,200,117,.42) 0%,rgba(0,200,117,0) 70%);animation:ambientDriftOne 26s ease-in-out infinite alternate}
+body:after{right:-22%;top:42%;background:radial-gradient(circle,rgba(150,170,130,.28) 0%,rgba(150,170,130,0) 72%);animation:ambientDriftTwo 32s ease-in-out infinite alternate}
+@keyframes ambientDriftOne{0%{transform:translate3d(0,0,0) scale(.92)}50%{transform:translate3d(8vw,8vh,0) scale(1.08)}100%{transform:translate3d(3vw,20vh,0) scale(1)}}
+@keyframes ambientDriftTwo{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-8vw,-7vh,0) scale(1.08)}100%{transform:translate3d(-3vw,10vh,0) scale(.95)}}
+@media(max-width:700px){body:before,body:after{width:78vw;filter:blur(65px);opacity:.08}}
+@media(prefers-reduced-motion:reduce){body:before,body:after{animation:none!important}}
 </style>
 
 </head>
@@ -551,14 +541,35 @@ body:after{right:-20%;top:35%;background:radial-gradient(circle,#d8c9f4 0%,rgba(
   const nextButton=document.getElementById('photoLightboxNext');
   if(viewer&&images.length){
     let index=0,previousFocus=null,touchStartX=0,touchStartY=0;
-    function show(i){index=(i+images.length)%images.length;viewerImage.src=images[index].src;viewerImage.alt=images[index].alt;caption.textContent=images[index].caption;count.textContent=(index+1)+' / '+images.length;}
+    function positionNavigation(){
+      if(!viewer.classList.contains('open'))return;
+      const rect=viewerImage.getBoundingClientRect();
+      if(!rect.width||!rect.height)return;
+      const gap=Math.min(12,Math.max(6,rect.width*.025));
+      prevButton.style.left=(rect.left+gap)+'px';
+      prevButton.style.right='auto';
+      prevButton.style.top=(rect.top+rect.height/2)+'px';
+      nextButton.style.left=(rect.right-gap-nextButton.offsetWidth)+'px';
+      nextButton.style.right='auto';
+      nextButton.style.top=(rect.top+rect.height/2)+'px';
+    }
+    function show(i){
+      index=(i+images.length)%images.length;
+      viewerImage.onload=positionNavigation;
+      viewerImage.src=images[index].src;
+      viewerImage.alt=images[index].alt;
+      caption.textContent=images[index].caption;
+      count.textContent=(index+1)+' / '+images.length;
+      requestAnimationFrame(positionNavigation);
+    }
     function open(i){previousFocus=document.activeElement;show(i);viewer.classList.add('open');viewer.setAttribute('aria-hidden','false');document.body.classList.add('photo-lightbox-open');closeButton.focus();}
-    function close(){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true');document.body.classList.remove('photo-lightbox-open');viewerImage.src='';if(previousFocus&&previousFocus.focus)previousFocus.focus();}
+    function close(){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true');document.body.classList.remove('photo-lightbox-open');viewerImage.src='';prevButton.style.cssText='';nextButton.style.cssText='';if(previousFocus&&previousFocus.focus)previousFocus.focus();}
     cards.forEach((card,i)=>{const link=card.querySelector(':scope > a:first-child');if(link)link.addEventListener('click',e=>{e.preventDefault();open(i);});});
     closeButton.addEventListener('click',close);
     prevButton.addEventListener('click',()=>show(index-1));
     nextButton.addEventListener('click',()=>show(index+1));
     viewer.addEventListener('click',e=>{if(e.target===viewer)close();});
+    window.addEventListener('resize',positionNavigation);
     viewer.addEventListener('touchstart',e=>{if(!e.changedTouches.length)return;touchStartX=e.changedTouches[0].clientX;touchStartY=e.changedTouches[0].clientY;},{passive:true});
     viewer.addEventListener('touchend',e=>{if(!e.changedTouches.length)return;const dx=e.changedTouches[0].clientX-touchStartX;const dy=e.changedTouches[0].clientY-touchStartY;if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.25){show(index+(dx<0?1:-1));}},{passive:true});
     document.addEventListener('keydown',e=>{if(!viewer.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(index-1);if(e.key==='ArrowRight')show(index+1);});
