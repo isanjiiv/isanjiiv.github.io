@@ -557,6 +557,33 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
   }
 </style>
 
+
+<style id="remove-white-photo-matting">
+  /* Remove the pale mat around photos; use a dark, premium gallery surface instead. */
+  .gallery figure {
+    background: #17191d !important;
+    border: 0 !important;
+    box-shadow: 0 10px 28px rgba(0,0,0,.12) !important;
+    padding: 0 !important;
+  }
+  .gallery figure > a:first-child {
+    background: #17191d !important;
+    height: clamp(250px, 30vw, 390px) !important;
+  }
+  .gallery figure > a:first-child img {
+    background: transparent !important;
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+  }
+  @media (max-width: 900px) {
+    .gallery figure > a:first-child { height: clamp(240px, 42vw, 340px) !important; }
+  }
+  @media (max-width: 560px) {
+    .gallery figure > a:first-child { height: min(78vh, 520px) !important; }
+  }
+</style>
+
 </head>
 <body>
   <header id="main-header" aria-label="Site header">
