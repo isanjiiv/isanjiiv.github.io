@@ -327,6 +327,29 @@ h1 span:after{height:clamp(4px,.7vw,8px);bottom:-.12em;background:var(--accent)}
 @media(max-width:560px){.hero{padding:65px 20px 48px}h1{letter-spacing:-.065em}.gallery-head{align-items:flex-start;flex-direction:column;gap:12px}.gallery-head p{text-align:left}.gallery figure{border-radius:17px}}
 @media(prefers-reduced-motion:reduce){.hero .eyebrow,.hero h1,.hero p,.gallery-head{animation:none!important}.photo-reveal{opacity:1;transform:none;transition:none}.gallery figure,.gallery figure>a:first-child img,.photo-link{transition:none!important}}
 </style>
+<style id="luma-inspired-motion">
+/* Ambient, cinematic motion inspired by modern Luma event pages */
+body{position:relative;isolation:isolate;overflow-x:clip}
+body:before,body:after{content:"";position:fixed;z-index:-1;pointer-events:none;width:min(52vw,680px);aspect-ratio:1;border-radius:50%;filter:blur(85px);opacity:.22;will-change:transform}
+body:before{top:-18%;left:-18%;background:radial-gradient(circle,#d8e9a1 0%,rgba(216,233,161,0) 70%);animation:ambientDriftOne 22s ease-in-out infinite alternate}
+body:after{right:-20%;top:35%;background:radial-gradient(circle,#d8c9f4 0%,rgba(216,201,244,0) 70%);animation:ambientDriftTwo 26s ease-in-out infinite alternate}
+@keyframes ambientDriftOne{0%{transform:translate3d(0,0,0) scale(.9)}50%{transform:translate3d(13vw,12vh,0) scale(1.12)}100%{transform:translate3d(4vw,28vh,0) scale(1)}}
+@keyframes ambientDriftTwo{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-12vw,-10vh,0) scale(1.12)}100%{transform:translate3d(-5vw,14vh,0) scale(.92)}}
+.hero{overflow:hidden}
+.hero:after{content:"";position:absolute;z-index:-1;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 25%,rgba(255,255,255,.34) 48%,transparent 68%);transform:translateX(-120%);animation:heroSheen 1.5s .35s ease-out forwards}
+@keyframes heroSheen{to{transform:translateX(120%)}}
+.gallery-head{position:relative}
+.gallery-head:after{content:"";position:absolute;left:0;bottom:-1px;width:clamp(72px,12vw,150px);height:2px;background:var(--accent);transform-origin:left;animation:underlineReveal 1s .3s both}
+@keyframes underlineReveal{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.gallery figure{backface-visibility:hidden}
+.gallery figure.is-visible{animation:gallerySettle .75s both}
+@keyframes gallerySettle{from{filter:blur(3px)}to{filter:blur(0)}}
+.photo-lightbox.open{animation:lightboxAtmosphere .35s ease-out}
+@keyframes lightboxAtmosphere{from{backdrop-filter:blur(0);background:rgba(8,10,14,0)}to{backdrop-filter:blur(14px);background:rgba(8,10,14,.95)}}
+@media(max-width:700px){body:before,body:after{width:85vw;filter:blur(55px);opacity:.17}.hero:after{display:none}}
+@media(prefers-reduced-motion:reduce){body:before,body:after,.hero:after,.gallery-head:after,.gallery figure.is-visible,.photo-lightbox.open{animation:none!important}.gallery figure.is-visible{filter:none}}
+</style>
+
 </head>
 <body>
   <header id="main-header" aria-label="Site header">
