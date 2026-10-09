@@ -388,6 +388,65 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
 @media(max-width:600px){.photo-lightbox{padding:3.8rem .5rem 2.5rem!important}.photo-lightbox figure{max-width:100%;max-height:calc(100vh - 6.5rem)}.photo-lightbox img{max-width:calc(100vw - 1rem)!important;max-height:calc(100vh - 130px)!important}}
 </style>
 
+
+<style id="photo-lightbox-clean-image-fix">
+  /* The lightbox should contain only the photograph: no card, white strip, border or caption panel. */
+  #photoLightbox { padding: 24px 72px !important; }
+  #photoLightbox figure {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+  #photoLightbox #photoLightboxImage {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: calc(100vh - 48px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  #photoLightbox figure > figcaption { display: none !important; }
+  #photoLightbox .photo-lightbox-prev,
+  #photoLightbox .photo-lightbox-next {
+    position: fixed !important;
+    top: 50% !important;
+    left: 18px;
+    right: auto;
+    z-index: 3010;
+    width: 48px;
+    height: 48px;
+    transform: translateY(-50%);
+  }
+  #photoLightbox .photo-lightbox-next { left: auto; right: 18px; }
+  #photoLightbox .photo-lightbox-prev:hover,
+  #photoLightbox .photo-lightbox-next:hover { transform: translateY(-50%) scale(1.06); }
+  @media (max-width: 600px) {
+    #photoLightbox { padding: 18px 52px !important; }
+    #photoLightbox #photoLightboxImage { max-width: 100% !important; max-height: calc(100vh - 36px) !important; }
+    #photoLightbox .photo-lightbox-prev { left: 6px; width: 40px; height: 40px; }
+    #photoLightbox .photo-lightbox-next { right: 6px; width: 40px; height: 40px; }
+    #photoLightbox .photo-lightbox-close { top: 10px; right: 10px; }
+  }
+</style>
+
 </head>
 <body>
   <header id="main-header" aria-label="Site header">
