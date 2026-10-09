@@ -447,6 +447,28 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
   }
 </style>
 
+
+<style id="rounded-corners-all-photos">
+  /* Rounded corners on gallery thumbnails and the full-screen image viewer. */
+  .gallery figure,
+  .gallery figure > a:first-child,
+  .gallery figure > a:first-child img {
+    border-radius: 22px !important;
+    overflow: hidden !important;
+  }
+  .gallery figure > a:first-child img { display:block; }
+  #photoLightbox #photoLightboxImage {
+    border-radius: 16px !important;
+    overflow: hidden !important;
+  }
+  @media (max-width: 600px) {
+    .gallery figure,
+    .gallery figure > a:first-child,
+    .gallery figure > a:first-child img { border-radius: 16px !important; }
+    #photoLightbox #photoLightboxImage { border-radius: 12px !important; }
+  }
+</style>
+
 </head>
 <body>
   <header id="main-header" aria-label="Site header">
