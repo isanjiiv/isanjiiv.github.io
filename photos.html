@@ -255,6 +255,38 @@ html, body, body * { cursor: auto !important; }
   @media(prefers-reduced-motion:reduce){#main-header,.mobile-menu,.mobile-menu a,#main-header .nav-menu a::after{transition:none!important}}
 </style>
 
+
+<style id="photo-lightbox-and-scroll-control-styles">
+  .photo-lightbox { position:fixed; inset:0; z-index:3000; display:flex; align-items:center; justify-content:center; padding:4.5rem 5rem 3.5rem; background:rgba(8,10,14,.95); backdrop-filter:blur(14px); opacity:0; visibility:hidden; pointer-events:none; transition:opacity .25s ease, visibility .25s ease; }
+  .photo-lightbox.open { opacity:1; visibility:visible; pointer-events:auto; }
+  .photo-lightbox figure { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.8rem; width:100%; height:100%; margin:0; }
+  .photo-lightbox img { max-width:min(100%,1200px); max-height:calc(100vh - 145px); width:auto; height:auto; object-fit:contain; border-radius:12px; box-shadow:0 24px 80px rgba(0,0,0,.4); user-select:none; -webkit-user-drag:none; }
+  .photo-lightbox-caption { color:#fff; text-align:center; font-size:.95rem; line-height:1.5; }
+  .photo-lightbox-count { color:rgba(255,255,255,.68); font-size:.8rem; margin-top:.15rem; }
+  .photo-lightbox-control { position:absolute; display:flex; align-items:center; justify-content:center; width:48px; height:48px; border:1px solid rgba(255,255,255,.22); border-radius:50%; color:#fff; background:rgba(255,255,255,.1); cursor:pointer; backdrop-filter:blur(8px); transition:background .2s ease, transform .2s ease; }
+  .photo-lightbox-control:hover { background:rgba(255,255,255,.23); transform:scale(1.06); }
+  .photo-lightbox-close { top:1.2rem; right:1.2rem; font-size:1.25rem; }
+  .photo-lightbox-prev { left:1.25rem; top:50%; transform:translateY(-50%); }
+  .photo-lightbox-next { right:1.25rem; top:50%; transform:translateY(-50%); }
+  .photo-lightbox-prev:hover,.photo-lightbox-next:hover { transform:translateY(-50%) scale(1.06); }
+  body.photo-lightbox-open { overflow:hidden; }
+  #scroll-direction-btn { position:fixed; right:24px; bottom:24px; z-index:1500; width:48px; height:48px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,.2); border-radius:50%; color:#fff; background:#111827; box-shadow:0 8px 24px rgba(0,0,0,.2); cursor:pointer; opacity:0; visibility:hidden; transform:translateY(8px); transition:opacity .25s ease, transform .25s ease, visibility .25s ease, background .2s ease; }
+  #scroll-direction-btn.visible { opacity:1; visibility:visible; transform:translateY(0); }
+  #scroll-direction-btn:hover { background:#30394b; }
+  @media (max-width:600px) {
+    .photo-lightbox { padding:4rem 1rem 3rem; }
+    .photo-lightbox img { max-height:calc(100vh - 150px); }
+    .photo-lightbox-control { width:42px; height:42px; }
+    .photo-lightbox-prev { left:.5rem; }
+    .photo-lightbox-next { right:.5rem; }
+    .photo-lightbox-close { top:.8rem; right:.8rem; }
+    #scroll-direction-btn { right:14px; bottom:14px; width:44px; height:44px; }
+  }
+  @media (prefers-reduced-motion:reduce) {
+    .photo-lightbox,.photo-lightbox-control,#scroll-direction-btn { transition:none !important; }
+  }
+</style>
+
 </head>
 <body>
   <header id="main-header" aria-label="Site header">
@@ -426,6 +458,54 @@ html, body, body * { cursor: auto !important; }
   }
   window.addEventListener('scroll',updateHeader,{passive:true});
   updateHeader();
+})();
+</script>
+
+
+<div class="photo-lightbox" id="photoLightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" aria-hidden="true">
+  <button class="photo-lightbox-control photo-lightbox-close" id="photoLightboxClose" type="button" aria-label="Close photo viewer"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+  <button class="photo-lightbox-control photo-lightbox-prev" id="photoLightboxPrev" type="button" aria-label="Previous photo"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+  <figure>
+    <img id="photoLightboxImage" alt="" src="">
+    <figcaption>
+      <div class="photo-lightbox-caption" id="photoLightboxCaption"></div>
+      <div class="photo-lightbox-count" id="photoLightboxCount"></div>
+    </figcaption>
+  </figure>
+  <button class="photo-lightbox-control photo-lightbox-next" id="photoLightboxNext" type="button" aria-label="Next photo"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+</div>
+<button id="scroll-direction-btn" type="button" aria-label="Scroll to bottom" title="Scroll to bottom"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></button>
+<script id="photo-lightbox-interactions">
+(function(){
+  const cards=Array.from(document.querySelectorAll('.gallery figure'));
+  const images=cards.map(card=>({src:card.querySelector('img')?.currentSrc||card.querySelector('img')?.src,alt:card.querySelector('img')?.alt||'',caption:card.querySelector('.caption-main')?.textContent||card.querySelector('img')?.alt||''})).filter(item=>item.src);
+  const viewer=document.getElementById('photoLightbox');
+  const viewerImage=document.getElementById('photoLightboxImage');
+  const caption=document.getElementById('photoLightboxCaption');
+  const count=document.getElementById('photoLightboxCount');
+  const closeButton=document.getElementById('photoLightboxClose');
+  const prevButton=document.getElementById('photoLightboxPrev');
+  const nextButton=document.getElementById('photoLightboxNext');
+  if(viewer&&images.length){
+    let index=0,previousFocus=null,touchStartX=0,touchStartY=0;
+    function show(i){index=(i+images.length)%images.length;viewerImage.src=images[index].src;viewerImage.alt=images[index].alt;caption.textContent=images[index].caption;count.textContent=(index+1)+' / '+images.length;}
+    function open(i){previousFocus=document.activeElement;show(i);viewer.classList.add('open');viewer.setAttribute('aria-hidden','false');document.body.classList.add('photo-lightbox-open');closeButton.focus();}
+    function close(){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true');document.body.classList.remove('photo-lightbox-open');viewerImage.src='';if(previousFocus&&previousFocus.focus)previousFocus.focus();}
+    cards.forEach((card,i)=>{const link=card.querySelector(':scope > a:first-child');if(link)link.addEventListener('click',e=>{e.preventDefault();open(i);});});
+    closeButton.addEventListener('click',close);
+    prevButton.addEventListener('click',()=>show(index-1));
+    nextButton.addEventListener('click',()=>show(index+1));
+    viewer.addEventListener('click',e=>{if(e.target===viewer)close();});
+    viewer.addEventListener('touchstart',e=>{if(!e.changedTouches.length)return;touchStartX=e.changedTouches[0].clientX;touchStartY=e.changedTouches[0].clientY;},{passive:true});
+    viewer.addEventListener('touchend',e=>{if(!e.changedTouches.length)return;const dx=e.changedTouches[0].clientX-touchStartX;const dy=e.changedTouches[0].clientY-touchStartY;if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.25){show(index+(dx<0?1:-1));}},{passive:true});
+    document.addEventListener('keydown',e=>{if(!viewer.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(index-1);if(e.key==='ArrowRight')show(index+1);});
+  }
+  const button=document.getElementById('scroll-direction-btn');
+  if(button){
+    const icon=button.querySelector('i');let lastY=window.scrollY||0;
+    function update(){const y=window.scrollY||0;const bottom=window.innerHeight+y>=document.documentElement.scrollHeight-80;let dir;if(y<=50)dir='down';else if(bottom)dir='up';else dir=y>lastY?'down':'up';icon.className=dir==='up'?'fa-solid fa-arrow-up':'fa-solid fa-arrow-down';button.setAttribute('aria-label',dir==='up'?'Scroll to top':'Scroll to bottom');button.title=dir==='up'?'Scroll to top':'Scroll to bottom';button.classList.toggle('visible',y>50);lastY=y;}
+    window.addEventListener('scroll',update,{passive:true});button.addEventListener('click',()=>{const up=icon.classList.contains('fa-arrow-up');window.scrollTo({top:up?0:document.documentElement.scrollHeight,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});});update();
+  }
 })();
 </script>
 
