@@ -611,6 +611,47 @@
     .hardware-text .hardware-offer-line .text-highlight { background: transparent !important; }
     .hardware-text .hardware-offer-line > i { color: #39ff14 !important; opacity: 1; }
 
+    /* Premium, restrained motion for the Services page */
+    @keyframes premiumHeroIn {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-section-inner > .tag-label { animation: premiumHeroIn .65s ease-out both; }
+    .hero-section-inner .hero-title { animation: premiumHeroIn .8s .08s ease-out both; }
+    .hero-section-inner .hero-desc { animation: premiumHeroIn .8s .16s ease-out both; }
+    .hero-section-inner .btn-wrap { animation: premiumHeroIn .8s .24s ease-out both; }
+    .btn-pill, .btn-submit-pill, .work-gallery-toggle {
+      position: relative;
+      overflow: hidden;
+      transition: transform .28s ease, box-shadow .28s ease, background-color .28s ease;
+    }
+    .btn-pill:hover, .btn-submit-pill:hover, .work-gallery-toggle:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 26px rgba(0,0,0,.14);
+    }
+    .services-grid-container > *, .why-choose-grid > *, .contact-info-item {
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+    .services-grid-container > *:hover, .why-choose-grid > *:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 38px rgba(0,0,0,.09);
+    }
+    .hardware-img-box img { transition: transform .7s cubic-bezier(.2,.7,.2,1); }
+    .hardware-img-box:hover img { transform: scale(1.035); }
+    .fade-up { transition: opacity .7s ease-out, transform .7s cubic-bezier(.2,.7,.2,1); }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-section-inner > .tag-label,
+      .hero-section-inner .hero-title,
+      .hero-section-inner .hero-desc,
+      .hero-section-inner .btn-wrap { animation: none !important; }
+      .fade-up, .btn-pill, .btn-submit-pill, .work-gallery-toggle,
+      .services-grid-container > *, .why-choose-grid > *,
+      .hardware-img-box img, .work-gallery-card, .work-gallery-card img {
+        transition: none !important;
+        transform: none !important;
+      }
+    }
+
     /* Responsive gallery of real IT work and hardware */
     .work-gallery-section { padding-top: clamp(2.5rem, 6vw, 5rem); padding-bottom: clamp(3rem, 7vw, 5rem); }
     .work-gallery-intro { max-width: 650px; margin: 1rem auto 0; color: var(--text-muted); line-height: 1.7; font-size: .98rem; }
