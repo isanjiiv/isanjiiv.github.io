@@ -727,6 +727,18 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
 }
 </style>
 
+<style id="swipe-photo-rounded-corners">
+/* The same curve applies to every image, including after a swipe. */
+#photoLightbox { --swipe-photo-radius: 28px; }
+#photoLightbox #photoLightboxImage {
+  border-radius: var(--swipe-photo-radius) !important;
+  clip-path: inset(0 round var(--swipe-photo-radius)) !important;
+  -webkit-clip-path: inset(0 round var(--swipe-photo-radius)) !important;
+}
+@media (max-width: 600px) {
+  #photoLightbox { --swipe-photo-radius: 22px; }
+}
+</style>
 </head>
 <body>
   <header id="main-header" aria-label="Site header">
@@ -942,6 +954,9 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
     }
     function show(i){
       index=(i+images.length)%images.length;
+      // Reapply the clipping on each photo change, for swipe and arrow navigation.
+      viewerImage.style.setProperty('border-radius', 'var(--swipe-photo-radius)', 'important');
+      viewerImage.style.setProperty('clip-path', 'inset(0 round var(--swipe-photo-radius))', 'important');
       viewerImage.onload=positionNavigation;
       viewerImage.src=images[index].src;
       viewerImage.alt=images[index].alt;
