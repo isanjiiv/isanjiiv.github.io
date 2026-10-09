@@ -596,6 +596,11 @@
     .work-gallery-section { padding-top: clamp(2.5rem, 6vw, 5rem); padding-bottom: clamp(3rem, 7vw, 5rem); }
     .work-gallery-intro { max-width: 650px; margin: 1rem auto 0; color: var(--text-muted); line-height: 1.7; font-size: .98rem; }
     .work-gallery-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(.75rem, 1.7vw, 1.35rem); }
+    .work-gallery-card.gallery-hidden { display: none; }
+    .work-gallery-toggle-wrap { display: flex; justify-content: center; margin-top: 2rem; }
+    .work-gallery-toggle { display: inline-flex; align-items: center; justify-content: center; gap: .65rem; padding: .9rem 1.45rem; border: 1px solid var(--accent-green); border-radius: 999px; background: var(--accent-green); color: #fff; font: inherit; font-weight: 650; cursor: pointer; box-shadow: 0 8px 22px rgba(0,0,0,.1); transition: transform .25s ease, box-shadow .25s ease; }
+    .work-gallery-toggle:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,.16); }
+    .work-gallery-toggle:focus-visible { outline: 3px solid var(--text-main); outline-offset: 4px; }
     .work-gallery-card { appearance: none; display: flex; flex-direction: column; text-align: left; min-width: 0; padding: 0; overflow: hidden; border: 1px solid var(--border-color); border-radius: 18px; background: var(--bg-alt); color: var(--text-main); cursor: pointer; box-shadow: 0 5px 18px rgba(0,0,0,.045); transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease; }
     .work-gallery-card:hover, .work-gallery-card:focus-visible { transform: translateY(-5px); border-color: var(--accent-green); box-shadow: 0 16px 32px rgba(0,0,0,.11); outline: none; }
     .work-gallery-card img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--bg); transition: transform .45s ease; }
@@ -747,7 +752,7 @@ html, body, body * { cursor: auto !important; }
         <h2>My Work Gallery</h2>
         <p class="work-gallery-intro">A closer look at the laptops, PC components, repairs, upgrades, cooling systems and IT equipment I work with.</p>
       </div>
-      <div class="work-gallery-grid">
+      <div class="work-gallery-grid" id="my-work-gallery-grid">
         <button class="work-gallery-card fade-up" type="button" data-gallery-index="0" aria-label="View image: (19)">
           <img src="/assets/images/services/01%20(19).jpeg" alt="(19)" loading="lazy" decoding="async">
           <span class="work-gallery-caption">(19)<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
@@ -780,153 +785,158 @@ html, body, body * { cursor: auto !important; }
           <img src="/assets/images/services/06_Dell_Laptop_Windows_Lock_Screen_01.jpeg" alt="Dell Laptop Windows Lock Screen 01" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Dell Laptop Windows Lock Screen 01<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="8" aria-label="View image: Dell Laptop Windows Lock Screen 02">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="8" aria-label="View image: Dell Laptop Windows Lock Screen 02">
           <img src="/assets/images/services/07_Dell_Laptop_Windows_Lock_Screen_02.jpeg" alt="Dell Laptop Windows Lock Screen 02" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Dell Laptop Windows Lock Screen 02<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="9" aria-label="View image: Lenovo Laptop Internal Components Overview">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="9" aria-label="View image: Lenovo Laptop Internal Components Overview">
           <img src="/assets/images/services/08_Lenovo_Laptop_Internal_Components_Overview.jpeg" alt="Lenovo Laptop Internal Components Overview" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Lenovo Laptop Internal Components Overview<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="10" aria-label="View image: Lenovo Laptop Cooling Fan And Heat Pipe">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="10" aria-label="View image: Lenovo Laptop Cooling Fan And Heat Pipe">
           <img src="/assets/images/services/09_Lenovo_Laptop_Cooling_Fan_and_Heat_Pipe.jpeg" alt="Lenovo Laptop Cooling Fan And Heat Pipe" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Lenovo Laptop Cooling Fan And Heat Pipe<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="11" aria-label="View image: Tapo Security Cameras Front View">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="11" aria-label="View image: Tapo Security Cameras Front View">
           <img src="/assets/images/services/10_Tapo_Security_Cameras_Front_View.jpeg" alt="Tapo Security Cameras Front View" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Tapo Security Cameras Front View<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="12" aria-label="View image: Tapo Dual Lens Security Camera Packaging">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="12" aria-label="View image: Tapo Dual Lens Security Camera Packaging">
           <img src="/assets/images/services/11_Tapo_Dual_Lens_Security_Camera_Packaging.jpeg" alt="Tapo Dual Lens Security Camera Packaging" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Tapo Dual Lens Security Camera Packaging<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="13" aria-label="View image: Windows Domain Workstation Trust Relationship Error">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="13" aria-label="View image: Windows Domain Workstation Trust Relationship Error">
           <img src="/assets/images/services/12_Windows_Domain_Workstation_Trust_Relationship_Error.jpeg" alt="Windows Domain Workstation Trust Relationship Error" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Windows Domain Workstation Trust Relationship Error<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="14" aria-label="View image: Laptop And External Monitor Login Setup">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="14" aria-label="View image: Laptop And External Monitor Login Setup">
           <img src="/assets/images/services/13_Laptop_and_External_Monitor_Login_Setup.jpeg" alt="Laptop And External Monitor Login Setup" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Laptop And External Monitor Login Setup<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="15" aria-label="View image: Epson Printer Maintenance Box End Of Service Life Error">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="15" aria-label="View image: Epson Printer Maintenance Box End Of Service Life Error">
           <img src="/assets/images/services/14_Epson_Printer_Maintenance_Box_End_of_Service_Life_Error.jpeg" alt="Epson Printer Maintenance Box End Of Service Life Error" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Epson Printer Maintenance Box End Of Service Life Error<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="16" aria-label="View image: Laptop Replacement Cooling Fans Comparison">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="16" aria-label="View image: Laptop Replacement Cooling Fans Comparison">
           <img src="/assets/images/services/15_Laptop_Replacement_Cooling_Fans_Comparison.jpeg" alt="Laptop Replacement Cooling Fans Comparison" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Laptop Replacement Cooling Fans Comparison<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="17" aria-label="View image: Laptop Dual Fan Cooling System Overview">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="17" aria-label="View image: Laptop Dual Fan Cooling System Overview">
           <img src="/assets/images/services/16_Laptop_Dual_Fan_Cooling_System_Overview.jpeg" alt="Laptop Dual Fan Cooling System Overview" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Laptop Dual Fan Cooling System Overview<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="18" aria-label="View image: Laptop Cooling Fan Label Closeup">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="18" aria-label="View image: Laptop Cooling Fan Label Closeup">
           <img src="/assets/images/services/17_Laptop_Cooling_Fan_Label_Closeup.jpeg" alt="Laptop Cooling Fan Label Closeup" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Laptop Cooling Fan Label Closeup<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="19" aria-label="View image: Laptop Cooling Fan Replacement In Progress">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="19" aria-label="View image: Laptop Cooling Fan Replacement In Progress">
           <img src="/assets/images/services/18_Laptop_Cooling_Fan_Replacement_In_Progress.jpeg" alt="Laptop Cooling Fan Replacement In Progress" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Laptop Cooling Fan Replacement In Progress<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="20" aria-label="View image: Laptop Motherboard Dual Fans And Copper Heat Pipes">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="20" aria-label="View image: Laptop Motherboard Dual Fans And Copper Heat Pipes">
           <img src="/assets/images/services/19_Laptop_Motherboard_Dual_Fans_and_Copper_Heat_Pipes.jpeg" alt="Laptop Motherboard Dual Fans And Copper Heat Pipes" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Laptop Motherboard Dual Fans And Copper Heat Pipes<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="21" aria-label="View image: Laptop Removed Cooling Fan">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="21" aria-label="View image: Laptop Removed Cooling Fan">
           <img src="/assets/images/services/20_Laptop_Removed_Cooling_Fan.jpeg" alt="Laptop Removed Cooling Fan" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Laptop Removed Cooling Fan<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="22" aria-label="View image: Desktop PC GeForce RTX 3060 Internal View 01">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="22" aria-label="View image: Desktop PC GeForce RTX 3060 Internal View 01">
           <img src="/assets/images/services/21_Desktop_PC_GeForce_RTX_3060_Internal_View_01.jpeg" alt="Desktop PC GeForce RTX 3060 Internal View 01" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Desktop PC GeForce RTX 3060 Internal View 01<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="23" aria-label="View image: Desktop PC GeForce RTX 3060 Internal View 02">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="23" aria-label="View image: Desktop PC GeForce RTX 3060 Internal View 02">
           <img src="/assets/images/services/22_Desktop_PC_GeForce_RTX_3060_Internal_View_02.jpeg" alt="Desktop PC GeForce RTX 3060 Internal View 02" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Desktop PC GeForce RTX 3060 Internal View 02<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="24" aria-label="View image: HP Desktop PC Open Case Internal Components">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="24" aria-label="View image: HP Desktop PC Open Case Internal Components">
           <img src="/assets/images/services/23_HP_Desktop_PC_Open_Case_Internal_Components.jpeg" alt="HP Desktop PC Open Case Internal Components" loading="lazy" decoding="async">
           <span class="work-gallery-caption">HP Desktop PC Open Case Internal Components<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="25" aria-label="View image: HP Desktop PC Windows Boot Screen">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="25" aria-label="View image: HP Desktop PC Windows Boot Screen">
           <img src="/assets/images/services/24_HP_Desktop_PC_Windows_Boot_Screen.jpeg" alt="HP Desktop PC Windows Boot Screen" loading="lazy" decoding="async">
           <span class="work-gallery-caption">HP Desktop PC Windows Boot Screen<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="26" aria-label="View image: HP Desktop PC Windows Desktop Test">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="26" aria-label="View image: HP Desktop PC Windows Desktop Test">
           <img src="/assets/images/services/25_HP_Desktop_PC_Windows_Desktop_Test.jpeg" alt="HP Desktop PC Windows Desktop Test" loading="lazy" decoding="async">
           <span class="work-gallery-caption">HP Desktop PC Windows Desktop Test<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="27" aria-label="View image: Dell Desktop PC Workstation Setup">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="27" aria-label="View image: Dell Desktop PC Workstation Setup">
           <img src="/assets/images/services/26_Dell_Desktop_PC_Workstation_Setup.jpeg" alt="Dell Desktop PC Workstation Setup" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Dell Desktop PC Workstation Setup<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="28" aria-label="View image: Dell Monitor Windows Desktop Car Wallpaper">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="28" aria-label="View image: Dell Monitor Windows Desktop Car Wallpaper">
           <img src="/assets/images/services/27_Dell_Monitor_Windows_Desktop_Car_Wallpaper.jpeg" alt="Dell Monitor Windows Desktop Car Wallpaper" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Dell Monitor Windows Desktop Car Wallpaper<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="29" aria-label="View image: Cabinet">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="29" aria-label="View image: Cabinet">
           <img src="/assets/images/services/cabinet.jpeg" alt="Cabinet" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Cabinet<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="30" aria-label="View image: Dell Precision 5560 Battery Replacement">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="30" aria-label="View image: Dell Precision 5560 Battery Replacement">
           <img src="/assets/images/services/dell-precision-5560-battery-replacement.jpeg" alt="Dell Precision 5560 Battery Replacement" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Dell Precision 5560 Battery Replacement<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="31" aria-label="View image: Dell Precision 5560 Repairing">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="31" aria-label="View image: Dell Precision 5560 Repairing">
           <img src="/assets/images/services/dell-precision-5560-repairing.jpeg" alt="Dell Precision 5560 Repairing" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Dell Precision 5560 Repairing<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="32" aria-label="View image: Desktop Parts">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="32" aria-label="View image: Desktop Parts">
           <img src="/assets/images/services/desktop-parts.jpeg" alt="Desktop Parts" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Desktop Parts<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="33" aria-label="View image: Fancy Motherboard Pc">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="33" aria-label="View image: Fancy Motherboard Pc">
           <img src="/assets/images/services/fancy-motherboard-pc.jpeg" alt="Fancy Motherboard Pc" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Fancy Motherboard Pc<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="34" aria-label="View image: Hp Battery">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="34" aria-label="View image: Hp Battery">
           <img src="/assets/images/services/hp-battery.jpeg" alt="Hp Battery" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Hp Battery<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="35" aria-label="View image: Laptop 1">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="35" aria-label="View image: Laptop 1">
           <img src="/assets/images/services/laptop-1.jpeg" alt="Laptop 1" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Laptop 1<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="36" aria-label="View image: Laptop Keyboard">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="36" aria-label="View image: Laptop Keyboard">
           <img src="/assets/images/services/laptop-keyboard.jpeg" alt="Laptop Keyboard" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Laptop Keyboard<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="37" aria-label="View image: Laptop Nic Card">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="37" aria-label="View image: Laptop Nic Card">
           <img src="/assets/images/services/laptop-nic-card.jpeg" alt="Laptop Nic Card" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Laptop Nic Card<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="38" aria-label="View image: Laptop">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="38" aria-label="View image: Laptop">
           <img src="/assets/images/services/laptop.jpeg" alt="Laptop" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Laptop<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="39" aria-label="View image: Nvme Ssd">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="39" aria-label="View image: Nvme Ssd">
           <img src="/assets/images/services/nvme-ssd.jpeg" alt="Nvme Ssd" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Nvme Ssd<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="40" aria-label="View image: Open Laptop">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="40" aria-label="View image: Open Laptop">
           <img src="/assets/images/services/open-laptop.jpeg" alt="Open Laptop" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Open Laptop<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="41" aria-label="View image: Refurbished Laptop Buy">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="41" aria-label="View image: Refurbished Laptop Buy">
           <img src="/assets/images/services/refurbished%20laptop-buy.jpeg" alt="Refurbished Laptop Buy" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Refurbished Laptop Buy<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="42" aria-label="View image: Tools">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="42" aria-label="View image: Tools">
           <img src="/assets/images/services/tools.jpeg" alt="Tools" loading="lazy" decoding="async">
           <span class="work-gallery-caption">Tools<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="43" aria-label="View image: X1 Yoga Laptop">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="43" aria-label="View image: X1 Yoga Laptop">
           <img src="/assets/images/services/x1-yoga-laptop.jpeg" alt="X1 Yoga Laptop" loading="lazy" decoding="async">
           <span class="work-gallery-caption">X1 Yoga Laptop<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
         </button>
-        <button class="work-gallery-card fade-up" type="button" data-gallery-index="44" aria-label="View image: X1 Yoga">
+        <button class="work-gallery-card fade-up gallery-hidden" type="button" data-gallery-index="44" aria-label="View image: X1 Yoga">
           <img src="/assets/images/services/x1-yoga.jpeg" alt="X1 Yoga" loading="lazy" decoding="async">
           <span class="work-gallery-caption">X1 Yoga<span class="gallery-zoom-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span></span>
+        </button>
+      </div>
+      <div class="work-gallery-toggle-wrap">
+        <button class="work-gallery-toggle" id="toggleWorkGallery" type="button" aria-expanded="false" aria-controls="my-work-gallery-grid">
+          <span>View All Images (37 more)</span><i class="fa-solid fa-images" aria-hidden="true"></i>
         </button>
       </div>
     </section>
@@ -1379,6 +1389,21 @@ html, body, body * { cursor: auto !important; }
     const previousButton = document.getElementById('workLightboxPrev');
     const nextButton = document.getElementById('workLightboxNext');
     if (!cards.length || !viewer) return;
+    const galleryToggle = document.getElementById('toggleWorkGallery');
+    const hiddenCards = cards.slice(8);
+    if (galleryToggle && hiddenCards.length) {
+      galleryToggle.addEventListener('click', () => {
+        const expanded = galleryToggle.getAttribute('aria-expanded') === 'true';
+        hiddenCards.forEach(card => card.classList.toggle('gallery-hidden', expanded));
+        galleryToggle.setAttribute('aria-expanded', String(!expanded));
+        galleryToggle.querySelector('span').textContent = expanded
+          ? 'View All Images (' + hiddenCards.length + ' more)'
+          : 'Show Less';
+        galleryToggle.querySelector('i').className = expanded
+          ? 'fa-solid fa-images'
+          : 'fa-solid fa-chevron-up';
+      });
+    }
     let currentIndex = 0;
     let previousFocus = null;
     function showImage(index) {
