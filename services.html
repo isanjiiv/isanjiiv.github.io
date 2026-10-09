@@ -520,25 +520,7 @@
         line-height: 1.45 !important;
       }
 
-      /* Footer */
-      .footer-bottom {
-        gap: 1.1rem !important;
-        padding: 0.5rem 0 1.25rem !important;
-      }
-
-      .footer-bottom > div {
-        gap: 0.65rem !important;
-      }
-
-      .footer-bottom .btn-circle {
-        width: 36px;
-        height: 36px;
-      }
-
-      .footer-bottom > p {
-        font-size: 0.75rem !important;
-        line-height: 1.4;
-      }
+      /* Footer uses the shared Home/About footer styles below. */
     }
 
     @media (min-width: 600px) {
@@ -566,7 +548,50 @@
       }
       #blend-cursor.hovering { width: 45px; height: 45px; background-color: rgba(34, 34, 34, 0.1); border: 1px solid rgba(34, 34, 34, 0.3); }
     }
-  </style>
+  
+
+    /* Dual-direction scroll button — matches Home and About pages */
+    .back-to-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 50%;
+      background: var(--text-main);
+      color: #fff;
+      font-size: 1.2rem;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: var(--transition);
+      z-index: 1000;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .back-to-top:hover {
+      background: #333;
+      transform: translateY(-2px);
+    }
+    @media (max-width: 599px) {
+      .back-to-top {
+        width: 40px;
+        height: 40px;
+        right: 14px;
+        bottom: 14px;
+        font-size: 1rem;
+      }
+    }
+</style>
 
 <style id="normal-mouse-cursor-fix">
 /* Restore the standard browser mouse cursor. */
@@ -885,18 +910,91 @@ html, body, body * { cursor: auto !important; }
   </main>
 
   <!-- FOOTER -->
-  <footer class="footer-bottom fade-up container" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; padding: 1rem 0 2rem;">
-    <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+  <footer class="footer-bottom fade-up container">
+    <div class="footer-socials" aria-label="Social media links">
       <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
       <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
       <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
       <a href="https://www.youtube.com/@isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
       <a href="https://x.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
     </div>
-    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0; text-align: center;">
-      © <span id="year">2026</span>. Design By <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" style="color:var(--text-main); font-weight:600;">Sanjeev Kumar</a>. All rights reserved.
+    <p class="footer-copyright">
+      © <span id="year">2026</span>. Design By
+      <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer">Sanjeev Kumar</a>. All rights reserved.
     </p>
   </footer>
+
+  <style id="shared-footer-styles">
+    .footer-bottom {
+      width: 100%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 1rem 0 2rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-bottom .btn-circle.light {
+      background: #fff;
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .footer-bottom .btn-circle.light:hover {
+      background: #f0f0f0;
+      color: var(--text-main);
+      border-color: var(--border-color);
+    }
+
+    .footer-copyright {
+      font-size: clamp(12px, 1.2vw, 14.4px) !important;
+      color: var(--text-muted);
+      margin: 0;
+      padding: 0 12px;
+      text-align: center;
+      line-height: 1.6;
+      overflow-wrap: break-word;
+    }
+
+    .footer-copyright a {
+      color: var(--text-main);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .footer-copyright a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 599px) {
+      .footer-bottom {
+        gap: 1rem !important;
+        padding: 1rem 14px 1.5rem !important;
+      }
+
+      .footer-socials {
+        gap: 0.65rem;
+      }
+
+      .footer-copyright {
+        font-size: 0.75rem !important;
+        line-height: 1.5;
+      }
+    }
+  </style>
+
+  <!-- Dual-direction scroll button -->
+  <button id="backToTop" class="back-to-top" aria-label="Scroll to bottom" title="Scroll to bottom">
+    <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+  </button>
 
   <!-- SCRIPTS -->
   <script>
@@ -981,5 +1079,62 @@ html, body, body * { cursor: auto !important; }
   window.addEventListener('load', removeCustomCursor);
 })();
 </script>
+
+<script id="dual-direction-scroll-button-script">
+(function () {
+  const scrollBtn = document.getElementById('backToTop');
+  if (!scrollBtn) return;
+
+  const scrollIcon = scrollBtn.querySelector('i');
+  let lastScrollY = window.scrollY || document.documentElement.scrollTop;
+
+  function updateScrollButton() {
+    const currentScrollY = window.scrollY || document.documentElement.scrollTop;
+    const fullPageHeight = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight
+    );
+    const isAtBottom = window.innerHeight + currentScrollY >= fullPageHeight - 100;
+
+    if (currentScrollY <= 50) {
+      scrollIcon.className = 'fa-solid fa-arrow-down';
+      scrollBtn.setAttribute('aria-label', 'Scroll to bottom');
+      scrollBtn.title = 'Scroll to bottom';
+    } else if (isAtBottom) {
+      scrollIcon.className = 'fa-solid fa-arrow-up';
+      scrollBtn.setAttribute('aria-label', 'Scroll to top');
+      scrollBtn.title = 'Scroll to top';
+    } else if (currentScrollY > lastScrollY) {
+      scrollIcon.className = 'fa-solid fa-arrow-down';
+      scrollBtn.setAttribute('aria-label', 'Scroll to bottom');
+      scrollBtn.title = 'Scroll to bottom';
+    } else if (currentScrollY < lastScrollY) {
+      scrollIcon.className = 'fa-solid fa-arrow-up';
+      scrollBtn.setAttribute('aria-label', 'Scroll to top');
+      scrollBtn.title = 'Scroll to top';
+    }
+
+    lastScrollY = currentScrollY;
+    scrollBtn.classList.add('show');
+  }
+
+  scrollBtn.addEventListener('click', function () {
+    const fullPageHeight = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight
+    );
+    if (scrollIcon.classList.contains('fa-arrow-up')) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: fullPageHeight, behavior: 'smooth' });
+    }
+  });
+
+  window.addEventListener('scroll', updateScrollButton, { passive: true });
+  window.addEventListener('resize', updateScrollButton);
+  updateScrollButton();
+})();
+</script>
+
 </body>
 </html>
