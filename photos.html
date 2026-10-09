@@ -237,17 +237,17 @@ html, body, body * { cursor: auto !important; }
 </style>
 
 <style id="portfolio-header-styles">
-  #main-header{display:flex;justify-content:space-between;align-items:center;gap:22px;padding:12px clamp(18px,5vw,48px);position:fixed;top:0;left:0;right:0;width:100%;z-index:1005;background:transparent;transition:background .3s ease,backdrop-filter .3s ease,border-color .3s ease;border-bottom:1px solid transparent}
-  #main-header.scrolled{background:rgba(244,244,242,.95);backdrop-filter:blur(12px);border-bottom-color:var(--line)}
+  #main-header{display:flex;justify-content:space-between;align-items:center;gap:22px;padding:1rem clamp(1.5rem,5vw,3rem);position:fixed;top:0;left:0;right:0;width:100%;max-width:100%;z-index:1005;background:transparent;transition:all .4s cubic-bezier(.25,.8,.25,1);border-bottom:1px solid transparent}
+  #main-header.scrolled{background:rgba(244,244,242,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   #main-header .brand{display:flex;align-items:center;flex:0 0 auto;z-index:1010}
-  #main-header .brand img{height:clamp(38px,4.5vw,52px);width:auto;object-fit:contain}
+  #main-header .brand img{height:clamp(40px,5vw,55px);width:auto;object-fit:contain}
   #main-header .nav-menu{display:none;align-items:center;justify-content:center;gap:clamp(12px,1.7vw,26px);flex:1}
   #main-header .nav-menu a{font-size:.82rem;font-weight:500;white-space:nowrap;color:var(--text);position:relative;transition:color .25s ease}
   #main-header .nav-menu a::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:2px;background:var(--accent);transition:right .25s ease}
   #main-header .nav-menu a:hover{color:var(--muted)}
   #main-header .nav-menu a:hover::after{right:0}
   #main-header .header-right{display:flex;align-items:center;justify-content:flex-end;flex:0 0 auto;z-index:1010}
-  #main-header .hamburger{display:block;border:0;background:transparent;color:var(--text);font-size:1.4rem;padding:7px;cursor:pointer}
+  #main-header .hamburger{display:block;border:0;background:transparent;color:var(--text);font-size:1.5rem;padding:5px;cursor:pointer;position:relative;z-index:1010}
   .mobile-menu{position:fixed;inset:0;z-index:1000;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:clamp(18px,3vh,30px);background:rgba(244,244,242,.98);backdrop-filter:blur(18px);transform:translateY(-100%);opacity:0;pointer-events:none;transition:transform .4s cubic-bezier(.25,.8,.25,1),opacity .3s ease}
   .mobile-menu.open{transform:translateY(0);opacity:1;pointer-events:auto}
   .mobile-menu a{font-family:var(--heading);font-size:clamp(1.3rem,4vw,1.8rem);font-weight:500;color:var(--text);transition:transform .25s ease,color .25s ease}
@@ -292,32 +292,34 @@ html, body, body * { cursor: auto !important; }
 </style>
 
 <style id="editorial-photo-page-enhancement">
-:root{--bg:#f7f4ed;--surface:#fffdf8;--text:#171714;--muted:#69685f;--line:rgba(28,27,23,.11);--accent:#b9e34a;--accent-soft:rgba(185,227,74,.22);--radius:22px;--shadow:0 22px 60px rgba(48,40,25,.11)}
-body{background:radial-gradient(ellipse at 12% 18%,rgba(231,219,193,.34),transparent 32%),radial-gradient(ellipse at 88% 42%,rgba(222,235,202,.3),transparent 28%),var(--bg)}
-.topbar{background:rgba(247,244,237,.84)}
+/* Match the portfolio's shared neutral theme and typography. */
+:root{--bg:#f4f4f2;--surface:#ffffff;--text:#111111;--muted:#555555;--line:rgba(0,0,0,.08);--accent:#111111;--accent-soft:rgba(0,0,0,.045);--radius:24px;--shadow:0 18px 50px rgba(0,0,0,.07);--heading:'Outfit',sans-serif;--body:'Plus Jakarta Sans',sans-serif}
+html,body{background-color:#f4f4f2!important}
+body{background-image:none!important;font-family:var(--body);color:var(--text)}
+.topbar{background:rgba(244,244,242,.9)}
 .hero{position:relative;isolation:isolate;padding-top:clamp(76px,11vw,142px);padding-bottom:clamp(54px,7vw,90px)}
-.hero:before{content:"";position:absolute;z-index:-1;width:clamp(180px,26vw,360px);aspect-ratio:1;border:1px solid rgba(28,27,23,.09);border-radius:50%;top:7%;left:50%;transform:translateX(-50%);box-shadow:0 0 0 22px rgba(255,255,255,.12),0 0 0 46px rgba(28,27,23,.025);pointer-events:none}
-.eyebrow{border-color:rgba(111,139,35,.26);background:rgba(185,227,74,.22);color:#3d4f14}
-h1{font-size:clamp(3.6rem,10vw,8.5rem);letter-spacing:-.075em;line-height:.88;font-weight:500}
+.hero:before{display:none}
+.eyebrow{border-color:rgba(0,0,0,.1);background:rgba(0,0,0,.035);color:#333}
+h1{font-family:var(--heading);font-size:clamp(3.6rem,10vw,8.5rem);letter-spacing:-.075em;line-height:.88;font-weight:500}
 h1 span:after{height:clamp(4px,.7vw,8px);bottom:-.12em;background:var(--accent)}
 .hero p{max-width:590px;margin-top:34px;font-size:clamp(1rem,1.7vw,1.18rem)}
 .gallery-wrap{padding-bottom:clamp(75px,10vw,130px)}
 .gallery-head{margin-bottom:34px;padding-bottom:20px;border-bottom:1px solid var(--line)}
 .gallery-head .eyebrow{margin-bottom:10px}
-.gallery-head h2{font-size:clamp(2rem,4.8vw,3.5rem);letter-spacing:-.055em;line-height:1}
+.gallery-head h2{font-family:var(--heading);font-size:clamp(2rem,4.8vw,3.5rem);letter-spacing:-.055em;line-height:1}
 .gallery-head p{max-width:350px}
 .gallery{gap:clamp(16px,2.2vw,30px);perspective:1400px}
-.gallery figure{border-radius:18px;background:var(--surface);border:1px solid rgba(35,32,25,.09);box-shadow:0 8px 24px rgba(49,41,27,.055);transform-origin:center 75%;will-change:transform;transition:transform .55s cubic-bezier(.2,.75,.25,1),box-shadow .45s ease,border-color .35s ease}
-.gallery figure:nth-child(3n+1){--card-tilt:-.45deg}.gallery figure:nth-child(3n+2){--card-tilt:.35deg}.gallery figure:nth-child(3n){--card-tilt:.15deg}
+.gallery figure{border-radius:18px;background:var(--surface);border:1px solid var(--line);box-shadow:0 8px 24px rgba(0,0,0,.055);transform-origin:center 75%;will-change:transform;transition:transform .55s cubic-bezier(.2,.75,.25,1),box-shadow .45s ease,border-color .35s ease}
+.gallery figure:nth-child(3n+1){--card-tilt:-.25deg}.gallery figure:nth-child(3n+2){--card-tilt:.2deg}.gallery figure:nth-child(3n){--card-tilt:.1deg}
 .gallery figure:not(:hover){rotate:var(--card-tilt,0deg)}
-.gallery figure:hover{rotate:0deg;transform:translateY(-9px) scale(1.012);box-shadow:0 28px 55px rgba(49,41,27,.15);border-color:rgba(111,139,35,.35)}
-.gallery figure>a:first-child{background:#eae6dc}
+.gallery figure:hover{rotate:0deg;transform:translateY(-7px);box-shadow:0 22px 45px rgba(0,0,0,.11);border-color:rgba(0,0,0,.16)}
+.gallery figure>a:first-child{background:#e9e9e6}
 .gallery figure>a:first-child img{transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s ease}
-.gallery figure:hover>a:first-child img{transform:scale(1.045)!important;filter:saturate(1.04)}
+.gallery figure:hover>a:first-child img{transform:scale(1.035)!important;filter:saturate(1.03)}
 .gallery figcaption{padding:18px 19px 20px}
-.caption-main{font-size:1rem;letter-spacing:-.02em}.caption-sub{color:#77766d}
-.photo-link{width:38px;height:38px;border-radius:50%;background:#f0f0e7;color:#25271d;display:flex;align-items:center;justify-content:center;transition:transform .25s ease,background .25s ease,color .25s ease}
-.photo-link:hover{background:var(--accent);color:#1b2110;transform:rotate(8deg) scale(1.07)}
+.caption-main{font-size:1rem;letter-spacing:-.02em}.caption-sub{color:var(--muted)}
+.photo-link{width:38px;height:38px;border-radius:50%;background:#fff;color:#252525;display:flex;align-items:center;justify-content:center;transition:transform .25s ease,background .25s ease,color .25s ease}
+.photo-link:hover{background:#111;color:#fff;transform:rotate(8deg) scale(1.07)}
 .photo-reveal{opacity:0;transform:translateY(28px) scale(.985);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}
 .photo-reveal.is-visible{opacity:1;transform:translateY(0) scale(1)}
 .hero .eyebrow,.hero h1,.hero p{animation:photoIntro .8s cubic-bezier(.2,.7,.25,1) both}
@@ -329,17 +331,26 @@ h1 span:after{height:clamp(4px,.7vw,8px);bottom:-.12em;background:var(--accent)}
 @media(prefers-reduced-motion:reduce){.hero .eyebrow,.hero h1,.hero p,.gallery-head{animation:none!important}.photo-reveal{opacity:1;transform:none;transition:none}.gallery figure,.gallery figure>a:first-child img,.photo-link{transition:none!important}}
 </style>
 <style id="luma-inspired-motion">
-/* Keep the same neutral portfolio background; add only a subtle moving accent glow. */
-body{position:relative;isolation:isolate;overflow-x:clip}
-body:before,body:after{content:"";position:fixed;z-index:-1;pointer-events:none;width:min(48vw,620px);aspect-ratio:1;border-radius:50%;filter:blur(95px);opacity:.10;will-change:transform}
-body:before{top:-22%;left:-20%;background:radial-gradient(circle,rgba(0,200,117,.42) 0%,rgba(0,200,117,0) 70%);animation:ambientDriftOne 26s ease-in-out infinite alternate}
-body:after{right:-22%;top:42%;background:radial-gradient(circle,rgba(150,170,130,.28) 0%,rgba(150,170,130,0) 72%);animation:ambientDriftTwo 32s ease-in-out infinite alternate}
-@keyframes ambientDriftOne{0%{transform:translate3d(0,0,0) scale(.92)}50%{transform:translate3d(8vw,8vh,0) scale(1.08)}100%{transform:translate3d(3vw,20vh,0) scale(1)}}
-@keyframes ambientDriftTwo{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-8vw,-7vh,0) scale(1.08)}100%{transform:translate3d(-3vw,10vh,0) scale(.95)}}
-@media(max-width:700px){body:before,body:after{width:78vw;filter:blur(65px);opacity:.08}}
+/* Only a very faint moving glow; the page background stays identical to index/about/services. */
+body{position:relative;isolation:isolate;overflow-x:clip;background:#f4f4f2!important;background-image:none!important}
+body:before,body:after{content:"";position:fixed;z-index:-1;pointer-events:none;width:min(34vw,420px);aspect-ratio:1;border-radius:50%;filter:blur(100px);opacity:.035;will-change:transform}
+body:before{top:-18%;left:-14%;background:radial-gradient(circle,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 70%);animation:ambientDriftOne 30s ease-in-out infinite alternate}
+body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0%,rgba(0,0,0,0) 72%);animation:ambientDriftTwo 36s ease-in-out infinite alternate}
+@keyframes ambientDriftOne{0%{transform:translate3d(0,0,0) scale(.92)}50%{transform:translate3d(5vw,5vh,0) scale(1.06)}100%{transform:translate3d(2vw,12vh,0) scale(1)}}
+@keyframes ambientDriftTwo{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-5vw,-4vh,0) scale(1.05)}100%{transform:translate3d(-2vw,6vh,0) scale(.96)}}
+@media(max-width:700px){body:before,body:after{width:60vw;filter:blur(70px);opacity:.025}}
 @media(prefers-reduced-motion:reduce){body:before,body:after{animation:none!important}}
 </style>
 
+<style id="shared-portfolio-footer">
+.footer-bottom{width:100%;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:2rem;padding:1rem 14px 2rem;border-top:1px solid var(--line);margin:0 auto}
+.footer-socials{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.footer-bottom .btn-circle.light{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:#fff;color:var(--text);border:1px solid var(--line);font-size:1rem;transition:transform .3s ease,background .3s ease,color .3s ease}
+.footer-bottom .btn-circle.light:hover{background:#f0f0f0;color:var(--text);transform:translateY(-3px)}
+.footer-copyright{font-size:clamp(12px,1.2vw,14.4px)!important;color:var(--muted);margin:0;padding:0 12px;text-align:center;line-height:1.6;overflow-wrap:break-word}
+.footer-copyright a{color:var(--text);font-weight:600;text-decoration:none}.footer-copyright a:hover{text-decoration:underline}
+@media(max-width:599px){.footer-bottom{gap:1rem!important;padding:1rem 14px 1.5rem!important}.footer-socials{gap:.65rem}.footer-bottom .btn-circle.light{width:40px;height:40px}.footer-copyright{font-size:.75rem!important;line-height:1.5}}
+</style>
 </head>
 <body>
   <header id="main-header" aria-label="Site header">
@@ -407,15 +418,15 @@ body:after{right:-22%;top:42%;background:radial-gradient(circle,rgba(150,170,130
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-socials" aria-label="Social profiles">
-      <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-      <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-      <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://www.youtube.com/@isanjiiv/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-      <a href="https://x.com/isanjiiv" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+  <footer class="footer-bottom container">
+    <div class="footer-socials" aria-label="Social media links">
+      <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://github.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.instagram.com/isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@isanjiiv/" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="https://x.com/isanjiiv" target="_blank" rel="noopener noreferrer" class="btn-circle light" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
     </div>
-    <p>© <span id="year">2026</span>. Design By <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer">Sanjeev Kumar</a>. All rights reserved.</p>
+    <p class="footer-copyright">© <span id="year">2026</span>. Design By <a href="https://www.linkedin.com/in/isanjiiv/" target="_blank" rel="noopener noreferrer">Sanjeev Kumar</a>. All rights reserved.</p>
   </footer>
   <button id="scroll-direction-btn" type="button" aria-label="Scroll down" title="Scroll down"><i class="fa-solid fa-arrow-down"></i></button>
 
