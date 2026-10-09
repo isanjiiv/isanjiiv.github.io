@@ -485,6 +485,26 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
   .gallery figure > a:first-child img { filter: none !important; }
 </style>
 
+
+<style id="rounded-corners-swiped-lightbox-images">
+  /* Keep rounded corners on every image as the lightbox swaps between photos. */
+  #photoLightbox,
+  #photoLightbox figure {
+    overflow: hidden !important;
+  }
+  #photoLightbox #photoLightboxImage {
+    border-radius: 18px !important;
+    clip-path: inset(0 round 18px) !important;
+    overflow: hidden !important;
+  }
+  @media (max-width: 600px) {
+    #photoLightbox #photoLightboxImage {
+      border-radius: 14px !important;
+      clip-path: inset(0 round 14px) !important;
+    }
+  }
+</style>
+
 </head>
 <body>
   <header id="main-header" aria-label="Site header">
