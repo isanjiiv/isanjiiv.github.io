@@ -584,6 +584,49 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
   }
 </style>
 
+
+<style id="borderless-spaced-photo-gallery">
+  /* Borderless gallery: spacing separates the photos instead of outlines or frames. */
+  .gallery {
+    gap: 24px !important;
+  }
+  .gallery figure {
+    border: 0 !important;
+    outline: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+  }
+  .gallery figure:hover {
+    border: 0 !important;
+    box-shadow: none !important;
+    transform: translateY(-3px) !important;
+  }
+  .gallery figure > a:first-child {
+    background: transparent !important;
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+  }
+  .gallery figure > a:first-child img {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    border-radius: 16px !important;
+  }
+  @media (max-width: 900px) {
+    .gallery { gap: 20px !important; }
+  }
+  @media (max-width: 560px) {
+    .gallery { gap: 18px !important; }
+  }
+</style>
+
 </head>
 <body>
   <header id="main-header" aria-label="Site header">
