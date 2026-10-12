@@ -213,31 +213,54 @@
     .nav-menu a:hover,
     .nav-menu a[aria-current="page"] { opacity: .62; }
     .mobile-menu { display: flex; }
-    @media (min-width: 1100px) {
-      #main-header { padding-top: .8rem; padding-bottom: .8rem; }
-      .brand { flex: 0 0 auto; }
-      .nav-menu {
-        display: flex;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%,-50%);
-        align-items: center;
-        justify-content: center;
-        gap: clamp(.75rem,1.25vw,1.35rem);
-        width: max-content;
-        max-width: calc(100% - 190px);
-      }
-      .nav-menu a { font-size: clamp(.72rem,.82vw,.82rem); }
-      .header-right { flex: 0 0 auto; min-width: 0; }
-      .hamburger { display: none; }
-      .mobile-menu { display: none; }
+    /* Header dimensions and responsive behaviour aligned with Services/About pages. */
+    #main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      padding-left: max(clamp(1.2rem,5vw,3rem),calc((100% - 1300px)/2));
+      padding-right: max(clamp(1.2rem,5vw,3rem),calc((100% - 1300px)/2));
+      background: transparent;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      width: 100%; max-width: 100%;
+      margin-inline: auto;
+      z-index: 1005;
+      transition: background .3s var(--ease), border-color .3s var(--ease), padding .3s var(--ease);
     }
-    @media (max-width: 1099px) {
-      .nav-menu { display: none; }
-      .header-right { flex: 0 0 auto; }
-      .hamburger { display: block; }
-      .mobile-menu { display: flex; }
+    #main-header.scrolled {
+      background: rgba(244,244,242,.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { flex: 1; display: flex; align-items: center; position: relative; z-index: 1010; }
+    .brand img { height: clamp(40px,5vw,55px); width: auto; object-fit: contain; }
+    .nav-menu { display: none; }
+    .header-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 10px; position: relative; z-index: 1010; }
+    .hamburger { display: block; background: none; border: none; font-size: 1.5rem; color: var(--text); cursor: pointer; padding: 5px; position: relative; z-index: 1010; }
+    .mobile-menu {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+      background-color: var(--bg); z-index: 999; display: flex;
+      flex-direction: column; justify-content: center; align-items: center; gap: 2rem;
+      transform: translateY(-100%); transition: transform .4s var(--ease);
+      opacity: 0; pointer-events: none;
+    }
+    .mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    .mobile-menu a { font-size: 1.8rem; font-family: var(--font-heading); font-weight: 500; color: var(--text); transition: color .3s; }
+    .mobile-menu a:hover { color: var(--muted); }
+    @media (min-width: 900px) {
+      .hamburger { display: none; }
+      .nav-menu { display: flex; flex: 2; justify-content: center; align-items: center; gap: 2.5rem; }
+      .nav-menu a { font-size: .9rem; }
+    }
+    @media (max-width: 599px) {
+      #main-header { padding-top: 7px; padding-bottom: 7px; padding-left: 14px; padding-right: 14px; }
+      .brand img { height: 34px; }
+      .hamburger { font-size: 1.2rem; padding: 3px; }
+      .mobile-menu { gap: 1.35rem; }
+      .mobile-menu a { font-size: 1.35rem; }
     }
 
     /* Keep gallery edges plain: no white fade, shadow, or gradient mask. */
@@ -260,9 +283,9 @@
   </style>
 </head>
 <body>
-  <header id="main-header" aria-label="Site header">
-    <a href="/" class="brand" aria-label="Sanjeev Kumar homepage">
-      <img src="https://isanjiiv.github.io/assets/images/favicon.png" alt="Sanjeev Kumar logo" width="55" height="55">
+  <header id="main-header">
+    <a href="/" class="brand" aria-label="Sanjeev Kumar Homepage">
+      <img src="https://isanjiiv.github.io/assets/images/favicon.png" alt="Sanjiiv Logo">
     </a>
     <nav class="nav-menu" aria-label="Main navigation">
       <a href="/">Home</a>
@@ -272,26 +295,25 @@
       <a href="/#projects">Projects</a>
       <a href="/#certs">Certifications</a>
       <a href="/#experience">Experience</a>
-      <a href="/photos.html" aria-current="page">Photos</a>
       <a href="/#contact">Contact</a>
     </nav>
     <div class="header-right">
-      <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileMenu">
+      <button class="hamburger" id="hamburger" type="button" aria-label="Toggle Navigation" aria-expanded="false" aria-controls="mobileMenu">
         <i class="fa-solid fa-bars" aria-hidden="true"></i>
       </button>
     </div>
   </header>
 
-  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+  <div class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
     <a href="/">Home</a>
     <a href="/about.html">About</a>
     <a href="/services.html">Services</a>
     <a href="/#skills">Skills</a>
     <a href="/#projects">Projects</a>
     <a href="/#certs">Certifications</a>
-    <a href="/photos.html" aria-current="page">Photos</a>
+    <a href="/#experience">Experience</a>
     <a href="/#contact">Contact</a>
-  </nav>
+  </div>
 
   <main>
     <section class="hero container" aria-labelledby="page-title">
