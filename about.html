@@ -318,10 +318,33 @@ header {
     .section-header-split { display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; margin-bottom: 3rem;}
     .section-header-split h2 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.1; letter-spacing: -1px; }
     
-    .expertise-grid { display: flex; flex-direction: column; gap: 1.5rem; }
-    
+    /* Featured Projects: continuous marquee with manual wheel, trackpad and touch control */
+    .expertise-grid {
+      display: flex; gap: 1.5rem; width: 100%; overflow: hidden;
+      padding: 0.75rem 0 1.5rem; position: relative; isolation: isolate;
+      touch-action: pan-y; cursor: grab;
+    }
+    .expertise-grid:active { cursor: grabbing; }
+    .about-projects-track {
+      display: flex; align-items: stretch; gap: 1.5rem; width: max-content;
+      flex: 0 0 auto; will-change: transform; touch-action: pan-y; user-select: none;
+    }
+    .about-projects-track .skill-card { flex-shrink: 0; }
+    .about-projects-track .skill-card:hover {
+      transform: translateY(-4px) scale(1.015);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.12); z-index: 5;
+    }
+    .about-projects-track .skill-card:hover img { transform: scale(1.05); }
+    @media (max-width: 599px) {
+      .about-projects-track { gap: 1rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .about-projects-track .skill-card { transition: none !important; }
+    }
+
     .skill-card {
-      position: relative; border-radius: var(--radius-md); overflow: hidden; height: 350px; width: 100%;
+      position: relative; border-radius: var(--radius-md); overflow: hidden; height: 350px;
+      flex: 0 0 80%; width: auto; min-width: 0;
       display: flex; flex-direction: column; justify-content: space-between; padding: 1.5rem; transition: var(--transition);
     }
     .skill-card img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: transform 0.6s ease; }
@@ -333,6 +356,12 @@ header {
     
     .skill-card-bottom h3 { color: #fff; font-size: 1.4rem; font-family: var(--font-body); font-weight: 500;}
     .skill-card-bottom p { color: rgba(255,255,255,0.8); font-size: 0.85rem; }
+    @media (min-width: 600px) {
+      .skill-card { flex-basis: calc(50% - 0.75rem); }
+    }
+    @media (min-width: 900px) {
+      .skill-card { flex-basis: calc(40.10% - 1rem); }
+    }
 
     /* --- 9. NEW CONTACT SECTION --- */
     .contact-wrapper { padding: 4rem 0; }
@@ -1400,6 +1429,121 @@ if (window.matchMedia("(pointer: fine)").matches) {
     });
 }
   </script>
+
+
+<script id="about-projects-marquee">
+document.addEventListener('DOMContentLoaded', function () {
+  const viewport = document.querySelector('.expertise-grid');
+  if (!viewport || viewport.dataset.marqueeReady) return;
+
+  const originalCards = Array.from(viewport.querySelectorAll(':scope > .skill-card'));
+  if (!originalCards.length) return;
+
+  const track = document.createElement('div');
+  track.className = 'about-projects-track';
+  originalCards.forEach(card => {
+    card.style.flex = '0 0 ' + card.getBoundingClientRect().width + 'px';
+    track.appendChild(card);
+  });
+  viewport.appendChild(track);
+
+  originalCards.forEach(card => {
+    const clone = card.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    clone.classList.remove('fade-up', 'visible');
+    clone.removeAttribute('onclick');
+    clone.querySelectorAll('a,button,[tabindex]').forEach(el => {
+      el.setAttribute('tabindex', '-1');
+      el.setAttribute('aria-hidden', 'true');
+    });
+    track.appendChild(clone);
+  });
+  viewport.dataset.marqueeReady = 'true';
+
+  let offset = -(track.scrollWidth / 2);
+  let halfWidth = 0;
+  let lastTime = 0;
+  let resumeTimer = null;
+  let manuallyControlled = false;
+  let touchX = null;
+  let touchY = null;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function normalize(value) {
+    if (!halfWidth) return value;
+    while (value >= 0) value -= halfWidth;
+    while (value < -halfWidth) value += halfWidth;
+    return value;
+  }
+  function measure() {
+    halfWidth = track.scrollWidth / 2;
+    offset = normalize(offset);
+    render();
+  }
+  function render() {
+    offset = normalize(offset);
+    track.style.transform = 'translate3d(' + offset + 'px,0,0)';
+  }
+  function manualMove(delta) {
+    if (!halfWidth) measure();
+    offset -= delta;
+    render();
+    manuallyControlled = true;
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(() => {
+      manuallyControlled = false;
+      lastTime = 0;
+    }, 1800);
+  }
+
+  viewport.addEventListener('wheel', event => {
+    const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+    if (Math.abs(delta) > 0) {
+      event.preventDefault();
+      manualMove(delta);
+    }
+  }, { passive: false });
+
+  viewport.addEventListener('touchstart', event => {
+    if (!event.touches.length) return;
+    touchX = event.touches[0].clientX;
+    touchY = event.touches[0].clientY;
+  }, { passive: true });
+  viewport.addEventListener('touchmove', event => {
+    if (touchX === null || !event.touches.length) return;
+    const nextX = event.touches[0].clientX;
+    const nextY = event.touches[0].clientY;
+    const dx = touchX - nextX;
+    const dy = touchY - nextY;
+    if (Math.abs(dx) > Math.abs(dy)) {
+      event.preventDefault();
+      manualMove(dx);
+    }
+    touchX = nextX;
+    touchY = nextY;
+  }, { passive: false });
+  viewport.addEventListener('touchend', () => { touchX = null; touchY = null; }, { passive: true });
+
+  measure();
+  window.addEventListener('resize', () => {
+    const oldHalf = halfWidth;
+    measure();
+    if (oldHalf && halfWidth && oldHalf !== halfWidth) render();
+  });
+
+  function animate(timestamp) {
+    if (!lastTime) lastTime = timestamp;
+    const elapsed = Math.min(timestamp - lastTime, 40);
+    lastTime = timestamp;
+    if (!manuallyControlled && !reducedMotion && halfWidth > 0) {
+      offset += 34 * elapsed / 1000;
+      render();
+    }
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+});
+</script>
 
 <script id="normal-mouse-cursor-script">
 // Remove any custom cursor element created by the original page scripts.
