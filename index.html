@@ -348,24 +348,23 @@
     .section-header-split h2 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.1; letter-spacing: -1px; }
     
     .expertise-grid {
-      display: block; width: 100%; overflow: hidden; position: relative;
-      padding: 0.75rem 0 1.5rem; isolation: isolate;
+      display: flex; gap: 1.5rem; width: 100%; overflow: hidden;
+      padding: 0.75rem 0 1.5rem; position: relative; isolation: isolate;
     }
     .projects-marquee-track {
       display: flex; align-items: stretch; gap: 1.5rem; width: max-content;
-      animation: projects-marquee 48s linear infinite; will-change: transform;
+      flex: 0 0 auto; animation: projects-marquee 48s linear infinite; will-change: transform;
     }
     .projects-marquee-track .skill-card { flex-shrink: 0; }
     .projects-marquee-track .skill-card:hover {
-      transform: translateY(-6px) scale(1.025);
-      box-shadow: 0 16px 34px rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.06);
+      transform: translateY(-4px) scale(1.015);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.12);
       z-index: 5;
     }
-    .projects-marquee-track .skill-card:hover img { transform: scale(1.07); }
+    .projects-marquee-track .skill-card:hover img { transform: scale(1.05); }
     @keyframes projects-marquee { from { transform: translateX(-50%); } to { transform: translateX(0); } }
     @media (max-width: 599px) {
       .projects-marquee-track { gap: 1rem; animation-duration: 42s; }
-      .projects-marquee-track .skill-card { flex-basis: 80%; }
     }
     @media (prefers-reduced-motion: reduce) {
       .skills-grid, .projects-marquee-track { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
@@ -2500,11 +2499,17 @@ html, body, body * { cursor: auto !important; }
 
         const expertiseGrid = document.querySelector('.expertise-grid');
         if (expertiseGrid && !expertiseGrid.dataset.marqueeReady) {
+            const originalCards = Array.from(expertiseGrid.children);
+            const originalWidths = originalCards.map(card => card.getBoundingClientRect().width);
             const track = document.createElement('div');
             track.className = 'projects-marquee-track';
-            while (expertiseGrid.firstElementChild) track.appendChild(expertiseGrid.firstElementChild);
-            const originals = Array.from(track.children);
-            originals.forEach(card => {
+
+            originalCards.forEach((card, index) => {
+                card.style.flex = '0 0 ' + originalWidths[index] + 'px';
+                track.appendChild(card);
+            });
+
+            originalCards.forEach(card => {
                 const clone = card.cloneNode(true);
                 clone.classList.remove('fade-up', 'visible');
                 clone.setAttribute('aria-hidden', 'true');
@@ -2515,8 +2520,25 @@ html, body, body * { cursor: auto !important; }
                 });
                 track.appendChild(clone);
             });
+
             expertiseGrid.appendChild(track);
             expertiseGrid.dataset.marqueeReady = 'true';
+
+            // Keep the original card proportions on viewport changes.
+            let resizeFrame;
+            window.addEventListener('resize', () => {
+                cancelAnimationFrame(resizeFrame);
+                resizeFrame = requestAnimationFrame(() => {
+                    const gap = window.matchMedia('(max-width: 599px)').matches ? 16 : 24;
+                    const styles = getComputedStyle(expertiseGrid);
+                    const availableWidth = expertiseGrid.clientWidth;
+                    let basis;
+                    if (window.matchMedia('(max-width: 599px)').matches) basis = availableWidth * 0.8;
+                    else if (window.matchMedia('(max-width: 899px)').matches) basis = (availableWidth - gap) * 0.5;
+                    else basis = (availableWidth - gap) * 0.401 - 16;
+                    track.querySelectorAll('.skill-card').forEach(card => { card.style.flex = '0 0 ' + basis + 'px'; });
+                });
+            });
         }
     }); 
 
