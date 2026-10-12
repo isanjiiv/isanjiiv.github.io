@@ -259,6 +259,14 @@ header {
     /* --- 6. EXPLORE / ABOUT GRID --- */
     .explore-section { padding: 4rem 0; }
     .grid-3-col { display: flex; flex-direction: column; gap: 3rem; text-align: center; }
+
+    /* Mobile only: show the first portrait before the biography text.
+       Desktop/tablet layout remains unchanged. */
+    @media (max-width: 599px) {
+      .explore-section:first-of-type .grid-3-col > .card-vertical {
+        order: -1;
+      }
+    }
     
     .explore-text-col { display: flex; flex-direction: column; justify-content: center; align-items: center; padding-right: 0; }
     .explore-title { font-size: clamp(2rem, 6vw, 2.5rem); line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -1px; }
