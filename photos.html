@@ -368,7 +368,24 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
 </style>
 
 <style id="service-gallery-image-layout">
-/* Gallery layout is controlled by the swipe-carousel styles below. */
+/* Use the same clean, edge-to-edge 4:3 image treatment as the Services gallery. */
+.gallery{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:clamp(12px,1.7vw,22px)!important;align-items:stretch!important}
+.gallery figure{height:100%!important;display:flex!important;flex-direction:column!important;border-radius:18px!important;overflow:hidden!important;background:var(--surface)!important}
+.gallery figure>a:first-child{display:block!important;width:100%!important;aspect-ratio:4/3!important;height:auto!important;overflow:hidden!important;background:#e9e9e6!important}
+.gallery figure>a:first-child img{display:block!important;width:100%!important;height:100%!important;aspect-ratio:4/3!important;object-fit:cover!important;object-position:center!important;background:transparent!important;transform:none;transition:transform .45s ease,filter .4s ease}
+.gallery figure:hover>a:first-child img{transform:scale(1.045)!important}
+.gallery figcaption{position:relative!important;inset:auto!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:.5rem!important;min-height:52px!important;padding:.75rem .85rem!important;background:var(--surface)!important;color:var(--text)!important;opacity:1!important;transform:none!important;pointer-events:auto!important}
+.gallery figcaption .caption-main{color:var(--text)!important;font-size:.9rem!important;font-weight:600}
+.gallery figcaption .caption-sub{color:var(--muted)!important;font-size:.75rem!important}
+.gallery .photo-link{width:34px!important;height:34px!important;flex:0 0 34px!important;background:transparent!important;color:var(--text)!important;border:1px solid var(--line)!important;backdrop-filter:none!important}
+.gallery figure::after{display:none!important}
+@media(max-width:900px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px!important}}
+@media(max-width:560px){.gallery{grid-template-columns:1fr!important;gap:18px!important}.gallery figure>a:first-child{aspect-ratio:4/3!important}.gallery figcaption{min-height:52px!important;padding:.75rem .85rem!important}}
+/* Keep the lightbox image centered without stretching it; arrows sit at the image edges. */
+.photo-lightbox figure{width:auto!important;max-width:calc(100vw - 2rem);height:auto!important;max-height:calc(100vh - 7.5rem);gap:.65rem}
+.photo-lightbox img{display:block;max-width:calc(100vw - 2rem)!important;max-height:calc(100vh - 145px)!important;width:auto;height:auto;object-fit:contain;border-radius:10px;box-shadow:0 15px 50px rgba(0,0,0,.3)}
+.photo-lightbox-caption{max-width:min(850px,calc(100vw - 2rem))}
+@media(max-width:600px){.photo-lightbox{padding:3.8rem .5rem 2.5rem!important}.photo-lightbox figure{max-width:100%;max-height:calc(100vh - 6.5rem)}.photo-lightbox img{max-width:calc(100vw - 1rem)!important;max-height:calc(100vh - 130px)!important}}
 </style>
 
 
@@ -722,52 +739,6 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
   #photoLightbox { --swipe-photo-radius: 22px; }
 }
 </style>
-<style id="photo-swipe-carousel-styles">
-.gallery-wrap{max-width:1300px;padding:0 clamp(1.2rem,5vw,3rem) clamp(3rem,7vw,5rem)}
-.gallery-head{align-items:flex-end;margin-bottom:1.4rem;padding-bottom:1.1rem;border-bottom:1px solid var(--line)}
-.gallery-head h2{font-family:var(--heading);font-size:clamp(1.65rem,4.5vw,2.8rem);font-weight:500;letter-spacing:-.055em;line-height:1.05}
-.gallery-head p{max-width:380px;color:var(--muted);font-size:.9rem}
-.gallery-toolbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:0 0 1rem}
-.gallery-hint{display:flex;align-items:center;gap:.55rem;color:var(--muted);font-size:.78rem}
-.gallery-hint i{color:var(--text)}
-.gallery-controls{display:flex;align-items:center;gap:.55rem}
-.gallery-control{width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--text);font-size:.95rem;cursor:pointer;transition:transform .25s ease,background .25s ease,color .25s ease,border-color .25s ease}
-.gallery-control:hover:not(:disabled){background:var(--text);color:#fff;border-color:var(--text);transform:translateY(-2px)}
-.gallery-control:disabled{opacity:.35;cursor:default}
-.gallery-control:focus-visible{outline:2px solid var(--text);outline-offset:3px}
-.gallery-count{min-width:3.5rem;text-align:center;color:var(--muted);font-size:.78rem;font-variant-numeric:tabular-nums}
-.gallery{display:flex!important;gap:clamp(12px,1.7vw,22px)!important;overflow-x:auto!important;overflow-y:hidden!important;padding:2px 2px 14px!important;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#b8b8b3 transparent;perspective:none!important}
-.gallery::-webkit-scrollbar{height:5px}.gallery::-webkit-scrollbar-track{background:transparent}.gallery::-webkit-scrollbar-thumb{background:#b8b8b3;border-radius:20px}
-.gallery figure{flex:0 0 calc((100% - 44px)/3)!important;min-width:0!important;height:auto!important;display:flex!important;flex-direction:column!important;align-self:stretch!important;scroll-snap-align:start;scroll-snap-stop:normal;margin:0!important;border:0!important;outline:0!important;border-radius:18px!important;overflow:hidden!important;background:transparent!important;box-shadow:none!important;transform:none!important;rotate:0deg!important;transition:transform .3s ease!important}
-.gallery figure:hover{transform:translateY(-3px)!important;box-shadow:none!important;border:0!important}
-.gallery figure>a:first-child{display:flex!important;align-items:center!important;justify-content:center!important;position:relative!important;width:100%!important;height:clamp(260px,34vw,410px)!important;aspect-ratio:auto!important;overflow:hidden!important;border:0!important;outline:0!important;border-radius:18px!important;background:transparent!important;box-shadow:none!important}
-.gallery figure>a:first-child img{display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:center!important;background:transparent!important;border:0!important;outline:0!important;border-radius:18px!important;clip-path:inset(0 round 18px)!important;box-shadow:none!important;transform:none!important;filter:none!important;transition:transform .45s ease!important}
-.gallery figure:hover>a:first-child img{transform:scale(1.025)!important}
-.gallery figcaption,.gallery figure>figcaption{display:flex!important;position:relative!important;inset:auto!important;align-items:center!important;justify-content:space-between!important;gap:.5rem!important;min-height:52px!important;padding:.75rem .1rem .25rem!important;opacity:1!important;visibility:visible!important;transform:none!important;pointer-events:auto!important;background:transparent!important;color:var(--text)!important}
-.gallery figcaption .caption-main{color:var(--text)!important;font-size:.9rem!important;font-weight:600}
-.gallery figcaption .caption-sub{color:var(--muted)!important;font-size:.74rem!important}
-.gallery .photo-link{width:34px!important;height:34px!important;flex:0 0 34px!important;background:#fff!important;color:var(--text)!important;border:1px solid var(--line)!important;backdrop-filter:none!important}
-.gallery figure::after{display:none!important;content:none!important}
-.gallery figure.photo-reveal,.gallery figure.photo-reveal.is-visible{opacity:1!important;transform:none!important}
-.gallery-head.photo-reveal,.gallery-head.photo-reveal.is-visible{opacity:1!important;transform:none!important}
-.gallery-dots{display:flex;justify-content:center;align-items:center;gap:.4rem;margin-top:1.1rem}
-.gallery-dot{width:7px;height:7px;border:0;border-radius:50%;padding:0;background:#c8c8c2;cursor:pointer;transition:width .25s ease,background .25s ease}
-.gallery-dot[aria-current="true"]{width:22px;border-radius:999px;background:var(--text)}
-.photo-lightbox{padding:4rem 1rem 2.5rem!important}
-.photo-lightbox figure{display:flex!important;align-items:center!important;justify-content:center!important;width:auto!important;height:auto!important;max-width:100%!important;max-height:100%!important;gap:.65rem!important;margin:0!important;padding:0!important;overflow:visible!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important}
-.photo-lightbox #photoLightboxImage{display:block!important;width:auto!important;height:auto!important;max-width:calc(100vw - 2rem)!important;max-height:calc(100vh - 150px)!important;object-fit:contain!important;margin:0!important;padding:0!important;border:0!important;outline:0!important;border-radius:18px!important;clip-path:inset(0 round 18px)!important;background:transparent!important;box-shadow:0 15px 50px rgba(0,0,0,.3)!important;user-select:none;-webkit-user-drag:none}
-.photo-lightbox figure>figcaption{display:block!important;padding:0!important;margin:0!important;background:transparent!important}
-.photo-lightbox-caption{max-width:min(850px,calc(100vw - 2rem));color:#fff;text-align:center;font-size:.9rem}
-.photo-lightbox-count{color:rgba(255,255,255,.7);font-size:.78rem;text-align:center;margin-top:.15rem}
-.photo-lightbox-control{position:absolute;z-index:2}
-.photo-lightbox-close{top:1rem;right:1rem}
-.photo-lightbox-prev{left:1rem;top:50%;transform:translateY(-50%)}
-.photo-lightbox-next{right:1rem;left:auto;top:50%;transform:translateY(-50%)}
-.photo-lightbox-prev:hover,.photo-lightbox-next:hover{transform:translateY(-50%) scale(1.05)}
-@media(max-width:900px){.gallery figure{flex-basis:calc((100% - 16px)/2)!important}.gallery-head{align-items:flex-start;flex-direction:column;gap:.65rem}.gallery-head p{text-align:left}.gallery figure>a:first-child{height:clamp(250px,48vw,380px)!important}.photo-lightbox-prev{left:.55rem}.photo-lightbox-next{right:.55rem}}
-@media(max-width:560px){.hero{padding:92px 16px 45px!important}h1{font-size:clamp(2.7rem,13vw,4.2rem)!important;letter-spacing:-.065em!important}.hero p{font-size:.84rem!important;margin-top:1.25rem!important}.gallery-wrap{padding:0 14px 3.5rem!important}.gallery-head{margin-bottom:1rem;padding-bottom:.9rem}.gallery-head h2{font-size:clamp(1.55rem,7vw,2rem)}.gallery-head .eyebrow{margin-bottom:.55rem}.gallery-toolbar{margin-bottom:.65rem}.gallery-hint{font-size:.7rem}.gallery-control{width:36px;height:36px;font-size:.8rem}.gallery figure{flex-basis:86%!important;scroll-snap-align:center}.gallery figure>a:first-child{height:min(64vh,500px)!important;border-radius:16px!important}.gallery figure>a:first-child img{border-radius:16px!important;clip-path:inset(0 round 16px)!important}.gallery figcaption{min-height:46px!important;padding:.65rem .1rem .2rem!important}.gallery figcaption .caption-main{font-size:.82rem!important}.gallery figcaption .caption-sub{font-size:.68rem!important}.gallery-dots{margin-top:.7rem}.photo-lightbox{padding:3.5rem .5rem 2rem!important}.photo-lightbox #photoLightboxImage{max-width:calc(100vw - 1rem)!important;max-height:calc(100vh - 125px)!important;border-radius:14px!important;clip-path:inset(0 round 14px)!important}.photo-lightbox-control{width:38px;height:38px}.photo-lightbox-close{top:.7rem;right:.7rem}.photo-lightbox-prev{left:.4rem}.photo-lightbox-next{right:.4rem}.photo-lightbox-count{font-size:.7rem}}
-@media(prefers-reduced-motion:reduce){.gallery,.gallery figure,.gallery figure>a:first-child img,.gallery-control,.gallery-dot,.photo-lightbox,.photo-lightbox-control{scroll-behavior:auto!important;transition:none!important}}
-</style>
 </head>
 <body>
   <header id="main-header" aria-label="Site header">
@@ -814,15 +785,7 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
         <p>A dedicated collection of profile and portrait photographs hosted on my personal portfolio.</p>
       </div>
 
-      <div class="gallery-toolbar" aria-label="Gallery controls">
-        <div class="gallery-hint"><i class="fa-solid fa-hand-point-left" aria-hidden="true"></i><span>Swipe or use arrows to explore</span></div>
-        <div class="gallery-controls">
-          <button class="gallery-control" id="galleryPrev" type="button" aria-label="Previous photo"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
-          <span class="gallery-count" id="galleryCount" aria-live="polite">1 / 9</span>
-          <button class="gallery-control" id="galleryNext" type="button" aria-label="Next photo"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
-        </div>
-      </div>
-      <div class="gallery" id="photoCarousel" aria-label="Swipeable Sanjeev Kumar photo gallery" tabindex="0">
+      <div class="gallery" aria-label="Sanjeev Kumar photo gallery">
         <figure><a href="/assets/images/sanjeev.jpg"><img src="/assets/images/sanjeev.jpg" alt="Sanjeev Kumar, IT Engineer in Noida" width="1200" height="1200" fetchpriority="high"></a><figcaption><div><div class="caption-main">Sanjeev Kumar</div><span class="caption-sub">IT Engineer in Noida</span></div><a class="photo-link" href="/assets/images/sanjeev.jpg" aria-label="Open Sanjeev Kumar photo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></figcaption></figure>
         <figure><a href="/assets/images/sanjeev-kumar-noida.png"><img src="/assets/images/sanjeev-kumar-noida.png" alt="Sanjeev Kumar professional portrait in Noida" loading="lazy"></a><figcaption><div><div class="caption-main">Sanjeev Kumar</div><span class="caption-sub">Professional portrait in Noida</span></div><a class="photo-link" href="/assets/images/sanjeev-kumar-noida.png" aria-label="Open professional portrait"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></figcaption></figure>
         <figure><a href="/assets/images/sanjeev-it-engineer.png"><img src="/assets/images/sanjeev-it-engineer.png" alt="Sanjeev Kumar IT Engineer professional photo" loading="lazy"></a><figcaption><div><div class="caption-main">Sanjeev Kumar</div><span class="caption-sub">IT Engineer professional photo</span></div><a class="photo-link" href="/assets/images/sanjeev-it-engineer.png" aria-label="Open IT Engineer photo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></figcaption></figure>
@@ -833,7 +796,6 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
         <figure><a href="/assets/images/sanjeev-kumar-network-admin.png"><img src="/assets/images/sanjeev-kumar-network-admin.png" alt="Sanjeev Kumar network administrator professional photo" loading="lazy"></a><figcaption><div><div class="caption-main">Sanjeev Kumar</div><span class="caption-sub">Network administration professional</span></div><a class="photo-link" href="/assets/images/sanjeev-kumar-network-admin.png" aria-label="Open network administrator photo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></figcaption></figure>
         <figure><a href="/assets/images/sanjeev-kumar-professional-portrait.png"><img src="/assets/images/sanjeev-kumar-professional-portrait.png" alt="Sanjeev Kumar professional portrait" loading="lazy"></a><figcaption><div><div class="caption-main">Sanjeev Kumar</div><span class="caption-sub">Professional portrait</span></div><a class="photo-link" href="/assets/images/sanjeev-kumar-professional-portrait.png" aria-label="Open professional portrait"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></figcaption></figure>
       </div>
-      <div class="gallery-dots" id="galleryDots" aria-label="Choose photo"></div>
     </section>
 
     <section class="bottom-cta">
@@ -870,10 +832,86 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
 })();
 </script>
 
+<script id="gallery-modern-interactions">
+(function(){
+  const year=document.getElementById('year');
+  if(year) year.textContent=new Date().getFullYear();
+
+  // On touch screens, tap a photo to reveal its caption; use the external-link icon to open it.
+  document.querySelectorAll('.gallery figure').forEach(function(card){
+    const imageLink=card.querySelector(':scope > a:first-child');
+    if(imageLink){
+      imageLink.addEventListener('click',function(event){
+        if(window.matchMedia('(hover: none)').matches && !card.classList.contains('caption-visible')){
+          event.preventDefault();
+          document.querySelectorAll('.gallery figure.caption-visible').forEach(function(other){if(other!==card)other.classList.remove('caption-visible');});
+          card.classList.add('caption-visible');
+        }
+      });
+    }
+    // Subtle pointer-based 3D tilt on desktop.
+    card.addEventListener('pointermove',function(event){
+      if(!window.matchMedia('(hover: hover) and (pointer: fine)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+      const r=card.getBoundingClientRect();
+      const x=(event.clientX-r.left)/r.width-.5;
+      const y=(event.clientY-r.top)/r.height-.5;
+      card.style.transform='perspective(1100px) rotateX('+(-y*4)+'deg) rotateY('+(x*5)+'deg) translateY(-5px)';
+    });
+    card.addEventListener('pointerleave',function(){card.style.transform='';});
+  });
+
+  // Direction arrow: follows scroll direction; at the top it points down.
+  const button=document.getElementById('scroll-direction-btn');
+  if(!button)return;
+  const icon=button.querySelector('i');
+  let lastY=window.scrollY, direction='down', ticking=false;
+  function update(){
+    const y=window.scrollY;
+    if(y<10){direction='down';button.classList.remove('visible');}
+    else{
+      if(Math.abs(y-lastY)>2) direction=y<lastY?'up':'down';
+      button.classList.add('visible');
+    }
+    icon.className=direction==='up'?'fa-solid fa-arrow-up':'fa-solid fa-arrow-down';
+    button.setAttribute('aria-label',direction==='up'?'Scroll to top':'Scroll to bottom');
+    button.title=direction==='up'?'Scroll to top':'Scroll to bottom';
+    lastY=y;ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){window.requestAnimationFrame(update);ticking=true;}},{passive:true});
+  button.addEventListener('click',function(){
+    const atBottom=window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-40;
+    if(direction==='up'||atBottom){window.scrollTo({top:0,behavior:'smooth'});direction='down';}
+    else{window.scrollTo({top:document.documentElement.scrollHeight,behavior:'smooth'});direction='up';}
+    icon.className=direction==='up'?'fa-solid fa-arrow-up':'fa-solid fa-arrow-down';
+  });
+  update();
+})();
+</script>
 
 
-
-
+<script id="portfolio-header-interactions">
+(function(){
+  const header=document.getElementById('main-header');
+  const hamburger=document.getElementById('hamburger');
+  const mobileMenu=document.getElementById('mobileMenu');
+  const body=document.body;
+  function updateHeader(){if(header)header.classList.toggle('scrolled',window.scrollY>35)}
+  function closeMenu(){if(!mobileMenu||!hamburger)return;mobileMenu.classList.remove('open');hamburger.innerHTML='<i class="fa-solid fa-bars"></i>';hamburger.setAttribute('aria-expanded','false');body.classList.remove('menu-open')}
+  if(hamburger&&mobileMenu){
+    hamburger.addEventListener('click',function(){
+      const open=!mobileMenu.classList.contains('open');
+      mobileMenu.classList.toggle('open',open);
+      hamburger.innerHTML=open?'<i class="fa-solid fa-xmark"></i>':'<i class="fa-solid fa-bars"></i>';
+      hamburger.setAttribute('aria-expanded',String(open));
+      body.classList.toggle('menu-open',open);
+    });
+    mobileMenu.querySelectorAll('a').forEach(function(link){link.addEventListener('click',closeMenu)});
+    document.addEventListener('keydown',function(event){if(event.key==='Escape')closeMenu()});
+  }
+  window.addEventListener('scroll',updateHeader,{passive:true});
+  updateHeader();
+})();
+</script>
 
 
 <div class="photo-lightbox" id="photoLightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" aria-hidden="true">
@@ -888,42 +926,73 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
   </figure>
   <button class="photo-lightbox-control photo-lightbox-next" id="photoLightboxNext" type="button" aria-label="Next photo"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
 </div>
-
+<button id="scroll-direction-btn" type="button" aria-label="Scroll to bottom" title="Scroll to bottom"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></button>
 <script id="photo-lightbox-interactions">
 (function(){
- const gallery=document.getElementById('photoCarousel');
- const cards=Array.from(document.querySelectorAll('#photoCarousel figure'));
- const images=cards.map(card=>({src:card.querySelector('img')?.currentSrc||card.querySelector('img')?.src,alt:card.querySelector('img')?.alt||'',caption:card.querySelector('.caption-sub')?.textContent||card.querySelector('img')?.alt||''})).filter(item=>item.src);
- const viewer=document.getElementById('photoLightbox'),viewerImage=document.getElementById('photoLightboxImage');
- const caption=document.getElementById('photoLightboxCaption'),count=document.getElementById('photoLightboxCount');
- const closeButton=document.getElementById('photoLightboxClose'),prevButton=document.getElementById('photoLightboxPrev'),nextButton=document.getElementById('photoLightboxNext');
- const galleryPrev=document.getElementById('galleryPrev'),galleryNext=document.getElementById('galleryNext'),galleryCount=document.getElementById('galleryCount'),dots=document.getElementById('galleryDots');
- const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
- function current(){if(!cards.length)return 0;let best=0,dist=Infinity;cards.forEach((card,i)=>{const d=Math.abs(card.offsetLeft-gallery.offsetLeft-gallery.scrollLeft);if(d<dist){best=i;dist=d;}});return best;}
- function goTo(i){if(!cards.length)return;const index=Math.max(0,Math.min(cards.length-1,i));gallery.scrollTo({left:cards[index].offsetLeft-gallery.offsetLeft,behavior:reduced()?'auto':'smooth'});}
- function updateGallery(){if(!gallery)return;const i=current();galleryCount.textContent=(i+1)+' / '+cards.length;galleryPrev.disabled=i===0;galleryNext.disabled=i===cards.length-1;Array.from(dots.children).forEach((dot,n)=>dot.setAttribute('aria-current',String(n===i)));}
- let index=0,previousFocus=null;
- function positionLightbox(){if(!viewer?.classList.contains('open'))return;const rect=viewerImage.getBoundingClientRect();if(!rect.width)return;prevButton.style.left=Math.max(8,rect.left+10)+'px';prevButton.style.right='auto';prevButton.style.top=(rect.top+rect.height/2)+'px';nextButton.style.right=Math.max(8,innerWidth-rect.right+10)+'px';nextButton.style.left='auto';nextButton.style.top=(rect.top+rect.height/2)+'px';}
- function showImage(i){index=(i+images.length)%images.length;viewerImage.onload=positionLightbox;viewerImage.src=images[index].src;viewerImage.alt=images[index].alt;caption.textContent=images[index].caption;count.textContent=(index+1)+' / '+images.length;const rad=matchMedia('(max-width:600px)').matches?'14px':'18px';viewerImage.style.borderRadius=rad;viewerImage.style.clipPath='inset(0 round '+rad+')';requestAnimationFrame(positionLightbox);}
- function openViewer(i){previousFocus=document.activeElement;showImage(i);viewer.classList.add('open');viewer.setAttribute('aria-hidden','false');document.body.classList.add('photo-lightbox-open');closeButton.focus();}
- function closeViewer(){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true');document.body.classList.remove('photo-lightbox-open');viewerImage.src='';prevButton.style.cssText='';nextButton.style.cssText='';if(previousFocus?.focus)previousFocus.focus();}
- if(gallery&&cards.length){
-  cards.forEach((card,i)=>{const img=card.querySelector('img'),link=card.querySelector(':scope > a:first-child');if(link){link.setAttribute('aria-label','Open photo '+(i+1)+': '+(img?.alt||'Sanjeev Kumar'));link.addEventListener('click',e=>{e.preventDefault();openViewer(i);});}
-   const dot=document.createElement('button');dot.type='button';dot.className='gallery-dot';dot.setAttribute('aria-label','Go to photo '+(i+1));dot.setAttribute('aria-current',String(i===0));dot.addEventListener('click',()=>goTo(i));dots.appendChild(dot);});
-  galleryPrev.addEventListener('click',()=>goTo(current()-1));galleryNext.addEventListener('click',()=>goTo(current()+1));gallery.addEventListener('scroll',()=>requestAnimationFrame(updateGallery),{passive:true});gallery.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();goTo(current()+1)}if(e.key==='ArrowLeft'){e.preventDefault();goTo(current()-1)}});
-  let sx=0,sy=0;gallery.addEventListener('touchstart',e=>{if(e.changedTouches.length){sx=e.changedTouches[0].clientX;sy=e.changedTouches[0].clientY;}},{passive:true});gallery.addEventListener('touchend',e=>{if(!e.changedTouches.length)return;const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.15)goTo(current()+(dx<0?1:-1));},{passive:true});window.addEventListener('resize',updateGallery);updateGallery();
- }
- closeButton.addEventListener('click',closeViewer);prevButton.addEventListener('click',()=>showImage(index-1));nextButton.addEventListener('click',()=>showImage(index+1));viewer.addEventListener('click',e=>{if(e.target===viewer)closeViewer();});window.addEventListener('resize',positionLightbox);
- let lx=0,ly=0;viewer.addEventListener('touchstart',e=>{if(e.changedTouches.length){lx=e.changedTouches[0].clientX;ly=e.changedTouches[0].clientY;}},{passive:true});viewer.addEventListener('touchend',e=>{if(!e.changedTouches.length)return;const dx=e.changedTouches[0].clientX-lx,dy=e.changedTouches[0].clientY-ly;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.2)showImage(index+(dx<0?1:-1));},{passive:true});
- document.addEventListener('keydown',e=>{if(viewer?.classList.contains('open')){if(e.key==='Escape')closeViewer();if(e.key==='ArrowLeft')showImage(index-1);if(e.key==='ArrowRight')showImage(index+1);}});
- const year=document.getElementById('year');if(year)year.textContent=new Date().getFullYear();
- const header=document.getElementById('main-header'),hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
- function closeMenu(){if(!mobileMenu||!hamburger)return;mobileMenu.classList.remove('open');hamburger.innerHTML='<i class="fa-solid fa-bars"></i>';hamburger.setAttribute('aria-expanded','false');document.body.classList.remove('menu-open');}
- hamburger?.addEventListener('click',()=>{const opened=!mobileMenu.classList.contains('open');mobileMenu.classList.toggle('open',opened);hamburger.innerHTML=opened?'<i class="fa-solid fa-xmark"></i>':'<i class="fa-solid fa-bars"></i>';hamburger.setAttribute('aria-expanded',String(opened));document.body.classList.toggle('menu-open',opened);});mobileMenu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});window.addEventListener('scroll',()=>header?.classList.toggle('scrolled',window.scrollY>35),{passive:true});header?.classList.toggle('scrolled',window.scrollY>35);
- const scrollBtn=document.getElementById('scroll-direction-btn');if(scrollBtn){const icon=scrollBtn.querySelector('i');let lastY=window.scrollY||0;function updateScroll(){const y=window.scrollY||0,bottom=window.innerHeight+y>=document.documentElement.scrollHeight-80;const dir=y<=50?'down':bottom?'up':y>lastY?'down':'up';icon.className=dir==='up'?'fa-solid fa-arrow-up':'fa-solid fa-arrow-down';scrollBtn.setAttribute('aria-label',dir==='up'?'Scroll to top':'Scroll to bottom');scrollBtn.title=dir==='up'?'Scroll to top':'Scroll to bottom';scrollBtn.classList.toggle('visible',y>50);lastY=y;}window.addEventListener('scroll',updateScroll,{passive:true});scrollBtn.addEventListener('click',()=>window.scrollTo({top:icon.classList.contains('fa-arrow-up')?0:document.documentElement.scrollHeight,behavior:reduced()?'auto':'smooth'}));updateScroll();}
+  const cards=Array.from(document.querySelectorAll('.gallery figure'));
+  const images=cards.map(card=>({src:card.querySelector('img')?.currentSrc||card.querySelector('img')?.src,alt:card.querySelector('img')?.alt||'',caption:card.querySelector('.caption-main')?.textContent||card.querySelector('img')?.alt||''})).filter(item=>item.src);
+  const viewer=document.getElementById('photoLightbox');
+  const viewerImage=document.getElementById('photoLightboxImage');
+  const caption=document.getElementById('photoLightboxCaption');
+  const count=document.getElementById('photoLightboxCount');
+  const closeButton=document.getElementById('photoLightboxClose');
+  const prevButton=document.getElementById('photoLightboxPrev');
+  const nextButton=document.getElementById('photoLightboxNext');
+  if(viewer&&images.length){
+    let index=0,previousFocus=null,touchStartX=0,touchStartY=0;
+    function positionNavigation(){
+      if(!viewer.classList.contains('open'))return;
+      const rect=viewerImage.getBoundingClientRect();
+      if(!rect.width||!rect.height)return;
+      const gap=Math.min(12,Math.max(6,rect.width*.025));
+      prevButton.style.left=(rect.left+gap)+'px';
+      prevButton.style.right='auto';
+      prevButton.style.top=(rect.top+rect.height/2)+'px';
+      nextButton.style.left=(rect.right-gap-nextButton.offsetWidth)+'px';
+      nextButton.style.right='auto';
+      nextButton.style.top=(rect.top+rect.height/2)+'px';
+    }
+    function show(i){
+      index=(i+images.length)%images.length;
+      // Reapply the clipping on each photo change, for swipe and arrow navigation.
+      viewerImage.style.setProperty('border-radius', 'var(--swipe-photo-radius)', 'important');
+      viewerImage.style.setProperty('clip-path', 'inset(0 round var(--swipe-photo-radius))', 'important');
+      viewerImage.onload=positionNavigation;
+      viewerImage.src=images[index].src;
+      viewerImage.alt=images[index].alt;
+      caption.textContent=images[index].caption;
+      count.textContent=(index+1)+' / '+images.length;
+      requestAnimationFrame(positionNavigation);
+    }
+    function open(i){previousFocus=document.activeElement;show(i);viewer.classList.add('open');viewer.setAttribute('aria-hidden','false');document.body.classList.add('photo-lightbox-open');closeButton.focus();}
+    function close(){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true');document.body.classList.remove('photo-lightbox-open');viewerImage.src='';prevButton.style.cssText='';nextButton.style.cssText='';if(previousFocus&&previousFocus.focus)previousFocus.focus();}
+    cards.forEach((card,i)=>{const link=card.querySelector(':scope > a:first-child');if(link)link.addEventListener('click',e=>{e.preventDefault();open(i);});});
+    closeButton.addEventListener('click',close);
+    prevButton.addEventListener('click',()=>show(index-1));
+    nextButton.addEventListener('click',()=>show(index+1));
+    viewer.addEventListener('click',e=>{if(e.target===viewer)close();});
+    window.addEventListener('resize',positionNavigation);
+    viewer.addEventListener('touchstart',e=>{if(!e.changedTouches.length)return;touchStartX=e.changedTouches[0].clientX;touchStartY=e.changedTouches[0].clientY;},{passive:true});
+    viewer.addEventListener('touchend',e=>{if(!e.changedTouches.length)return;const dx=e.changedTouches[0].clientX-touchStartX;const dy=e.changedTouches[0].clientY-touchStartY;if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.25){show(index+(dx<0?1:-1));}},{passive:true});
+    document.addEventListener('keydown',e=>{if(!viewer.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(index-1);if(e.key==='ArrowRight')show(index+1);});
+  }
+  const button=document.getElementById('scroll-direction-btn');
+  if(button){
+    const icon=button.querySelector('i');let lastY=window.scrollY||0;
+    function update(){const y=window.scrollY||0;const bottom=window.innerHeight+y>=document.documentElement.scrollHeight-80;let dir;if(y<=50)dir='down';else if(bottom)dir='up';else dir=y>lastY?'down':'up';icon.className=dir==='up'?'fa-solid fa-arrow-up':'fa-solid fa-arrow-down';button.setAttribute('aria-label',dir==='up'?'Scroll to top':'Scroll to bottom');button.title=dir==='up'?'Scroll to top':'Scroll to bottom';button.classList.toggle('visible',y>50);lastY=y;}
+    window.addEventListener('scroll',update,{passive:true});button.addEventListener('click',()=>{const up=icon.classList.contains('fa-arrow-up');window.scrollTo({top:up?0:document.documentElement.scrollHeight,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});});update();
+  }
 })();
 </script>
 
-<script id="editorial-photo-reveal">(function(){const items=document.querySelectorAll(".hero .eyebrow,.hero h1,.hero p,.gallery-head");if(matchMedia("(prefers-reduced-motion: reduce)").matches){items.forEach(el=>{el.style.opacity="1";el.style.transform="none";});return;}items.forEach((el,i)=>{el.style.animation="photoIntro .75s "+(i*.08)+"s both";});})();</script>
+<script id="editorial-photo-reveal">
+(function(){
+ const elements=document.querySelectorAll('.gallery figure,.gallery-head');
+ elements.forEach((el,i)=>{el.classList.add('photo-reveal');el.style.transitionDelay=(i%3)*90+'ms';});
+ if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){elements.forEach(el=>el.classList.add('is-visible'));return;}
+ const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}}),{threshold:.12,rootMargin:'0px 0px -35px 0px'});
+ elements.forEach(el=>observer.observe(el));
+})();
+</script>
 </body>
 </html>
