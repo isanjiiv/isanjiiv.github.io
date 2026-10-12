@@ -739,6 +739,38 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
   #photoLightbox { --swipe-photo-radius: 22px; }
 }
 </style>
+<style id="consistent-photo-rounded-corners">
+/* Consistent rounded corners for every gallery image and the enlarged viewer. */
+.gallery figure,
+.gallery figure > a:first-child,
+.gallery figure > a:first-child img {
+  border-radius: 30px !important;
+  overflow: hidden !important;
+}
+.gallery figure > a:first-child img {
+  clip-path: inset(0 round 30px) !important;
+}
+@media (max-width: 560px) {
+  .gallery figure,
+  .gallery figure > a:first-child,
+  .gallery figure > a:first-child img {
+    border-radius: 24px !important;
+  }
+  .gallery figure > a:first-child img {
+    clip-path: inset(0 round 24px) !important;
+  }
+}
+.photo-lightbox #photoLightboxImage {
+  border-radius: 30px !important;
+  clip-path: inset(0 round 30px) !important;
+}
+@media (max-width: 600px) {
+  .photo-lightbox #photoLightboxImage {
+    border-radius: 24px !important;
+    clip-path: inset(0 round 24px) !important;
+  }
+}
+</style>
 </head>
 <body>
   <header id="main-header" aria-label="Site header">
