@@ -740,7 +740,22 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
 }
 </style>
 <style id="consistent-photo-rounded-corners">
-/* Keep every image rounded, including each image shown in the single-photo viewer. */
+/* Hard clip the photo itself and its viewer frame so every newly loaded image stays rounded. */
+#photoLightbox figure {
+  overflow: hidden !important;
+  border-radius: 30px !important;
+  clip-path: inset(0 round 30px) !important;
+  -webkit-clip-path: inset(0 round 30px) !important;
+}
+#photoLightbox #photoLightboxImage {
+  display: block !important;
+  border: 0 !important;
+  border-radius: 30px !important;
+  clip-path: inset(0 round 30px) !important;
+  -webkit-clip-path: inset(0 round 30px) !important;
+  overflow: hidden !important;
+  background: transparent !important;
+}
 .gallery figure,
 .gallery figure > a:first-child,
 .gallery figure > a:first-child img {
@@ -751,20 +766,12 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
   clip-path: inset(0 round 30px) !important;
   -webkit-clip-path: inset(0 round 30px) !important;
 }
-#photoLightbox #photoLightboxImage {
-  border-radius: 30px !important;
-  clip-path: inset(0 round 30px) !important;
-  -webkit-clip-path: inset(0 round 30px) !important;
-  overflow: hidden !important;
-}
 @media (max-width: 600px) {
+  #photoLightbox figure,
+  #photoLightbox #photoLightboxImage,
   .gallery figure,
   .gallery figure > a:first-child,
   .gallery figure > a:first-child img {
-    border-radius: 24px !important;
-  }
-  .gallery figure > a:first-child img,
-  #photoLightbox #photoLightboxImage {
     border-radius: 24px !important;
     clip-path: inset(0 round 24px) !important;
     -webkit-clip-path: inset(0 round 24px) !important;
@@ -987,9 +994,12 @@ body:after{right:-15%;top:48%;background:radial-gradient(circle,rgba(0,0,0,.4) 0
     function show(i){
       index=(i+images.length)%images.length;
       // Reapply the clipping on each photo change, for swipe and arrow navigation.
-      viewerImage.style.setProperty('border-radius', window.matchMedia('(max-width: 600px)').matches ? '24px' : '30px', 'important');
-      viewerImage.style.setProperty('clip-path', 'inset(0 round ' + (window.matchMedia('(max-width: 600px)').matches ? '24px' : '30px') + ')', 'important');
-      viewerImage.style.setProperty('-webkit-clip-path', 'inset(0 round ' + (window.matchMedia('(max-width: 600px)').matches ? '24px' : '30px') + ')', 'important');
+      const cornerRadius = window.matchMedia('(max-width: 600px)').matches ? '24px' : '30px';
+      viewerImage.style.setProperty('border-radius', cornerRadius, 'important');
+      viewerImage.style.setProperty('overflow', 'hidden', 'important');
+      viewerImage.style.setProperty('background-clip', 'padding-box', 'important');
+      viewerImage.style.setProperty('clip-path', 'inset(0 round ' + cornerRadius + ')', 'important');
+      viewerImage.style.setProperty('-webkit-clip-path', 'inset(0 round ' + cornerRadius + ')', 'important');
       viewerImage.onload=positionNavigation;
       viewerImage.src=images[index].src;
       viewerImage.alt=images[index].alt;
