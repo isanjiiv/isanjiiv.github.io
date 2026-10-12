@@ -327,11 +327,12 @@
     .skills-grid {
       display: flex; flex-wrap: nowrap; align-items: center; justify-content: flex-start;
       gap: clamp(1.5rem, 3vw, 3rem); padding: 1.25rem 0; width: max-content;
-      will-change: transform; animation: skills-marquee 42s linear infinite;
+      will-change: transform; touch-action: pan-y; user-select: none;
     }
     .skills-section { overflow: hidden; }
     .skills-section .section-header { width: 100%; }
-    .skills-marquee-viewport { width: 100%; overflow: hidden; position: relative; }
+    .skills-marquee-viewport { width: 100%; overflow: hidden; position: relative; touch-action: pan-y; cursor: grab; }
+    .skills-marquee-viewport:active { cursor: grabbing; }
     .skill-icon-wrapper {
       flex: 0 0 100px; width: 100px; max-width: 100px; min-width: 100px;
       display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
@@ -340,7 +341,6 @@
     .skill-icon-wrapper:hover { transform: translateY(-4px) scale(1.06); filter: drop-shadow(0 8px 14px rgba(0,0,0,0.12)); }
     .skill-animated-icon { width: 50px; height: 50px; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08)); }
     .skill-icon-title { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; text-align: center; white-space: nowrap; }
-    @keyframes skills-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
     /* Projects / Expertise Grid */
     .section-header-split { display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; margin-bottom: 3rem;}
@@ -350,10 +350,12 @@
     .expertise-grid {
       display: flex; gap: 1.5rem; width: 100%; overflow: hidden;
       padding: 0.75rem 0 1.5rem; position: relative; isolation: isolate;
+      touch-action: pan-y; cursor: grab;
     }
+    .expertise-grid:active { cursor: grabbing; }
     .projects-marquee-track {
       display: flex; align-items: stretch; gap: 1.5rem; width: max-content;
-      flex: 0 0 auto; animation: projects-marquee 48s linear infinite; will-change: transform;
+      flex: 0 0 auto; will-change: transform; touch-action: pan-y; user-select: none;
     }
     .projects-marquee-track .skill-card { flex-shrink: 0; }
     .projects-marquee-track .skill-card:hover {
@@ -362,12 +364,10 @@
       z-index: 5;
     }
     .projects-marquee-track .skill-card:hover img { transform: scale(1.05); }
-    @keyframes projects-marquee { from { transform: translateX(-50%); } to { transform: translateX(0); } }
     @media (max-width: 599px) {
-      .projects-marquee-track { gap: 1rem; animation-duration: 42s; }
+      .projects-marquee-track { gap: 1rem; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .skills-grid, .projects-marquee-track { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
       .skill-icon-wrapper, .projects-marquee-track .skill-card { transition: none !important; }
     }
     
@@ -2480,65 +2480,128 @@ html, body, body * { cursor: auto !important; }
             }
         });
         
-        // --- Seamless marquee tracks (animations continue on hover) ---
+        // --- Continuous marquees with manual wheel, trackpad and touch control ---
+        function setupMarquee(viewport, track, direction, speed) {
+            if (!viewport || !track || track.dataset.marqueeReady) return;
+            const originals = Array.from(track.children);
+            if (!originals.length) return;
+
+            originals.forEach(item => {
+                const clone = item.cloneNode(true);
+                clone.setAttribute('aria-hidden', 'true');
+                clone.classList.remove('fade-up', 'visible');
+                clone.removeAttribute('onclick');
+                clone.querySelectorAll('a,button,[tabindex]').forEach(el => {
+                    el.setAttribute('tabindex', '-1');
+                    el.setAttribute('aria-hidden', 'true');
+                });
+                track.appendChild(clone);
+            });
+            track.dataset.marqueeReady = 'true';
+
+            let offset = direction === 'left' ? 0 : -(track.scrollWidth / 2);
+            let halfWidth = 0;
+            let lastTime = 0;
+            let resumeTimer = null;
+            let manuallyControlled = false;
+            let touchX = null;
+            let touchY = null;
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            function measure() {
+                halfWidth = track.scrollWidth / 2;
+                if (direction === 'right' && offset === 0) offset = -halfWidth;
+                offset = normalize(offset);
+                track.style.transform = 'translate3d(' + offset + 'px,0,0)';
+            }
+            function normalize(value) {
+                if (!halfWidth) return value;
+                if (direction === 'left') {
+                    while (value <= -halfWidth) value += halfWidth;
+                    while (value > 0) value -= halfWidth;
+                } else {
+                    while (value >= 0) value -= halfWidth;
+                    while (value < -halfWidth) value += halfWidth;
+                }
+                return value;
+            }
+            function render() {
+                offset = normalize(offset);
+                track.style.transform = 'translate3d(' + offset + 'px,0,0)';
+            }
+            function manualMove(delta) {
+                if (!halfWidth) measure();
+                offset -= delta;
+                render();
+                manuallyControlled = true;
+                clearTimeout(resumeTimer);
+                resumeTimer = setTimeout(() => { manuallyControlled = false; lastTime = 0; }, 1800);
+            }
+            viewport.addEventListener('wheel', event => {
+                const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+                if (Math.abs(delta) > 0) {
+                    event.preventDefault();
+                    manualMove(delta);
+                }
+            }, { passive: false });
+
+            viewport.addEventListener('touchstart', event => {
+                if (!event.touches.length) return;
+                touchX = event.touches[0].clientX;
+                touchY = event.touches[0].clientY;
+            }, { passive: true });
+            viewport.addEventListener('touchmove', event => {
+                if (touchX === null || !event.touches.length) return;
+                const nextX = event.touches[0].clientX;
+                const nextY = event.touches[0].clientY;
+                const dx = touchX - nextX;
+                const dy = touchY - nextY;
+                if (Math.abs(dx) > Math.abs(dy)) {
+                    event.preventDefault();
+                    manualMove(dx);
+                }
+                touchX = nextX;
+                touchY = nextY;
+            }, { passive: false });
+            viewport.addEventListener('touchend', () => { touchX = null; touchY = null; }, { passive: true });
+
+            measure();
+            window.addEventListener('resize', () => {
+                const oldHalf = halfWidth;
+                measure();
+                if (oldHalf && halfWidth && oldHalf !== halfWidth) render();
+            });
+
+            function animate(timestamp) {
+                if (!lastTime) lastTime = timestamp;
+                const elapsed = Math.min(timestamp - lastTime, 40);
+                lastTime = timestamp;
+                if (!manuallyControlled && !reducedMotion && halfWidth > 0) {
+                    offset += (direction === 'left' ? -1 : 1) * speed * elapsed / 1000;
+                    render();
+                }
+                requestAnimationFrame(animate);
+            }
+            requestAnimationFrame(animate);
+        }
+
         const skillsGrid = document.querySelector('.skills-grid');
         if (skillsGrid && !skillsGrid.dataset.marqueeReady) {
             const viewport = document.createElement('div');
             viewport.className = 'skills-marquee-viewport';
             skillsGrid.parentNode.insertBefore(viewport, skillsGrid);
             viewport.appendChild(skillsGrid);
-            const originals = Array.from(skillsGrid.children);
-            originals.forEach(item => {
-                const clone = item.cloneNode(true);
-                clone.setAttribute('aria-hidden', 'true');
-                clone.querySelectorAll('a,button,[tabindex]').forEach(el => el.setAttribute('tabindex', '-1'));
-                skillsGrid.appendChild(clone);
-            });
-            skillsGrid.dataset.marqueeReady = 'true';
+            setupMarquee(viewport, skillsGrid, 'left', 42);
         }
 
         const expertiseGrid = document.querySelector('.expertise-grid');
         if (expertiseGrid && !expertiseGrid.dataset.marqueeReady) {
             const originalCards = Array.from(expertiseGrid.children);
-            const originalWidths = originalCards.map(card => card.getBoundingClientRect().width);
             const track = document.createElement('div');
             track.className = 'projects-marquee-track';
-
-            originalCards.forEach((card, index) => {
-                card.style.flex = '0 0 ' + originalWidths[index] + 'px';
-                track.appendChild(card);
-            });
-
-            originalCards.forEach(card => {
-                const clone = card.cloneNode(true);
-                clone.classList.remove('fade-up', 'visible');
-                clone.setAttribute('aria-hidden', 'true');
-                clone.removeAttribute('onclick');
-                clone.querySelectorAll('button,a,[tabindex]').forEach(el => {
-                    el.setAttribute('tabindex', '-1');
-                    el.setAttribute('aria-hidden', 'true');
-                });
-                track.appendChild(clone);
-            });
-
+            originalCards.forEach(card => track.appendChild(card));
             expertiseGrid.appendChild(track);
-            expertiseGrid.dataset.marqueeReady = 'true';
-
-            // Keep the original card proportions on viewport changes.
-            let resizeFrame;
-            window.addEventListener('resize', () => {
-                cancelAnimationFrame(resizeFrame);
-                resizeFrame = requestAnimationFrame(() => {
-                    const gap = window.matchMedia('(max-width: 599px)').matches ? 16 : 24;
-                    const styles = getComputedStyle(expertiseGrid);
-                    const availableWidth = expertiseGrid.clientWidth;
-                    let basis;
-                    if (window.matchMedia('(max-width: 599px)').matches) basis = availableWidth * 0.8;
-                    else if (window.matchMedia('(max-width: 899px)').matches) basis = (availableWidth - gap) * 0.5;
-                    else basis = (availableWidth - gap) * 0.401 - 16;
-                    track.querySelectorAll('.skill-card').forEach(card => { card.style.flex = '0 0 ' + basis + 'px'; });
-                });
-            });
+            setupMarquee(expertiseGrid, track, 'right', 34);
         }
     }); 
 
