@@ -323,29 +323,53 @@
     .floating-tag { position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,0.9); padding: 6px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; z-index: 10; border: 1px solid var(--border-color); }
     .card-horizontal-text { color: var(--text-main); font-size: 1rem; line-height: 1.6; }
 
-    /* Skills */
-    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding-top: 1rem; justify-items: center; }
-    .skill-icon-wrapper { width: 100%; max-width: 100px; display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
+    /* Skills & Tools: seamless right-to-left marquee */
+    .skills-grid {
+      display: flex; flex-wrap: nowrap; align-items: center; justify-content: flex-start;
+      gap: clamp(1.5rem, 3vw, 3rem); padding: 1.25rem 0; width: max-content;
+      will-change: transform; animation: skills-marquee 42s linear infinite;
+    }
+    .skills-section { overflow: hidden; }
+    .skills-section .section-header { width: 100%; }
+    .skills-marquee-viewport { width: 100%; overflow: hidden; position: relative; }
+    .skill-icon-wrapper {
+      flex: 0 0 100px; width: 100px; max-width: 100px; min-width: 100px;
+      display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .skill-icon-wrapper:hover { transform: translateY(-4px) scale(1.06); filter: drop-shadow(0 8px 14px rgba(0,0,0,0.12)); }
     .skill-animated-icon { width: 50px; height: 50px; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08)); }
-    .skill-icon-title { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; text-align: center; }
+    .skill-icon-title { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; text-align: center; white-space: nowrap; }
+    @keyframes skills-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
     /* Projects / Expertise Grid */
     .section-header-split { display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; margin-bottom: 3rem;}
     @media (min-width: 600px) { .section-header-split { flex-direction: row; justify-content: space-between; align-items: flex-end; } }
     .section-header-split h2 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.1; letter-spacing: -1px; }
     
-    .expertise-grid { 
-      display: flex; 
-      gap: 1.5rem; 
-      width: 100%; 
-      overflow-x: auto; 
-      padding-bottom: 1.5rem; 
-      -ms-overflow-style: none; 
-      scrollbar-width: none; 
+    .expertise-grid {
+      display: block; width: 100%; overflow: hidden; position: relative;
+      padding: 0.75rem 0 1.5rem; isolation: isolate;
     }
-    
-    .expertise-grid::-webkit-scrollbar {
-      display: none;
+    .projects-marquee-track {
+      display: flex; align-items: stretch; gap: 1.5rem; width: max-content;
+      animation: projects-marquee 48s linear infinite; will-change: transform;
+    }
+    .projects-marquee-track .skill-card { flex-shrink: 0; }
+    .projects-marquee-track .skill-card:hover {
+      transform: translateY(-6px) scale(1.025);
+      box-shadow: 0 16px 34px rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.06);
+      z-index: 5;
+    }
+    .projects-marquee-track .skill-card:hover img { transform: scale(1.07); }
+    @keyframes projects-marquee { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+    @media (max-width: 599px) {
+      .projects-marquee-track { gap: 1rem; animation-duration: 42s; }
+      .projects-marquee-track .skill-card { flex-basis: 80%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .skills-grid, .projects-marquee-track { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+      .skill-icon-wrapper, .projects-marquee-track .skill-card { transition: none !important; }
     }
     
     .skill-card {
@@ -2457,54 +2481,42 @@ html, body, body * { cursor: auto !important; }
             }
         });
         
-        // --- HORIZONTAL SCROLL ON PROJECTS SECTION ---
-        const expertiseGrid = document.querySelector('.expertise-grid');
-        if (expertiseGrid) {
-            let isAnimating = false;
-            let targetScroll = expertiseGrid.scrollLeft;
-            let currentScroll = expertiseGrid.scrollLeft;
-
-            function smoothScrollLoop() {
-                let distance = targetScroll - currentScroll;
-                currentScroll += distance * 0.08; 
-                expertiseGrid.scrollLeft = currentScroll;
-
-                if (Math.abs(distance) > 0.5) {
-                    requestAnimationFrame(smoothScrollLoop);
-                } else {
-                    isAnimating = false;
-                }
-            }
-
-            expertiseGrid.addEventListener('wheel', function(evt) {
-                const maxScrollLeft = this.scrollWidth - this.clientWidth;
-                const atLeftEdge = this.scrollLeft <= 1;
-                const atRightEdge = Math.ceil(this.scrollLeft) >= maxScrollLeft - 1;
-                const isScrollingUp = evt.deltaY < 0;
-                const isScrollingDown = evt.deltaY > 0;
-
-                if ((isScrollingUp && !atLeftEdge) || (isScrollingDown && !atRightEdge)) {
-                    evt.preventDefault(); 
-                    
-                    targetScroll += evt.deltaY * 2.5; 
-                    targetScroll = Math.max(0, Math.min(targetScroll, maxScrollLeft));
-
-                    if (!isAnimating) {
-                        isAnimating = true;
-                        currentScroll = this.scrollLeft;
-                        requestAnimationFrame(smoothScrollLoop);
-                    }
-                } else {
-                    targetScroll = this.scrollLeft; 
-                }
-            }, { passive: false });
-
-            expertiseGrid.addEventListener('scroll', () => {
-                if (!isAnimating) {
-                    targetScroll = expertiseGrid.scrollLeft;
-                    currentScroll = expertiseGrid.scrollLeft;
-                }
+        // --- Seamless marquee tracks (animations continue on hover) ---
+        const skillsGrid = document.querySelector('.skills-grid');
+        if (skillsGrid && !skillsGrid.dataset.marqueeReady) {
+            const viewport = document.createElement('div');
+            viewport.className = 'skills-marquee-viewport';
+            skillsGrid.parentNode.insertBefore(viewport, skillsGrid);
+            viewport.appendChild(skillsGrid);
+            const originals = Array.from(skillsGrid.children);
+            originals.forEach(item => {
+                const clone = item.cloneNode(true);
+                clone.setAttribute('aria-hidden', 'true');
+                clone.querySelectorAll('a,button,[tabindex]').forEach(el => el.setAttribute('tabindex', '-1'));
+                skillsGrid.appendChild(clone);
             });
+            skillsGrid.dataset.marqueeReady = 'true';
+        }
+
+        const expertiseGrid = document.querySelector('.expertise-grid');
+        if (expertiseGrid && !expertiseGrid.dataset.marqueeReady) {
+            const track = document.createElement('div');
+            track.className = 'projects-marquee-track';
+            while (expertiseGrid.firstElementChild) track.appendChild(expertiseGrid.firstElementChild);
+            const originals = Array.from(track.children);
+            originals.forEach(card => {
+                const clone = card.cloneNode(true);
+                clone.classList.remove('fade-up', 'visible');
+                clone.setAttribute('aria-hidden', 'true');
+                clone.removeAttribute('onclick');
+                clone.querySelectorAll('button,a,[tabindex]').forEach(el => {
+                    el.setAttribute('tabindex', '-1');
+                    el.setAttribute('aria-hidden', 'true');
+                });
+                track.appendChild(clone);
+            });
+            expertiseGrid.appendChild(track);
+            expertiseGrid.dataset.marqueeReady = 'true';
         }
     }); 
 
