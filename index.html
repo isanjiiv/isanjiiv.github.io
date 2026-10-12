@@ -2599,9 +2599,31 @@ html, body, body * { cursor: auto !important; }
             const originalCards = Array.from(expertiseGrid.children);
             const track = document.createElement('div');
             track.className = 'projects-marquee-track';
-            originalCards.forEach(card => track.appendChild(card));
+
+            // Preserve the exact card width already rendered by the original layout.
+            originalCards.forEach(card => {
+                card.style.flex = '0 0 ' + card.getBoundingClientRect().width + 'px';
+                track.appendChild(card);
+            });
             expertiseGrid.appendChild(track);
             setupMarquee(expertiseGrid, track, 'right', 34);
+
+            // Recalculate card widths responsively without changing their original proportions.
+            let resizeFrame;
+            window.addEventListener('resize', () => {
+                cancelAnimationFrame(resizeFrame);
+                resizeFrame = requestAnimationFrame(() => {
+                    const width = expertiseGrid.clientWidth;
+                    const gap = window.matchMedia('(max-width: 599px)').matches ? 16 : 24;
+                    let basis;
+                    if (window.matchMedia('(max-width: 599px)').matches) basis = width * 0.8;
+                    else if (window.matchMedia('(max-width: 899px)').matches) basis = (width - gap) * 0.5;
+                    else basis = (width - gap) * 0.401 - 16;
+                    track.querySelectorAll('.skill-card').forEach(card => {
+                        card.style.flex = '0 0 ' + basis + 'px';
+                    });
+                });
+            });
         }
     }); 
 
