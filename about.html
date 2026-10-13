@@ -961,7 +961,37 @@ header {
     .mobile-menu .mobile-sub-link { font-size: 1.15rem; opacity: .8; margin-top: -1.35rem; display: inline-flex; align-items: center; gap: .5rem; }
     @media (max-width: 900px) { .nav-dropdown { display: none !important; } }
 
-</style>
+
+    /* FIX: keep Photos dropdown reachable while moving the cursor */
+    .nav-menu .nav-dropdown { position: relative; }
+    .nav-menu .nav-dropdown-menu {
+      top: 100% !important;
+      z-index: 9999 !important;
+      transform: translate(-50%, 8px);
+    }
+    .nav-menu .nav-dropdown-menu::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -10px;
+      height: 12px;
+      background: transparent;
+    }
+    .nav-menu .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-menu .nav-dropdown:focus-within .nav-dropdown-menu {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      transform: translate(-50%, 0);
+    }
+    .nav-menu .nav-dropdown-menu a {
+      position: relative;
+      z-index: 1;
+      pointer-events: auto;
+    }
+
+  </style>
 
 <style id="normal-mouse-cursor-fix">
 /* Restore the standard browser mouse cursor. */
