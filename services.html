@@ -721,6 +721,25 @@
       .contact-layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: start; gap: clamp(2rem, 4vw, 4rem); }
     }
 
+
+    /* Consistent 1200px page width override */
+    .container,
+    main > section.container,
+    .footer-bottom.container {
+      width: 100%;
+      max-width: 1200px !important;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (min-width: 1200px) {
+      header .header-inner,
+      .site-header .header-inner {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
 </style>
 
 <style id="normal-mouse-cursor-fix">
