@@ -252,6 +252,41 @@
       .mobile-menu a { font-size: 1.35rem; }
     }
 
+    /* Mobile: show every unique photo in a normal two-column grid.
+       Desktop keeps the original animated four-column gallery. */
+    @media (max-width: 599px) {
+      .gallery-columns {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: auto;
+        height: auto;
+        min-height: 0;
+        overflow: visible;
+        gap: 12px;
+      }
+      .gallery-column,
+      .gallery-column.manual-scroll,
+      .image-track {
+        display: contents;
+        overflow: visible;
+        animation: none !important;
+        transform: none !important;
+      }
+      .image-frame {
+        width: 100%;
+        min-width: 0;
+        align-self: start;
+        border-radius: var(--photo-radius);
+      }
+      .image-frame img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: .82;
+        object-fit: cover;
+      }
+      .image-frame.mobile-duplicate { display: none !important; }
+    }
+
     /* Keep gallery edges plain: no white fade, shadow, or gradient mask. */
     .gallery-columns {
       -webkit-mask-image: none !important;
@@ -397,6 +432,16 @@
         'https://isanjiiv.github.io/assets/images/sanjeev-kumar-professional-style.jpg'
       ];
       const gallery = document.getElementById('gallery');
+      // The desktop marquee duplicates photos to loop seamlessly. On mobile,
+      // mark repeated data-index values so each photo appears only once.
+      const seenPhotoIndexes = new Set();
+      gallery.querySelectorAll('.image-frame').forEach(frame => {
+        const img = frame.querySelector('img[data-index]');
+        if (!img) return;
+        const photoIndex = img.getAttribute('data-index');
+        if (seenPhotoIndexes.has(photoIndex)) frame.classList.add('mobile-duplicate');
+        else seenPhotoIndexes.add(photoIndex);
+      });
       const lightbox = document.getElementById('lightbox');
       const lightboxImage = document.getElementById('lightboxImage');
       const imageFrame = document.getElementById('lightboxImageFrame');
