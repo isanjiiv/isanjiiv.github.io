@@ -2635,6 +2635,11 @@ html, body, body * { cursor: auto !important; }
 
             // Preserve the exact card width already rendered by the original layout.
             originalCards.forEach(card => {
+                // Marquee cards should not also run the scroll-reveal transform.
+                // That transform can make cards look like they rise/tilt as they enter.
+                card.classList.remove('fade-up', 'visible');
+                card.style.opacity = '1';
+                card.style.transform = 'none';
                 card.style.flex = '0 0 ' + card.getBoundingClientRect().width + 'px';
                 track.appendChild(card);
             });
