@@ -181,6 +181,10 @@
       transition: var(--transition); width: 100%; text-align: center; cursor: pointer;
     }
     .btn-pill:hover { background-color: #333; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+    .btn-pill-compact { padding: 12px 26px; white-space: nowrap; line-height: 1.3; }
+    @media (max-width: 599px) {
+      .about-btn-group .btn-pill-compact { padding: 11px 20px; font-size: .95rem; }
+    }
     .btn-pill.outline { background-color: transparent; color: var(--text-main); border: 1px solid var(--border-color); }
     .btn-pill.outline:hover { border-color: var(--text-main); background-color: var(--bg-alt); }
 
@@ -1365,11 +1369,9 @@ html, body, body * { cursor: auto !important; }
             </ul>
 
             <div class="btn-group about-btn-group">
-              <a href="about.html" class="btn-pill" style="width: auto;">Know more</a>
+              <a href="about.html" class="btn-pill btn-pill-compact" style="width: auto;">Know more</a>
               <a href="about.html" class="btn-circle" title="Know More" ><i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg);"></i></a>
-              <a href="photos.html" class="btn-pill" style="width: auto;">
-  View My Photos
-</a>
+              <a href="photos.html" class="btn-pill btn-pill-compact" style="width: auto;">View My Photos</a>
             </div>
           </div>
 
