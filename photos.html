@@ -340,6 +340,56 @@
       pointer-events: auto;
     }
 
+
+    /* Final header alignment: match the 1200px shared portfolio header */
+    #main-header {
+      padding-left: max(clamp(1.2rem, 5vw, 3rem), calc((100% - 1200px) / 2)) !important;
+      padding-right: max(clamp(1.2rem, 5vw, 3rem), calc((100% - 1200px) / 2)) !important;
+    }
+    .nav-menu { font-family: var(--font-body); }
+    @media (min-width: 900px) {
+      .nav-menu {
+        display: flex;
+        flex: 2;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+      }
+      .nav-menu > a,
+      .nav-menu .nav-dropdown > a { font-size: .9rem; }
+      .hamburger { display: none; }
+    }
+    @media (max-width: 899px) {
+      .nav-menu { display: none !important; }
+      .hamburger { display: block; }
+    }
+    .mobile-menu {
+      gap: 2rem;
+      background: var(--bg);
+    }
+    .mobile-menu a {
+      font-size: 1.8rem;
+      font-family: var(--font-heading);
+      font-weight: 500;
+      color: var(--text);
+      transition: color .3s;
+    }
+    .mobile-menu a:hover,
+    .mobile-menu a.active,
+    .mobile-menu a[aria-current="page"] { color: var(--muted); }
+    @media (max-width: 599px) {
+      #main-header {
+        padding-top: 7px !important;
+        padding-bottom: 7px !important;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+      }
+      .brand img { height: 34px; }
+      .hamburger { font-size: 1.2rem; padding: 3px; }
+      .mobile-menu { gap: 1.35rem; }
+      .mobile-menu a { font-size: 1.35rem; }
+    }
+
   </style>
 </head>
 <body>
