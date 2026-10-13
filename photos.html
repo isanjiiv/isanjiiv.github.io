@@ -252,39 +252,23 @@
       .mobile-menu a { font-size: 1.35rem; }
     }
 
-    /* Mobile: show every unique photo in a normal two-column grid.
-       Desktop keeps the original animated four-column gallery. */
+    /* Mobile gallery: two animated columns; desktop gallery remains untouched. */
+    .mobile-animated-gallery { display: none; }
     @media (max-width: 599px) {
-      .gallery-columns {
+      #gallery { display: none !important; }
+      .mobile-animated-gallery {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-auto-rows: auto;
-        height: auto;
-        min-height: 0;
-        overflow: visible;
         gap: 12px;
+        height: 84vh;
+        min-height: 560px;
+        max-height: 900px;
+        overflow: hidden;
       }
-      .gallery-column,
-      .gallery-column.manual-scroll,
-      .image-track {
-        display: contents;
-        overflow: visible;
-        animation: none !important;
-        transform: none !important;
-      }
-      .image-frame {
-        width: 100%;
-        min-width: 0;
-        align-self: start;
-        border-radius: var(--photo-radius);
-      }
-      .image-frame img {
-        width: 100%;
-        height: auto;
-        aspect-ratio: .82;
-        object-fit: cover;
-      }
-      .image-frame.mobile-duplicate { display: none !important; }
+      .mobile-animated-gallery .gallery-column { min-width: 0; }
+      .mobile-animated-gallery .image-track { display: flex; }
+      .mobile-animated-gallery .image-frame { width: 100%; }
+      .mobile-animated-gallery .image-frame img { width: 100%; height: auto; aspect-ratio: .82; object-fit: cover; }
     }
 
     /* Keep gallery edges plain: no white fade, shadow, or gradient mask. */
@@ -432,16 +416,9 @@
         'https://isanjiiv.github.io/assets/images/sanjeev-kumar-professional-style.jpg'
       ];
       const gallery = document.getElementById('gallery');
-      // The desktop marquee duplicates photos to loop seamlessly. On mobile,
-      // mark repeated data-index values so each photo appears only once.
-      const seenPhotoIndexes = new Set();
-      gallery.querySelectorAll('.image-frame').forEach(frame => {
-        const img = frame.querySelector('img[data-index]');
-        if (!img) return;
-        const photoIndex = img.getAttribute('data-index');
-        if (seenPhotoIndexes.has(photoIndex)) frame.classList.add('mobile-duplicate');
-        else seenPhotoIndexes.add(photoIndex);
-      });
+      const mobileGallery = document.createElement('div');
+      mobileGallery.className = 'mobile-animated-gallery';
+      mobileGallery.setAttribute('aria-label', 'All photos in two animated columns');
       const lightbox = document.getElementById('lightbox');
       const lightboxImage = document.getElementById('lightboxImage');
       const imageFrame = document.getElementById('lightboxImageFrame');
@@ -449,6 +426,37 @@
       const closeButton = document.getElementById('closeViewer');
       const previousButton = document.getElementById('previousImage');
       const nextButton = document.getElementById('nextImage');
+      // Build a mobile-only two-column marquee containing every unique photo.
+      const mobilePhotos = imageUrls.map((url, index) => {
+        const source = gallery.querySelector('img[data-index="' + index + '"]');
+        return { url, index, alt: source ? source.alt : 'Sanjeev Kumar photo' };
+      });
+      [0, 1].forEach(columnIndex => {
+        const column = document.createElement('div');
+        column.className = 'gallery-column ' + (columnIndex === 0 ? 'up' : 'down');
+        const track = document.createElement('div');
+        track.className = 'image-track';
+        track.style.setProperty('--duration', (34 + columnIndex * 4) + 's');
+        const columnPhotos = mobilePhotos.filter((_, i) => i % 2 === columnIndex);
+        [...columnPhotos, ...columnPhotos].forEach(photo => {
+          const frame = document.createElement('div');
+          frame.className = 'image-frame';
+          const img = document.createElement('img');
+          img.src = photo.url;
+          img.alt = photo.alt;
+          img.loading = 'lazy';
+          img.decoding = 'async';
+          img.dataset.index = String(photo.index);
+          img.tabIndex = 0;
+          img.setAttribute('role', 'button');
+          img.setAttribute('aria-label', 'Open ' + photo.alt);
+          frame.appendChild(img);
+          track.appendChild(frame);
+        });
+        column.appendChild(track);
+        mobileGallery.appendChild(column);
+      });
+      gallery.parentNode.insertBefore(mobileGallery, gallery.nextSibling);
       let activeIndex = 0;
       let previousFocus = null;
       let touchStartX = 0;
