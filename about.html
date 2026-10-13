@@ -938,6 +938,29 @@ header {
     height: auto !important;
     object-fit: contain !important;
 }
+
+    /* About navigation dropdown: Photos only */
+    .nav-menu .nav-dropdown { position: relative; display: flex; align-items: center; height: 100%; }
+    .nav-menu .nav-dropdown > a { display: inline-flex; align-items: center; gap: .45rem; }
+    .nav-dropdown-chevron { font-size: .62em; transition: transform .2s ease; }
+    .nav-dropdown:hover .nav-dropdown-chevron,
+    .nav-dropdown:focus-within .nav-dropdown-chevron { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      position: absolute; top: calc(100% + 8px); left: 50%; transform: translate(-50%, 8px);
+      min-width: 150px; padding: .45rem; border: 1px solid var(--border-color);
+      border-radius: 14px; background: var(--bg-alt); box-shadow: 0 14px 32px rgba(0,0,0,.12);
+      opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+      z-index: 1200;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu {
+      opacity: 1; visibility: visible; pointer-events: auto; transform: translate(-50%, 0);
+    }
+    .nav-dropdown-menu a { display: flex; align-items: center; padding: .7rem .85rem; border-radius: 9px; white-space: nowrap; }
+    .nav-dropdown-menu a:hover, .nav-dropdown-menu a:focus-visible { background: var(--bg); }
+    .mobile-menu .mobile-sub-link { font-size: 1.15rem; opacity: .8; margin-top: -1.35rem; display: inline-flex; align-items: center; gap: .5rem; }
+    @media (max-width: 900px) { .nav-dropdown { display: none !important; } }
+
 </style>
 
 <style id="normal-mouse-cursor-fix">
@@ -958,7 +981,7 @@ html, body, body * { cursor: auto !important; }
     <!-- ADDED SERVICES LINK TO DESKTOP MENU -->
     <nav class="nav-menu">
       <a href="index.html">Home</a>
-      <a href="about.html" class="active" style="font-weight: 600;">About</a>
+      <div class="nav-dropdown"><a href="about.html" class="active" style="font-weight: 600;">About <i class="fa-solid fa-chevron-down nav-dropdown-chevron" aria-hidden="true"></i></a><div class="nav-dropdown-menu"><a href="photos.html">Photos</a></div></div>
       <a href="services.html">Services</a>
       <a href="index.html#skills">Skills</a>
       <a href="index.html#projects">Projects</a>
@@ -979,6 +1002,7 @@ html, body, body * { cursor: auto !important; }
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">Home</a>
     <a href="about.html" class="active">About</a>
+    <a href="photos.html" class="mobile-sub-link"><i class="fa-regular fa-images" aria-hidden="true"></i> Photos</a>
     <a href="services.html">Services</a>
     <a href="index.html#skills">Skills</a>
     <a href="index.html#projects">Projects</a>
