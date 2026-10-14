@@ -2523,7 +2523,10 @@ html, body, body * { cursor: auto !important; }
                 const clone = item.cloneNode(true);
                 clone.setAttribute('aria-hidden', 'true');
                 clone.classList.remove('fade-up', 'visible');
+                // Keep project-card clicks working on duplicated marquee cards too.
+                const cardClickHandler = item.classList.contains('skill-card') ? item.getAttribute('onclick') : null;
                 clone.removeAttribute('onclick');
+                if (cardClickHandler) clone.setAttribute('onclick', cardClickHandler);
                 clone.querySelectorAll('a,button,[tabindex]').forEach(el => {
                     el.setAttribute('tabindex', '-1');
                     el.setAttribute('aria-hidden', 'true');
