@@ -513,10 +513,29 @@
     /* Modals & Interactivity */
     .modal, .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 3000; align-items: center; justify-content: center; padding: 1rem; }
     .modal.show, .lightbox.show { display: flex; }
-    .modal-content { background: var(--bg-alt); width: 100%; max-width: 900px; height: 80vh; border-radius: var(--radius-md); padding: 1rem; position: relative; }
-    .modal-content iframe { width: 100%; height: 100%; border: none; border-radius: 8px; }
-    .close-modal { position: absolute; top: -40px; right: 0; color: #fff; font-size: 2rem; cursor: pointer; }
+    .modal-content { background: #101114; width: min(100%, 1000px); height: min(88dvh, 900px); border-radius: 18px; padding: 48px 54px 58px; position: relative; display: flex; align-items: stretch; justify-content: center; overflow: hidden; box-shadow: 0 20px 70px rgba(0,0,0,.35); }
+    .modal-content iframe { width: 100%; height: 100%; min-height: 0; border: none; border-radius: 10px; background: #fff; }
+    .close-modal { position: absolute; top: 8px; right: 15px; color: #fff; font-size: 2rem; line-height: 1; cursor: pointer; z-index: 5; }
+    .cert-nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 42px; height: 42px; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; color: #fff; background: rgba(255,255,255,.14); cursor: pointer; z-index: 5; font-size: 1.1rem; display: grid; place-items: center; backdrop-filter: blur(8px); }
+    .cert-nav-btn:hover { background: rgba(255,255,255,.28); }
+    #certPrev { left: 8px; } #certNext { right: 8px; }
+    .cert-viewer-footer { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 12px; padding: 7px 14px; border-radius: 30px; background: rgba(0,0,0,.72); color: #fff; font-size: .8rem; white-space: nowrap; z-index: 5; }
+    .cert-viewer-footer button { background: transparent; border: 0; color: #fff; cursor: pointer; padding: 3px 7px; font-size: 1rem; }
     .close-lightbox { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 3rem; cursor: pointer; z-index: 3010; }
+    @media (max-width: 599px) {
+      #certModal { padding: 8px; align-items: center; }
+      #certModal .modal-content { width: 100%; height: 88dvh; max-height: 900px; padding: 43px 34px 55px; border-radius: 14px; }
+      #certModal .modal-content iframe { border-radius: 7px; }
+      #certModal .close-modal { top: 7px; right: 12px; font-size: 1.8rem; }
+      #certModal .cert-nav-btn { width: 30px; height: 38px; font-size: 1rem; background: rgba(255,255,255,.18); }
+      #certModal #certPrev { left: 2px; } #certModal #certNext { right: 2px; }
+      #certModal .cert-viewer-footer { bottom: 8px; padding: 5px 10px; gap: 7px; font-size: .72rem; }
+    }
+    @media (max-width: 360px) {
+      #certModal .modal-content { padding-left: 29px; padding-right: 29px; }
+      #certModal .cert-nav-btn { width: 26px; }
+    }
+
     
     .lightbox-content { max-width: 100%; max-height: 80vh; object-fit: contain; }
     .lightbox-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.2); color: #fff; border: none; width: 44px; height: 44px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; }
@@ -2262,10 +2281,13 @@ html, body, body * { cursor: auto !important; }
   if (footerYear) footerYear.textContent = new Date().getFullYear();
 </script>
 
-  <div id="certModal" class="modal" aria-hidden="true" role="dialog">
-    <div class="modal-content">
-      <span class="close-modal" aria-label="Close Certificate Modal">×</span>
+  <div id="certModal" class="modal" aria-hidden="true" role="dialog" aria-label="Certificate viewer">
+    <div class="modal-content" id="certModalContent">
+      <span class="close-modal" aria-label="Close Certificate Modal" role="button" tabindex="0">×</span>
+      <button type="button" class="cert-nav-btn" id="certPrev" aria-label="Previous certificate">‹</button>
       <iframe id="certFrame" src="" allow="autoplay" title="Certificate Viewer"></iframe>
+      <button type="button" class="cert-nav-btn" id="certNext" aria-label="Next certificate">›</button>
+      <div class="cert-viewer-footer"><button type="button" id="certPrevBottom" aria-label="Previous certificate">‹</button><span id="certCounter">Certificate 1 / 1</span><button type="button" id="certNextBottom" aria-label="Next certificate">›</button></div>
     </div>
   </div>
 
@@ -2484,33 +2506,64 @@ html, body, body * { cursor: auto !important; }
         const certModal = document.getElementById('certModal');
         const certFrame = document.getElementById('certFrame');
         const closeModal = document.querySelector('.close-modal');
-        const certLinks = document.querySelectorAll('.cert-card');
+        const certLinks = Array.from(document.querySelectorAll('.cert-card'));
+        const certCounter = document.getElementById('certCounter');
+        let activeCertIndex = 0;
 
-        if(certModal) {
-            certLinks.forEach(link => {
+        function showCertificate(index) {
+            if (!certLinks.length || !certFrame) return;
+            activeCertIndex = (index + certLinks.length) % certLinks.length;
+            const url = certLinks[activeCertIndex].getAttribute('href');
+            certFrame.src = url.replace('/view', '/preview');
+            if (certCounter) certCounter.textContent = 'Certificate ' + (activeCertIndex + 1) + ' / ' + certLinks.length;
+        }
+        function closeCertificateViewer() {
+            if (!certModal) return;
+            certModal.classList.remove('show');
+            certModal.setAttribute('aria-hidden', 'true');
+            if (certFrame) certFrame.src = '';
+            document.body.classList.remove('no-scroll');
+        }
+        if (certModal) {
+            certLinks.forEach((link, index) => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
-                    const url = link.getAttribute('href');
-                    const previewUrl = url.replace('/view', '/preview');
-                    if(certFrame) certFrame.src = previewUrl;
+                    showCertificate(index);
                     certModal.classList.add('show');
                     certModal.setAttribute('aria-hidden', 'false');
+                    document.body.classList.add('no-scroll');
                 });
             });
-            if(closeModal) {
-                closeModal.addEventListener('click', () => {
-                    certModal.classList.remove('show');
-                    certModal.setAttribute('aria-hidden', 'true');
-                    if(certFrame) certFrame.src = '';
-                });
+            if (closeModal) {
+                closeModal.addEventListener('click', closeCertificateViewer);
+                closeModal.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') closeCertificateViewer(); });
             }
+            ['certPrev','certPrevBottom'].forEach(id => document.getElementById(id)?.addEventListener('click', () => showCertificate(activeCertIndex - 1)));
+            ['certNext','certNextBottom'].forEach(id => document.getElementById(id)?.addEventListener('click', () => showCertificate(activeCertIndex + 1)));
+            const viewer = document.getElementById('certModalContent');
+            let touchStartX = null, touchStartY = null;
+            if (viewer) {
+                viewer.addEventListener('touchstart', e => {
+                    if (!e.touches.length) return;
+                    touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY;
+                }, {passive:true});
+                viewer.addEventListener('touchend', e => {
+                    if (touchStartX === null || !e.changedTouches.length) return;
+                    const dx = e.changedTouches[0].clientX - touchStartX;
+                    const dy = e.changedTouches[0].clientY - touchStartY;
+                    if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.2) showCertificate(activeCertIndex + (dx < 0 ? 1 : -1));
+                    touchStartX = null; touchStartY = null;
+                }, {passive:true});
+            }
+            document.addEventListener('keydown', e => {
+                if (!certModal.classList.contains('show')) return;
+                if (e.key === 'ArrowRight') showCertificate(activeCertIndex + 1);
+                if (e.key === 'ArrowLeft') showCertificate(activeCertIndex - 1);
+                if (e.key === 'Escape') closeCertificateViewer();
+            });
         }
-
         window.addEventListener('click', (e) => {
-            if (certModal && e.target === certModal) {
-                certModal.classList.remove('show'); certModal.setAttribute('aria-hidden', 'true');
-                if(certFrame) certFrame.src = '';
-            }
+            if (certModal && e.target === certModal) closeCertificateViewer();
         });
         
         // --- Continuous marquees with manual wheel, trackpad and touch control ---
