@@ -2616,7 +2616,8 @@ html, body, body * { cursor: auto !important; }
             let manuallyControlled = false;
             let touchX = null;
             let touchY = null;
-            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            // Keep requested skills/projects marquees moving even when OS reduced-motion is enabled.
+            const reducedMotion = false;
 
             function measure() {
                 halfWidth = track.scrollWidth / 2;
