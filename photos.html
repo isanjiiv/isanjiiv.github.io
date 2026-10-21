@@ -194,7 +194,7 @@
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .image-track { animation: none !important; }
+      /* Keep the photo gallery moving even when the device requests reduced motion. */
       .gallery-columns { -webkit-mask-image: none; mask-image: none; }
       .lightbox, .image-frame img, #main-header, .mobile-menu { transition: none !important; }
     }
