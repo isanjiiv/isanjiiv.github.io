@@ -672,7 +672,7 @@
     .work-gallery-toggle { display: inline-flex; align-items: center; justify-content: center; gap: .65rem; padding: .9rem 1.45rem; border: 1px solid var(--accent-green); border-radius: 999px; background: var(--accent-green); color: #fff; font: inherit; font-weight: 650; cursor: pointer; box-shadow: 0 8px 22px rgba(0,0,0,.1); transition: transform .25s ease, box-shadow .25s ease; }
     .work-gallery-toggle:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,.16); }
     .work-gallery-toggle:focus-visible { outline: 3px solid var(--text-main); outline-offset: 4px; }
-    .work-gallery-card { appearance: none; display: block; position: relative; text-align: left; aspect-ratio: 1 / 1; min-width: 0; padding: 0; overflow: hidden; border: 0; border-radius: 6px; background: #e7e7e7; color: #fff; cursor: pointer; box-shadow: none; transition: transform .28s ease, box-shadow .28s ease; }
+    .work-gallery-card { appearance: none; display: block; position: relative; text-align: left; aspect-ratio: 1 / 1; min-width: 0; padding: 0; overflow: hidden; border: 0; border-radius: 16px; background: #e7e7e7; color: #fff; cursor: pointer; box-shadow: none; transition: transform .28s ease, box-shadow .28s ease; }
     .work-gallery-card:hover, .work-gallery-card:focus-visible { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,.12); outline: none; }
     .work-gallery-card img { display: block; width: 100%; height: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: var(--bg); transition: transform .45s ease; }
     .work-gallery-card:hover img { transform: scale(1.045); }
@@ -705,7 +705,7 @@
     .contact-header p { color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto; text-align: center; }
     .contact-layout { display: flex; flex-direction: column; gap: 3rem; align-items: center; }
     .contact-image-container { width: 100%; height: auto; position: relative; border-radius: var(--radius-sm); overflow: hidden; }
-    .contact-image-container img { width: 100%; height: auto; object-fit: contain; object-position: center; }
+    .contact-image-container img { display: block; width: 100%; height: auto; object-fit: contain; object-position: center; border-radius: inherit; }
     .contact-form-container { width: 100%; background: var(--bg-alt); border-radius: var(--radius-md); padding: clamp(1.5rem, 5vw, 3rem); border: 1px solid var(--border-color); box-shadow: 0 10px 40px rgba(0,0,0,.04); }
     .new-contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
     .new-contact-form .form-row { display: flex; flex-direction: column; gap: 1.5rem; }
