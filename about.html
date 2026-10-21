@@ -1543,7 +1543,8 @@ document.addEventListener('DOMContentLoaded', function () {
   let manuallyControlled = false;
   let touchX = null;
   let touchY = null;
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Keep the Featured Projects carousel moving regardless of the OS reduced-motion preference.
+  const reducedMotion = false;
 
   function normalize(value) {
     if (!halfWidth) return value;
